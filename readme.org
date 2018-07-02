@@ -1,0 +1,147 @@
+
+Install web applications
+version 0.1 
+2018-07-01
+
+* inventory
+Directories and files in web application subdirectories, specifically for 'gra'
+** web directory files
+graheader.xml
+index.php
+readme.txt
+
+** images
+images/cologne_univ_seal.gif
+images/encoding.gif
+** js
+js/jquery.cookie.js
+js/jquery.min.js
+** mobile1
+mobile1/index.php
+mobile1/main.css
+mobile1/main_mobile.js
+mobile1/monier_serveimg.css
+** sqlite
+sqlite/def.sql
+sqlite/gra.sqlite
+sqlite/input.txt
+sqlite/make_input.php
+sqlite/redo.sh
+** utilities
+transcoder.php
+** utilities/transcoder
+utilities/transcoder/as_roman.xml
+utilities/transcoder/deva_slp1.xml
+utilities/transcoder/hk_slp1.xml
+utilities/transcoder/itrans_slp1.xml
+utilities/transcoder/roman_slp1.xml
+utilities/transcoder/slp1_as.xml
+utilities/transcoder/slp1_deva.xml
+utilities/transcoder/slp1_hk.xml
+utilities/transcoder/slp1_itrans.xml
+utilities/transcoder/slp1_roman.xml
+utilities/transcoder/slp1_romanpms.xml
+utilities/transcoder/slp1_wx.xml
+utilities/transcoder/wx_slp1.xml
+** webtc
+webtc/basicadjust.php
+webtc/dal.php
+webtc/dbgprint.php
+webtc/dictcode.php
+webtc/dictinfo.php
+webtc/disp.php
+webtc/download.html
+webtc/getword.php
+webtc/getwordviewmodel.php
+webtc/help.html
+webtc/indexcaller.php
+webtc/main.css
+webtc/main_webtc.js
+webtc/parm.php
+webtc/pdffiles.txt
+webtc/serveimg.css
+webtc/servepdf.php
+webtc/translithelp.html
+** webtc1
+webtc1/disphier.php
+webtc1/index.php
+webtc1/keyboard.css
+webtc1/keyboard.js
+webtc1/keyboard.png
+webtc1/listhier.php
+webtc1/listhiermodel.php
+webtc1/listhierview.php
+webtc1/listparm.php
+webtc1/main.css
+webtc1/main.js
+webtc1/preferences.htm
+webtc1/transcoderfield_VKI.js
+** webtc1/help
+webtc1/help/accents.html
+webtc1/help/ack.html
+webtc1/help/definition.html
+webtc1/help/help.css
+webtc1/help/help.html
+webtc1/help/help.js
+webtc1/help/helpmain.html
+** webtc1/help/images
+webtc1/help/images/input.html
+webtc1/help/images/keyboard.html
+webtc1/help/images/links.html
+webtc1/help/images/list.html
+webtc1/help/images/phonetic.html
+webtc1/help/images/preferences.html
+webtc1/help/images/system.html
+** webtc1/transcoderjs
+webtc1/transcoderjs/transcoder3.js
+webtc1/transcoderjs/transcoderJson.js
+** webtc2
+webtc2/help.html
+webtc2/index.php
+webtc2/init_query.php
+webtc2/init_query.sh
+webtc2/main.css
+webtc2/main.js
+webtc2/query.php
+webtc2/query_dump.txt
+webtc2/query_gather.php
+webtc2/query_multi.php
+webtc2/querylistview.php
+webtc2/querymodel.php
+webtc2/queryparm.php
+
+** not included
+mobile1/old:
+utilities/old:
+utilities/transcoder/old:
+utilities/transcoder/pms:
+webtc/old:
+webtc1/old:
+webtc1/old1:
+webtc2/old:
+webtc2/old1:
+* INSTALLING:
+** directories which are same for all dictionaries
+ images, 
+ js, 
+ utilities, utilities/transcoder,
+ webtc1/help webtc1/help/images, webtc1/transcoderjs
+** sqlite directory
+   def.sql, make_input.php, and redo.sh are used to generate
+   gra.sqlite from gra.xml.
+   input.txt is an intermediate file.
+   Only gra.sqlite is used by displays.
+   For some other dictionaries, xab.sqlite and xauth.sqlite are used
+   by displays.
+ The data constructors in webtc need to know where the sqlite database
+ files reside, and their name and table names. e.g. gra.sqlite has table
+ named gra.
+ Other tables could be put into gra.sqlite, but this is not done now.
+ The current convention is that if X.sqlite is the filename, then the
+ table name is X  (e.g. whitmwtab.sqlite has table name whitmwtab.)
+* webtc2/query_dump.txt
+* next
+* backup an inventory file
+python backup.py inventories/gra_00.txt ../web  webbackup/gra/00
+
+* THE END

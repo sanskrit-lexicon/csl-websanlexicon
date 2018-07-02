@@ -1,0 +1,85 @@
+<?php
+/* queryparm.php  Jul 10, 2015  Contains Queryparm class, which
+  converts various $_GET parameters into member attributes. 
+  Parameters are for listhier view. Essentially extends the
+  Parm class of webtc/parm.php.
+  $_GET   Parm attribute   Related attribute
+  filter  filter0          filter
+  transLit filterin0       filterin
+  key     keyin            keyin1, key
+  dict    dict             dictinfo   ***
+  accent  accent
+ *** for individual dictionaries, this parameter is provided to
+ the constructor
+ Aug 4, 2015 - synonym for $_GET:
+  input == transLit
+  output == filter
+ Jun 2, 2017. changed $_GET to $_REQUEST
+*/
+require_once('../webtc/dictinfo.php');
+require_once('../webtc/Parm.php');
+#require_once('dbgprint.php');
+class Queryparm extends Parm {
+ # from Parm
+  #public $filter0,$filterin0,$keyin,$dict,$accent;
+  #public $filter,$filerin;
+  #public $dictinfo,$english;
+  #public $keyin1,$key;
+ # new for Queryparm
+ public $filename,$lastLnum,$max;
+ public $opt_sregexp,$opt_sword,$opt_stransLit;
+ public $word, $opt_regexp, $sopt_case, $outopt;
+ public function __construct($dict) {
+  // Part 1 of construction identical to Parm class
+  #echo "<p>Queryparm: dict=$dict</p>";
+  parent::__construct($dict);  // Parm's constructor
+  #Use parms filter and filterin from Parm 
+  #$this->filter = $_REQUEST['filter'];
+  #$this->opt_stransLit = $_REQUEST['transLit'];
+  $this->opt_stransLit = $this->filterin; # rename filterin to opt_stransLit
+ 
+  $this->filename = $_REQUEST['dictionary'];
+  $this->lastLnum = $_REQUEST['lastLnum']; // file position, for seek&tell
+  $this->max = $_REQUEST['max'];
+  
+  // parms for sanskrit word
+  $this->opt_sregexp = $_REQUEST['sregexp'];
+  $this->opt_sword = $_REQUEST['sword'];
+  #echo "<p>queryparm: sword={$this->opt_sword}</p>";
+  
+  // parms for non-Sanskrit word
+  $this->word = $_REQUEST['word'];
+  #echo "<p>queryparm: word={$this->word}</p>";
+  /*
+  if (!($this->word)) {
+    //  $this->word="horse";
+    $this->word = $argv[1];
+  }
+  */
+  $this->word = strtolower($this->word);
+  $this->opt_regexp = $_REQUEST['regexp'];
+  $this->sopt_case = $_REQUEST['scase'];
+  $this->outopt = $_REQUEST['outopt'];
+  
+  if (!($this->filename)) {$this->filename = "query_dump.txt";}
+  if (!($this->max)) {$this->max = 5;}
+  if (!($this->lastLnum)) {$this->lastLnum = 0;}
+  $this->lastLnum = intval($this->lastLnum);
+  if ($this->lastLnum < 0) {
+      $this->lastLnum=0;
+  }
+  if ($this->lastLnum > 25000000) {
+      $this->lastLnum = 0;
+  }  
+  $this->printparms(); # dbg
+ }  
+ public function printparms() {
+  $dbg=true;
+  dbgprint($dbg,"queryparms:\n");
+  dbgprint($dbg," opt_sword={$this->opt_sword}\n");
+  dbgprint($dbg," word={$this->word}\n");
+ }
+
+}
+
+?>
