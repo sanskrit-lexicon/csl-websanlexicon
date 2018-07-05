@@ -6,7 +6,6 @@
 import sys,re
 import codecs
 import os.path,time
-#from shutil import movefile
 import shutil
 from dictparms import alldictparms
 # use mako templates
@@ -29,6 +28,7 @@ def movedatafiles(statusFlag):
   'sqlite/%sab.sqlite'%dictcode,
   'sqlite/%sauth.sqlite'%dictcode,
   'webtc2/query_dump.txt',
+  'webtc/pdffiles.txt',
  ]
  movepairs = []
  for filename in movefilenames:
