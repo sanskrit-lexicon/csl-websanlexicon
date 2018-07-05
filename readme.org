@@ -162,6 +162,12 @@ cp -Tr grav00 ../../gra/webv00
 #python generate.py gra temp_inventory.txt  temp_templates tempdir
 
 * TODO v00 install ??
- prevdir = ../../gra/web
- mv ../../gra/web  
+ python install.py <dictcode> <dirin> <diroutparent>
+ python install.py gra ../../gra/webv00 ../../gra
+
+# datafiles to move
+sqlite/gradb.sqlite 
+sqlite/graab.sqlite
+sqlite/gramwauth.sqlite
+
 * THE END
