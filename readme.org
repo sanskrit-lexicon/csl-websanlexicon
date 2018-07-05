@@ -142,6 +142,26 @@ webtc2/old1:
 * webtc2/query_dump.txt
 * next
 * backup an inventory file
-python backup.py inventories/gra_00.txt ../web  webbackup/gra/00
+python backup.py inventories/gra_00.txt ../gra/web  webbackup/gra/00
 
+* v00 -- initial 'general' version of web
+  starts as a copy of webbackup/gra/00
+* v00 generate
+cd v00
+python generate.py gra inventory.txt  makotemplates grav00
+
+# See https://stackoverflow.com/questions/23698183/how-to-force-cp-to-overwrite-directory-instead-of-creating-another-one-inside
+# for explanation of T option in the copy.
+# a) If the target directory does not exist, then it is created
+# b) If the target directory DOES exist, then all source files are
+#    copied into it.
+#    In this case, cp -r (without the T) creates a copy of the source
+#    within the target, which is not desired
+cp -Tr grav00 ../../gra/webv00
+
+#python generate.py gra temp_inventory.txt  temp_templates tempdir
+
+* TODO v00 install ??
+ prevdir = ../../gra/web
+ mv ../../gra/web  
 * THE END
