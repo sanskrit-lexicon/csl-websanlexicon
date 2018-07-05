@@ -21,9 +21,13 @@ def copyfiles(filenames,olddir,newdir):
 
 
 def movedatafiles(statusFlag):
+ # these are moved from a copy of the previous version.
  movefilenames = [
   'pdfpages',  # scanned images
   'fonts',     # siddhanta, perhaps other fonts.
+  'graheader.xml',
+  'index.php',
+  'readme.txt',
   'sqlite/%s.sqlite'%dictcode,
   'sqlite/%sab.sqlite'%dictcode,
   'sqlite/%sauth.sqlite'%dictcode,

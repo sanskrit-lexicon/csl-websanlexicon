@@ -11,6 +11,14 @@ from dictparms import alldictparms
 # use mako templates
 from mako.template import Template
 
+def current_mmddyyyy():
+ gmtime = time.gmtime()  # current UTC time a 'time.struct_time' object
+ year = gmtime.tm_year
+ month = gmtime.tm_mon
+ day = gmtime.tm_mday
+ sfx = "%02d/%02d/%04d" %(month,day,year)
+ return sfx
+
 def makedirs(webdirname):
  if not os.path.exists(webdirname):
   os.makedirs(webdirname)
@@ -50,6 +58,8 @@ if __name__=="__main__":
  # make newweb directory, and needed subdirectories
  makedirs(newweb)
  dictparms = alldictparms[dictcode]
+ # add dictmmddyyyy string 
+ dictparms['dictmmddyyyy'] = current_mmddyyyy()
  inventory = init_inventory(filein)
  # copy
  for category,filename in inventory:

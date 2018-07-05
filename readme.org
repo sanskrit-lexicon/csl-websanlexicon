@@ -142,35 +142,42 @@ webtc2/old1:
 * webtc2/query_dump.txt
 * next
 * backup an inventory file
+# in webinstall:
 python backup.py inventories/gra_00.txt ../gra/web  webbackup/gra/00
+python backup.py inventories/bur_00.txt ../bur/web  webbackup/bur/00
 
 * v00 -- initial 'general' version of web
   starts as a copy of webbackup/gra/00
-* v00 generate
-cd v00
-python generate.py gra inventory.txt  makotemplates grav00
-
-# See https://stackoverflow.com/questions/23698183/how-to-force-cp-to-overwrite-directory-instead-of-creating-another-one-inside
-# for explanation of T option in the copy.
-# a) If the target directory does not exist, then it is created
-# b) If the target directory DOES exist, then all source files are
-#    copied into it.
-#    In this case, cp -r (without the T) creates a copy of the source
-#    within the target, which is not desired
-cp -Tr grav00 ../../gra/webv00
-
-#python generate.py gra temp_inventory.txt  temp_templates tempdir
-
-* v00 install
- python install.py <dictcode> <dirin> <diroutparent>
- python install.py gra ../../gra/webv00 ../../gra
-
-# datafiles to move
+* install datafiles to move
 pdfpages # directory
 fonts    # directory
 sqlite/gra.sqlite 
 sqlite/graab.sqlite
 sqlite/gramwauth.sqlite
 webtc2/query_dump.txt
+webtc/pdffiles.txt
+
+* v00 generate and install: gra
+cd v00
+python generate.py gra inventory.txt  makotemplates grav00
+cp -Tr grav00 ../../gra/webv00
+
+#python generate.py gra temp_inventory.txt  temp_templates tempdir
+
+# python install.py <dictcode> <dirin> <diroutparent>
+ python install.py gra ../../gra/webv00 ../../gra
+
+# regenerate in place  (modifies 'web' directly)
+python generate.py gra inventory.txt  makotemplates ../../gra/web
+
+* v00 generate and install: bur
+cd v00
+python generate.py bur inventory.txt  makotemplates ../../bur/webv00
+# cp -Tr grav00 ../../gra/webv00
+
+#python generate.py gra temp_inventory.txt  temp_templates tempdir
+
+# python install.py <dictcode> <dirin> <diroutparent>
+ python install.py gra ../../gra/webv00 ../../gra
 
 * THE END

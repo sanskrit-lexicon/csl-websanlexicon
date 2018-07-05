@@ -2,7 +2,7 @@
 <html>
  <head>
  <meta charset="UTF-8" />
- <title>GRA Download</title>
+ <title>${dictup} Download</title>
    <link rel="stylesheet" href="main.css" type="text/css">
 <style>
 body {
@@ -50,7 +50,7 @@ padding-bottom:10px;padding-top:10px;
    </a>
    </td>
    <td>
-  <span class="title">Grassman Wörterbuch zum Rig Veda</span>
+  <span class="title">${dictname}</span>
    </td>
   </tr>
  </table>
@@ -61,38 +61,38 @@ padding-bottom:10px;padding-top:10px;
 </div>
 <div id="purpose">
 <ol>
- <li><a href='http://www.sanskrit-lexicon.uni-koeln.de/scans/GRAScan/2014/downloads/gratxt.zip'><span class='downloadItem'>gratxt.zip</span></a>
+ <li><a href='http://www.sanskrit-lexicon.uni-koeln.de/scans/${dictup}Scan/${dictyear}/downloads/${dictlo}txt.zip'><span class='downloadItem'>${dictlo}txt.zip</span></a>
      <span class='downloadDef'>
       <ul>
-       <li><b>gra_orig.txt</b> Original digitization.</li>
-       <li><b>gra_orig_utf8.txt</b> Digitization in utf-8 encoding.</li>
-       <li><b>gra.txt</b> The digitization as text file, with corrections. </li>
-       <li><b>gra-meta.txt</b> Documentation of the coding conventions of gra.txt</li>
-       <li><b>graheader.xml</b> Description of licensing and other details of this edition</li>
+       <li><b>${dictlo}_orig.txt</b> Original digitization.</li>
+       <li><b>${dictlo}_orig_utf8.txt</b> Digitization in utf-8 encoding.</li>
+       <li><b>${dictlo}.txt</b> The digitization as text file, with corrections. </li>
+       <li><b>${dictlo}-meta2.txt</b> Documentation of the coding conventions of ${dictlo}.txt</li>
+       <li><b>${dictlo}header.xml</b> Description of licensing and other details of this edition</li>
        <li><b>CDSL.pdf</b> Description of Sanskrit-Lexicon project</li>
       </ul>
      </span>
  </li>
- <li><a href='http://www.sanskrit-lexicon.uni-koeln.de/scans/GRAScan/2014/downloads/gra_bookmark.pdf'><span class='downloadItem'>gra_bookmark.pdf (right-click 'save as' to download)</span></a>
+ <li><a href='http://www.sanskrit-lexicon.uni-koeln.de/scans/${dictup}Scan/${dictyear}/downloads/${dictlo}_bookmark.pdf'><span class='downloadItem'>${dictlo}_bookmark.pdf (right-click 'save as' to download)</span></a>
      <span class='downloadDef'> Scanned images</span>
  </li>
 
- <li><a href='http://www.sanskrit-lexicon.uni-koeln.de/scans/GRAScan/2014/downloads/graxml.zip'><span class='downloadItem'>graxml.zip</span></a> 
+ <li><a href='http://www.sanskrit-lexicon.uni-koeln.de/scans/${dictup}Scan/${dictyear}/downloads/${dictlo}xml.zip'><span class='downloadItem'>${dictlo}xml.zip</span></a> 
      <span class='downloadDef'>
       <ul>
-       <li><b>gra.xml</b> An xml version of gra.txt, by headword </li>
-       <li><b>gra.dtd</b> Document type definition for gra.xml</li>
-       <li><b>programs</b> Software by which gra.xml is created from gra.txt</li>
+       <li><b>${dictlo}.xml</b> An xml version of ${dictlo}.txt, by headword </li>
+       <li><b>${dictlo}.dtd</b> Document type definition for ${dictlo}.xml</li>
+       <li><b>programs</b> Software by which ${dictlo}.xml is created from ${dictlo}.txt</li>
       </ul>
      </span>
  </li>
 
-
- <li><a href='http://www.sanskrit-lexicon.uni-koeln.de/scans/GRAScan/2014/downloads/graweb.zip'><span class='downloadItem'>graweb.zip </span></a>  Materials to construct an offline version of the
+<!--
+ <li><a href='http://www.sanskrit-lexicon.uni-koeln.de/scans/${dictup}Scan/${dictyear}/downloads/${dictlo}web.zip'><span class='downloadItem'>${dictlo}web.zip </span></a>  Materials to construct an offline version of the
   web displays of the dictionary. Includes scanned images.<br/>
 </li>
-
- <li><a href='http://www.sanskrit-lexicon.uni-koeln.de/scans/GRAScan/2014/downloads/graweb1.zip'><span class='downloadItem'>graweb1.zip </span></a>  Materials to construct an offline version of the
+-->
+ <li><a href='http://www.sanskrit-lexicon.uni-koeln.de/scans/${dictup}Scan/${dictyear}/downloads/${dictlo}web1.zip'><span class='downloadItem'>${dictlo}web1.zip </span></a>  Materials to construct an offline version of the
   web displays of the dictionary. No scanned images.<br/>
 </li>
 
@@ -100,8 +100,8 @@ padding-bottom:10px;padding-top:10px;
 </ol>
 
 </div>
-<div id="footer">
- <p>Last modified: 12/20/2017</p>
+<div id="footer"> <!-- 12/20/2017 -->
+ <p>Last modified: ${dictmmddyyyy}</p>
 </div>
 </body>
 </html>

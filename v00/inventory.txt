@@ -5,7 +5,7 @@ js/jquery.min.js:C
 mobile1/index.php:T
 mobile1/main.css:C
 mobile1/main_mobile.js:C
-mobile1/monier_serveimg.css:C
+;mobile1/monier_serveimg.css:C
 sqlite/def.sql:C
 ;sqlite/gra.sqlite
 ;sqlite/input.txt
@@ -39,7 +39,7 @@ webtc/indexcaller.php:T
 webtc/main.css:C
 webtc/main_webtc.js:C
 webtc/parm.php:T
-webtc/pdffiles.txt:C
+;webtc/pdffiles.txt:C
 webtc/serveimg.css:C
 webtc/servepdf.php:T
 webtc/translithelp.html:C
