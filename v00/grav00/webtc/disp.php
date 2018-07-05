@@ -9,36 +9,8 @@ error_reporting( error_reporting() & ~E_NOTICE );
 // Each of the  data elements is a string which is valid XML.
 // The XML is processed using the XML Parser routines (see PHP documentation)
 // This XML string is further assumed to be in UTF-8 encoding.
-// Apr 5, 2017. Modified to be consistent with revisions. Unused code removed.
-// May 4, 2017. Render '<div>'. Follow indentation pattern used with AP
-//              Remove more unused code.
-//              Change display to use 1 column, follow SCH example.
-// May 5, 2017. Correct '<pb>' display.
-//              Render '--' as unicode EM DASH
-// May 22, 2017 <hwtype>, <alt>, <div n="3">
-//               Experimental handling of <br/> [See line_adjust]
-//              Code ^x  as <sup>x</sup>  (superscript).
-// Sep 16, 2017 stc specific code  (adapted from vcp version)
-// Dec 14, 2017  pwg specific. (adapted from stc version)
-    1. basicDisplaySetAccent  copied from previous pw disp.php.
-       Not sure if this is required, but the local 'getword' calls this
-       function.  
-    2. <lex>  treat as bold
-    3. <ls> generate tooltip. Change Case of 'abbreviation' head text.
-    4. <is>  IAST-Sanskrit - render with wide spacing
-        Don't attempt to change size of numbers.
-        Requires 'n' attrib of ls in pwg.xml.
-    6. <sic/> Do not render
-    7. <ab>  Tooltip based on pwgab.sqlite table. 
-             Allow local abbrev not in tab
-             A separate database required.
-             Also requires addition to dal_sqlite
-             getABdata
-    dal_pwab -> dal_pwgab
-   05-22-2018.  Tooltip shows mandala,hymn (modern notation) 
-     See functions rgveda_verse_modern, and rgveda_verse_callback (which is 
-     called by line_adjust).
-   06-28-2018.  Convert to a class
+// July 2, 2018 - begin universal version of BasicDisplay.  Objective is
+// for this to work for all Cologne dictionaries.
 */
 require_once("dbgprint.php");
 class BasicDisplay {
@@ -53,7 +25,9 @@ class BasicDisplay {
  public $accent;
  public $noLit;  // Not used here
  public $table;
+ public $dict;
 public function __construct($key,$matches,$filterin,$dict) {
+ $this->dict = $dict;
  $this->pagecol="";
  $this->dbg=false;
  $this->inSanskrit=false;
@@ -107,7 +81,18 @@ public function __construct($key,$matches,$filterin,$dict) {
  #return $this->table;
 }
 
+ public function sthndl_div($attribs) {
+  // 07-05-2018. This function is still dictionary specific
+   $n=$attribs['n'];
+   if ($this->dict == 'gra')
+   if ($n == 'H') {$indent = "1.0em";}
+   else if ($n == 'P') {$indent = "2.0em"; }
+   else if ($n == 'P1') {$indent = "3.0em";}
+   else {$indent = "";}
+   $style="position:relative; left:$indent;";
+   return "<br/><span style='$style'>";
 
+ }
  public function sthndl($xp,$el,$attribs) {
 
   if (preg_match('/^H.+$/',$el)) {
@@ -140,29 +125,7 @@ public function __construct($key,$matches,$filterin,$dict) {
    $this->row .= "<br/>&nbsp;<span class='footnote'>[Footnote: ";
   } else if ($el == "symbol") {
   } else if ($el == "div") {
-   // for vcp, just a line break
-   // line break, and 
-   //  n = 'P': Sub-headword. indent
-   //  n = '2': before '||'.  before '||'.  Extra indent
-   //  n = '3': before mdash.  no indent
-   // indent, whether 'n' is '2' or 'P' (only values allowed) 05-04-2017
-   // also, n='3' 05-21-2017 
-   //  Examples: n=2: akulAgamatantra
-   //  n=P paRqitasvAmin
-   //  n=3 agastyasaMhitA
-   // for pw:
-   //  n = 1 (number div), n = 2 (English letter), n = 3 (Greek letter)
-   //  n = p (prefixed form, in verbs
-   $n=$attribs['n'];
-   //$this->row .= "<br/>";
-   if ($n == 'H') {$indent = "1.0em";}
-   else if ($n == 'P') {$indent = "2.0em"; }
-   else if ($n == 'P1') {$indent = "3.0em";}
-   else {$indent = "";}
-   $style="position:relative; left:$indent;";
-
-   $this->row .= "<br/><span style='$style'>";
-
+   $this->row .= $this->sthndl_div($attribs);
   } else if ($el == "alt") {
    // Alternate headword
    $style = "font-size:smaller";

@@ -23,7 +23,8 @@ def copyfiles(filenames,olddir,newdir):
 
 def movedatafiles(statusFlag):
  movefilenames = [
-  'pdfpages',
+  'pdfpages',  # scanned images
+  'fonts',     # siddhanta, perhaps other fonts.
   'sqlite/%s.sqlite'%dictcode,
   'sqlite/%sab.sqlite'%dictcode,
   'sqlite/%sauth.sqlite'%dictcode,

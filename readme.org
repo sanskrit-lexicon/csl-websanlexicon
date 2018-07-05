@@ -161,13 +161,16 @@ cp -Tr grav00 ../../gra/webv00
 
 #python generate.py gra temp_inventory.txt  temp_templates tempdir
 
-* TODO v00 install ??
+* v00 install
  python install.py <dictcode> <dirin> <diroutparent>
  python install.py gra ../../gra/webv00 ../../gra
 
 # datafiles to move
-sqlite/gradb.sqlite 
+pdfpages # directory
+fonts    # directory
+sqlite/gra.sqlite 
 sqlite/graab.sqlite
 sqlite/gramwauth.sqlite
+webtc2/query_dump.txt
 
 * THE END
