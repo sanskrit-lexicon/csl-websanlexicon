@@ -59,7 +59,7 @@ if ($n != -1) {
  print_table($filter,$prevkey,$ntab,$n+1,$matches,$dict);
 }
 exit;
-function print_table($filter,$key,$ntab,$nmatchesin,$matchesin) {
+function print_table($filter,$key,$ntab,$nmatchesin,$matchesin,$dict) {
  $table0 = "<span class='key' id='record_$ntab' /></span>\n";
  $matches=array();
  for($i=0;$i<$nmatchesin;$i++) {

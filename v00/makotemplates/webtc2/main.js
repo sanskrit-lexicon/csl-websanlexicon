@@ -33,18 +33,28 @@ function getNext() {
   //var dictionary=document.getElementById("dictionary").value;
   var seng = "true";
   outopt = document.getElementById("outopt").value;
+
+  var accent = "";
+  if (document.getElementById("accent")) {
+    accent = document.getElementById("accent").value;
+  }
+  var swordhw = "";
+  if (document.getElementById("swordhw")) {
+    swordhw = document.getElementById("swordhw").value;
+  }
   var url = "query.php" +
    "?word=" +encodeURIComponent(word) + 
    "&lastLnum=" + encodeURIComponent(lastLnum) +
    "&max=" +encodeURIComponent(max) +
    "&filter=" +encodeURIComponent(filter) +
-   // "&dictionary=" +encodeURIComponent(dictionary) +
    "&regexp=" + encodeURIComponent(regexp) +
    "&scase=" + encodeURIComponent(scase) +
    "&sword=" + encodeURIComponent(document.getElementById("sword").value) +
    "&sregexp=" + encodeURIComponent(document.getElementById("sregexp").value) +
+   "&accent=" + encodeURIComponent(accent) +
    "&transLit=" + encodeURIComponent(document.getElementById("transLit").value) +
-   "&outopt=" + encodeURIComponent(outopt);
+   "&outopt=" + encodeURIComponent(outopt) +
+   "&swordhw=" + encodeURIComponent(swordhw);
 
     jQuery.ajax({
 	url:url,
@@ -52,7 +62,6 @@ function getNext() {
         success: function(data,textStatus,jqXHR) {
 	    var mark = data.lastIndexOf("#");
 	    lastLnum = data.substring(0,mark);
-	    //alert('lastLnum='+lastLnum);
 	    var databack = data.substring(mark+1);
 	    if (lastLnum >= 0) {jQuery("#nextbtn").show();}
 	    else {jQuery("#nextbtn").hide();}
@@ -67,54 +76,7 @@ function getNext() {
     jQuery("#disp").html="'<p>working...</p>'";
     jQuery("#data").html="";  
 }
-function unused_updatePage() {
-  if (request.readyState == 4) {
-   requestActive=false;
-   if (request.status == 200) {
-    var response = request.responseText;
-    var mark = response.lastIndexOf("#");
-    lastLnum = response.substring(0,mark);
-//    alert ('lastLnum = ' + lastLnum);
-    if(lastLnum >= 0) {
-     document.getElementById("nextbtn").style.visibility="visible";
-    }else {
-     document.getElementById("nextbtn").style.visibility="hidden";
-     lastLnum = 0;
-    }
-    // use value of outopt set in getNext
-    if ((outopt == 'outopt1')|| (outopt == 'outopt2')
-        || (outopt == 'outopt4')) {
-     var ansEl;
-     ansEl = document.getElementById("disp");
-     var databack = response.substring(mark+1);
-     ansEl.innerHTML = databack;
-     if (outopt == 'outopt4') {
-      process_outopt4(databack);
-     }
-    }else {
-     alert('js ERROR: outopt = ' + outopt);
-    }
-    return;
-  } else {
-    alert("Error! Request status is " + request.status);
-  }
- }
-}
 
-function updatePage2() {
-  if (request.readyState == 4) {
-   requestActive=false;
-   if (request.status == 200) {
-    var response = request.responseText;
-    var ansEl = document.getElementById("data");   
-//alert('done');
-    ansEl.innerHTML = response;
-    return;
-  } else {
-    alert("Error! Request status is " + request.status);
-  }
- }
-}
 function getWord4(word) {
   var id = 'record_'+word;
   document.getElementById("data").scrollTop =
@@ -166,32 +128,21 @@ function gather (data) {
 	}
     });
     jQuery("#data").html("<p>gathering data...");
-/*
-  request.open("POST", url, true);
-  request.onreadystatechange = gatherUpdatePage;
-  request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-  request.send(sendData);
-  requestActive=true;
-*/
+
 }
-function unused_gatherUpdatePage() {
-  if (request.readyState == 4) {
-   requestActive=false;
-   if (request.status == 200) {
-    var response = request.responseText;
-    var ansEl = document.getElementById("data");
-    displayDB(response);
-    return;
-  } else {
-    alert("Error! Request status is " + request.status);
-  }
- }
-}
+
 function displayDB(data) {
   var filter = document.getElementById("filter").value;
   var url = "query_multi.php";
   // Change Mar 19, 2014
-  var sendData = "data=" +  encodeURIComponent(data) +"&filter=" +encodeURIComponent(filter);
+  // Change June 25, 2014 Is accent needed here?
+  var accent = "";
+  if (document.getElementById("accent")) {
+   accent = document.getElementById("accent").value;
+  }
+  var sendData = "data=" +  encodeURIComponent(data) +
+   "&accent=" + encodeURIComponent(accent) +
+   "&filter=" +encodeURIComponent(filter);
     jQuery.ajax({
 	url:url,
 	type:"POST",
@@ -199,20 +150,16 @@ function displayDB(data) {
         success: function(data,textStatus,jqXHR) {
             data = decodeURIComponent(data); // required to decode
 	    jQuery("#data").html(data);
+	    if (filter == 'deva') { // is this needed ?
+                modifyDeva();
+	    }
 	},
 	error:function(jqXHR, textStatus, errorThrown) {
 	    alert("Error: " + textStatus);
 	}
     });
     jQuery("#data").html("<p>preparing data display...");
-/*
-  request.open("POST", url, true);
-  request.onreadystatechange = displayDBupdatePage;
-  request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-  request.send(sendData);
-  requestActive=true;
-  document.getElementById("data").innerHTML = "<p>preparing data display...</p>";
-*/
+
 }
 function displayDBupdatePage() {
   if (request.readyState == 4) {
@@ -229,15 +176,26 @@ function displayDBupdatePage() {
 //   alert("Note! Request readyState is " + request.readyState);
  }
 }
-function winls(url,anchor) {
-/*
- //var url1 = '../monier/mwauth/'+url+'#'+anchor;
- var url1 = '../mwauth/'+url+'#'+anchor;
- win_ls = window.open(url1,
-    "winls", "width=520,height=210,scrollbars=yes");
- win_ls.focus();
-*/
-    alert('winls called');
+function getFontClass() {
+// June 25. Modify to always use siddhanta
+ //var family = document.getElementById("devafont").value;
+ var family = "siddhanta";
+ if (family === "system") {return "sdata_system";}
+ if (family === "praja") {return "sdata_praja";}
+ if (family === "oldstandard") {return "sdata_oldstandard";}   
+ if (family === "sanskrit2003") {return "sdata_sanskrit2003";}   
+ if (family === "siddhanta") {return "sdata_siddhanta";}   
+ return "sdata";
+}
+function modifyDeva() {
+    var fontclass = getFontClass();
+    var useragent = navigator.userAgent;
+    if (!useragent) {useragent='';}
+    if ((useragent.match(/Windows/i)) || (useragent.match(/Macintosh/i))){
+  jQuery(".sdata").removeClass("sdata").addClass(fontclass);
+ }else {
+	//alert('useragent not "Windows"=' + useragent);
+ }
 }
 
 function cookieUpdate(flag) {
@@ -270,8 +228,6 @@ function cookieUpdate(flag) {
  $.cookie(cookieName,cookieValue,cookieOptions);
  // Now, make DOM elements consistent with cookieValue
  cookieValue = $.cookie(cookieName);
- //alert('cookie check1: ' + cookieValue);
- // set transLit and filter from cookieValue
  var values = cookieValue.split(",");
  document.getElementById("transLit").value = values[0];
  document.getElementById("filter").value = values[1];
@@ -292,18 +248,12 @@ $(document).ready(function() {
   });
   // other initializations
   cookieUpdate(false);  // for initializing cookie
-  win_ls=null; // initialize 'literary source' window. This is global
   lastLnum=0; // initialize several globals
   outopt="";
-  outopt3arr=new Array();
-  outopt3max=0;
-  outopt3cur=0;
   jQuery("#disp").html=""; // blank the right display panel
   jQuery("#data").html=""; // blank the left display panel
-  //document.getElementById("nextbtn").style.visibility="hidden";
-  //document.getElementById("workbtn").style.visibility="hidden";
-    jQuery("#nextbtn").hide();
-    jQuery("#workbtn").hide();
+  jQuery("#nextbtn").hide();
+  jQuery("#workbtn").hide();
   // respond to RESTFUL requests
   var word=jQuery("#key").val();
   if (word) {getWord();}

@@ -29,6 +29,8 @@ class Queryparm extends Parm {
  public $filename,$lastLnum,$max;
  public $opt_sregexp,$opt_sword,$opt_stransLit;
  public $word, $opt_regexp, $sopt_case, $outopt;
+ public $opt_swordhw; // both, hwonly, textonly
+ public $accent;
  public function __construct($dict) {
   // Part 1 of construction identical to Parm class
   #echo "<p>Queryparm: dict=$dict</p>";
@@ -60,7 +62,10 @@ class Queryparm extends Parm {
   $this->opt_regexp = $_REQUEST['regexp'];
   $this->sopt_case = $_REQUEST['scase'];
   $this->outopt = $_REQUEST['outopt'];
-  
+  $this->opt_swordhw = $_REQUEST['swordhw'];
+  if (!in_array($this->opt_swordhw,array('both', 'hwonly', 'textonly'))) {
+   $this->opt_swordhw = "hwonly";
+  }
   if (!($this->filename)) {$this->filename = "query_dump.txt";}
   if (!($this->max)) {$this->max = 5;}
   if (!($this->lastLnum)) {$this->lastLnum = 0;}

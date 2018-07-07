@@ -42,7 +42,14 @@ font-size: 14pt;
 <table id="querytable" border="0" cellpadding="3" cellspacing="1">
 <tr>
 <td >Sanskrit word:
-
+%if webtc2devatextoption:
+&nbsp;&nbsp;
+    <select name="swordhw" id="swordhw">
+     <option value="both">Headword or Text</option>
+     <option value="hwonly" selected="selected">Headword Only</option>
+     <option value="textonly">Text Only</option>
+    </select>
+%endif
 </td>
 <td>
 <input type="text" name="sword" id="sword" size="30" />
@@ -100,7 +107,14 @@ font-size: 14pt;
      <option value="slp1">SLP1</option>
      <option value="itrans">ITRANS</option>
     </select>
-    
+%if dictaccent:
+    &nbsp; &nbsp;
+    <select name="accent" id="accent">
+    <option value="yes">Show Accents</option>
+    <option value="no" selected="selected">Ignore Accents</option>
+   </select>
+%endif
+
 </td>
 </tr>
 

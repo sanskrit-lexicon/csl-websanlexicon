@@ -107,7 +107,8 @@ class QueryModel{
    } 
    $this->search_regexp_nonSanskrit = null;
    #$search_opt = $this->queryParms->opt_stransLit;
-   #$tempar = smatchkey($fp,$lastLnum,$search_regexp,$max,$search_opt);
+   $opt_swordhw = $this->queryParms->opt_swordhw;
+   #$tempar = smatchkey($fp,$lastLnum,$search_regexp,$max,$search_opt,opt_swordhw );
    $tempar = $this->smatchkey($search_regexp);
    $this->querymatches = $tempar['ans'];
    $this->lastLnum = $tempar['lastLnum'];
@@ -189,6 +190,7 @@ public function smatchkey($regexp) {
  $lastLnum = $this->queryParms->lastLnum;
  $lastLnum = (int)$lastLnum;
  $max = (int)$this->queryParms->max;
+ $opt_swordhw = $this->queryParms->opt_swordhw;
  dbgprint($dbg," lastLnum=$lastLnum, max = $max\n");
  #$transLit = $this->queryParms->opt_stransLit;
  $ntot = 0;
@@ -205,7 +207,26 @@ public function smatchkey($regexp) {
   $ntry = $ntry + 1;
   $linex="";
   list($a,$b) = preg_split("|\t|",$line);
-  $liney=" " . $a . " \t"; // 
+  #$liney=" " . $a . " \t"; // 
+  // New logic when searching for sanskrit within text is possible.
+  if (preg_match("|^(.*?)::(.*?)$|",$a,$matches)) {
+   $ahw = $matches[1];
+   $atext = $matches[2];
+  }else { // unexpected. Probably doesn't occur
+   $ahw = $a;
+   $atext = $a;
+  }
+  if ($opt_swordhw == 'both') {
+   $liney=" " . $a . " \t"; // 
+  } else if ($opt_swordhw == 'hwonly'){
+   $liney=" " . $ahw . " \t"; // 
+   //dbgprint($dbg,"liney = $liney\n");  // generates too much output
+  } else if ($opt_swordhw == 'textonly'){
+   $liney=" " . $atext . " \t"; //    
+  } else { // should not occur. Same as both
+   $liney=" " . $a . " \t"; // 
+  }
+  
   if (preg_match("/$regexp/",$liney)) {   
    $linex=$line;
   }

@@ -182,4 +182,12 @@ python generate.py bur inventory.txt  makotemplates ../../bur/webv00
 * regenerate bur in place  (modifies 'web' directly)
 #in v00
 python generate.py bur inventory.txt  makotemplates ../../bur/web
+* TODO 'outopt' in webtc2
+  This is vestigial.  Needs to be removed in several places:
+    main.js, queryParm.php, index.php, elsewhere?
+* TODO modifyDeva in main.js
+  Is this the right way to insure Siddhanta font for devanagari output?
+* TODO accent
+  This is a display option. Implement in BasicAdjust? 
+  Currently a parameter in query_multi.php
 * THE END
