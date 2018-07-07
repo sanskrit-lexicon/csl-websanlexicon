@@ -31,7 +31,7 @@ webtc/dbgprint.php:T
 webtc/dictcode.php:T
 webtc/dictinfo.php:T
 webtc/disp.php:T
-webtc/download.html:C
+webtc/download.html:T
 webtc/getword.php:T
 webtc/getwordviewmodel.php:T
 webtc/help.html:C
@@ -87,8 +87,9 @@ webtc1/transcoderjs/transcoder3.js:C
 webtc1/transcoderjs/transcoderJson.js:C
 webtc2/help.html:C
 webtc2/index.php:T
-webtc2/init_query.php:T
-webtc2/init_query.sh:C
+;webtc2/init_query.php:T
+webtc2/init_query.py:T
+webtc2/init_query.sh:T
 webtc2/main.css:C
 webtc2/main.js:C
 webtc2/query.php:T

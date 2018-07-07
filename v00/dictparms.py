@@ -6,7 +6,7 @@ alldictparms = {
   "dictname":u"Grassman Wörterbuch zum Rig Veda",
   "dictwebversion":"00",
   "dictyear":"2014",  # for Cologne file system location
- }
+ },
  "bur": {
   "dictup":"BUR",
   "dictlo":"bur",

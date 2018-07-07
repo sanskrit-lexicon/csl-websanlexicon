@@ -56,6 +56,7 @@ public function __construct($key,$matches,$filterin,$dict) {
   xml_parser_set_option($p,XML_OPTION_CASE_FOLDING,FALSE);
   dbgprint($this->dbg,"chk 1\n");
   if (!xml_parse($p,$line)) {
+   dbgprint(true,"disp.php: xml parse error\n");
    $row = $line;
    return;
   }
@@ -78,20 +79,37 @@ public function __construct($key,$matches,$filterin,$dict) {
   $i++;
  }
  $this->table .= "</table>\n";
+ #$dbg=true;
+ #dbgprint($dbg,"BasicDisplay: table={$this->table}\n");
  #return $this->table;
 }
 
  public function sthndl_div($attribs) {
   // 07-05-2018. This function is still dictionary specific
    $n=$attribs['n'];
-   if ($this->dict == 'gra')
-   if ($n == 'H') {$indent = "1.0em";}
-   else if ($n == 'P') {$indent = "2.0em"; }
-   else if ($n == 'P1') {$indent = "3.0em";}
-   else {$indent = "";}
-   $style="position:relative; left:$indent;";
-   return "<br/><span style='$style'>";
-
+   if ($this->dict == 'gra') {
+    if ($n == 'H') {$indent = "1.0em";}
+    else if ($n == 'P') {$indent = "2.0em"; }
+    else if ($n == 'P1') {$indent = "3.0em";}
+    else {$indent = "";}
+    $style="position:relative; left:$indent;";
+    return "<br/><span style='$style'>";
+   }else if ($this->dict == 'bur') {
+    if (($n == '2')) {
+     $style="position:relative; left:1.5em;";
+     $ans = "<br/><span style='$style'>";
+    } else if (($n == 'P')) {
+     $style="";
+     $ans = "<br/><span style='$style'>";
+    } else {
+     // e.g. n="3"
+     $style="";
+     $ans = "<br/><span style='$style'>";
+    }
+    return $ans;
+   }else { // default
+    return "<br/>";
+   }
  }
  public function sthndl($xp,$el,$attribs) {
 

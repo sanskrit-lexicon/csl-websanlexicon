@@ -71,7 +71,7 @@ class Queryparm extends Parm {
   if ($this->lastLnum > 25000000) {
       $this->lastLnum = 0;
   }  
-  $this->printparms(); # dbg
+  #$this->printparms(); # dbg
  }  
  public function printparms() {
   $dbg=true;

@@ -157,6 +157,9 @@ sqlite/gramwauth.sqlite
 webtc2/query_dump.txt
 webtc/pdffiles.txt
 
+* regenerate gra in place  (modifies 'web' directly)
+#in v00
+python generate.py gra inventory.txt  makotemplates ../../gra/web
 * v00 generate and install: gra
 cd v00
 python generate.py gra inventory.txt  makotemplates grav00
@@ -167,17 +170,16 @@ cp -Tr grav00 ../../gra/webv00
 # python install.py <dictcode> <dirin> <diroutparent>
  python install.py gra ../../gra/webv00 ../../gra
 
-# regenerate in place  (modifies 'web' directly)
-python generate.py gra inventory.txt  makotemplates ../../gra/web
 
 * v00 generate and install: bur
 cd v00
 python generate.py bur inventory.txt  makotemplates ../../bur/webv00
 # cp -Tr grav00 ../../gra/webv00
 
-#python generate.py gra temp_inventory.txt  temp_templates tempdir
-
 # python install.py <dictcode> <dirin> <diroutparent>
- python install.py gra ../../gra/webv00 ../../gra
+ python install.py bur ../../bur/webv00 ../../bur
 
+* regenerate bur in place  (modifies 'web' directly)
+#in v00
+python generate.py bur inventory.txt  makotemplates ../../bur/web
 * THE END

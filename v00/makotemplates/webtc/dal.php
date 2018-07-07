@@ -12,15 +12,25 @@ class Dal {
  public $sqlitefile;
  public $file_db;
  public $dbg=false;
+ public $dbname; 
  // dbname is assumed to be for auxiliary sqlite data, such as
  // abbreviations  xab.sqlite, xath.sqlite -- new Dal('mw','mwab')
  // Not yet implemented.  Would need to modify dictinfo for filenames also.
  // 
  public function __construct($dict,$dbname=null) {
   $this->dict=strtolower($dict);
+  $this->dbname = $dbname;
   #echo "<p>Dal: dict={$this->dict}</p>\n";
   $this->dictinfo = new DictInfo($dict);
-  $this->sqlitefile = $this->dictinfo->sqlitefile;
+  if ($dbname == null) {
+   $this->sqlitefile = $this->dictinfo->sqlitefile;
+  }else if ($dbname == "ab") {
+   $this->sqlitefile = $this->dictinfo->abfile;
+  }else { // unknown $dbname
+   $this->file_db = null;
+   $this->status=false;
+   return;
+  }
   // connection to sqlitefile
   try {
    $this->file_db = new PDO('sqlite:' .$this->sqlitefile);
@@ -29,8 +39,8 @@ class Dal {
    $this->status=true;
   } catch (PDOException $e) {
    $this->file_db = null;
-   echo "PDO exception=".$e."<br/>\n";
-   echo "<p>Dal ERROR. Cannot open sqlitefile for dictionary $dict </p>\n";
+   #echo "PDO exception=".$e."<br/>\n";
+   #echo "<p>Dal ERROR. Cannot open sqlitefile for dictionary $dict </p>\n";
    $this->status=false;
   }
  }
@@ -38,8 +48,8 @@ class Dal {
   if ($this->file_db) {
    $this->file_db = null;  //ref: http://php.net/manual/en/pdo.connections.php
   }
-  if ($this->file_db_xml) {
-   $this->file_db_xml = null;  //ref: http://php.net/manual/en/pdo.connections.php
+  if ($this->file_db_xml) { // not sure of usage here
+   $this->file_db_xml = null;  
   }
  }
  public function get($sql) {
@@ -89,13 +99,18 @@ class Dal {
   $more = True;
   $origkey = $key;
   while ($more) {
+   /*
    if (strtolower($dict) == 'mw') {
     $matches = $this->get1_mwalt($key); // Jul 19, 2015
    }else if (strtolower($dict) == 'gra') {
-    $matches = $this->get1_mwalt($key); // Jul 30, 2018 -- for testing.
+    $matches = $this->get1_mwalt($key); // Jul 03, 2018 -- for testing.
    }else {
     $matches= $this->get1($key); 
    }
+   */
+   $matches = $this->get1_mwalt($key); // Jul 5, 2018. Use for all dictionaries
+   $dbg=false;
+   dbgprint($dbg,"dal.php: # matches for $key = " . count($matches) . "\n");
    $nmatches = count($matches);
    if($nmatches > 0) {$more=False;break;}
    // try next shorter key
@@ -347,6 +362,18 @@ public function dal_mw1_hcode($data){
   return ""; // should not happen
  }
 } 
+public function getgeneral($key,$table) {
+  if (!$this->file_db) {
+   //if (True) {echo "file_db is null\n"; echo $this->sqlitefile."\n";}
+   return array();
+  }
+$sql = "select * from $table where id='$key'";
+$result = $this->file_db->query($sql);
+$ansarr = array();
+foreach($result as $m) {
+ $ansarr[] = $m;
 }
-
+return $ansarr;
+}
+}
 ?>

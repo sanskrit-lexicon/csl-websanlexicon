@@ -15,11 +15,12 @@ require_once('dbgprint.php');
 class BasicAdjust {
  public $getParms;
  public $adjxmlrecs;
+ public $dal_ab, $dal_auth; // 
  public function __construct($getParms,$xmlrecs) {
   $dict = $getParms->dict;
   $key = $getParms->key;
   require_once("dal.php");  
-  #$dal = new Dal($dict);
+  $this->dal_ab = new Dal($dict,"ab");
   $this->getParms = $getParms;
   $adjxmlrecs = array();
   #$i = 0;
@@ -66,8 +67,12 @@ class BasicAdjust {
  $line = preg_replace_callback('|<ab(.*?)>(.*?)</ab>|',"BasicAdjust::abbrv_callback",$line);
  
  // Experiment 05-21-2018 for dict == gra
- if ($this->dict == 'gra') {
+ $dbg=false;
+ dbgprint($dbg,"BasicAdjust dict={$this->getParms->dict}\n");
+ if ($this->getParms->dict == 'gra') {
+  dbgprint($dbg,"BasicAdjust before rgveda: $line\n");
   $line = preg_replace_callback('| ([0-9]+)[ ,]+([0-9]+)|',"BasicAdjust::rgveda_verse_callback",$line);
+  dbgprint($dbg,"BasicAdjust after rgveda: $line\n");
  }
 
  //$line = preg_replace('|- <br/>|','',$line);
@@ -135,13 +140,16 @@ class BasicAdjust {
  $x = $matches[0]; // full string
  $a = $matches[1];
  $data = $matches[2];
- $dbg=true;
+ $dbg=false;
  dbgprint($dbg,"abbrv_callback: a=$a, data=$data\n");
  if(preg_match('/n="(.*?)"/',$a,$matches1)) {
   dbgprint($dbg," abbrv_callback case 1\n");
   $ans = $x;
  }else {
-  $tran = getABdata($data);  
+  $tran = $this->getABdata($data);  
+  # convert special characters to html entities
+  # for instance, this handles cases when $tran has single (or double) quotes
+  $tran = htmlspecialchars($tran,ENT_QUOTES);
   $ans = "<ab n='$tran'>$data</ab>";
   dbgprint($dbg," abbrv_callback case 2\n");
  }
@@ -150,20 +158,27 @@ class BasicAdjust {
 }
 
  public function getABdata($key) {
- global $dispfilter;
- // abbreviation tool tips. for pwg.
+ // abbreviation tool tips from Xab.sqlite
  $ans="";
- $result = dal_pwgab($key);
+ $table = "{$this->getParms->dict}ab";
+ $result = $this->dal_ab->getgeneral($key,$table);
+ $dbg=false;
+ dbgprint($dbg,"getABdata: length of result=" . count($result) . "\n");
  if (count($result) == 1) {
   list($key1,$data) = $result[0];
   if (preg_match('/<disp>(.*?)<\/disp>/',$data,$matches)) {
    $ans = $matches[1];
+   /*  This taken from mw code; but is probably obsolete.
+     It permitted <s>X</s> coding within the abbreviation expansion
+     and conversion to the user's choice of 'filter'
+   global $dispfilter;
    $temp = strtolower($dispfilter);
    $filterflag = (preg_match('/deva/',$temp) || preg_match('/roman/',$temp));
    if ($filterflag) {
 	$ans = preg_replace('/<s>/','<SA>',$ans);
 	$ans = preg_replace('/<\/s>/','</SA>',$ans);
    }
+   */
   }
  }
  return $ans;

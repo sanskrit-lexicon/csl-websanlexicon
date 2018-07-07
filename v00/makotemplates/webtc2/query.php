@@ -7,7 +7,7 @@ if (isset($_GET['callback'])) {
 }
 $meta = '<meta charset="UTF-8">';
 #echo $meta; // why?
-$dbg = true;
+$dbg = false;
 require_once("../webtc/dbgprint.php");
 dbgprint($dbg,"query.php starts\n");
 #include("../utilities/transcoder.php");
@@ -18,6 +18,10 @@ $getParms = new QueryParm($dictcode);
 
 require_once('querymodel.php');
 $model = new QueryModel($getParms);
+if ($model->status == false) {
+ echo $model->errmsg;
+ exit;
+}
 $matches = $model->querymatches;
 $lastLnum = $model->lastLnum;
 

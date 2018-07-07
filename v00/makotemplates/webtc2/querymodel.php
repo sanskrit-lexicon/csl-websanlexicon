@@ -43,10 +43,13 @@ class QueryModel{
  public function match_nonSanskrit() {
    $non_word = "[^a-zA-Z0-9]";
    $wordreg = "[a-zA-Z0-9-]";
+   /*
    $wordchrs = preg_split ('/[^a-zA-Z.*?+]/',$this->word);
    $this->word = join('',$wordchrs);
+   */
    $wordin = $this->word;
    $word = $this->word; // for simplicity in following string expressions
+   $word = mb_strtolower($word);
    if ($this->queryParms->opt_regexp == "exact"){
     $search_regexp = "[\t].*$non_word($word)$non_word";
    }else if ($this->queryParms->opt_regexp == "prefix") {
@@ -66,7 +69,12 @@ class QueryModel{
    $tempar = $this->matchkey($search_regexp,$search_opt);
    $this->querymatches = $tempar['ans'];
    $this->lastLnum = $tempar['lastLnum'];
-   $this->status = true;
+   if (count($this->querymatches) == 0) {
+    $this->status = true;
+    $this->errmsg = "No matches found for '$word'";
+   } else {
+    $this->status = true;
+   }
  }
  public function match_Sanskrit() {
   //in the file, the 'key' field is given in SLP.
@@ -175,7 +183,7 @@ public function smatchkey($regexp) {
  //dbg: $fplog = fopen('query_log.txt','w');
  //dbg: fwrite($fplog,"smatchkey regexp = $regexp\n");
  //dbg: fclose($fplog);
- $dbg=true;
+ $dbg=false;
  dbgprint($dbg,"QueryModel.smatchkey. regexp=$regexp\n");
  $fp = $this->fp;
  $lastLnum = $this->queryParms->lastLnum;

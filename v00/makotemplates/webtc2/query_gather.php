@@ -1,8 +1,6 @@
 <?php
 // web/webtc2/query_gather.php
 // Revised 06-29-2018
-#include('../utilities/transcoder.php');
-#require_once('../webtc/dal_sqlite.php');
 if (isset($_GET['callback'])) {
  header('content-type: application/json; charset=utf-8');
  header("Access-Control-Allow-Origin: *");
@@ -10,6 +8,10 @@ if (isset($_GET['callback'])) {
 $meta = '<meta charset="UTF-8">'; 
 require_once('../webtc/dictcode.php');
 require_once('../webtc/dal.php');
+require_once('../webtc/basicadjust.php');
+require_once('../webtc/dbgprint.php');
+require_once('../webtc/parm.php');
+$getParms = new Parm($dictcode);
 $dal = new Dal($dictcode);
 echo "$meta\n";
 if (isset($_POST['data'])) {
@@ -28,11 +30,16 @@ $matches=array();
 $nmatches=0;
 
 foreach($keyar as $key) {
- #$results = dal_gra1($key);
- $results = $dal->get1($key,$dictcode);
+ #$results = $dal->get1($key,$dictcode);
+ $results = $dal->get1_basic($key,$dictcode);
  foreach($results as $line) {
   list($key1,$lnum1,$data2) = $line;
+  $getParms->key = $key;
+  $adjxml = new BasicAdjust($getParms,array(trim($data2)));
+  $matches2 = $adjxml->adjxmlrecs;
+  $data2 = $matches2[0];
   $matches[$nmatches]=trim($data2);
+  // 
   $nmatches++;
  }
  if (count($results) == 0) {
