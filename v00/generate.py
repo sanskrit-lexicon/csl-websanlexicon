@@ -61,6 +61,14 @@ if __name__=="__main__":
  # add dictmmddyyyy string 
  dictparms['dictmmddyyyy'] = current_mmddyyyy()
  inventory = init_inventory(filein)
+ # 3 extra files for stc
+ if dictcode == 'stc':
+  inventory_fr = [
+   ('T','webtc/download_fr.html'),
+   ('T','webtc/help_fr.html'),
+   ('T','webtc/indexcaller_fr.php'),
+  ]
+  inventory = inventory + inventory_fr
  # copy
  for category,filename in inventory:
   filename1 = "%s/%s" %(oldweb,filename)

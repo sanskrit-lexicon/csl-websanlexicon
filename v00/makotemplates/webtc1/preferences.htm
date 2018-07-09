@@ -342,6 +342,7 @@ function setSelectedValue(selObj, newValue)
 
 function updateCookies()
 {
+
  var kbtype = null;
  var val = getCheckedValue(document.forms['formPreferences'].elements['inputType']);     
  kbtype = val;
@@ -355,7 +356,7 @@ function updateCookies()
   if (val != opener.VKI.kt)
    opener.VKI.buildKeyboardInputs(val);
  }
-    
+
  val = getSelectedValue($('#sUnicodeInput')[0]);
  opener.createCookie("unicodeInput", val, 365);
 

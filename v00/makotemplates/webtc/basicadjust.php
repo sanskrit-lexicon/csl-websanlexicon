@@ -16,7 +16,10 @@ class BasicAdjust {
  public $getParms;
  public $adjxmlrecs;
  public $dal_ab, $dal_auth; // 
+ public $accent;
  public function __construct($getParms,$xmlrecs) {
+  $this->accent = $getParms->accent;
+  #dbgprint(true,"basicadjust: accent={$this->accent}\n");
   $dict = $getParms->dict;
   $key = $getParms->key;
   require_once("dal.php");  
@@ -36,6 +39,7 @@ class BasicAdjust {
  $dbg = false;
  $line = preg_replace('/¦/',' ',$line);
  $line = preg_replace_callback('|<s>(.*?)</s>|','BasicAdjust::s_callback',$line);
+ $line = preg_replace_callback('|<key2>(.*?)</key2>|','BasicAdjust::key2_callback',$line);
  $line = preg_replace("|\[Page.*?\]|",  "<pb>$0</pb>",$line);
 
  $line = preg_replace('/<pc>Page(.*)<\/pc>/',"<pc>\\1</pc>",$line);
@@ -77,6 +81,8 @@ class BasicAdjust {
 
  //$line = preg_replace('|- <br/>|','',$line);
  //$line = preg_replace('|<br/>|',' ',$line);
+ // 2018-07-07  Handle lex tag.  
+ $line = preg_replace_callback('|<lex(.*?)>(.*?)</lex>|',"BasicAdjust::add_lex_markup",$line);
  return $line;
 }
  public function add_ab_markup_helper($x) {
@@ -119,6 +125,7 @@ class BasicAdjust {
  dbgprint($dbg,"add_ab_markup: ans=\n$ans\n");
  return $ans;
 }
+
  public function ls_callback($matches) {
  $n = $matches[1];
  $data = $matches[2];
@@ -183,13 +190,60 @@ class BasicAdjust {
  }
  return $ans;
 }
+ public function add_lex_markup($matches) {
+ /* <lex{attrib}|>{data}</lex> ignore attrib
+   Turn it into an abbreviation.
+   This function current just for cae dictionary.
+   Something more complex required for MW.
+ */
+ $x = $matches[0]; // full string
+ $a = $matches[1]; # attributes
+ $data = $matches[2]; # {data}
+ $dbg=false;
+ dbgprint($dbg,"add_lex_markup: a=$a, data=$data\n");
+ if(preg_match('/n="(.*?)"/',$a,$matches1)) {
+  dbgprint($dbg," add_lex_markup case 1\n");
+  $ans = $x;
+ }else {
+  $tran = $this->getABdata($data);  
+  # what if $tran is not present as an abbreviation
+  if (!$tran) {
+   $tran = "substantive information";
+  }
+  # convert special characters to html entities
+  # for instance, this handles cases when $tran has single (or double) quotes
+  $tran = htmlspecialchars($tran,ENT_QUOTES);
+  $ans = "<ab n='$tran'>$data</ab>";
+  dbgprint($dbg," add_lex_markup case 2\n");
+ }
+ dbgprint($dbg," abbrv_callback returns $ans\n");
+ return $ans;
+}
+
  public function s_callback($matches) {
-/* no special coding for Sanskrit in <s>X</s> form.
-    So, just remove the <s>,</s> elements
+/* remove accent if needed
 */
  $x = $matches[0];
- $x = preg_replace("|(\[Page.*?\])|","</s> $0 <s>",$x);
- //$x = preg_replace("|</?s>|","",$x);
+ if ($this->accent != "yes") {
+  // remove accent characters from slp1 text:  /,^,\
+  // Assume no closing xml tag within text.
+  $y = $matches[1];    // $x = <s>$y</s>
+  $y = preg_replace('|[\/\^\\\]|','',$y);
+  $x = "<s>$y</s>";
+ }
+ return $x;
+}
+public function key2_callback($matches) {
+/* remove accent if needed
+*/
+ $x = $matches[0];
+ if ($this->accent != "yes") {
+  // remove accent characters from slp1 text:  /,^,\
+  // Assume no closing xml tag within text.
+  $y = $matches[1];    // $x = <key2>$y</key2>
+  $y = preg_replace('|[\/\^\\\]|','',$y);
+  $x = "<key2>$y</key2>";
+ }
  return $x;
 }
  public function rgveda_verse_modern($gra) {
@@ -234,6 +288,7 @@ class BasicAdjust {
  $x = " $x";
  return $x;
 }
+/*
  public function monierSetNoLit($value) {
  // This function has no effect now (May 4, 2017)
  $this->noLit = $value;
@@ -245,6 +300,6 @@ class BasicAdjust {
   $this->accent = False;
  }
 }
-
+*/
 }
 ?>

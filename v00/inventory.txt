@@ -4,7 +4,7 @@ js/jquery.cookie.js:C
 js/jquery.min.js:C
 mobile1/index.php:T
 mobile1/main.css:C
-mobile1/main_mobile.js:C
+;mobile1/main_mobile.js:C
 ;mobile1/monier_serveimg.css:C
 sqlite/def.sql:C
 ;sqlite/gra.sqlite
@@ -34,9 +34,10 @@ webtc/disp.php:T
 webtc/download.html:T
 webtc/getword.php:T
 webtc/getwordviewmodel.php:T
-webtc/help.html:C
+webtc/help.html:T
 webtc/indexcaller.php:T
 webtc/main.css:C
+webtc/font.css:C
 webtc/main_webtc.js:C
 webtc/parm.php:T
 ;webtc/pdffiles.txt:C
@@ -85,7 +86,7 @@ webtc1/help/images/udatta_roman.PNG:C
 webtc1/help/images/udatta_scan.PNG:C
 webtc1/transcoderjs/transcoder3.js:C
 webtc1/transcoderjs/transcoderJson.js:C
-webtc2/help.html:C
+webtc2/help.html:T
 webtc2/index.php:T
 ;webtc2/init_query.php:T
 webtc2/init_query.py:T

@@ -22,16 +22,27 @@ class BasicDisplay {
  public $dbg;
  public $inSanskrit;
  public $inkey2;
- public $accent;
- public $noLit;  // Not used here
+ #public $accent;  // Not used here
+ #public $noLit;  // Not used here
  public $table;
  public $dict;
+ public $sdata; // class to use for Sanskrit
 public function __construct($key,$matches,$filterin,$dict) {
  $this->dict = $dict;
  $this->pagecol="";
  $this->dbg=false;
  $this->inSanskrit=false;
- $this->table = "<h1>&nbsp;<SA>$key</SA></h1>\n";
+ if ($filterin == "deva") {
+ /* use $filterin to generate the class to use for Sanskrit (<s>) text 
+    This was previously done in main_webtc.js.
+    This let's us use siddhanta font for Devanagari.
+ */
+  $this->sdata = "sdata_siddhanta"; // consistent with font.css
+ } else {
+  $this->sdata = "sdata"; // default.
+ }
+ $sdata = $this->sdata;
+ $this->table = "<h1 class='$sdata'>&nbsp;<SA>$key</SA></h1>\n";
 
  $this->table .= "<table class='display'>\n";
  $ntot = count($matches);
@@ -107,7 +118,17 @@ public function __construct($key,$matches,$filterin,$dict) {
      $ans = "<br/><span style='$style'>";
     }
     return $ans;
+    }else if ($this->dict == 'stc') {
+     if (($n == 'P')) {
+      $style="position:relative; left:1.5em;";
+     }else {
+      $style="";
+     }
+     $ans = "<br/><span style='$style'>";
+     return $ans;
    }else { // default
+    // currently applies to : 
+    // cae with <div n="p"/>
     return "<br/>";
    }
  }
@@ -203,6 +224,7 @@ public function __construct($key,$matches,$filterin,$dict) {
     }else {
      $this->row .= "<span>";
     }
+  } else if ($el == "vlex"){ // no display
   } else {
     $this->row .= "<br/>&lt;$el&gt;";
   }
@@ -252,13 +274,16 @@ public function __construct($key,$matches,$filterin,$dict) {
 }
 
  public function chrhndl($xp,$data) {
+  $sdata = $this->sdata;
   if ($this->inkey2) {
    //$data = strtolower($data);
+   /* now handled in basicadjust
    if (! $this->accent) {
     $data = preg_replace('|[\/\^\\\]|','',$data);
    }
-   $this->row1 .= "&nbsp;<span class='sdata'><SA>$data</SA></span>";
-   //$this->row1 .= "&nbsp;<span class='sdata'>$data</span>";
+   */
+   $this->row1 .= "&nbsp;<span class='$sdata'><SA>$data</SA></span>";
+   //$this->row1 .= "&nbsp;<span class='$sdata'>$data</span>";
   } else if ($this->$parentEl == "key1"){ // nothing printed
   } else if ($this->$parentEl == "pc") {
    $hrefdata = $this->getHrefPage($data);
@@ -268,12 +293,14 @@ public function __construct($key,$matches,$filterin,$dict) {
    $this->row1 .= "<span class='lnum'> [Cologne record ID=$data]</span>";
    //$this->row1 .= "<span class='lnum'> [L=$data]</span>";
   } else if ($this->$parentEl == 's') {
+   /* assume handled in basicadjust
    if (! $this->accent) {
     $data = preg_replace('|[\/\^\\\]|','',$data);
    }
-   $this->row .= "<span class='sdata'><SA>$data</SA></span>";
+   */
+   $this->row .= "<span class='$sdata'><SA>$data</SA></span>";
   } else if ($this->inSanskrit) {
-   $this->row .= "<span class='sdata'><SA>$data</SA></span>";
+   $this->row .= "<span class='$sdata'><SA>$data</SA></span>";
   } else if ($this->$parentEl == "hom") {
    /* For stc, we omit showing 'hom'. It is already printed as part of
       The first entry.
@@ -289,18 +316,6 @@ public function __construct($key,$matches,$filterin,$dict) {
    // Greek typically uncoded
    //$data = $data . ' (greek)';
    $this->row .= $data;
-  } else if ($this->$parentEl == "lex") {
-   $tran = getABdata($data);
-   $dbg = false;
-   dbgprint($dbg,"getABdata: $data -> $tran\n");
-   if ($tran == "") {
-   $this->row .= $data;
-   }else {
-   $this->row .= "<span  title=\"$tran\">";
-   $this->row .= "$data";
-   $this->row .= "</span>";
-   }
-
   } else if ($this->$parentEl == "ab") {
    $this->row .= "$data";
    /* not used 12-14-2017

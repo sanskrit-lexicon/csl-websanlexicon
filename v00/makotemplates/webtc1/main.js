@@ -142,7 +142,7 @@ function getWordlist_main(url) {
 //    '<p>working...</p>' ;
 }
 function keyboard_parms(keyserver,listurlFlag) {  
-    var word,inputType,unicodeInput,phoneticInput,viewAs,serverOptions;
+    var word,inputType,unicodeInput,phoneticInput,viewAs,serverOptions,accent;
     if (keyserver) {
      // 'keyserver' is a word passed as a parameter when the user
      //  clicks on a 'list' word.  In this case the 'viewAs' parameter
@@ -153,6 +153,7 @@ function keyboard_parms(keyserver,listurlFlag) {
      phoneticInput = readCookie("phoneticInput");
      viewAs = readCookie("viewAs");
      serverOptions = readCookie("serverOptions");
+     //accent = readCookie("accent");
      viewAs = serverOptions;
     }else {
      word = document.getElementById("key1").value;
@@ -161,12 +162,17 @@ function keyboard_parms(keyserver,listurlFlag) {
      phoneticInput = readCookie("phoneticInput");
      viewAs = readCookie("viewAs");
      serverOptions = readCookie("serverOptions");
+     //accent = readCookie("accent");
      // serverOptions = viewAs;  // Nov. 22, 2010
+    }
+    accent = "no";
+    if (document.getElementById("accent")) {
+      accent = document.getElementById("accent").value;
     }
     var url;
     if (listurlFlag) {
      var listOptions = readCookie("listOptions");
-     listOptions = 'hierarchical'; // alwaus
+     listOptions = 'hierarchical'; // always
      if (listOptions == 'hierarchical') { // display list of nearby headwords
   	url = "listhier.php";
      }/*else {
@@ -184,6 +190,7 @@ function keyboard_parms(keyserver,listurlFlag) {
    "&unicodeInput=" +escape(unicodeInput) +
    "&phoneticInput=" +escape(phoneticInput) +
    "&serverOptions=" +escape(serverOptions) +
+   "&accent=" + escape(accent) +
    "&viewAs=" + escape(viewAs);
     return ans;
 }

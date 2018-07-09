@@ -145,6 +145,8 @@ webtc2/old1:
 # in webinstall:
 python backup.py inventories/gra_00.txt ../gra/web  webbackup/gra/00
 python backup.py inventories/bur_00.txt ../bur/web  webbackup/bur/00
+python backup.py inventories/cae_00.txt ../cae/web  webbackup/cae/00
+python backup.py inventories/stc_00.txt ../stc/web  webbackup/stc/00
 
 * v00 -- initial 'general' version of web
   starts as a copy of webbackup/gra/00
@@ -187,7 +189,32 @@ python generate.py bur inventory.txt  makotemplates ../../bur/web
     main.js, queryParm.php, index.php, elsewhere?
 * TODO modifyDeva in main.js
   Is this the right way to insure Siddhanta font for devanagari output?
-* TODO accent
+* DONE accent
   This is a display option. Implement in BasicAdjust? 
   Currently a parameter in query_multi.php
+* v00 generate and install: cae
+cd v00
+python generate.py cae inventory.txt  makotemplates ../../cae/webv00
+
+#python generate.py cae temp_inventory.txt  temp_templates tempdir
+
+# python install.py <dictcode> <dirin> <diroutparent>
+ python install.py cae ../../cae/webv00 ../../cae
+* regenerate cae in place  (modifies 'web' directly)
+#in v00
+python generate.py cae inventory.txt  makotemplates ../../cae/web
+* DONE Use siddhanta font
+* v00 generate  stc 07-08-2018
+This is peculiar, because there are Frenchified versions of some displays:
+webtc/download_fr.html , help_fr.html , indexcaller_fr.php
+These are processed by generate.py as additional inventory files.
+
+cd v00
+python generate.py stc inventory.txt  makotemplates ../../stc/webv00
+
+* install stc 07-08-2018
+ python install.py stc ../../stc/webv00 ../../stc
+* regenerate stc/web in place  
+#in v00
+python generate.py stc inventory.txt  makotemplates ../../stc/web
 * THE END

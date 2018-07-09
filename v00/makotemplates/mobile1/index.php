@@ -12,12 +12,9 @@ error_reporting( error_reporting() & ~E_NOTICE );
   <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
   <script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
    <link rel="stylesheet" href="main.css" type="text/css">
-   <!-- used only by PW mobile1
    <link rel="stylesheet" href="../webtc/font.css" type="text/css">
-   -->
   <script type="text/javascript" src="../js/jquery.cookie.js"></script>
 
-  <!-- <script type="text/javascript" src="main_mobile.js"> </script> -->
   <script type="text/javascript" src="../webtc/main_webtc.js"></script>
 
 </head> 

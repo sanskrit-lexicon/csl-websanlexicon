@@ -11,7 +11,11 @@ function getWord() {
   
   var filter = document.getElementById("filter").value;
   var transLit = document.getElementById("transLit").value;
- 
+  var accent = "no";
+  if (document.getElementById("accent")) {
+      accent = document.getElementById("accent").value;
+  }
+  /* removed 07-07-2018
   var noLit;
   if (! document.getElementById("noLit")) {
    noLit='off';
@@ -20,36 +24,24 @@ function getWord() {
   } else {
    noLit = 'off';
   }
-  
+  */
   var url =  "../webtc/getword.php" +  
    "?key=" +escape(word) + 
    "&filter=" +escape(filter) +
-   "&noLit=" + escape(noLit) +
+   //"&noLit=" + escape(noLit) +
+   "&accent=" + escape(accent) +
    "&transLit=" + escape(transLit);
 
     jQuery.ajax({
 	url:url,
 	type:"GET",
         success: function(data,textStatus,jqXHR) {
-            var useragent = navigator.userAgent;
-	    if (!useragent) {useragent='';}
-            //alert('useragent=' + useragent);
-	    //alert(filter + ',' + transLit);
 	    jQuery("#disp").html(data);
-	    if (filter == 'deva') {
-                if (useragent.match(/Windows/)) {
-  		 jQuery(".sdata").removeClass("sdata").addClass("sdatadeva");
-		 // 
-	        }else {
-		  //alert('useragent not "Windows"=' + useragent);
-		}
-	    }
 	},
 	error:function(jqXHR, textStatus, errorThrown) {
 	    alert("Error: " + textStatus);
 	}
     });
-
 }
 
 function cookieUpdate(flag) {

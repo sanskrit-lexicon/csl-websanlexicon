@@ -7,6 +7,7 @@ error_reporting( error_reporting() & ~E_NOTICE );
  <meta charset="UTF-8" />
  <title>${dictup} Basic</title>
    <link rel="stylesheet" href="main.css" type="text/css">
+   <link rel="stylesheet" href="font.css" type="text/css">
   <script type="text/javascript" src="../js/jquery.min.js"></script>
   <script type="text/javascript" src="../js/jquery.cookie.js"></script>
 
@@ -73,20 +74,26 @@ output_option("deva","Devanagari Unicode",$init);
  output_option("roman","Roman Unicode",$init);
 ?>
     </select>
-
+%if dictaccent:
+&nbsp; &nbsp;
+<select name="accent" id="accent">
+ <option value="yes">Show Accents</option>
+ <option value="no" selected="selected">Ignore Accents</option>
+</select>
+%endif
    </td>
    <td>
-   <table><tr>
-   <td>
-   <a href="/php/correction_form.php?dict=${dictup}" target="Corrections">Corrections</a>
+    <table><tr>
+   
+    <td><a href="/php/correction_form.php?dict=${dictup}" target="Corrections">Corrections</a></td>
+  
+    <td><a href="help.html" target="_top">Help</a></td>
+   
 
-
+    </tr></table>
   </td>
-   <td><a href="help.html" target="_top">Help</td>
-   </td>
-   </tr></table>
   </tr>
- </tbody>
+
 </table>
  <div id="disp" class="disp">
  </div>

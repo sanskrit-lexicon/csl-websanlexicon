@@ -63,27 +63,6 @@ def make(filein,fileout):
 
 def query_line(x):
  # see construction in make_xml.php for some details
- """
- # (a0) revert German characters from &#xHHHH; to (unaccented) characters
- german_hex=array(
-  array("&#x00C4;","A"), # LATIN CAPITAL LETTER A WITH DIAERESIS
-  array("&#x00C7;","C"), # LATIN CAPITAL LETTER C WITH CEDILLA
-  array("&#x00D6;","O"), # LATIN CAPITAL LETTER O WITH DIAERESIS
-  array("&#x00DC;","U"), # LATIN CAPITAL LETTER U WITH DIAERESIS
-  array("&#x00E0;","a"), # LATIN SMALL LETTER A WITH GRAVE (not german)
-  array("&#x00E4;","a"), # LATIN SMALL LETTER A WITH DIAERESIS
-  array("&#x00E9;","e"), # LATIN SMALL LETTER E WITH ACUTE (not german)
-  array("&#x00EB;","e"), # LATIN SMALL LETTER E WITH DIAERESIS
-  array("&#x00F6;","o"), # LATIN SMALL LETTER O WITH DIAERESIS
-  array("&#x00FC;","u") # LATIN SMALL LETTER U WITH DIAERESIS
- );
- foreach(german_hex as a) {
-  list(hex,c) = a
-  x = preg_replace("|hex|",c,x)
- }
- # (a1) remove remaining extended ascii
-  x = preg_replace("|&#x....;|","",x) # 
- """
 
  # (b) English can appear in italics
  #x = preg_replace('|\{%.*?%\}|','',x)
@@ -126,7 +105,7 @@ def query_sanskrit_helper1(s):
  # remove extended ascii, which is coded as html entity: &...;
  #s = re.sub('|&.*?;|',' ',s)
  # remove slp accent chars, if present
- s = re.sub('[/\\~^]',' ',s)
+ s = re.sub('[/\\~^]','',s)
  words = re.split("[^a-zA-Z|']",s)
  return words
 

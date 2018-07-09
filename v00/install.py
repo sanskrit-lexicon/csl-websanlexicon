@@ -25,13 +25,13 @@ def movedatafiles(statusFlag):
  movefilenames = [
   'pdfpages',  # scanned images
   'fonts',     # siddhanta, perhaps other fonts.
-  'graheader.xml',
+  '%sheader.xml'%dictcode,
   'index.php',
   'readme.txt',
   'sqlite/%s.sqlite'%dictcode,
   'sqlite/%sab.sqlite'%dictcode,
   'sqlite/%sauth.sqlite'%dictcode,
-  'webtc2/query_dump.txt',
+  #'webtc2/query_dump.txt',   # removed 07-08-2018
   'webtc/pdffiles.txt',
  ]
  movepairs = []
@@ -47,6 +47,14 @@ def movedatafiles(statusFlag):
   else:
    print "# TODO: mv %s %s" %(src,dst)
  
+ # reminder on query_dump
+ filename="webtc2/query_dump.txt"
+ src = '%s/%s' %(savewebpath,filename)
+ dst = '%s/%s' %(webpath,filename)
+ print "REMINDER on %s:" % dst
+ print "  a) cd %s/webtc2" %webpath
+ print "  b) sh init_query.sh"
+
 def savewebname(webpath):
  # time of last modification.
  mtime = os.path.getmtime(webpath)
@@ -93,3 +101,5 @@ if __name__=="__main__":
   print "ERROR in rename %s as %s"%(webnew,webpath)
   webpathok = False
  movedatafiles(webpathok)
+
+ 

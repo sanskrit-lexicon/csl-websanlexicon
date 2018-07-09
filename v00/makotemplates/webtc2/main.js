@@ -110,9 +110,14 @@ function process_outopt4(databack) {
 function gather (data) {
   var filter="NONE";
   var utilchoice = "dump_key1";
+  var accent = "";
+  if (document.getElementById("accent")) {
+    accent = document.getElementById("accent").value;
+  }
   var url = "query_gather.php";
   var sendData = "data=" + encodeURIComponent(data)+
    "&utilchoice="+encodeURIComponent(utilchoice) +
+   "&accent=" + encodeURIComponent(accent) +
    "&filter=" +encodeURIComponent(filter);
 
     jQuery.ajax({

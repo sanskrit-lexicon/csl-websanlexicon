@@ -43,7 +43,7 @@ class Parm {
   #$this->dict = $_REQUEST['dict'];
   $this->accent = $_REQUEST['accent']; 
 
-  if(!$this->accent) {$this->accent="no";}
+  if(!$this->accent) {$this->accent="no";}  # no, yes
 
   $this->filter = transcoder_standardize_filter($this->filter0);
   $this->filterin = transcoder_standardize_filter($this->filterin0);

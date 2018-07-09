@@ -14,7 +14,7 @@ def makedirs(webdirname):
  else:
   print('makedirs ERROR: directory already exists:',webdirname)
   exit(1)
- subdirs = ['images','js','sqlite',
+ subdirs = ['images','js','sqlite','fonts',
   'utilities','utilities/transcoder',
   'mobile1','webtc','webtc2',
   'webtc1','webtc1/help','webtc1/help/images','webtc1/transcoderjs']

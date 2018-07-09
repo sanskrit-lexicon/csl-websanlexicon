@@ -4,6 +4,7 @@
  <meta charset="UTF-8" />
   <title>${dictup} List</title>
   <link rel="stylesheet" type="text/css" href="main.css" />
+   <link rel="stylesheet" href="../webtc/font.css" type="text/css">
   <link rel="stylesheet" type="text/css" href="keyboard.css"/>
   <style type="text/css">
 #dictid {  /* override webtc1/main.css */
@@ -77,7 +78,14 @@ font-size: 14pt;
 &nbsp;
 <a href="/php/correction_form.php?dict=${dictup}" target="Corrections">Corrections</a>
 
-<!-- there is no accent -->
+%if dictaccent:
+&nbsp; &nbsp;
+<select name="accent" id="accent">
+ <option value="yes">Show Accents</option>
+ <option value="no" selected="selected">Ignore Accents</option>
+</select>
+%endif
+
 &nbsp;&nbsp;<a href="help/help.html" target="_top">Help</a>
 
 </div>
