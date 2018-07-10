@@ -153,11 +153,18 @@ function displayDB(data) {
 	type:"POST",
  	data:sendData,
         success: function(data,textStatus,jqXHR) {
-            data = decodeURIComponent(data); // required to decode
+	    /* 07-10-2018: the decodeURIComponent function failed with PWG.
+	       Display seems to be fine without this function. 
+            */
+	    //console.log('query_multi success 1.  data=\n',data);
+            //data = decodeURIComponent(data); // required to decode
+	    //console.log('query_multi success 2');
 	    jQuery("#data").html(data);
+	    /*
 	    if (filter == 'deva') { // is this needed ?
                 modifyDeva();
 	    }
+	    */
 	},
 	error:function(jqXHR, textStatus, errorThrown) {
 	    alert("Error: " + textStatus);
@@ -181,6 +188,7 @@ function displayDBupdatePage() {
 //   alert("Note! Request readyState is " + request.readyState);
  }
 }
+/* remove 07-10-2018
 function getFontClass() {
 // June 25. Modify to always use siddhanta
  //var family = document.getElementById("devafont").value;
@@ -202,7 +210,7 @@ function modifyDeva() {
 	//alert('useragent not "Windows"=' + useragent);
  }
 }
-
+*/
 function cookieUpdate(flag) {
  // 1. Cookie named 'mwiobasic' for holding transLit and filter values;
  // this cookie name is different from that used in the 'Preferences'
