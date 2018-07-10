@@ -18,7 +18,7 @@ require_once('listhiermodel.php');
 $model = new ListHierModel($getParms);
 $listmatches = $model->listmatches;
 require_once('listhierview.php');
-$view = new ListHierView($listmatches);
+$view = new ListHierView($listmatches,$getParms);
 $table = $view->table;
 $table1 = transcoder_processElements($table,"slp1",$getParms->filter,"SA");
 echo $table1;

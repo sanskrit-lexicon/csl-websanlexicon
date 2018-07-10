@@ -24,6 +24,12 @@ class BasicAdjust {
   $key = $getParms->key;
   require_once("dal.php");  
   $this->dal_ab = new Dal($dict,"ab");
+  if ($dict == 'pwg') {
+   $this->dal_auth = new Dal($dict,"bib");  # pwgbib
+   dbgprint(false,"basicadjust: bib file open? " . $this->dal_auth->status ."\n");
+  }else {
+   $this->dal_auth = new Dal($dict,"auth");
+  }
   $this->getParms = $getParms;
   $adjxmlrecs = array();
   #$i = 0;
@@ -56,14 +62,10 @@ class BasicAdjust {
  /*  Replace the 'title' part of a known ls with its capitalized form
      This is probably particular to pwg and/or pw 
  */
- $line = preg_replace_callback('|<ls n="(.*?)">(.*?)</ls>|',
+ if (in_array($this->getParms ->dict,array('pw','pwg'))) {
+  $line = preg_replace_callback('|<ls n="(.*?)">(.*?)</ls>|',
       "BasicAdjust::ls_callback",$line);
-
- /* 12-15-2017  Don't use this for now
-    Generate 'ab' markup.  This may be later replaced by having the
-    <ab> markup already in pwg.xml
- $line = add_ab_markup($line);
- */
+ }
  /* 12-14-2017
   'local' abbreviation handled here. Generate an n attribute if one
    is not present
@@ -85,59 +87,39 @@ class BasicAdjust {
  $line = preg_replace_callback('|<lex(.*?)>(.*?)</lex>|',"BasicAdjust::add_lex_markup",$line);
  return $line;
 }
- public function add_ab_markup_helper($x) {
- $known_abs = array("N." => "N.", "vgl." => "Vgl.","Vgl." => "Vgl.");
- $parts = preg_split("|( )|",$x,-1,PREG_SPLIT_DELIM_CAPTURE);
- $outparts = [];
- foreach($parts as $part) {
-  if ($part == ' ') {
-   $outparts[] = $part;
-   continue;
-  }
-  if (isset($known_abs[$part])) {
-   $newpart = $known_abs[$part];
-   $outparts[] = "<ab>$newpart</ab>";
-   continue;
-  }
-  // Default Not an abbreviation.
-  $outparts[] = $part;
- }
- // reconstruct line
- $ans = join('',$outparts);
- return $ans;
  
-}
- public function add_ab_markup($line) {
- $dbg=false;
- // First, split on <ls>.  We only add markup OUTSIDE of <ls>
- $parts = preg_split("|(<ls.*?>.*?</ls>)|",$line,-1,PREG_SPLIT_DELIM_CAPTURE);
- $outparts = [];
- foreach($parts as $part) {
-  if (preg_match('|^<ls|',$part)) {
-   $outparts[] = $part;
-  }else {
-   $outparts[] = add_ab_markup_helper($part);
-  }
- }
- dbgprint($dbg,"add_ab_markup: line=\n$line\n");
- // reconstruct line
- $ans = join('',$outparts);
- dbgprint($dbg,"add_ab_markup: ans=\n$ans\n");
- return $ans;
-}
-
  public function ls_callback($matches) {
+ // for pw, pwg
+ // <ls n="$n">$data</ls>
+ $ans = $matches[0];
  $n = $matches[1];
  $data = $matches[2];
- #$dbg=false;
- #dbgprint($dbg,"ls_callback: n=$n, data=$data\n");
- $rec = dal_linkpwgauthorities($n);
- list($n0,$code,$codecap,$text) = $rec;
- 
- #dbgprint($dbg,"  code=$code, codelo=$codelo, codecap=$codecap\n");
- $datanew = preg_replace("/^$code/",$codecap,$data);
- $ans = "<ls n='$n'>$datanew</ls>";
- #dbgprint($dbg,"ans=$ans\n");
+ $dbg=true;
+ dbgprint($dbg,"ls_callback: n=$n, data=$data\n");
+ if (!$this->dal_auth->status) {
+  return $ans;
+ }
+ $table = $this->dal_auth->tabname;
+ $result = $this->dal_auth->getgeneral($n,$table);
+ if (count($result) != 1) {
+  return $ans; // failure
+ }
+ if ($this->getParms->dict == 'pwg') {
+  $rec = $result[0];
+  list($n0,$code,$codecap,$text) = $rec;
+  #dbgprint($dbg,"  code=$code, codelo=$codelo, codecap=$codecap\n");
+  #$datanew = preg_replace("/^$code/",$codecap,$data);
+  #$ans = "<ls n='$n'>$datanew</ls>";
+  # 12-26-2017. pwg. Add lshead, so as to be able to style
+  $datanew = preg_replace("/^$code/","<lshead>$codecap</lshead>",$data);
+  # be sure there is no xml in the text
+  $text = preg_replace('/<.*?>/',' ',$text);
+  # convert special characters to html entities
+  # for instance, this handles cases when $tran has single (or double) quotes
+  $tooltip = htmlspecialchars($text,ENT_QUOTES);
+  $ans = "<ls n='$tooltip'>$datanew</ls>";
+  dbgprint($dbg,"ls_callback: ans=$ans\n");
+ }
  return $ans;
 }
  public function abbrv_callback($matches) {
@@ -167,7 +149,8 @@ class BasicAdjust {
  public function getABdata($key) {
  // abbreviation tool tips from Xab.sqlite
  $ans="";
- $table = "{$this->getParms->dict}ab";
+ #$table = "{$this->getParms->dict}ab";
+ $table = $this->dal_ab->tabname;
  $result = $this->dal_ab->getgeneral($key,$table);
  $dbg=false;
  dbgprint($dbg,"getABdata: length of result=" . count($result) . "\n");

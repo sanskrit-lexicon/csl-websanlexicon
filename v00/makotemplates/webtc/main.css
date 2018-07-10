@@ -31,7 +31,13 @@ td {line-height: 150%;}
 .pb {font-size:smaller; }
 .hom {color:red;}
 .footnote {font-size:smaller;}
-.ls {color:gray; font-size:smaller;}
+.ls {
+color:gray; 
+font-size:smaller;
+%if dictlo in ['pwg','pw']:
+font-family:charterindocapital;
+%endif
+}
 .gram {font-weight:bold;}
 .divm {font-weight:bold;}
 .wide {font-stretch:wider;}

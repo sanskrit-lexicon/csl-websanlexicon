@@ -13,6 +13,7 @@ class Dal {
  public $file_db;
  public $dbg=false;
  public $dbname; 
+ public $tabname;  # name of table in sqlitefile. 
  // dbname is assumed to be for auxiliary sqlite data, such as
  // abbreviations  xab.sqlite, xath.sqlite -- new Dal('mw','mwab')
  // Not yet implemented.  Would need to modify dictinfo for filenames also.
@@ -24,8 +25,13 @@ class Dal {
   $this->dictinfo = new DictInfo($dict);
   if ($dbname == null) {
    $this->sqlitefile = $this->dictinfo->sqlitefile;
+   $this->tabname = $this->dict;
   }else if ($dbname == "ab") {
    $this->sqlitefile = $this->dictinfo->abfile;
+   $this->tabname = $this->dict . "ab";
+  }else if ($dbname == "bib") {  // author file for pwg, pw
+   $this->sqlitefile = $this->dictinfo->bibfile;
+   $this->tabname = $this->dict . "bib";
   }else { // unknown $dbname
    $this->file_db = null;
    $this->status=false;

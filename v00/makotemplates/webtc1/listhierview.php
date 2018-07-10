@@ -2,7 +2,7 @@
 class ListHierView {
  // constructs html from a certain array of data
  public $table;  // a string of html 
- public function __construct($listmatches) {
+ public function __construct($listmatches,$getParms) {
  // step 3 format listmatches
  $i=0;
  $table="";
@@ -54,7 +54,24 @@ class ListHierView {
   if($this->listhierskip_data($data2)) {
    $xtraskip='<span style="font-size:smaller; color:blue;"> (skip)</span>';
   }
-  $out1 = "$spc<a  onclick='getWordAlt_keyboard(\"<SA>$key2</SA>\");'><span style='$c'><SA>$key2show</SA></span>$hom2</a>$xtraskip<br/>\n";
+  $filterin = $getParms->filter;
+  if ($filterin == "deva") {
+   /* use $filterin to generate the class to use for Sanskrit (<s>) text 
+    This repeats logic of disp.php
+    This lets us use siddhanta font for Devanagari.
+   */
+   $sdata = "sdata_siddhanta"; // consistent with font.css
+  } else {
+   $sdata = "sdata"; // default. for san
+  }
+  
+  # add class=sdata when the headwords are Sanskrit. 07-09-2018
+%if dictenglishheadwords:
+  $class = "";
+%else:
+  $class = " class='$sdata'";
+%endif
+  $out1 = "$spc<a  onclick='getWordAlt_keyboard(\"<SA>$key2</SA>\");'><span style='$c'$class><SA>$key2show</SA></span>$hom2</a>$xtraskip<br/>\n";
 
   $table .= $out1;
   if ($i == count($listmatches)) {

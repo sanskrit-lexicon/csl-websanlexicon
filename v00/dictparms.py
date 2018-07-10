@@ -8,6 +8,11 @@ alldictparms = {
   "dictyear":"2014",  # for Cologne file system location
   "dictaccent":False,
   "webtc2devatextoption":False,
+  "dicthasgreektext":False,   # is greek text filled in?
+  # next is similar to webtc/dictinfo.php $english.
+  # current use (07-09-2018) in webtc1/listhierview for styling headwords
+  # in the list
+  "dictenglishheadwords":False, 
  },
  "bur": {
   "dictup":"BUR",
@@ -17,6 +22,8 @@ alldictparms = {
   "dictyear":"2013",
   "dictaccent":False,
   "webtc2devatextoption":True,
+  "dicthasgreektext":False,   # is greek text filled in?
+  "dictenglishheadwords":False, 
  },
 "cae": {
   "dictup":"CAE",
@@ -26,6 +33,8 @@ alldictparms = {
   "dictyear":"2014",
   "dictaccent":True,
   "webtc2devatextoption":True,
+  "dicthasgreektext":False,   # is greek text filled in?
+  "dictenglishheadwords":False, 
  },
  "stc": {
   "dictup":"STC",
@@ -35,6 +44,19 @@ alldictparms = {
   "dictyear":"2013",
   "dictaccent":False,
   "webtc2devatextoption":False,
+  "dicthasgreektext":False,   # is greek text filled in?
+  "dictenglishheadwords":False, 
+ },
+"pwg": {
+  "dictup":"PWG",
+  "dictlo":"pwg",
+  "dictname":u"Böhtlingk and Roth Grosses Petersburger Wörterbuch",
+  "dictwebversion":"00",
+  "dictyear":"2013",
+  "dictaccent":True,
+  "webtc2devatextoption":True,
+  "dicthasgreektext":True, 
+  "dictenglishheadwords":False, 
  },
 
 }

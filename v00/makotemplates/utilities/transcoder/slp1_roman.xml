@@ -86,7 +86,7 @@ H/ H\ H^
 <e> <s>SKT</s> <in>z</in> <out>\u1e63</out><next>SKT</next> </e>
 
 <e> <s>SKT</s> <in>H</in> <out>\u1e25</out> </e>
-<e> <s>SKT</s> <in>M</in> <out>\u1e41</out> </e> <!-- dot above -->
+<e> <s>SKT</s> <in>M</in> <out>\u1e43</out> </e> <!-- dot below 07-09-2018 -->
 <e> <s>SKT</s> <in>'</in> <out>'</out> </e>
 
 <e> <s>SKT</s> <in>L</in> <out>\u1e37</out> </e>

@@ -36,7 +36,7 @@ webtc/getword.php:T
 webtc/getwordviewmodel.php:T
 webtc/help.html:T
 webtc/indexcaller.php:T
-webtc/main.css:C
+webtc/main.css:T
 webtc/font.css:C
 webtc/main_webtc.js:C
 webtc/parm.php:T

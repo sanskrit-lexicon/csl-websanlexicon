@@ -126,6 +126,14 @@ public function __construct($key,$matches,$filterin,$dict) {
      }
      $ans = "<br/><span style='$style'>";
      return $ans;
+    }else if ($this->dict == 'pwg') {
+     if ($n == '1') {$indent = "1.0em";}
+     else if ($n == '2') {$indent = "2.0em"; }
+     else if ($n == '3') {$indent = "3.0em";}
+     else {$indent = "";}
+     $style="position:relative; left:$indent;";
+     $ans = "<br/><span style='$style'>";
+     return $ans;
    }else { // default
     // currently applies to : 
     // cae with <div n="p"/>
@@ -177,7 +185,12 @@ public function __construct($key,$matches,$filterin,$dict) {
     // empty tag.
   } else if ($el == "lang") {
     // nothing special here  Greek remains to be filled in
+    // Depends on whether the text is filled in
+%if dicthasgreektext:
+    # nothing to do.
+%else:
     $this->row .= " (greek) ";
+%endif
   } else if ($el == "lb") {
     $this->row .= "<br/>";
   } else if ($el == "C") {
@@ -191,22 +204,17 @@ public function __construct($key,$matches,$filterin,$dict) {
     // no display
   } else if ($el == "ls") {
    if (isset($attribs['n'])) {
-    $n = $attribs['n'];
-    $rec = dal_linkpwgauthorities($n);
-    list($n0,$code,$codecap,$text) = $rec;
-    dbgprint(false,"$n0 ... $code ... $text\n");
-    # be sure there is no xml in the text
-    $text = preg_replace('/<.*?>/',' ',$text);
-    $text = preg_replace('/&/','and',$text);
-    $text = preg_replace("|'|"," ",$text);  # apostrophe's in title cause problem
-    $this->row .= "<span class='ls' title='$text'>";   
+    $tooltip = $attribs['n'];
+    $this->row .= "<span class='ls' title='$tooltip'>";   
    }else {
     $this->row .= "&nbsp;<span class='ls'>";   
    }
   } else if ($el == "lshead") {
-   $href = $attribs['href'];
-   $this->row .= "<a href=\"$href\">";
+   // pwg
+   $style = "color:blue; border-bottom: 1px dotted #000; text-decoration: none;";
+   $this->row  .= "<span style='$style'>";
   } else if ($el == "is") {
+    //pwg
    #$this->row .= "<span style='font-style: normal; color:teal'>";
    $this->row .= "<span style='letter-spacing:2px;'>"; # this is more like the text
   } else if ($el == "bot") {
@@ -267,7 +275,7 @@ public function __construct($key,$matches,$filterin,$dict) {
   } else if ($el == "bot") {
    $this->row .= "</span>";
  } else if ($el == "lshead") {
-   $this->row .= "</a>";
+   $this->row .= "</span>";
  } else if ($el == "ab") {
    $this->row .= "</span>";
  }

@@ -13,6 +13,7 @@ class DictInfo {
  public $webparent;
  public $sqlitefile;  // path to primary sqlite data (e.g. gradb.sqlite)
  public $abfile;      // path to abbreviation sqlite file (e.g.graab.sqlite)
+ public $bibfile;     // path to bibliography file for pw, pwg
  public $advsearchfile;  // path to query_dump file used by webtc2 display.
  public $transcodefile; // path to transcoder.php
  public function __construct($dict) {
@@ -33,6 +34,7 @@ class DictInfo {
   $this->sqlitefile = "{$this->webparent}/web/sqlite/{$this->dict}.sqlite";
   $this->advsearchfile = "{$this->webparent}/web/webtc2/query_dump.txt";
   $this->abfile = "{$this->webparent}/web/sqlite/{$this->dict}ab.sqlite";
+  $this->bibfile = "{$this->webparent}/web/sqlite/{$this->dict}bib.sqlite";
   $this->transcodefile = "{$this->webpath}/utilities/transcoder.php";
  }
 
