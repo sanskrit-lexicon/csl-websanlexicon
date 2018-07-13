@@ -48,6 +48,15 @@ alldictparms = {
   "dictaccent":True,
   "webtc2devatextoption":True,
  },
+ "mw": {
+  "dictup":"MW",
+  "dictlo":"mw",
+  "dictname":u"Monier-Williams Sanskrit-English Dictionary, 1899",
+  "dictwebversion":"00",
+  "dictyear":"2014",
+  "dictaccent":True,
+  "webtc2devatextoption":True,
+ },
 
 }
 """

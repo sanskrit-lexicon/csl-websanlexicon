@@ -251,9 +251,29 @@ init_query.py is used instead.
 * regenerate pwg/web in place  
 #in v00
 python generate.py pwg inventory.txt  makotemplates ../../pwg/web
+* ----------mw---------------------
+* NOTES on MW conversion
+nothing yet
+* generate  mw/webv00 07-13-2018
+
+cd v00
+python generate.py mw inventory.txt  makotemplates ../../mw/webv00
+
+* TODO Note: there is a special link in webtc/help.html for accents in MW;
+      it points to a subsection of webtc1 help.
+* install mw 
+ python install.py mw ../../mw/webv00 ../../mw
+* NOTE: mw webtc2 init_query.py
+There was a previous Python version used by MW (and prob. also by PW).
+It is part of the backup, but is not currently used; the 'generic' 
+init_query.py is used instead.
+* regenerate mw/web in place  
+#in v00
+python generate.py mw inventory.txt  makotemplates ../../mw/web
+* --------------------------------------------------------------
 * redo_web_all.sh
  in v00
- gra, bur, cae, stc,
+ gra, bur, cae, stc, pwg
 * --------------------------------------------------------------
 * apidev1
 * --------------------------------------------------------------

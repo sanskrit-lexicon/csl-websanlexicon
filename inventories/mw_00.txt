@@ -13,7 +13,7 @@ mobile1/monier_serveimg.css
 sqlite/def.sql
 ;sqlite/mw.sqlite
 ;sqlite/mwbib.sqlite
-sqlite/mwauth.html
+;sqlite/mwauth.html
 ;sqlite/input.txt
 sqlite/make_input.php
 sqlite/redo.sh
@@ -53,7 +53,7 @@ webtc1/index.php
 webtc1/keyboard.css
 webtc1/keyboard.js
 webtc1/keyboard.png
-list.php
+webtc1/list.php
 webtc1/listhier.php
 webtc1/listhierskip.php
 webtc1/main.css
