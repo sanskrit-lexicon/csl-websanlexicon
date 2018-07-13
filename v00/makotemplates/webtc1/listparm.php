@@ -43,6 +43,9 @@ class ListParm extends Parm {
   //  'keyboard'
   $this->keyboard = $_REQUEST['keyboard'];
   list($this->filter ,$this->filterin) =$this->getParameters_keyboard();
+  // recompute $this->key, 
+  $this->key = transcoder_processString($this->keyin1,$this->filterin,"slp1");
+
  }  
 public function getParameters_orig() {
  $filter0 = $_REQUEST['filter'];

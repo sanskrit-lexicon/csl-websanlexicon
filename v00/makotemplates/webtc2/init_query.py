@@ -105,7 +105,7 @@ def query_sanskrit_helper1(s):
  # remove extended ascii, which is coded as html entity: &...;
  #s = re.sub('|&.*?;|',' ',s)
  # remove slp accent chars, if present
- s = re.sub('[/\\~^]','',s)
+ s = re.sub(r'[/\\~^]','',s)
  words = re.split("[^a-zA-Z|']",s)
  return words
 

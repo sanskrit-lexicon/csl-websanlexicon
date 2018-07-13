@@ -206,13 +206,6 @@ function updateDisp() {
     ansEl.innerHTML = response;
     // Dec 6, 2013
     var filter = readCookie("serverOptions");
-    if (filter == 'deva') {
-      if (useragent.match(/Windows/)) {
-  	jQuery(".sdata").removeClass("sdata").addClass("sdatadeva");
-      }else {
-        //alert('useragent not "Windows"=' + useragent);
-      }
-    }
       // kick off the next ajax request
  //debug      if(getlistFlag){getWordlist_keyboard();}    
 //    return;

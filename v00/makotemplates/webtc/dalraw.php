@@ -6,7 +6,7 @@
 */
 require_once('dictinfo.php');
 require_once('dbgprint.php');
-class Dal {
+class Dalraw {
  public $dict;
  public $dictinfo;
  public $sqlitefile;

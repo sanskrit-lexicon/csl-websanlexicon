@@ -186,11 +186,11 @@ public function __construct($key,$matches,$filterin,$dict) {
   } else if ($el == "lang") {
     // nothing special here  Greek remains to be filled in
     // Depends on whether the text is filled in
-%if dicthasgreektext:
-    # nothing to do.
-%else:
-    $this->row .= " (greek) ";
-%endif
+    if (in_array($this->dict,array('pwg','mw'))) {
+     # nothing to do.
+    }else {
+     $this->row .= " (greek) ";
+    }
   } else if ($el == "lb") {
     $this->row .= "<br/>";
   } else if ($el == "C") {
@@ -205,7 +205,8 @@ public function __construct($key,$matches,$filterin,$dict) {
   } else if ($el == "ls") {
    if (isset($attribs['n'])) {
     $tooltip = $attribs['n'];
-    $this->row .= "<span class='ls' title='$tooltip'>";   
+    #$this->row .= "<span class='ls' title='$tooltip'>";   
+    $this->row .= "<span class='ls' title=\"$tooltip\">";   
    }else {
     $this->row .= "&nbsp;<span class='ls'>";   
    }
@@ -363,12 +364,9 @@ public function getHrefPage($data) {
  $lnums = preg_split('/[,]/',$data);  //%{pfx}
  $serve = "../webtc/servepdf.php";
  foreach($lnums as $lnum) {
-  list($page,$col) =  preg_split('/[-]/',$lnum);
-  $lnumref=$lnum;
-  $ipage = intval($page);
-
+  #list($page,$col) =  preg_split('/[-]/',$lnum);
+  $page = $lnum; # this may be dictionary specific.
   if ($ans == "") {
-   //$args = "page=$lnumref";
    $args = "page=$page";
    $ans = "<a href='$serve?$args' target='_Blank'>$lnum</a>";
   }else {

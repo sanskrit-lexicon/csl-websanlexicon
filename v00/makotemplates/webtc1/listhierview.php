@@ -66,11 +66,11 @@ class ListHierView {
   }
   
   # add class=sdata when the headwords are Sanskrit. 07-09-2018
-%if dictenglishheadwords:
-  $class = "";
-%else:
-  $class = " class='$sdata'";
-%endif
+  if (in_array($getParms->dict,array('ae','mwe','bor'))) {
+   $class = "";
+  }else {
+   $class = " class='$sdata'";
+  }
   $out1 = "$spc<a  onclick='getWordAlt_keyboard(\"<SA>$key2</SA>\");'><span style='$c'$class><SA>$key2show</SA></span>$hom2</a>$xtraskip<br/>\n";
 
   $table .= $out1;

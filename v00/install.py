@@ -20,7 +20,7 @@ def copyfiles(filenames,olddir,newdir):
  print(len(filenames),'copied from',olddir,'to',newdir)
 
 
-def movedatafiles(statusFlag):
+def movedatafiles(statusFlag,dictcode):
  # these are moved from a copy of the previous version.
  movefilenames = [
   'pdfpages',  # scanned images
@@ -30,10 +30,16 @@ def movedatafiles(statusFlag):
   'readme.txt',
   'sqlite/%s.sqlite'%dictcode,
   'sqlite/%sab.sqlite'%dictcode,
-  'sqlite/%sauth.sqlite'%dictcode,
+  #'sqlite/%sauth.sqlite'%dictcode,
   #'webtc2/query_dump.txt',   # removed 07-08-2018
   'webtc/pdffiles.txt',
  ]
+ if dictcode == 'pwg':
+  extrafilenames=['sqlite/%sbib.sqlite'%dictcode,]
+ else:
+  extrafilenames=[]
+ movefilenames = movefilenames + extrafilenames
+
  movepairs = []
  for filename in movefilenames:
   src = '%s/%s' %(savewebpath,filename)
@@ -100,6 +106,6 @@ if __name__=="__main__":
  except Exception as e:
   print "ERROR in rename %s as %s"%(webnew,webpath)
   webpathok = False
- movedatafiles(webpathok)
+ movedatafiles(webpathok,dictcode)
 
  

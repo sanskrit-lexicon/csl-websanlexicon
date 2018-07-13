@@ -148,6 +148,7 @@ python backup.py inventories/bur_00.txt ../bur/web  webbackup/bur/00
 python backup.py inventories/cae_00.txt ../cae/web  webbackup/cae/00
 python backup.py inventories/stc_00.txt ../stc/web  webbackup/stc/00
 python backup.py inventories/pwg_00.txt ../pwg/web  webbackup/pwg/00
+python backup.py inventories/mw_00.txt ../mw/web  webbackup/mw/00
 
 * v00 -- initial 'general' version of web
   starts as a copy of webbackup/gra/00
@@ -250,4 +251,21 @@ init_query.py is used instead.
 * regenerate pwg/web in place  
 #in v00
 python generate.py pwg inventory.txt  makotemplates ../../pwg/web
+* redo_web_all.sh
+ in v00
+ gra, bur, cae, stc,
+* --------------------------------------------------------------
+* apidev1
+* --------------------------------------------------------------
+* copying modules from webtc, and modifying for apidev1.
+** cp v00/makotemplates/webtc/dal.php ../apidev1/dalraw.php
+# also, change class name to Dalraw
+** cp v00/makotemplates/webtc/basicadjust.php ../apidev1/
+# no additional changes
+** cp v00/makotemplates/webtc/disp.php ../apidev1/basicdisplay.php
+additional changes: 
+ a) dal.php -> dalraw.php (one)
+ b) new Dal -> new Dalraw (three or more)
+
+
 * THE END

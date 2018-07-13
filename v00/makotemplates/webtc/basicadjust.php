@@ -22,7 +22,6 @@ class BasicAdjust {
   #dbgprint(true,"basicadjust: accent={$this->accent}\n");
   $dict = $getParms->dict;
   $key = $getParms->key;
-  require_once("dal.php");  
   $this->dal_ab = new Dal($dict,"ab");
   if ($dict == 'pwg') {
    $this->dal_auth = new Dal($dict,"bib");  # pwgbib
@@ -94,7 +93,7 @@ class BasicAdjust {
  $ans = $matches[0];
  $n = $matches[1];
  $data = $matches[2];
- $dbg=true;
+ $dbg=false;
  dbgprint($dbg,"ls_callback: n=$n, data=$data\n");
  if (!$this->dal_auth->status) {
   return $ans;
@@ -107,13 +106,14 @@ class BasicAdjust {
  if ($this->getParms->dict == 'pwg') {
   $rec = $result[0];
   list($n0,$code,$codecap,$text) = $rec;
-  #dbgprint($dbg,"  code=$code, codelo=$codelo, codecap=$codecap\n");
+  dbgprint($dbg," ls_callback code=$code,  codecap=$codecap, text=\n$text\n");
   #$datanew = preg_replace("/^$code/",$codecap,$data);
   #$ans = "<ls n='$n'>$datanew</ls>";
   # 12-26-2017. pwg. Add lshead, so as to be able to style
   $datanew = preg_replace("/^$code/","<lshead>$codecap</lshead>",$data);
   # be sure there is no xml in the text
   $text = preg_replace('/<.*?>/',' ',$text);
+  dbgprint($dbg," ls_callback. text after removing tags: \n$text\n");
   # convert special characters to html entities
   # for instance, this handles cases when $tran has single (or double) quotes
   $tooltip = htmlspecialchars($text,ENT_QUOTES);
