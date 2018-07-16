@@ -69,7 +69,11 @@ font-size: 14pt;
 
 </td>
 </tr>
+%if dictlo not in ['skd','vcp']:
 <tr>
+%else:
+<tr style="display:none"/>  <!-- "visibility:hidden;" -->
+%endif
 <td>Text Word:</td>
 <td>
 <input name="word" id="word" size="30" />

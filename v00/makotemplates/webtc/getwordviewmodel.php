@@ -25,8 +25,8 @@ class GetwordViewModel {
   if ($nmatches == 0) {
    $out = "<h2>not found: $getParms->keyin</h2>\n";
    $out1 = "<SA>$key</SA>";
-   $out1 = transcoder_processElements($out1,"slp1",$filter,"SA");
-   $table1 = $out + "<p>$out1</p>\n";
+   $out1 = transcoder_processElements($out1,"slp1",$getParms->filter,"SA");
+   $table1 = $out . "<p>$out1</p>\n";
    $table = null;
    $this->status = false;
   }else {

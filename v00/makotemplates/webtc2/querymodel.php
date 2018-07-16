@@ -49,7 +49,9 @@ class QueryModel{
    */
    $wordin = $this->word;
    $word = $this->word; // for simplicity in following string expressions
+%if dictlo not in ['skd','vcp']:
    $word = mb_strtolower($word);
+%endif
    if ($this->queryParms->opt_regexp == "exact"){
     $search_regexp = "[\t].*$non_word($word)$non_word";
    }else if ($this->queryParms->opt_regexp == "prefix") {

@@ -57,6 +57,15 @@ alldictparms = {
   "dictaccent":True,
   "webtc2devatextoption":True,
  },
+ "skd": {
+  "dictup":"SKD",
+  "dictlo":"skd",
+  "dictname":u"Sabda-kalpadruma",
+  "dictwebversion":"00",
+  "dictyear":"2013",
+  "dictaccent":False,
+  "webtc2devatextoption":True,
+ },
 
 }
 """

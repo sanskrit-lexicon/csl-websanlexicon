@@ -13,9 +13,9 @@ body {
            used to display devanagari and roman unicode
 	font-family: verdana,arial,helvetica,sansserif;
         */
-	font-size: 14pt;
+	font-size: 12pt; /*14pt; changed 07-14-2018*/
 }
-td {line-height: 150%;}
+td {line-height: 130%;}  /*150%; changed 07-14-2018*/
 .greek {
  font-family: Gentium, Palatino Linotype, Arial Unicode MS;
  font-size: 12pt;

@@ -23,6 +23,7 @@
 .sdata_siddhanta {
  color:teal;
  font-size:larger;
+ font-weight: normal; /* 07-14-2018*/
  font-family: siddhanta_deva;
 }
 .sdata_system {

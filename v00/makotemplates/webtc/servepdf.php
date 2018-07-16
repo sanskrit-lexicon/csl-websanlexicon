@@ -24,22 +24,17 @@ $dbg=false;
 dbgprint($dbg,"servepdf: page=$page\n");
 $dictinfo = new DictInfo($dict);
 $year = $dictinfo->get_year();
-$webpath = $dictinfo->get_webPath();
+#$webpath = $dictinfo->get_webPath();
+$webparent = $dictinfo->webparent;
+$pdffiles_filename = "$webparent/web/webtc/pdffiles.txt";
 $dictupper = $dictinfo->dictupper;
 
-list($filename,$pageprev,$pagenext)=getfiles($webpath,$page,$dictupper);
+list($filename,$pageprev,$pagenext)=getfiles($pdffiles_filename,$page,$dictupper);
 // 04-17-2018. Use The cologne images
 // $dir = "$webpath/pdfpages"; // location of pdf files
 $dir = "{$dictinfo->get_cologne_webPath()}/pdfpages";
 $pdf = "$dir/$filename";
-/*
-if ($dbg) { 
- echo "dict=$dict, year=$year<br/>";
- echo "webpath={$webpath}<br/>";
- echo "scanpath =".DictInfo::$scanpath."<br/>";
- echo "page=$page, $filename,$pageprev,$pagenext<br/>";
-}
-*/
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -77,7 +72,7 @@ $imageParm = $imageParms[$dictinfo->dictupper];
 </body>
 </html>
 <?php
-function getfiles($webpath,$pagestr_in0,$dictupper) { 
+function getfiles($pdffiles_filename,$pagestr_in0,$dictupper) { 
  // Next line for MW, where pagestr_in0 may start with 'Page', which we remove
  $pagestr_in0 = preg_replace('|^[^0-9]+|','',$pagestr_in0);
  // Recognize two basic cases: vol-page or page.
@@ -97,8 +92,7 @@ function getfiles($webpath,$pagestr_in0,$dictupper) {
  $pagestr_in = preg_replace('/^0+/','',$pagestr_in);
  // echo "{$pagestr_in0}  -> {$pagestr_in}\n";
  //exit(1);
- $dir = "$webpath/webtc";
- $filename="$dir/pdffiles.txt";
+ $filename=$pdffiles_filename;
  $lines = file($filename);
  $pagearr=array(); //sequential
  $pagehash=array(); // hash

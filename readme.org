@@ -149,6 +149,7 @@ python backup.py inventories/cae_00.txt ../cae/web  webbackup/cae/00
 python backup.py inventories/stc_00.txt ../stc/web  webbackup/stc/00
 python backup.py inventories/pwg_00.txt ../pwg/web  webbackup/pwg/00
 python backup.py inventories/mw_00.txt ../mw/web  webbackup/mw/00
+python backup.py inventories/skd_00.txt ../skd/web  webbackup/skd/00
 
 * v00 -- initial 'general' version of web
   starts as a copy of webbackup/gra/00
@@ -253,13 +254,16 @@ init_query.py is used instead.
 python generate.py pwg inventory.txt  makotemplates ../../pwg/web
 * ----------mw---------------------
 * NOTES on MW conversion
-nothing yet
+mwauthtooltips.sqlite, mwab.sqlite
+* TODO mwkeys.sqlite  This appears to be unused. Is alphabetical order
+still an option in list display?
+
 * generate  mw/webv00 07-13-2018
 
 cd v00
 python generate.py mw inventory.txt  makotemplates ../../mw/webv00
 
-* TODO Note: there is a special link in webtc/help.html for accents in MW;
+* DONE Note: there is a special link in webtc/help.html for accents in MW;
       it points to a subsection of webtc1 help.
 * install mw 
  python install.py mw ../../mw/webv00 ../../mw
@@ -270,22 +274,49 @@ init_query.py is used instead.
 * regenerate mw/web in place  
 #in v00
 python generate.py mw inventory.txt  makotemplates ../../mw/web
+* ----------skd---------------------
+* NOTES on SKD conversion
+ <div n="F">  -- perhaps recode as <F>
+* generate  skd/webv00 07-15-2018
+
+cd v00
+python generate.py skd inventory.txt  makotemplates ../../skd/webv00
+
+* install skd 
+ python install.py skd ../../skd/webv00 ../../skd
+* NOTE: skd webtc2 init_query.py
+There was a previous Python version used by SKD (and prob. also by PW).
+It is part of the backup, but is not currently used; the 'generic' 
+init_query.py is used instead.
+* regenerate skd/web in place  
+#in v00
+python generate.py skd inventory.txt  makotemplates ../../skd/web
 * --------------------------------------------------------------
 * redo_web_all.sh
  in v00
- gra, bur, cae, stc, pwg
+ gra, bur, cae, stc, pwg, mw
 * --------------------------------------------------------------
 * apidev1
 * --------------------------------------------------------------
 * copying modules from webtc, and modifying for apidev1.
-** cp v00/makotemplates/webtc/dal.php ../apidev1/dalraw.php
+** previous copies in apidev1
+cp basicadjust.php.php temp_prev_basicadjust.php
+cp basicadjust.php temp_prev_basicadjust.php
+cp basicdisplay.php temp_prev_basicdisplay.php
+
+** dalraw
+cp v00/makotemplates/webtc/dal.php ../apidev1/dalraw.php
 # also, change class name to Dalraw
-** cp v00/makotemplates/webtc/basicadjust.php ../apidev1/
-# no additional changes
-** cp v00/makotemplates/webtc/disp.php ../apidev1/basicdisplay.php
+** basicadjust
+cp v00/makotemplates/webtc/basicadjust.php ../apidev1/
 additional changes: 
  a) dal.php -> dalraw.php (one)
  b) new Dal -> new Dalraw (three or more)
+** basicdisplay ??
+cp v00/makotemplates/webtc/disp.php ../apidev1/basicdisplay.php
+# no additional changes
 
+** modify apidev1/dalwhich.php
+  for dictionaries that have been 'converted'.
 
 * THE END

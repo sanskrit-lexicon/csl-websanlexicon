@@ -36,6 +36,9 @@ def movedatafiles(statusFlag,dictcode):
  ]
  if dictcode == 'pwg':
   extrafilenames=['sqlite/%sbib.sqlite'%dictcode,]
+ elif dictcode == 'mw':
+  extrafilenames=['sqlite/%sauthtooltips.sqlite'%dictcode,]
+
  else:
   extrafilenames=[]
  movefilenames = movefilenames + extrafilenames
