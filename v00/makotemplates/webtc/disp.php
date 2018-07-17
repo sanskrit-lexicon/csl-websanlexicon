@@ -44,8 +44,12 @@ public function __construct($key,$matches,$filterin,$dict) {
   $this->sdata = "sdata"; // default.
  }
  $sdata = $this->sdata;
- $this->table = "<h1 class='$sdata'>&nbsp;<SA>$key</SA></h1>\n";
-
+ if (in_array($this->dict,array('ae','mwe','bor'))) {
+  // no transliteration of $key for English headword
+  $this->table = "<h1>&nbsp;$key</h1>\n";
+ }else {
+  $this->table = "<h1 class='$sdata'>&nbsp;<SA>$key</SA></h1>\n";
+ }
  $this->table .= "<table class='display'>\n";
  $ntot = count($matches);
  $i = 0;
@@ -368,7 +372,12 @@ public function __construct($key,$matches,$filterin,$dict) {
    if ($this->dict == 'mw') {
     // don't show
    }else {
-    $this->row1 .= "&nbsp;<span class='$sdata'><SA>$data</SA></span>";
+    if (in_array($this->dict,array('ae','mwe','bor'))) {
+     // no transliteration of $key for English headword
+     $this->row1 .= "&nbsp;<span class='$sdata'>$data</span>";
+    }else {
+     $this->row1 .= "&nbsp;<span class='$sdata'><SA>$data</SA></span>";
+    }
    }
    //$this->row1 .= "&nbsp;<span class='$sdata'>$data</span>";
   } else if ($this->parentEl == "key1"){ // nothing printed

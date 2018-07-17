@@ -1,8 +1,10 @@
 <?php // querylistview.php 06-30-2018
 class QueryListView {
  public $resultarr;
+ public $dict;
  public function __construct($queryParms,$model) {
   $meta = '<meta charset="UTF-8">';
+  $this->dict = $queryParms->dict;
   $matches = $model->querymatches;
   $lastLnum = $model->lastLnum;
   $this->resultarr = array("$lastLnum");
@@ -24,7 +26,12 @@ class QueryListView {
    list($key,$sanskrit) = preg_split('|:|',$keypart);
    $key = trim($key);
    $y = $matches[2];
-   $xmlnew .= "$nx <!-- $key --><a class='words' onclick='getWord4(\"$nx\");'><SA>$key</SA></a>";
+   if (in_array($this->dict,array('ae','mwe','bor'))) {
+    // for English headword, no need to transcode key.
+    $xmlnew .= "$nx <!-- $key --><a class='words' onclick='getWord4(\"$nx\");'>$key</a>";
+   }else {
+    $xmlnew .= "$nx <!-- $key --><a class='words' onclick='getWord4(\"$nx\");'><SA>$key</SA></a>";
+   }
    if ($search_regexp_nonSanskrit != null) {
     if (preg_match("/$search_regexp_nonSanskrit/",$x,$matches)) {
      $extra = $matches[1];

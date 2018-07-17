@@ -218,7 +218,10 @@ public function smatchkey($regexp) {
    $ahw = $a;
    $atext = $a;
   }
-  if ($opt_swordhw == 'both') {
+  if (in_array($this->dict,array('ae','mwe','bor'))) {
+   # search for sanskrit word only within text.
+   $liney=" " . $atext . " \t"; //    
+  }else  if ($opt_swordhw == 'both') {
    $liney=" " . $a . " \t"; // 
   } else if ($opt_swordhw == 'hwonly'){
    $liney=" " . $ahw . " \t"; // 

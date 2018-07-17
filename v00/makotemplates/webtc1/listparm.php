@@ -43,18 +43,23 @@ class ListParm extends Parm {
   //  'keyboard'
   $this->keyboard = $_REQUEST['keyboard'];
   list($this->filter ,$this->filterin) =$this->getParameters_keyboard();
+  if (in_array($dict,array('ae','mwe','bor'))) {
+   // force filterin to be 'slp1' for dictionaries with english headwords
+   $this->filterin = 'slp1';
+  }
   // recompute $this->key, 
   $this->key = transcoder_processString($this->keyin1,$this->filterin,"slp1");
 
  }  
-public function getParameters_orig() {
+/*
+public function unused_getParameters() {
  $filter0 = $_REQUEST['filter'];
  $filterin0 = $_REQUEST['transLit']; 
  if (!$filter0) {$filter0 = "SLP2SLP";}
  if (!$filterin0) {$filterin0 = "SLP2SLP";}
  return array($filter0,$filterin0);
 }
-
+*/
 public function getParameters_keyboard() {
 //inputType = $_REQUEST['inputType'];
 //unicodeInput = $_REQUEST['unicodeInput'];

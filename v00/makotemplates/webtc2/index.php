@@ -42,7 +42,12 @@ font-size: 14pt;
 
 <table id="querytable" border="0" cellpadding="3" cellspacing="1">
 <tr>
-<td >Sanskrit word:
+<td >
+%if dictlo in ['ae','mwe','bor']:
+Sanskrit text word:
+%else:
+Sanskrit word:
+%endif
 %if webtc2devatextoption:
 &nbsp;&nbsp;
     <select name="swordhw" id="swordhw">
@@ -74,7 +79,13 @@ font-size: 14pt;
 %else:
 <tr style="display:none"/>  <!-- "visibility:hidden;" -->
 %endif
-<td>Text Word:</td>
+<td>
+%if dictlo in ['ae','mwe','bor']:
+English text word/Headword:
+%else:
+Text Word:
+%endif
+</td>
 <td>
 <input name="word" id="word" size="30" />
 

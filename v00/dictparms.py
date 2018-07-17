@@ -66,6 +66,15 @@ alldictparms = {
   "dictaccent":False,
   "webtc2devatextoption":True,
  },
+ "ae": {
+  "dictup":"AE",
+  "dictlo":"ae",
+  "dictname":u"Apte Student's English-Sanskrit Dictionary",
+  "dictwebversion":"00",
+  "dictyear":"2014",
+  "dictaccent":False,
+  "webtc2devatextoption":False,
+ },
 
 }
 """

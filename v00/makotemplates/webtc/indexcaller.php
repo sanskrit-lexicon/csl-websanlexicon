@@ -46,6 +46,12 @@ global $inithash;
 ?>
    </td>
    <td>input:&nbsp;
+%if dictlo in ['ae','mwe','bor']:
+  <em>English, lower-case</em>
+  <select name="transLit" id="transLit" style="display:none;">
+  output_option("slp1","SLP1",$init);
+  </select>
+%else:
     <select name="transLit" id="transLit">
 <?php
 global $inithash;
@@ -55,6 +61,7 @@ global $inithash;
  output_option("itrans","ITRANS",$init);
 ?>
     </select>
+%endif
    </td>
   </tr>
 

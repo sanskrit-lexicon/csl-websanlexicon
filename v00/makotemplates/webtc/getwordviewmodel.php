@@ -24,9 +24,14 @@ class GetwordViewModel {
   $dbg=false;
   if ($nmatches == 0) {
    $out = "<h2>not found: $getParms->keyin</h2>\n";
-   $out1 = "<SA>$key</SA>";
-   $out1 = transcoder_processElements($out1,"slp1",$getParms->filter,"SA");
-   $table1 = $out . "<p>$out1</p>\n";
+   if (in_array($getParms->dict,array('ae','mwe','bor'))) {
+    // for English headword, no need to transcode key.
+    $table1 = $out;
+   }else {
+    $out1 = "<SA>$key</SA>";
+    $out1 = transcoder_processElements($out1,"slp1",$getParms->filter,"SA");
+    $table1 = $out . "<p>$out1</p>\n";
+   }
    $table = null;
    $this->status = false;
   }else {

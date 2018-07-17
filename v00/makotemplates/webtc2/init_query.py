@@ -32,6 +32,8 @@ def make(filein,fileout):
    key=m.group(1)
    body = m.group(2)
    L=m.group(3)
+   data1 = query_line(body)
+   data2 = query_sanskrit(body)
    #data2 = "" # currently, no good way to distinguish Sanskrit words.
    ## if prevkey is empty, start a new keydata
    ## else if a new key, output keydata

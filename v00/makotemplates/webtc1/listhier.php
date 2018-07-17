@@ -20,7 +20,13 @@ $listmatches = $model->listmatches;
 require_once('listhierview.php');
 $view = new ListHierView($listmatches,$getParms);
 $table = $view->table;
-$table1 = transcoder_processElements($table,"slp1",$getParms->filter,"SA");
+if (in_array($getParms->dict,array('ae','mwe','bor'))) {
+ // for dictionaries with english headwords, no transcoding of list of words
+ // This accomplished by transcoding from slp1 to slp1
+ $table1 = transcoder_processElements($table,"slp1","slp1","SA");
+} else {
+ $table1 = transcoder_processElements($table,"slp1",$getParms->filter,"SA");
+}
 echo $table1;
 exit;
 
