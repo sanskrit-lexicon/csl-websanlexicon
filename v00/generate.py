@@ -1,13 +1,13 @@
 # coding=utf-8
-""" backup.py
- Mar 30, 2018
+""" generate.py
+ 07-18-2018
   
 """
 import sys,re
 import codecs
 import os.path,time
 from shutil import copyfile
-from dictparms import alldictparms
+from dictparms import alldictparms,microversion
 # use mako templates
 from mako.template import Template
 
@@ -60,6 +60,9 @@ if __name__=="__main__":
  dictparms = alldictparms[dictcode]
  # add dictmmddyyyy string 
  dictparms['dictmmddyyyy'] = current_mmddyyyy()
+ # revise dictwebversion to include microversion
+ dictparms['dictwebversion'] = dictparms['dictwebversion'] + microversion
+ print("Using dictwebversion=%s" %dictparms['dictwebversion'])
  inventory = init_inventory(filein)
  # 3 extra files for stc
  if dictcode == 'stc':

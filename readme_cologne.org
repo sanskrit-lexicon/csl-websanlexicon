@@ -192,9 +192,6 @@ sqlite/gramwauth.sqlite
 webtc2/query_dump.txt
 webtc/pdffiles.txt
 
-* regenerate gra in place  (modifies 'web' directly)
-#in v00
-python generate.py gra inventory.txt  makotemplates ../../gra/web
 * v00 generate and install: gra
 cd v00
 python generate.py gra inventory.txt  makotemplates ../../GRAScan/2014/webv00
@@ -203,7 +200,14 @@ python generate.py gra inventory.txt  makotemplates ../../GRAScan/2014/webv00
 # python install.py <dictcode> <dirin> <diroutparent>
  python install.py gra ../../GRAScan/2014/webv00 ../../GRAScan/2014
 
+Extra: (for siddhanta)
+ cp -r ../../PWGScan/2013/web/fonts/ ../../GRAScan/2014/web/
 
+* regenerate gra in place  (modifies 'web' directly)
+#in v00
+python generate.py gra inventory.txt  makotemplates ../../GRAScan/2014/web
+
+* -------------- bur
 * v00 generate and install: bur
 cd v00
 python generate.py bur inventory.txt  makotemplates ../../bur/webv00

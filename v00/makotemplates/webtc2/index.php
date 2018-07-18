@@ -45,6 +45,8 @@ font-size: 14pt;
 <td >
 %if dictlo in ['ae','mwe','bor']:
 Sanskrit text word:
+%elif dictlo in ['gra']:
+Sanskrit Headword:
 %else:
 Sanskrit word:
 %endif

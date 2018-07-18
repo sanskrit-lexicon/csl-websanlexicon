@@ -1,4 +1,9 @@
 # coding=utf-8
+# the version (in webtc/dictcode.php) is value
+# of contextvariable dictwebversion.
+# It is suffixed with this 'microversion', which should be
+#  changed often.
+microversion = '.002'
 alldictparms = {
  "gra": {
   "dictup":"GRA",
@@ -77,6 +82,7 @@ alldictparms = {
  },
 
 }
+
 """
    array("ACC"=>"2014" , "AE"=>"2014" , "AP"=>"2014" , "AP90"=>"2014",
        "BEN"=>"2014" , "BHS"=>"2014" , "BOP"=>"2014" , "BOR"=>"2014",
