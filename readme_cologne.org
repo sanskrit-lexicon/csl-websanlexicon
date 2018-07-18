@@ -21,6 +21,17 @@ given dictionary X is given in this table:
        "SHS"=>"2014" , "SKD"=>"2013" , "SNP"=>"2014" , "STC"=>"2013",
        "VCP"=>"2013" , "VEI"=>"2014" , "WIL"=>"2014" , "YAT"=>"2014");
 
+* mako
+  The generate.py code is intended to work with Python 2;  it was developed
+  on ejf local machine with Python 2.7.10, and mako version 1.0.6.
+  The cologne version of python 2  (2.6.6) had an old version (0.3.4) of 
+  mako which threw an exception regarding Unicode conversion.
+  Solution:   from https://pypi.org/project/Mako/1.0.7/#files,  
+    the 1.0.7 version of mako was downloaded.  When extracted, there
+    was a single 'mako' folder, that contains only Python code.
+    This folder was zipped and copied to Cologne and put in the v00
+    folder.  Now, when python generate.py ... is run in v00,  the 1.0.7
+    version of mako is what is used., and it works fine.
 * inventory
 Directories and files in web application subdirectories, specifically for 'gra'
 ** web directory files
@@ -186,13 +197,11 @@ webtc/pdffiles.txt
 python generate.py gra inventory.txt  makotemplates ../../gra/web
 * v00 generate and install: gra
 cd v00
-python generate.py gra inventory.txt  makotemplates grav00
-cp -Tr grav00 ../../gra/webv00
+python generate.py gra inventory.txt  makotemplates ../../GRAScan/2014/webv00
 
-#python generate.py gra temp_inventory.txt  temp_templates tempdir
 
 # python install.py <dictcode> <dirin> <diroutparent>
- python install.py gra ../../gra/webv00 ../../gra
+ python install.py gra ../../GRAScan/2014/webv00 ../../GRAScan/2014
 
 
 * v00 generate and install: bur

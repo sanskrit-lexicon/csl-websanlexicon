@@ -1,3 +1,5 @@
 *~
 temp*
 *.pyc
+v00/mako/*
+v00/*.pyc
