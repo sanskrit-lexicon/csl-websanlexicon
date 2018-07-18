@@ -2,7 +2,11 @@
 Install web applications
 version 0.1 
 2018-07-01
+The paths in this readme assume the organization of web directories
+convenient for xampp.  The web directory for dictionary 'X' is, relative
+to the directory of this websanlexicon directory, ../X/web
 
+ 
 * inventory
 Directories and files in web application subdirectories, specifically for 'gra'
 ** web directory files

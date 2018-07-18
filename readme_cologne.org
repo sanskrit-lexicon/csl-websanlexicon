@@ -1,0 +1,358 @@
+
+Install web applications
+version 0.1 
+2018-07-01
+This documentation is best viewed with Emacs, as it uses the 'org mode'.
+
+The paths in this readme assume the organization of web directories
+as in the Cologne web site.  The web directory for dictionary 'X' is, relative
+to the directory of this websanlexicon directory, ../XScan/YEAR/web
+where YEAR is different for different scans.  The YEAR corresponding to a 
+given dictionary X is given in this table:
+
+* Cologne dictionary years
+   array("ACC"=>"2014" , "AE"=>"2014" , "AP"=>"2014" , "AP90"=>"2014",
+       "BEN"=>"2014" , "BHS"=>"2014" , "BOP"=>"2014" , "BOR"=>"2014",
+       "BUR"=>"2013" , "CAE"=>"2014" , "CCS"=>"2014" , "GRA"=>"2014",
+       "GST"=>"2014" , "IEG"=>"2014" , "INM"=>"2013" , "KRM"=>"2014",
+       "MCI"=>"2014" , "MD"=>"2014" , "MW"=>"2014" , "MW72"=>"2014",
+       "MWE"=>"2013" , "PD"=>"2014" , "PE"=>"2014" , "PGN"=>"2014",
+       "PUI"=>"2014" , "PWG"=>"2013" , "PW"=>"2014" , "SCH"=>"2014",
+       "SHS"=>"2014" , "SKD"=>"2013" , "SNP"=>"2014" , "STC"=>"2013",
+       "VCP"=>"2013" , "VEI"=>"2014" , "WIL"=>"2014" , "YAT"=>"2014");
+
+* inventory
+Directories and files in web application subdirectories, specifically for 'gra'
+** web directory files
+graheader.xml
+index.php
+readme.txt
+
+** images
+images/cologne_univ_seal.gif
+images/encoding.gif
+** js
+js/jquery.cookie.js
+js/jquery.min.js
+** mobile1
+mobile1/index.php
+mobile1/main.css
+mobile1/main_mobile.js
+mobile1/monier_serveimg.css
+** sqlite
+sqlite/def.sql
+sqlite/gra.sqlite
+sqlite/input.txt
+sqlite/make_input.php
+sqlite/redo.sh
+** utilities
+transcoder.php
+** utilities/transcoder
+utilities/transcoder/as_roman.xml
+utilities/transcoder/deva_slp1.xml
+utilities/transcoder/hk_slp1.xml
+utilities/transcoder/itrans_slp1.xml
+utilities/transcoder/roman_slp1.xml
+utilities/transcoder/slp1_as.xml
+utilities/transcoder/slp1_deva.xml
+utilities/transcoder/slp1_hk.xml
+utilities/transcoder/slp1_itrans.xml
+utilities/transcoder/slp1_roman.xml
+utilities/transcoder/slp1_romanpms.xml
+utilities/transcoder/slp1_wx.xml
+utilities/transcoder/wx_slp1.xml
+** webtc
+webtc/basicadjust.php
+webtc/dal.php
+webtc/dbgprint.php
+webtc/dictcode.php
+webtc/dictinfo.php
+webtc/disp.php
+webtc/download.html
+webtc/getword.php
+webtc/getwordviewmodel.php
+webtc/help.html
+webtc/indexcaller.php
+webtc/main.css
+webtc/main_webtc.js
+webtc/parm.php
+webtc/pdffiles.txt
+webtc/serveimg.css
+webtc/servepdf.php
+webtc/translithelp.html
+** webtc1
+webtc1/disphier.php
+webtc1/index.php
+webtc1/keyboard.css
+webtc1/keyboard.js
+webtc1/keyboard.png
+webtc1/listhier.php
+webtc1/listhiermodel.php
+webtc1/listhierview.php
+webtc1/listparm.php
+webtc1/main.css
+webtc1/main.js
+webtc1/preferences.htm
+webtc1/transcoderfield_VKI.js
+** webtc1/help
+webtc1/help/accents.html
+webtc1/help/ack.html
+webtc1/help/definition.html
+webtc1/help/help.css
+webtc1/help/help.html
+webtc1/help/help.js
+webtc1/help/helpmain.html
+** webtc1/help/images
+webtc1/help/images/input.html
+webtc1/help/images/keyboard.html
+webtc1/help/images/links.html
+webtc1/help/images/list.html
+webtc1/help/images/phonetic.html
+webtc1/help/images/preferences.html
+webtc1/help/images/system.html
+** webtc1/transcoderjs
+webtc1/transcoderjs/transcoder3.js
+webtc1/transcoderjs/transcoderJson.js
+** webtc2
+webtc2/help.html
+webtc2/index.php
+webtc2/init_query.php
+webtc2/init_query.sh
+webtc2/main.css
+webtc2/main.js
+webtc2/query.php
+webtc2/query_dump.txt
+webtc2/query_gather.php
+webtc2/query_multi.php
+webtc2/querylistview.php
+webtc2/querymodel.php
+webtc2/queryparm.php
+
+** not included
+mobile1/old:
+utilities/old:
+utilities/transcoder/old:
+utilities/transcoder/pms:
+webtc/old:
+webtc1/old:
+webtc1/old1:
+webtc2/old:
+webtc2/old1:
+* INSTALLING:
+** directories which are same for all dictionaries
+ images, 
+ js, 
+ utilities, utilities/transcoder,
+ webtc1/help webtc1/help/images, webtc1/transcoderjs
+** sqlite directory
+   def.sql, make_input.php, and redo.sh are used to generate
+   gra.sqlite from gra.xml.
+   input.txt is an intermediate file.
+   Only gra.sqlite is used by displays.
+   For some other dictionaries, xab.sqlite and xauth.sqlite are used
+   by displays.
+ The data constructors in webtc need to know where the sqlite database
+ files reside, and their name and table names. e.g. gra.sqlite has table
+ named gra.
+ Other tables could be put into gra.sqlite, but this is not done now.
+ The current convention is that if X.sqlite is the filename, then the
+ table name is X  (e.g. whitmwtab.sqlite has table name whitmwtab.)
+* webtc2/query_dump.txt
+* next
+* backup an inventory file
+# in webinstall:
+python backup.py inventories/gra_00.txt ../gra/web  webbackup/gra/00
+python backup.py inventories/bur_00.txt ../bur/web  webbackup/bur/00
+python backup.py inventories/cae_00.txt ../cae/web  webbackup/cae/00
+python backup.py inventories/stc_00.txt ../stc/web  webbackup/stc/00
+python backup.py inventories/pwg_00.txt ../pwg/web  webbackup/pwg/00
+python backup.py inventories/mw_00.txt ../mw/web  webbackup/mw/00
+python backup.py inventories/skd_00.txt ../skd/web  webbackup/skd/00
+python backup.py inventories/ae_00.txt ../ae/web  webbackup/ae/00
+
+* v00 -- initial 'general' version of web
+  starts as a copy of webbackup/gra/00
+* install datafiles to move
+pdfpages # directory
+fonts    # directory
+sqlite/gra.sqlite 
+sqlite/graab.sqlite
+sqlite/gramwauth.sqlite
+webtc2/query_dump.txt
+webtc/pdffiles.txt
+
+* regenerate gra in place  (modifies 'web' directly)
+#in v00
+python generate.py gra inventory.txt  makotemplates ../../gra/web
+* v00 generate and install: gra
+cd v00
+python generate.py gra inventory.txt  makotemplates grav00
+cp -Tr grav00 ../../gra/webv00
+
+#python generate.py gra temp_inventory.txt  temp_templates tempdir
+
+# python install.py <dictcode> <dirin> <diroutparent>
+ python install.py gra ../../gra/webv00 ../../gra
+
+
+* v00 generate and install: bur
+cd v00
+python generate.py bur inventory.txt  makotemplates ../../bur/webv00
+# cp -Tr grav00 ../../gra/webv00
+
+# python install.py <dictcode> <dirin> <diroutparent>
+ python install.py bur ../../bur/webv00 ../../bur
+
+* regenerate bur in place  (modifies 'web' directly)
+#in v00
+python generate.py bur inventory.txt  makotemplates ../../bur/web
+* TODO 'outopt' in webtc2
+  This is vestigial.  Needs to be removed in several places:
+    main.js, queryParm.php, index.php, elsewhere?
+* TODO modifyDeva in main.js
+  Is this the right way to insure Siddhanta font for devanagari output?
+* DONE accent
+  This is a display option. Implement in BasicAdjust? 
+  Currently a parameter in query_multi.php
+* v00 generate and install: cae
+cd v00
+python generate.py cae inventory.txt  makotemplates ../../cae/webv00
+
+#python generate.py cae temp_inventory.txt  temp_templates tempdir
+
+# python install.py <dictcode> <dirin> <diroutparent>
+ python install.py cae ../../cae/webv00 ../../cae
+* regenerate cae in place  (modifies 'web' directly)
+#in v00
+python generate.py cae inventory.txt  makotemplates ../../cae/web
+* DONE Use siddhanta font
+* v00 generate  stc 07-08-2018
+This is peculiar, because there are Frenchified versions of some displays:
+webtc/download_fr.html , help_fr.html , indexcaller_fr.php
+These are processed by generate.py as additional inventory files.
+
+cd v00
+python generate.py stc inventory.txt  makotemplates ../../stc/webv00
+
+* install stc 07-08-2018
+ python install.py stc ../../stc/webv00 ../../stc
+* regenerate stc/web in place  
+#in v00
+python generate.py stc inventory.txt  makotemplates ../../stc/web
+* ----------pwg---------------------
+* NOTES on PWG conversion
+** pwgauth  
+   This is first dictionary conversion with links resolving ls (works/authors)
+   sqlite file named pwgbib  (why not pwgauth?) -- basicadjust.php
+      structure: id, code, codecap, data.
+       id is unique identifier (like 1.001) constructed in an extra step of the
+       construction of pwgbib, and in the xml file as an attribute:
+       <ls n="1.001">codeX</ls>. 
+  there is special 'lshead' element added to xml by basicadjust.
+  The css (main.css for webtc) has special font for 'ls' class.
+  'is' element (wide spacing)
+  There is embedded html  (<lb> or <lb iast="X">) in the abbreviation text.
+    This should be removed in the creation step. Currently done in 
+    basicadjust.ls_callback.
+
+* v00 generate  pwg 07-09-2018
+
+cd v00
+python generate.py pwg inventory.txt  makotemplates ../../pwg/webv00
+
+* TODO Note: there is a special link in webtc/help.html for accents in PWG;
+      it points to a subsection of webtc1 help.
+* install pwg 
+ python install.py pwg ../../pwg/webv00 ../../pwg
+* NOTE: pwg webtc2 init_query.py
+There was a previous Python version used by PWG (and prob. also by PW).
+It is part of the backup, but is not currently used; the 'generic' 
+init_query.py is used instead.
+* regenerate pwg/web in place  
+#in v00
+python generate.py pwg inventory.txt  makotemplates ../../pwg/web
+* ----------mw---------------------
+* NOTES on MW conversion
+mwauthtooltips.sqlite, mwab.sqlite
+* TODO mwkeys.sqlite  This appears to be unused. Is alphabetical order
+still an option in list display?
+
+* generate  mw/webv00 07-13-2018
+
+cd v00
+python generate.py mw inventory.txt  makotemplates ../../mw/webv00
+
+* DONE Note: there is a special link in webtc/help.html for accents in MW;
+      it points to a subsection of webtc1 help.
+* install mw 
+ python install.py mw ../../mw/webv00 ../../mw
+* NOTE: mw webtc2 init_query.py
+There was a previous Python version used by MW (and prob. also by PW).
+It is part of the backup, but is not currently used; the 'generic' 
+init_query.py is used instead.
+* regenerate mw/web in place  
+#in v00
+python generate.py mw inventory.txt  makotemplates ../../mw/web
+* ----------skd---------------------
+* NOTES on SKD conversion
+ <div n="F">  -- perhaps recode as <F>
+* generate  skd/webv00 07-15-2018
+
+cd v00
+python generate.py skd inventory.txt  makotemplates ../../skd/webv00
+
+* install skd 
+ python install.py skd ../../skd/webv00 ../../skd
+* NOTE: skd webtc2 init_query.py
+There was a previous Python version used by SKD (and prob. also by PW).
+It is part of the backup, but is not currently used; the 'generic' 
+init_query.py is used instead.
+* regenerate skd/web in place  
+#in v00
+python generate.py skd inventory.txt  makotemplates ../../skd/web
+* ----------ae---------------------
+* NOTES on AE conversion
+
+* generate  ae/webv00 07-16-2018
+
+cd v00
+python generate.py ae inventory.txt  makotemplates ../../ae/webv00
+
+* install ae 
+ python install.py ae ../../ae/webv00 ../../ae
+* NOTE: ae webtc2 init_query.py
+There was a previous Python version used by AE (and prob. also by PW).
+It is part of the backup, but is not currently used; the 'generic' 
+init_query.py is used instead.
+* regenerate ae/web in place  
+#in v00
+python generate.py ae inventory.txt  makotemplates ../../ae/web
+* --------------------------------------------------------------
+* redo_web_all.sh
+ in v00
+ gra, bur, cae, stc, pwg, mw
+* --------------------------------------------------------------
+* apidev1
+* --------------------------------------------------------------
+* copy modules from webtc, and modify for apidev1.
+** previous copies in apidev1
+cp basicadjust.php.php temp_prev_basicadjust.php
+cp basicadjust.php temp_prev_basicadjust.php
+cp basicdisplay.php temp_prev_basicdisplay.php
+
+** dalraw
+cp v00/makotemplates/webtc/dal.php ../apidev1/dalraw.php
+# also, change class name to Dalraw
+** basicadjust
+cp v00/makotemplates/webtc/basicadjust.php ../apidev1/basicadjust.php
+additional changes: 
+ a) dal.php -> dalraw.php (one)
+ b) new Dal -> new Dalraw (three or more)
+** basicdisplay ??
+cp v00/makotemplates/webtc/disp.php ../apidev1/basicdisplay.php
+# no additional changes
+
+** modify apidev1/dalwhich.php
+  for dictionaries that have been 'converted'.
+
+* THE END
