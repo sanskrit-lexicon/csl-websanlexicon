@@ -210,15 +210,21 @@ python generate.py gra inventory.txt  makotemplates ../../GRAScan/2014/web
 * -------------- bur
 * v00 generate and install: bur
 cd v00
-python generate.py bur inventory.txt  makotemplates ../../bur/webv00
-# cp -Tr grav00 ../../gra/webv00
+python generate.py bur inventory.txt  makotemplates ../../BURScan/2013/webv00
 
 # python install.py <dictcode> <dirin> <diroutparent>
- python install.py bur ../../bur/webv00 ../../bur
+ python install.py bur ../../BURScan/2013/webv00 ../../BURScan/2013
+Extra: (for siddhanta)
+ cp -r ../../PWGScan/2013/web/fonts/ ../../BURScan/2013/web/
+
+cd ../../BURScan/2013/web/webtc2
+sh init_query.sh
+
+cp ../../BURScan/2013/pywork/burheader.xml ../../BURScan/2013/web/
 
 * regenerate bur in place  (modifies 'web' directly)
 #in v00
-python generate.py bur inventory.txt  makotemplates ../../bur/web
+python generate.py bur inventory.txt  makotemplates ../../BURScan/2013/web
 * TODO 'outopt' in webtc2
   This is vestigial.  Needs to be removed in several places:
     main.js, queryParm.php, index.php, elsewhere?

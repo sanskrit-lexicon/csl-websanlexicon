@@ -17,7 +17,7 @@
  Jun 2, 2017. changed $_REQUEST to $_REQUEST
 */
 require_once('../webtc/dictinfo.php');
-require_once('../webtc/Parm.php');
+require_once('../webtc/parm.php');
 #require_once('dbgprint.php');
 class ListParm extends Parm {
  # from Parm
