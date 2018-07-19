@@ -192,6 +192,7 @@ sqlite/gramwauth.sqlite
 webtc2/query_dump.txt
 webtc/pdffiles.txt
 
+* -------------- gra
 * v00 generate and install: gra
 cd v00
 python generate.py gra inventory.txt  makotemplates ../../GRAScan/2014/webv00
@@ -233,31 +234,58 @@ python generate.py bur inventory.txt  makotemplates ../../BURScan/2013/web
 * DONE accent
   This is a display option. Implement in BasicAdjust? 
   Currently a parameter in query_multi.php
+* TODO webtc2/querymodel.php case problem
+In searching for normal text, the text is converted to lower case using
+mb_strtolower function.  However, this does not always work in the the
+same way the the '.lower()' string method of Python works.
+For instance, a search for Śiva yields no results, while śiva succeeds.
+
+* ----------cae---------------------
 * v00 generate and install: cae
 cd v00
-python generate.py cae inventory.txt  makotemplates ../../cae/webv00
+python generate.py cae inventory.txt  makotemplates ../../CAEScan/2014/webv00
 
 #python generate.py cae temp_inventory.txt  temp_templates tempdir
 
 # python install.py <dictcode> <dirin> <diroutparent>
- python install.py cae ../../cae/webv00 ../../cae
+ python install.py cae ../../CAEScan/2014/webv00 ../../CAEScan/2014
+
+EXTRA:
+cp ../../CAEScan/2014/pywork/caeheader.xml ../../CAEScan/2014/web/
+
+cd ../../CAEScan/2014/web/webtc2
+sh init_query.sh
+
 * regenerate cae in place  (modifies 'web' directly)
 #in v00
-python generate.py cae inventory.txt  makotemplates ../../cae/web
-* DONE Use siddhanta font
+python generate.py cae inventory.txt  makotemplates ../../CAEScan/2014/web
+* Use siddhanta font
+* ----------stc---------------------
 * v00 generate  stc 07-08-2018
 This is peculiar, because there are Frenchified versions of some displays:
 webtc/download_fr.html , help_fr.html , indexcaller_fr.php
 These are processed by generate.py as additional inventory files.
 
 cd v00
-python generate.py stc inventory.txt  makotemplates ../../stc/webv00
+python generate.py stc inventory.txt  makotemplates ../../STCScan/2013/webv00
 
 * install stc 07-08-2018
- python install.py stc ../../stc/webv00 ../../stc
+ python install.py stc ../../STCScan/2013/webv00 ../../STCScan/2013
+ 
+ EXTRA:
+ cp -r ../../PWGScan/2013/web/fonts/ ../../STCScan/2013/web/
+cp ../../STCScan/2013/pywork/stcheader.xml ../../STCScan/2013/web/
+
+cd ../../STCScan/2013/web/webtc2
+sh init_query.sh
+
+cp ../../STCScan/2013/web_20140623/index_fr.php ../../STCScan/2013/web/
+
+* TODO  put front matter, etc. into web/index_fr.php
+
 * regenerate stc/web in place  
 #in v00
-python generate.py stc inventory.txt  makotemplates ../../stc/web
+python generate.py stc inventory.txt  makotemplates ../../STCScan/2013/web
 * ----------pwg---------------------
 * NOTES on PWG conversion
 ** pwgauth  
@@ -277,19 +305,26 @@ python generate.py stc inventory.txt  makotemplates ../../stc/web
 * v00 generate  pwg 07-09-2018
 
 cd v00
-python generate.py pwg inventory.txt  makotemplates ../../pwg/webv00
+python generate.py pwg inventory.txt  makotemplates ../../PWGScan/2013/webv00
 
-* TODO Note: there is a special link in webtc/help.html for accents in PWG;
+* Note: there is a special link in webtc/help.html for accents in PWG;
       it points to a subsection of webtc1 help.
 * install pwg 
- python install.py pwg ../../pwg/webv00 ../../pwg
+ python install.py pwg ../../PWGScan/2013/webv00 ../../PWGScan/2013
+
+EXTRA:
+cp ../../PWGScan/2013/pywork/pwgheader.xml ../../PWGScan/2013/web/
+
+cd ../../PWGScan/2013/web/webtc2
+sh init_query.sh
+
 * NOTE: pwg webtc2 init_query.py
 There was a previous Python version used by PWG (and prob. also by PW).
 It is part of the backup, but is not currently used; the 'generic' 
 init_query.py is used instead.
 * regenerate pwg/web in place  
 #in v00
-python generate.py pwg inventory.txt  makotemplates ../../pwg/web
+python generate.py pwg inventory.txt  makotemplates ../../PWGScan/2013/web
 * ----------mw---------------------
 * NOTES on MW conversion
 mwauthtooltips.sqlite, mwab.sqlite
@@ -299,55 +334,67 @@ still an option in list display?
 * generate  mw/webv00 07-13-2018
 
 cd v00
-python generate.py mw inventory.txt  makotemplates ../../mw/webv00
+python generate.py mw inventory.txt  makotemplates ../../MWScan/2014/webv00
 
 * DONE Note: there is a special link in webtc/help.html for accents in MW;
       it points to a subsection of webtc1 help.
 * install mw 
- python install.py mw ../../mw/webv00 ../../mw
-* NOTE: mw webtc2 init_query.py
-There was a previous Python version used by MW (and prob. also by PW).
-It is part of the backup, but is not currently used; the 'generic' 
-init_query.py is used instead.
+ python install.py mw ../../MWScan/2014/webv00 ../../MWScan/2014
+
+EXTRA:
+cp ../../MWScan/2014/pywork/mwheader.xml ../../MWScan/2014/web/
+
+cd ../../MWScan/2014/web/webtc2
+sh init_query.sh
+
 * regenerate mw/web in place  
 #in v00
-python generate.py mw inventory.txt  makotemplates ../../mw/web
+python generate.py mw inventory.txt  makotemplates ../../MWScan/2014/web
 * ----------skd---------------------
 * NOTES on SKD conversion
  <div n="F">  -- perhaps recode as <F>
 * generate  skd/webv00 07-15-2018
 
 cd v00
-python generate.py skd inventory.txt  makotemplates ../../skd/webv00
+python generate.py skd inventory.txt  makotemplates ../../SKDScan/2013/webv00
 
 * install skd 
- python install.py skd ../../skd/webv00 ../../skd
-* NOTE: skd webtc2 init_query.py
-There was a previous Python version used by SKD (and prob. also by PW).
-It is part of the backup, but is not currently used; the 'generic' 
-init_query.py is used instead.
+ python install.py skd ../../SKDScan/2013/webv00 ../../SKDScan/2013
+
+EXTRA:
+ cp -r ../../PWGScan/2013/web/fonts/ ../../SKDScan/2013/web/
+cp ../../SKDScan/2013/pywork/skdheader.xml ../../SKDScan/2013/web/
+cd ../../SKDScan/2013/web/webtc2
+sh init_query.sh
+cd ../../../../websanlexicon/v00
+
 * regenerate skd/web in place  
 #in v00
-python generate.py skd inventory.txt  makotemplates ../../skd/web
+python generate.py skd inventory.txt  makotemplates ../../SKDScan/2013/web
 * ----------ae---------------------
 * NOTES on AE conversion
 
 * generate  ae/webv00 07-16-2018
 
 cd v00
-python generate.py ae inventory.txt  makotemplates ../../ae/webv00
+python generate.py ae inventory.txt  makotemplates ../../AEScan/2014/webv00
 
 * install ae 
- python install.py ae ../../ae/webv00 ../../ae
-* NOTE: ae webtc2 init_query.py
-There was a previous Python version used by AE (and prob. also by PW).
-It is part of the backup, but is not currently used; the 'generic' 
-init_query.py is used instead.
+ python install.py ae ../../AEScan/2014/webv00 ../../AEScan/2014
+EXTRA:
+cp -r ../../PWGScan/2013/web/fonts/ ../../AEScan/2014/web/
+cp ../../AEScan/2014/pywork/aeheader.xml ../../AEScan/2014/web/
+cd ../../AEScan/2014/web/webtc2
+sh init_query.sh
+cd ../../../../websanlexicon/v00
+
 * regenerate ae/web in place  
 #in v00
-python generate.py ae inventory.txt  makotemplates ../../ae/web
+python generate.py ae inventory.txt  makotemplates ../../AEScan/2014/web
 * --------------------------------------------------------------
-* redo_web_all.sh
+* redo_cologne_all.sh
+This script runs generate.py for all the converted dictionaries,
+  with parameters to update the active 'web' directory for each dictionary.
  in v00
  gra, bur, cae, stc, pwg, mw
 * --------------------------------------------------------------
