@@ -412,8 +412,8 @@ python generate.py pw inventory.txt  makotemplates ../../PWScan/2014/webv00
  python install.py pw ../../PWScan/2014/webv00 ../../PWScan/2014
 EXTRA:
 #cp -r ../../PWGScan/2013/web/fonts/ ../../PWScan/2014/web/
-#cp ../../PWScan/2014/pywork/pwheader.xml ../../PWScan/2014/web/
-mv ../../PWScan/2014/web_20180521/sqlite/pwbib.sqlite ../../PWScan/2014/web/sqlite/pwbib.sqlite 
+cp ../../PWScan/2014/pywork/pwheader.xml ../../PWScan/2014/web/
+mv ../../PWScan/2014/web_20140628/sqlite/pwbib.sqlite ../../PWScan/2014/web/sqlite/pwbib.sqlite 
 cd ../../PWScan/2014/web/webtc2
 sh init_query.sh
 cd ../../../../websanlexicon/v00
