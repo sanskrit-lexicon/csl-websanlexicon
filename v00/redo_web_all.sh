@@ -4,3 +4,6 @@ python generate.py cae inventory.txt  makotemplates ../../cae/web
 python generate.py stc inventory.txt  makotemplates ../../stc/web
 python generate.py pwg inventory.txt  makotemplates ../../pwg/web
 python generate.py mw inventory.txt  makotemplates ../../mw/web
+python generate.py skd inventory.txt  makotemplates ../../skd/web
+python generate.py ae inventory.txt  makotemplates ../../ae/web
+python generate.py pw inventory.txt  makotemplates ../../pw/web

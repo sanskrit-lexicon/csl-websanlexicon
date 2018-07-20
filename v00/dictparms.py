@@ -80,6 +80,15 @@ alldictparms = {
   "dictaccent":False,
   "webtc2devatextoption":False,
  },
+"pw": {
+  "dictup":"PW",
+  "dictlo":"pw",
+  "dictname":u"Böhtlingk Sanskrit-Wörterbuch in kürzerer Fassung",
+  "dictwebversion":"00",
+  "dictyear":"2014",
+  "dictaccent":True,
+  "webtc2devatextoption":True,
+ },
 
 }
 

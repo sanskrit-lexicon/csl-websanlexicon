@@ -24,7 +24,7 @@ class BasicAdjust {
   $key = $getParms->key;
   $this->dbg=false;
   $this->dal_ab = new Dal($dict,"ab");
-  if ($dict == 'pwg') {
+  if (in_array($dict,array('pwg','pw'))) {
    $this->dal_auth = new Dal($dict,"bib");  # powgbib
    dbgprint(false,"basicadjust: bib file open? " . $this->dal_auth->status ."\n");
   }else if ($dict == 'mw'){
@@ -118,7 +118,9 @@ class BasicAdjust {
  if (count($result) != 1) {
   return $ans; // failure
  }
- if ($this->getParms->dict == 'pwg') {
+ if (in_array($this->getParms->dict,array('pwg','pw'))) {
+  // This if is currently redundant, as ls_callback_pwg only called
+  // when this is true. However, it does no harm.
   $rec = $result[0];
   list($n0,$code,$codecap,$text) = $rec;
   dbgprint($dbg," ls_callback_pwg code=$code,  codecap=$codecap, text=\n$text\n");

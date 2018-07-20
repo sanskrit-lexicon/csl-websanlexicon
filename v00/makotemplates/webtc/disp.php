@@ -165,8 +165,17 @@ public function __construct($key,$matches,$filterin,$dict) {
      #$ans .= "<strong>Footnote: ";
      $ans .= "<br/>&nbsp;<span class='footnote'>[Footnote: ";
     }
-     return $ans;
-   
+    return $ans; 
+   }else if ($this->dict == 'pw') {
+    //  n = 1 (number div), n = 2 (English letter), n = 3 (Greek letter)
+    //  n = p (prefixed form, in verbs
+    if ($n == '1') {$indent = "1.5em";}
+    else if ($n == '2') {$indent = "3.0em";}
+    else if ($n == '3') {$indent = "4.5em";}
+    else {$indent = "";}
+    $style = "position:relative; left:$indent;";
+    $ans = "<br/><span style='$style'>";
+    return $ans;
    }else { // default
     // currently applies to:
     // cae with <div n="p"/>
@@ -251,10 +260,11 @@ public function __construct($key,$matches,$filterin,$dict) {
   } else if ($el == "lang") {
     // nothing special here  Greek remains to be filled in
     // Depends on whether the text is filled in
-    if (in_array($this->dict,array('pwg','mw'))) {
+    $n = $attribs['n'];
+    if (in_array($this->dict,array('pwg','mw','pw'))) {
      # nothing to do.
     }else {
-     $this->row .= " (greek) ";
+     $this->row .= " ($n) ";
     }
   } else if ($el == "lb") {
     $this->row .= "<br/>";
@@ -276,11 +286,11 @@ public function __construct($key,$matches,$filterin,$dict) {
     $this->row .= "&nbsp;<span class='ls'>";   
    }
   } else if ($el == "lshead") {
-   // pwg
+   // pwg, pw
    $style = "color:blue; border-bottom: 1px dotted #000; text-decoration: none;";
    $this->row  .= "<span style='$style'>";
   } else if ($el == "is") {
-    //pwg
+    //pwg, pw
    #$this->row .= "<span style='font-style: normal; color:teal'>";
    $this->row .= "<span style='letter-spacing:2px;'>"; # this is more like the text
   } else if ($el == "bot") {
