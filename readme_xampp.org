@@ -155,6 +155,7 @@ python backup.py inventories/pwg_00.txt ../pwg/web  webbackup/pwg/00
 python backup.py inventories/mw_00.txt ../mw/web  webbackup/mw/00
 python backup.py inventories/skd_00.txt ../skd/web  webbackup/skd/00
 python backup.py inventories/ae_00.txt ../ae/web  webbackup/ae/00
+python backup.py inventories/pw_00.txt ../pw/web  webbackup/pw/00
 
 * v00 -- initial 'general' version of web
   starts as a copy of webbackup/gra/00
@@ -313,10 +314,46 @@ init_query.py is used instead.
 * regenerate ae/web in place  
 #in v00
 python generate.py ae inventory.txt  makotemplates ../../ae/web
+* ----------pw---------------------
+* NOTES on PW conversion
+** pwauth  
+   This was changed to be like pwg; there is now a pwbib sqlite file
+   and the pw.xml generation has a step that adds <ls n="cologneid"> markup
+   for linking to pwbib.
+   One loss:  the size formatting of the literary source number parts was
+      omitted. See webbackup/pw/00/webtc/disp_format_ls.php if desire to
+      re-implement it.
+
+* v00 generate  pw 07-19-2018
+
+cd v00
+python generate.py pw inventory.txt  makotemplates ../../pw/webv00
+
+* Note: there is a special link in webtc/help.html for accents in PW;
+      it points to a subsection of webtc1 help.
+* install pw 
+ python install.py pw ../../pw/webv00 ../../pw
+EXTRA
+#cp -r ../../PWGScan/2013/web/fonts/ ../../pw/web/
+#cp ../../pw/pywork/pwheader.xml ../../pw/web/
+mv ../../pw/web_20180521/sqlite/pwbib.sqlite ../../pw/web/sqlite/pwbib.sqlite 
+cd ../../pw/web/webtc2
+sh init_query.sh
+cd ../../../websanlexicon/v00
+
+
+* NOTE: pw webtc2 init_query.py
+There was a previous Python version used by PW (and prob. also by PW).
+It is part of the backup, but is not currently used; the 'generic' 
+init_query.py is used instead.
+* regenerate pw/web in place  
+#in v00
+python generate.py pw inventory.txt  makotemplates ../../pw/web
 * --------------------------------------------------------------
 * redo_web_all.sh
  in v00
- gra, bur, cae, stc, pwg, mw
+ gra, bur, cae, stc, pwg, mw, skd, ae, 
+pw
 * --------------------------------------------------------------
 * apidev1
 * --------------------------------------------------------------
