@@ -6,11 +6,11 @@ mobile1/index.php:T
 mobile1/main.css:C
 ;mobile1/main_mobile.js:C
 ;mobile1/monier_serveimg.css:C
-sqlite/def.sql:C
+sqlite/def.sql:T
 ;sqlite/gra.sqlite
 ;sqlite/input.txt
 sqlite/make_input.php:T
-sqlite/redo.sh:C
+sqlite/redo.sh:T
 utilities/transcoder.php:C
 utilities/transcoder/as_roman.xml:C
 utilities/transcoder/deva_slp1.xml:C
