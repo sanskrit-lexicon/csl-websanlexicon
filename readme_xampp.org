@@ -379,19 +379,33 @@ python generate.py ap90 inventory.txt  makotemplates ../../ap90/web
 
 * ----------ap---------------------
 * NOTES on AP conversion
-* v00 generate  ap 07-19-2018
-
+ div specialization in disp, with some preparation in basicadjust.
+ The 'name' attribute of div tags is unused in display.
+ -- replaced by emdash; better in ap.txt?
+ Bold Devanagari:
+  Look at hari, and the compounds, e.g. -अक्षः.  In the print this is bold.
+  There is also logic in sthndl_div to make it bold.
+  However, for the change to devanagari, the class sdata_siddhanta is
+  interior to the bold tag; and the sdata_siddhanta class has a css
+  attribute 'font-weight: normal' which overrides the 'bold'.  End result
+  is that अक्षः is normal weight.
+  However, if we have output IAST (or anything other than 'deva'), then
+  this word IS bold.
+  QUESTION: should the 'font-weight: normal' be removed from sdata_siddhanta
+  css class?   
+--
+  Remove '<root/>' tag in basicdisplay code. It is informational, and has
+  no special aspect in the printed text.
+* v00 generate  ap 07-22-2018
 cd v00
 python generate.py ap inventory.txt  makotemplates ../../ap/webv00
 
-* Note: there is a special link in webtc/help.html for accents in AP;
-      it points to a subsection of webtc1 help.
 * install ap 
  python install.py ap ../../ap/webv00 ../../ap
 EXTRA
-#cp -r ../../APGScan/2013/web/fonts/ ../../ap/web/
+cp -r ../../pwg/web/fonts/ ../../ap/web/
 #cp ../../ap/pywork/apheader.xml ../../ap/web/
-mv ../../ap/web_20180521/sqlite/apbib.sqlite ../../ap/web/sqlite/apbib.sqlite 
+#mv ../../ap/web_20180521/sqlite/apbib.sqlite ../../ap/web/sqlite/apbib.sqlite 
 cd ../../ap/web/webtc2
 sh init_query.sh
 cd ../../../websanlexicon/v00

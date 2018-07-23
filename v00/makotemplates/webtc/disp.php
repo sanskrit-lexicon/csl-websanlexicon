@@ -176,6 +176,22 @@ public function __construct($key,$matches,$filterin,$dict) {
     $style = "position:relative; left:$indent;";
     $ans = "<br/><span style='$style'>";
     return $ans;
+   }else if ($this->dict == 'ap') {
+    // line break, and 
+    // indent, whether 'n' is '2' or 'P' (only values allowed) 05-04-2017
+    // also, n='3' 05-21-2017 
+    //  Examples: n=2: akulAgamatantra
+    //  n=P paRqitasvAmin
+    //  n=3 agastyasaMhitA
+    if ($n == '3') {
+     $style="position:relative; left:2em;";
+    }else if ($n == '2') {
+     $style="position:relative; left:1em;";
+    }else {
+     $style="";
+    }
+    $ans = "<br/><span style='$style'>";
+    return $ans;
    }else { // default
     // currently applies to:
     // cae with <div n="p"/>
@@ -205,7 +221,7 @@ public function __construct($key,$matches,$filterin,$dict) {
    $this->inSanskrit = true;
   } else if ($el == "key2"){
    $this->inkey2 = true;
-  } else if ($el == "b"){ // bold
+  } else if ($el == "b"){ 
    $this->row .= "<strong>"; 
   } else if ($el == "graverse") {
    $this->row .= "<span style='font-size:smaller; font-weight:100'>";
@@ -329,7 +345,7 @@ public function __construct($key,$matches,$filterin,$dict) {
    $this->inSanskrit = false;
   } else if ($el == "F") {
    $this->row .= "]</span>&nbsp;<br/>";
-  } else if ($el == "b"){
+  } else if ($el == "b"){ 
    $this->row .= "</strong>"; 
   } else if ($el == "graverse") {
    $this->row .= "</span>";

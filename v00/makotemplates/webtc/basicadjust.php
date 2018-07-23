@@ -123,6 +123,15 @@ class BasicAdjust {
    $line = preg_replace('|<P/>|','<div n="P"/>',$line);
    #dbgprint(true,"line after <lb> changes\n$line\n");
   }
+  if ($this->getParms->dict == "ap") {
+   // replace -- with mdash : perhaps should be part of ap.txt
+   $line = preg_replace('/--/','&#8212;',$line);
+   // 03-12-2017.  Put 'b' (bold) tag around the first word of a div
+   $line = preg_replace('|(<div[^>]*>)(\(<i>.</i>\))|','\\1<b>\\2</b>',$line);
+   $line = preg_replace('|(<div[^>]*>)([0-9]+)|','\\1<b>\\2</b>',$line);
+   // Remove <root/> tag -- it plays no part in display
+   $line = preg_replace('|<root/>|','',$line);
+  }
  return $line;
 }
  
