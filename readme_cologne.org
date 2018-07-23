@@ -501,8 +501,8 @@ python generate.py bhs inventory.txt  makotemplates ../../BHSScan/2014/webv00
 * install bhs 
  python install.py bhs ../../BHSScan/2014/webv00 ../../BHSScan/2014
 EXTRA
-cp -r ../../pwg/web/fonts/ ../../BHSScan/2014/web/
-#cp ../../BHSScan/2014/pywork/bhsheader.xml ../../BHSScan/2014/web/
+cp -r ../../PWGScan/2013/web/fonts/ ../../BHSScan/2014/web/
+cp ../../BHSScan/2014/pywork/bhsheader.xml ../../BHSScan/2014/web/
 #mv ../../BHSScan/2014/web_20180521/sqlite/bhsbib.sqlite ../../BHSScan/2014/web/sqlite/bhsbib.sqlite 
 cd ../../BHSScan/2014/web/webtc2
 sh init_query.sh
