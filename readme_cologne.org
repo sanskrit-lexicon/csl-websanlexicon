@@ -479,11 +479,11 @@ python generate.py pd inventory.txt  makotemplates ../../PDScan/2014/webv00
  python install.py pd ../../PDScan/2014/webv00 ../../PDScan/2014
 EXTRA
 #cp -r ../../pwg/web/fonts/ ../../PDScan/2014/web/
-#cp ../../PDScan/2014/pywork/pdheader.xml ../../PDScan/2014/web/
+cp ../../PDScan/2014/pywork/pdheader.xml ../../PDScan/2014/web/
 #mv ../../PDScan/2014/web_20180521/sqlite/pdbib.sqlite ../../PDScan/2014/web/sqlite/pdbib.sqlite 
 cd ../../PDScan/2014/web/webtc2
 sh init_query.sh
-cd ../../../websanlexicon/v00
+cd ../../../../websanlexicon/v00
 * regenerate pd/web in place  
 #in v00
 python generate.py pd inventory.txt  makotemplates ../../PDScan/2014/web
