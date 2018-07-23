@@ -1,3 +1,5 @@
+// /scans/STCScan/2013/web/mobile1/main_mobile.js
+// May 28, 2013
 
 function getWord() {
   var word = "";
@@ -11,18 +13,7 @@ function getWord() {
   
   var filter = document.getElementById("filter").value;
   var transLit = document.getElementById("transLit").value;
-  /* changed 07-23-2018. For some reason, this throws an error sometimes 
-  var accent = "no";
-  if (document.getElementById("accent")) {
-      accent = document.getElementById("accent").value;
-  }
-  */
-  try {
-   var accent = document.getElementById("accent").value;
-  } catch(err) {
-   var accent = "no";
-  }
-  /* removed 07-07-2018
+ 
   var noLit;
   if (! document.getElementById("noLit")) {
    noLit='off';
@@ -31,12 +22,11 @@ function getWord() {
   } else {
    noLit = 'off';
   }
-  */
+
   var url =  "../webtc/getword.php" +  
    "?key=" +escape(word) + 
    "&filter=" +escape(filter) +
-   //"&noLit=" + escape(noLit) +
-   "&accent=" + escape(accent) +
+   "&noLit=" + escape(noLit) +
    "&transLit=" + escape(transLit);
 
     jQuery.ajax({
@@ -49,8 +39,17 @@ function getWord() {
 	    alert("Error: " + textStatus);
 	}
     });
+
 }
 
+function winls(url,anchor) {
+// Called by a link made by monierdisp.php
+ var url1 = '../mwauth/'+url+'#'+anchor;
+
+ win_ls = window.open(url1,
+    "winls", "width=520,height=210,scrollbars=yes");
+ win_ls.focus();
+}
 function cookieUpdate(flag) {
  // 1. Cookie named 'mwiobasic' for holding transLit and filter values;
  // this cookie name is different from that used in the 'Preferences'
@@ -66,8 +65,6 @@ function cookieUpdate(flag) {
  // then the cookie value is set as in 2, from the 'transLit' and 'filter' DOM
  // elements.
 
- // Leave cookieName to mwiobasic, so all dictionaries made this way will
- // share the user preferences
  var cookieName = 'mwiobasic';
  var cookieOptions = {expires: 365, path:'/'}; // 365 days
  var cookieValue = $.cookie(cookieName);
@@ -108,7 +105,7 @@ $(document).ready(function() {
   });
   // other initializations
   cookieUpdate(false);  // for initializing cookie
-  //win_ls=null; // initialize 'literary source' window. This is global
+  win_ls=null; // initialize 'literary source' window. This is global
   jQuery("#disp").html=""; // blank the display
   // respond to RESTFUL requests
   var word=jQuery("#key").val();

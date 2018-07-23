@@ -159,6 +159,7 @@ python backup.py inventories/ae_00.txt ../ae/web  webbackup/ae/00
 python backup.py inventories/pw_00.txt ../pw/web  webbackup/pw/00
 python backup.py inventories/ap90_00.txt ../ap90/web  webbackup/ap90/00
 python backup.py inventories/ap_00.txt ../ap/web  webbackup/ap/00
+python backup.py inventories/pd_00.txt ../pd/web  webbackup/pd/00
 
 * v00 -- initial 'general' version of web
   starts as a copy of webbackup/gra/00
@@ -413,11 +414,34 @@ cd ../../../websanlexicon/v00
 #in v00
 python generate.py ap inventory.txt  makotemplates ../../ap/web
 
+* ----------pd---------------------
+* NOTES on PD conversion
+  only changed sthndl_div.
+  Also, tried a change in main_webtc.js (regarding accent) to try to
+  avoid a Javascript error that occurs first time through. 
+* v00 generate  pd 07-23-2018
+
+cd v00
+python generate.py pd inventory.txt  makotemplates ../../pd/webv00
+
+* install pd 
+ python install.py pd ../../pd/webv00 ../../pd
+EXTRA
+#cp -r ../../pwg/web/fonts/ ../../pd/web/
+#cp ../../pd/pywork/pdheader.xml ../../pd/web/
+#mv ../../pd/web_20180521/sqlite/pdbib.sqlite ../../pd/web/sqlite/pdbib.sqlite 
+cd ../../pd/web/webtc2
+sh init_query.sh
+cd ../../../websanlexicon/v00
+* regenerate pd/web in place  
+#in v00
+python generate.py pd inventory.txt  makotemplates ../../pd/web
+
 * --------------------------------------------------------------
 * redo_web_all.sh
  in v00
  gra, bur, cae, stc, pwg, mw, skd, ae, 
- pw, ap90, ap
+ pw, ap90, ap, pd
 * --------------------------------------------------------------
 * apidev1
 * --------------------------------------------------------------

@@ -9,3 +9,4 @@ python generate.py ae inventory.txt  makotemplates ../../AEScan/2014/web
 python generate.py pw inventory.txt  makotemplates ../../PWScan/2014/web
 python generate.py ap90 inventory.txt  makotemplates ../../AP90Scan/2014/web
 python generate.py ap inventory.txt  makotemplates ../../APScan/2014/web
+python generate.py pd inventory.txt  makotemplates ../../PDScan/2014/web

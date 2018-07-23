@@ -1,3 +1,5 @@
+//web/webtc/main_webtc.js
+
 
 function getWord() {
   var word = "";
@@ -11,18 +13,8 @@ function getWord() {
   
   var filter = document.getElementById("filter").value;
   var transLit = document.getElementById("transLit").value;
-  /* changed 07-23-2018. For some reason, this throws an error sometimes 
-  var accent = "no";
-  if (document.getElementById("accent")) {
-      accent = document.getElementById("accent").value;
-  }
-  */
-  try {
    var accent = document.getElementById("accent").value;
-  } catch(err) {
-   var accent = "no";
-  }
-  /* removed 07-07-2018
+
   var noLit;
   if (! document.getElementById("noLit")) {
    noLit='off';
@@ -31,11 +23,11 @@ function getWord() {
   } else {
    noLit = 'off';
   }
-  */
-  var url =  "../webtc/getword.php" +  
+  
+  var url =  "getword.php" +  
    "?key=" +escape(word) + 
    "&filter=" +escape(filter) +
-   //"&noLit=" + escape(noLit) +
+   "&noLit=" + escape(noLit) +
    "&accent=" + escape(accent) +
    "&transLit=" + escape(transLit);
 
@@ -43,12 +35,20 @@ function getWord() {
 	url:url,
 	type:"GET",
         success: function(data,textStatus,jqXHR) {
+            var useragent = navigator.userAgent;
+	    if (!useragent) {useragent='';}
+            //alert('useragent=' + useragent);
+	    //alert(filter + ',' + transLit);
 	    jQuery("#disp").html(data);
+	    if (filter == 'deva') {
+                modifyDeva();
+	    }
 	},
 	error:function(jqXHR, textStatus, errorThrown) {
 	    alert("Error: " + textStatus);
 	}
     });
+
 }
 
 function cookieUpdate(flag) {
@@ -108,9 +108,31 @@ $(document).ready(function() {
   });
   // other initializations
   cookieUpdate(false);  // for initializing cookie
-  //win_ls=null; // initialize 'literary source' window. This is global
+  win_ls=null; // initialize 'literary source' window. This is global
   jQuery("#disp").html=""; // blank the display
   // respond to RESTFUL requests
   var word=jQuery("#key").val();
   if (word) {getWord();}
 });
+
+function getFontClass() {
+// June 25. Modify to always use siddhanta
+ //var family = document.getElementById("devafont").value;
+ var family = "siddhanta";
+ if (family === "system") {return "sdata_system";}
+ if (family === "praja") {return "sdata_praja";}
+ if (family === "oldstandard") {return "sdata_oldstandard";}   
+ if (family === "sanskrit2003") {return "sdata_sanskrit2003";}   
+ if (family === "siddhanta") {return "sdata_siddhanta";}   
+ return "sdata";
+}
+function modifyDeva() {
+    var fontclass = getFontClass();
+    var useragent = navigator.userAgent;
+    if (!useragent) {useragent='';}
+    if ((useragent.match(/Windows/i)) || (useragent.match(/Macintosh/i))){
+  jQuery(".sdata").removeClass("sdata").addClass(fontclass);
+ }else {
+	//alert('useragent not "Windows"=' + useragent);
+ }
+}

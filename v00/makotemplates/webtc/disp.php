@@ -192,6 +192,11 @@ public function __construct($key,$matches,$filterin,$dict) {
     }
     $ans = "<br/><span style='$style'>";
     return $ans;
+   }else if ($this->dict == 'pd') {
+    //  n = lb (line break)
+    $style = "";
+    $ans = "<br/><span style='$style'>";
+    return $ans;
    }else { // default
     // currently applies to:
     // cae with <div n="p"/>

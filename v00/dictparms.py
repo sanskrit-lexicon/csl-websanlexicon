@@ -107,6 +107,15 @@ alldictparms = {
   "dictaccent":False,
   "webtc2devatextoption":True,
  },
+"pd": {
+  "dictup":"PD",
+  "dictlo":"pd",
+  "dictname":u"An Encyclopedic Dictionary of Sanskrit on Historical Principles",
+  "dictwebversion":"00",
+  "dictyear":"2014",
+  "dictaccent":True,
+  "webtc2devatextoption":True,
+ },
 
 }
 
