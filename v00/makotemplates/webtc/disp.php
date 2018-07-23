@@ -180,6 +180,7 @@ public function __construct($key,$matches,$filterin,$dict) {
     // currently applies to:
     // cae with <div n="p"/>
     // mw 
+    // ap90 with <div n="1"/> or <div n="P"/>. See basicadjust
     #$style="position:relative; top:1.0em";
     #$ans = "<br/><span>";
     $style="margin-top:0.6em;";

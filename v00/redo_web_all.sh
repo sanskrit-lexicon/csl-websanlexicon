@@ -7,3 +7,4 @@ python generate.py mw inventory.txt  makotemplates ../../mw/web
 python generate.py skd inventory.txt  makotemplates ../../skd/web
 python generate.py ae inventory.txt  makotemplates ../../ae/web
 python generate.py pw inventory.txt  makotemplates ../../pw/web
+python generate.py ap90 inventory.txt  makotemplates ../../ap90/web

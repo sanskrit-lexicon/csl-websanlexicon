@@ -146,7 +146,8 @@ webtc2/old1:
 * webtc2/query_dump.txt
 * next
 * backup an inventory file
-# in webinstall:
+# in websanlexicon:
+These backups are done prior to the installation of version 00.
 python backup.py inventories/gra_00.txt ../gra/web  webbackup/gra/00
 python backup.py inventories/bur_00.txt ../bur/web  webbackup/bur/00
 python backup.py inventories/cae_00.txt ../cae/web  webbackup/cae/00
@@ -156,6 +157,8 @@ python backup.py inventories/mw_00.txt ../mw/web  webbackup/mw/00
 python backup.py inventories/skd_00.txt ../skd/web  webbackup/skd/00
 python backup.py inventories/ae_00.txt ../ae/web  webbackup/ae/00
 python backup.py inventories/pw_00.txt ../pw/web  webbackup/pw/00
+python backup.py inventories/ap90_00.txt ../ap90/web  webbackup/ap90/00
+python backup.py inventories/ap_00.txt ../ap/web  webbackup/ap/00
 
 * v00 -- initial 'general' version of web
   starts as a copy of webbackup/gra/00
@@ -349,11 +352,58 @@ init_query.py is used instead.
 * regenerate pw/web in place  
 #in v00
 python generate.py pw inventory.txt  makotemplates ../../pw/web
+* ----------ap90---------------------
+* NOTES on AP90 conversion
+  AP90 quirk: recognize "<b>--X</b>" as a line break.  In other dictionaries,
+  this would be done with a '<div>' element.
+ Also, line breaks '<lb/>' are ignored in the display.
+ Also, <P/> tag is changed to <div n="P"/> in basic adjust. Only 7 instances;
+   should change in ap90.txt.
+* v00 generate  ap90 07-20-2018
+
+cd v00
+python generate.py ap90 inventory.txt  makotemplates ../../ap90/webv00
+
+* install ap90 
+ python install.py ap90 ../../ap90/webv00 ../../ap90
+EXTRA
+cp -r ../../pwg/web/fonts/ ../../ap90/web/
+#cp ../../ap90/pywork/ap90header.xml ../../ap90/web/
+#mv ../../ap90/web_20180521/sqlite/ap90bib.sqlite ../../ap90/web/sqlite/ap90bib.sqlite 
+cd ../../ap90/web/webtc2
+sh init_query.sh
+cd ../../../websanlexicon/v00
+* regenerate ap90/web in place  
+#in v00
+python generate.py ap90 inventory.txt  makotemplates ../../ap90/web
+
+* ----------ap---------------------
+* NOTES on AP conversion
+* v00 generate  ap 07-19-2018
+
+cd v00
+python generate.py ap inventory.txt  makotemplates ../../ap/webv00
+
+* Note: there is a special link in webtc/help.html for accents in AP;
+      it points to a subsection of webtc1 help.
+* install ap 
+ python install.py ap ../../ap/webv00 ../../ap
+EXTRA
+#cp -r ../../APGScan/2013/web/fonts/ ../../ap/web/
+#cp ../../ap/pywork/apheader.xml ../../ap/web/
+mv ../../ap/web_20180521/sqlite/apbib.sqlite ../../ap/web/sqlite/apbib.sqlite 
+cd ../../ap/web/webtc2
+sh init_query.sh
+cd ../../../websanlexicon/v00
+* regenerate ap/web in place  
+#in v00
+python generate.py ap inventory.txt  makotemplates ../../ap/web
+
 * --------------------------------------------------------------
 * redo_web_all.sh
  in v00
  gra, bur, cae, stc, pwg, mw, skd, ae, 
-pw
+ pw, ap90, ap
 * --------------------------------------------------------------
 * apidev1
 * --------------------------------------------------------------

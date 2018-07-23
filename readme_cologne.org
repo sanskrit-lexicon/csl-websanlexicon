@@ -171,15 +171,9 @@ webtc2/old1:
 * webtc2/query_dump.txt
 * next
 * backup an inventory file
-# in webinstall:
-python backup.py inventories/gra_00.txt ../gra/web  webbackup/gra/00
-python backup.py inventories/bur_00.txt ../bur/web  webbackup/bur/00
-python backup.py inventories/cae_00.txt ../cae/web  webbackup/cae/00
-python backup.py inventories/stc_00.txt ../stc/web  webbackup/stc/00
-python backup.py inventories/pwg_00.txt ../pwg/web  webbackup/pwg/00
-python backup.py inventories/mw_00.txt ../mw/web  webbackup/mw/00
-python backup.py inventories/skd_00.txt ../skd/web  webbackup/skd/00
-python backup.py inventories/ae_00.txt ../ae/web  webbackup/ae/00
+ refer to readme_xampp.org.
+ These backups are being done on local computer, and are thus part of
+ the repository.  No need to repeat this step on Cologne server.
 
 * v00 -- initial 'general' version of web
   starts as a copy of webbackup/gra/00
@@ -421,6 +415,31 @@ cd ../../../../websanlexicon/v00
 * regenerate pw/web in place  
 #in v00
 python generate.py pw inventory.txt  makotemplates ../../PWScan/2014/web
+* ----------ap90---------------------
+* NOTES on AP90 conversion
+  AP90 quirk: recognize "<b>--X</b>" as a line break.  In other dictionaries,
+  this would be done with a '<div>' element.
+ Also, line breaks '<lb/>' are ignored in the display.
+ Also, <P/> tag is changed to <div n="P"/> in basic adjust. Only 7 instances;
+   should change in ap90.txt.
+* v00 generate  ap90 07-20-2018
+
+cd v00
+python generate.py ap90 inventory.txt  makotemplates ../../AP90Scan/2014/webv00
+
+* install ap90 
+ python install.py ap90 ../../AP90Scan/2014/webv00 ../../AP90Scan/2014
+EXTRA
+cp -r ../../pwg/web/fonts/ ../../AP90Scan/2014/web/
+#cp ../../AP90Scan/2014/pywork/ap90header.xml ../../AP90Scan/2014/web/
+#mv ../../AP90Scan/2014/web_20180521/sqlite/ap90bib.sqlite ../../AP90Scan/2014/web/sqlite/ap90bib.sqlite 
+cd ../../AP90Scan/2014/web/webtc2
+sh init_query.sh
+cd ../../../websanlexicon/v00
+* regenerate ap90/web in place  
+#in v00
+python generate.py ap90 inventory.txt  makotemplates ../../AP90Scan/2014/web
+
 * --------------------------------------------------------------
 * redo_cologne_all.sh
 This script runs generate.py for all the converted dictionaries,

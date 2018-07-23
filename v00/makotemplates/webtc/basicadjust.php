@@ -99,6 +99,30 @@ class BasicAdjust {
    $line = preg_replace("|<key2>(.*?)<hom>.*?</hom>(.*?<body>)|","<key2>$1$2",$line);
    
   }
+  if ($this->getParms->dict == "ap90") {
+   /*  ap90.xml has a line break '<lb/>' according to the printed edition.
+     In the display, these are not recognized.
+     Further, the display attempts to rejoin hyphenation due to line breaks.
+     Finally, the pattern '<b>--X</b>' is treated as a division that generates
+     a line break
+   */
+   #dbgprint(true,"line before <lb> changes\n$line\n");
+   $line = preg_replace('|- *<lb/>|','',$line);
+   $line = preg_replace('|-</s> <lb/><s>|','',$line);
+   $line = preg_replace('|<lb/>|','',$line);
+   # now reintroduce some line breaks, and replace '--' with '&mdash;'
+   # tech note on php:  when html entity &mdash; is used, then there is
+   # an error in the xml parser in disp.php.  However, when we use 
+   # the numerical code, '&#x2014;', the error disappears.
+   # It might be better to do this logic (including the em-dash) in
+   # make_xml.py or even in ap90.txt. E.g., change
+   # <b>--X</b> to <div n="1"/><b>—X</b>
+   #$line = preg_replace('|<b>--|','<lb/><b>&mdash;',$line);
+   $line = preg_replace('|<b>--|','<div n="1"/><b>&#x2014; ',$line);
+   # also, there are seven instances of "<P/>". Replace with a div
+   $line = preg_replace('|<P/>|','<div n="P"/>',$line);
+   #dbgprint(true,"line after <lb> changes\n$line\n");
+  }
  return $line;
 }
  

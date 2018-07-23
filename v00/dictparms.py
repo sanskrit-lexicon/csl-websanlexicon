@@ -89,6 +89,24 @@ alldictparms = {
   "dictaccent":True,
   "webtc2devatextoption":True,
  },
+"ap90": {
+  "dictup":"AP90",
+  "dictlo":"ap90",
+  "dictname":u"Apte Practical Sanskrit-English Dictionary, 1890",
+  "dictwebversion":"00",
+  "dictyear":"2014",
+  "dictaccent":False,
+  "webtc2devatextoption":True,
+ },
+"ap": {
+  "dictup":"AP",
+  "dictlo":"ap",
+  "dictname":u"Apte Practical Sanskrit-English Dictionary, revised edition, 1957",
+  "dictwebversion":"00",
+  "dictyear":"2014",
+  "dictaccent":False,
+  "webtc2devatextoption":True,
+ },
 
 }
 
