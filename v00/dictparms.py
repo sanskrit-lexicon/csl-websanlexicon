@@ -116,6 +116,15 @@ alldictparms = {
   "dictaccent":True,
   "webtc2devatextoption":True,
  },
+"bhs": {
+  "dictup":"BHS",
+  "dictlo":"bhs",
+  "dictname":u"Edgerton Buddhist Hybrid Sanskrit Dictionary",
+  "dictwebversion":"00",
+  "dictyear":"2014",
+  "dictaccent":False,
+  "webtc2devatextoption":False,
+ },
 
 }
 

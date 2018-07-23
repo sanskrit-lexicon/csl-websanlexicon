@@ -160,6 +160,7 @@ python backup.py inventories/pw_00.txt ../pw/web  webbackup/pw/00
 python backup.py inventories/ap90_00.txt ../ap90/web  webbackup/ap90/00
 python backup.py inventories/ap_00.txt ../ap/web  webbackup/ap/00
 python backup.py inventories/pd_00.txt ../pd/web  webbackup/pd/00
+python backup.py inventories/bhs_00.txt ../bhs/web  webbackup/bhs/00
 
 * v00 -- initial 'general' version of web
   starts as a copy of webbackup/gra/00
@@ -437,11 +438,34 @@ cd ../../../websanlexicon/v00
 #in v00
 python generate.py pd inventory.txt  makotemplates ../../pd/web
 
+* ----------bhs---------------------
+* NOTES on BHS conversion
+  Probably should change '--' to emdash in bhs.txt
+  Placeholders for Greek coded as <lang n="greek"></lang>.
+
+* v00 generate  bhs 07-23-2018
+
+cd v00
+python generate.py bhs inventory.txt  makotemplates ../../bhs/webv00
+
+* install bhs 
+ python install.py bhs ../../bhs/webv00 ../../bhs
+EXTRA
+cp -r ../../pwg/web/fonts/ ../../bhs/web/
+#cp ../../bhs/pywork/bhsheader.xml ../../bhs/web/
+#mv ../../bhs/web_20180521/sqlite/bhsbib.sqlite ../../bhs/web/sqlite/bhsbib.sqlite 
+cd ../../bhs/web/webtc2
+sh init_query.sh
+cd ../../../websanlexicon/v00
+* regenerate bhs/web in place  
+#in v00
+python generate.py bhs inventory.txt  makotemplates ../../bhs/web
+
 * --------------------------------------------------------------
 * redo_web_all.sh
  in v00
  gra, bur, cae, stc, pwg, mw, skd, ae, 
- pw, ap90, ap, pd
+ pw, ap90, ap,  pd,  bhs 
 * --------------------------------------------------------------
 * apidev1
 * --------------------------------------------------------------

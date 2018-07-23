@@ -192,7 +192,7 @@ public function __construct($key,$matches,$filterin,$dict) {
     }
     $ans = "<br/><span style='$style'>";
     return $ans;
-   }else if ($this->dict == 'pd') {
+   }else if (in_array($this->dict,array('pd','bhs'))) {
     //  n = lb (line break)
     $style = "";
     $ans = "<br/><span style='$style'>";

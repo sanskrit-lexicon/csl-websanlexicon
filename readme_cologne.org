@@ -488,13 +488,36 @@ cd ../../../../websanlexicon/v00
 #in v00
 python generate.py pd inventory.txt  makotemplates ../../PDScan/2014/web
 
+* ----------bhs---------------------
+* NOTES on BHS conversion
+  Probably should change '--' to emdash in bhs.txt
+  Placeholders for Greek coded as <lang n="greek"></lang>.
+
+* v00 generate  bhs 07-23-2018
+
+cd v00
+python generate.py bhs inventory.txt  makotemplates ../../BHSScan/2014/webv00
+
+* install bhs 
+ python install.py bhs ../../BHSScan/2014/webv00 ../../BHSScan/2014
+EXTRA
+cp -r ../../pwg/web/fonts/ ../../BHSScan/2014/web/
+#cp ../../BHSScan/2014/pywork/bhsheader.xml ../../BHSScan/2014/web/
+#mv ../../BHSScan/2014/web_20180521/sqlite/bhsbib.sqlite ../../BHSScan/2014/web/sqlite/bhsbib.sqlite 
+cd ../../BHSScan/2014/web/webtc2
+sh init_query.sh
+cd ../../../../websanlexicon/v00
+* regenerate bhs/web in place  
+#in v00
+python generate.py bhs inventory.txt  makotemplates ../../BHSScan/2014/web
+
 * --------------------------------------------------------------
 * redo_cologne_all.sh
 This script runs generate.py for all the converted dictionaries,
   with parameters to update the active 'web' directory for each dictionary.
  in v00
  gra, bur, cae, stc, pwg, mw, skd, ae,
- pw, ap, ap90, pd
+ pw,  ap, ap90, pd,  bhs
 * --------------------------------------------------------------
 * apidev1
 * --------------------------------------------------------------
