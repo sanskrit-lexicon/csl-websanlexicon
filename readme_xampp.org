@@ -490,7 +490,7 @@ python generate.py wil inventory.txt  makotemplates ../../wil/web
 * redo_web_all.sh
  in v00
  gra, bur, cae, stc, pwg, mw, skd, ae, 
- pw, ap90, ap,  pd,  bhs 
+ pw, ap90, ap,  pd,  bhs, wil
 * --------------------------------------------------------------
 * apidev1
 * --------------------------------------------------------------

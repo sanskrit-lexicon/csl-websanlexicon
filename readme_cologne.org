@@ -511,13 +511,38 @@ cd ../../../../websanlexicon/v00
 #in v00
 python generate.py bhs inventory.txt  makotemplates ../../BHSScan/2014/web
 
+* ----------wil---------------------
+* NOTES on WIL conversion
+  .²1  should change to <div n="..."/> in wil.txt
+  Placeholders for Greek coded as <lang n="greek"></lang>.
+ Only 1 instance of symbol tag: <symbol n="svastika">卐</symbol>  
+   remove symbol tag?
+* v00 generate  wil 07-23-2018
+
+cd v00
+python generate.py wil inventory.txt  makotemplates ../../WILScan/2014/webv00
+
+* install wil 
+ python install.py wil ../../WILScan/2014/webv00 ../../WILScan/2014
+EXTRA
+ cp -r ../../PWGScan/2013/web/fonts/ ../../WILScan/2014/web/
+cp ../../WILScan/2014/pywork/wilheader.xml ../../WILScan/2014/web/
+#mv ../../WILScan/2014/web_20180521/sqlite/wilbib.sqlite ../../WILScan/2014/web/sqlite/wilbib.sqlite 
+cd ../../WILScan/2014/web/webtc2
+sh init_query.sh
+cd ../../../../websanlexicon/v00
+* regenerate wil/web in place  
+#in v00
+python generate.py wil inventory.txt  makotemplates ../../WILScan/2014/web
+
+
 * --------------------------------------------------------------
 * redo_cologne_all.sh
 This script runs generate.py for all the converted dictionaries,
   with parameters to update the active 'web' directory for each dictionary.
  in v00
  gra, bur, cae, stc, pwg, mw, skd, ae,
- pw,  ap, ap90, pd,  bhs
+ pw,  ap, ap90, pd,  bhs, wil
 * --------------------------------------------------------------
 * apidev1
 * --------------------------------------------------------------
@@ -543,28 +568,3 @@ cp v00/makotemplates/webtc/disp.php ../apidev1/basicdisplay.php
   for dictionaries that have been 'converted'.
 
 * THE END
-* ----------wil---------------------
-* NOTES on WIL conversion
-  .²1  should change to <div n="..."/> in wil.txt
-  Placeholders for Greek coded as <lang n="greek"></lang>.
- Only 1 instance of symbol tag: <symbol n="svastika">卐</symbol>  
-   remove symbol tag?
-* v00 generate  wil 07-23-2018
-
-cd v00
-python generate.py wil inventory.txt  makotemplates ../../WILScan/2014/webv00
-
-* install wil 
- python install.py wil ../../WILScan/2014/webv00 ../../WILScan/2014
-EXTRA
- cp -r ../../PWGScan/2013/web/fonts/ ../../WILScan/2014/web/
-#cp ../../WILScan/2014/pywork/wilheader.xml ../../WILScan/2014/web/
-#mv ../../WILScan/2014/web_20180521/sqlite/wilbib.sqlite ../../WILScan/2014/web/sqlite/wilbib.sqlite 
-cd ../../WILScan/2014/web/webtc2
-sh init_query.sh
-cd ../../../../websanlexicon/v00
-* regenerate wil/web in place  
-#in v00
-python generate.py wil inventory.txt  makotemplates ../../WILScan/2014/web
-
-
