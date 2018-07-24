@@ -161,6 +161,7 @@ python backup.py inventories/ap90_00.txt ../ap90/web  webbackup/ap90/00
 python backup.py inventories/ap_00.txt ../ap/web  webbackup/ap/00
 python backup.py inventories/pd_00.txt ../pd/web  webbackup/pd/00
 python backup.py inventories/bhs_00.txt ../bhs/web  webbackup/bhs/00
+python backup.py inventories/wil_00.txt ../wil/web  webbackup/wil/00
 
 * v00 -- initial 'general' version of web
   starts as a copy of webbackup/gra/00
@@ -460,6 +461,30 @@ cd ../../../websanlexicon/v00
 * regenerate bhs/web in place  
 #in v00
 python generate.py bhs inventory.txt  makotemplates ../../bhs/web
+
+* ----------wil---------------------
+* NOTES on WIL conversion
+  .²1  should change to <div n="..."/> in wil.txt
+  Placeholders for Greek coded as <lang n="greek"></lang>.
+ Only 1 instance of symbol tag: <symbol n="svastika">卐</symbol>  
+   remove symbol tag?
+* v00 generate  wil 07-23-2018
+
+cd v00
+python generate.py wil inventory.txt  makotemplates ../../wil/webv00
+
+* install wil 
+ python install.py wil ../../wil/webv00 ../../wil
+EXTRA
+cp -r ../../pwg/web/fonts/ ../../wil/web/
+#cp ../../wil/pywork/wilheader.xml ../../wil/web/
+#mv ../../wil/web_20180521/sqlite/wilbib.sqlite ../../wil/web/sqlite/wilbib.sqlite 
+cd ../../wil/web/webtc2
+sh init_query.sh
+cd ../../../websanlexicon/v00
+* regenerate wil/web in place  
+#in v00
+python generate.py wil inventory.txt  makotemplates ../../wil/web
 
 * --------------------------------------------------------------
 * redo_web_all.sh

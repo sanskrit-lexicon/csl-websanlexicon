@@ -197,6 +197,17 @@ public function __construct($key,$matches,$filterin,$dict) {
     $style = "";
     $ans = "<br/><span style='$style'>";
     return $ans;
+   }else if (in_array($this->dict,array('wil'))) {
+    // line break, and 
+    // indent, indent if 'n' is '2'
+    // no indent if n='1' , 'E', 'lex'
+    if ($n == '2') {
+     $style="position:relative; left:1.5em;";
+    } else {
+     $style="";
+    }
+     $ans = "<br/><span style='$style'>";
+    return $ans;
    }else { // default
     // currently applies to:
     // cae with <div n="p"/>
@@ -283,7 +294,7 @@ public function __construct($key,$matches,$filterin,$dict) {
     // nothing special here  Greek remains to be filled in
     // Depends on whether the text is filled in
     $n = $attribs['n'];
-    if (in_array($this->dict,array('pwg','mw','pw'))) {
+    if (in_array($this->dict,array('pwg','mw','pw','wil'))) {
      # nothing to do.
     }else {
      $this->row .= " ($n) ";

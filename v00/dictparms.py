@@ -125,6 +125,15 @@ alldictparms = {
   "dictaccent":False,
   "webtc2devatextoption":False,
  },
+"wil": {
+  "dictup":"WIL",
+  "dictlo":"wil",
+  "dictname":u"Wilson Sanskrit-English Dictionary",
+  "dictwebversion":"00",
+  "dictyear":"2014",
+  "dictaccent":False,
+  "webtc2devatextoption":True,
+ },
 
 }
 
