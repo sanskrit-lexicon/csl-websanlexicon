@@ -577,8 +577,8 @@ python generate.py shs inventory.txt  makotemplates ../../SHSScan/2014/webv00
 * install shs 
  python install.py shs ../../SHSScan/2014/webv00 ../../SHSScan/2014
 EXTRA
-cp -r ../../pwg/web/fonts/ ../../SHSScan/2014/web/
-#cp ../../SHSScan/2014/pywork/shsheader.xml ../../SHSScan/2014/web/
+cp -r ../../PWGScan/2013/web/fonts/ ../../SHSScan/2014/web/
+cp ../../SHSScan/2014/pywork/shsheader.xml ../../SHSScan/2014/web/
 #mv ../../SHSScan/2014/web_20180521/sqlite/shsbib.sqlite ../../SHSScan/2014/web/sqlite/shsbib.sqlite 
 cd ../../SHSScan/2014/web/webtc2
 sh init_query.sh
