@@ -152,6 +152,15 @@ alldictparms = {
   "dictaccent":False,
   "webtc2devatextoption":True,
  },
+"gst": {
+  "dictup":"GST",
+  "dictlo":"gst",
+  "dictname":u"Goldstücker Sanskrit-English Dictionary",
+  "dictwebversion":"00",
+  "dictyear":"2014",
+  "dictaccent":False,
+  "webtc2devatextoption":True,
+ },
 
 }
 

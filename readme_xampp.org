@@ -164,6 +164,7 @@ python backup.py inventories/bhs_00.txt ../bhs/web  webbackup/bhs/00
 python backup.py inventories/wil_00.txt ../wil/web  webbackup/wil/0
 python backup.py inventories/yat_00.txt ../yat/web  webbackup/yat/00
 python backup.py inventories/shs_00.txt ../shs/web  webbackup/shs/00
+python backup.py inventories/gst_00.txt ../gst/web  webbackup/gst/00
 
 * v00 -- initial 'general' version of web
   starts as a copy of webbackup/gra/00
@@ -540,11 +541,37 @@ cd ../../../websanlexicon/v00
 #in v00
 python generate.py shs inventory.txt  makotemplates ../../shs/web
 
+* ----------gst---------------------
+* NOTES on GST conversion
+  Several <lang n="greek"></lang> tags.
+  <sup> elements made bold.
+  The webtc2 query for text strings needs improvement:  Reason applies
+   to any dictionary X in which X.xml has line-breaks which separate lines
+   with hyphenation. 
+* v00 generate  gst 07-24-2018
+
+cd v00
+python generate.py gst inventory.txt  makotemplates ../../gst/webv00
+
+* install gst 
+ python install.py gst ../../gst/webv00 ../../gst
+EXTRA
+cp -r ../../pwg/web/fonts/ ../../gst/web/
+cp ../../gst/pywork/gstheader.xml ../../gst/web/
+#mv ../../gst/web_20180521/sqlite/gstbib.sqlite ../../gst/web/sqlite/gstbib.sqlite 
+cd ../../gst/web/webtc2
+sh init_query.sh
+cd ../../../websanlexicon/v00
+* regenerate gst/web in place  
+#in v00
+python generate.py gst inventory.txt  makotemplates ../../gst/web
+
 * --------------------------------------------------------------
 * redo_web_all.sh
  in v00
  gra, bur, cae, stc, pwg, mw, skd, ae, 
  pw, ap90, ap,  pd,  bhs, wil, yat, shs,
+gst, vcp,
 * --------------------------------------------------------------
 * apidev1
 * --------------------------------------------------------------

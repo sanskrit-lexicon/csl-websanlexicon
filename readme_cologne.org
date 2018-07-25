@@ -587,6 +587,28 @@ cd ../../../../websanlexicon/v00
 #in v00
 python generate.py shs inventory.txt  makotemplates ../../SHSScan/2014/web
 
+* ----------gst---------------------
+* NOTES on GST conversion
+  Several <lang n="greek"></lang> tags.
+  <sup> elements made bold.
+* v00 generate  gst 07-24-2018
+
+cd v00
+python generate.py gst inventory.txt  makotemplates ../../GSTScan/2014/webv00
+
+* install gst 
+ python install.py gst ../../GSTScan/2014/webv00 ../../GSTScan/2014
+EXTRA
+cp -r ../../pwg/web/fonts/ ../../GSTScan/2014/web/
+cp ../../GSTScan/2014/pywork/gstheader.xml ../../GSTScan/2014/web/
+#mv ../../GSTScan/2014/web_20180521/sqlite/gstbib.sqlite ../../GSTScan/2014/web/sqlite/gstbib.sqlite 
+cd ../../GSTScan/2014/web/webtc2
+sh init_query.sh
+cd ../../../websanlexicon/v00
+* regenerate gst/web in place  
+#in v00
+python generate.py gst inventory.txt  makotemplates ../../GSTScan/2014/web
+
 * --------------------------------------------------------------
 * redo_cologne_all.sh
 This script runs generate.py for all the converted dictionaries,
