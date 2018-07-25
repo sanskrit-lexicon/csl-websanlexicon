@@ -161,7 +161,9 @@ python backup.py inventories/ap90_00.txt ../ap90/web  webbackup/ap90/00
 python backup.py inventories/ap_00.txt ../ap/web  webbackup/ap/00
 python backup.py inventories/pd_00.txt ../pd/web  webbackup/pd/00
 python backup.py inventories/bhs_00.txt ../bhs/web  webbackup/bhs/00
-python backup.py inventories/wil_00.txt ../wil/web  webbackup/wil/00
+python backup.py inventories/wil_00.txt ../wil/web  webbackup/wil/0
+python backup.py inventories/yat_00.txt ../yat/web  webbackup/yat/00
+python backup.py inventories/shs_00.txt ../shs/web  webbackup/shs/00
 
 * v00 -- initial 'general' version of web
   starts as a copy of webbackup/gra/00
@@ -486,11 +488,63 @@ cd ../../../websanlexicon/v00
 #in v00
 python generate.py wil inventory.txt  makotemplates ../../wil/web
 
+* ----------yat---------------------
+* NOTES on YAT conversion
+  yat.xml uses '<br/>' in place of '<div n="lb"/>'
+         <g>X</g> (one instance) instead of <lang n="greek">X</lang>
+  -- should change to mdash in yat.txt
+* v00 generate  yat 07-24-2018
+
+cd v00
+python generate.py yat inventory.txt  makotemplates ../../yat/webv00
+
+* install yat 
+ python install.py yat ../../yat/webv00 ../../yat
+EXTRA
+cp -r ../../pwg/web/fonts/ ../../yat/web/
+#cp ../../yat/pywork/yatheader.xml ../../yat/web/
+#mv ../../yat/web_20180521/sqlite/yatbib.sqlite ../../yat/web/sqlite/yatbib.sqlite 
+cd ../../yat/web/webtc2
+sh init_query.sh
+cd ../../../websanlexicon/v00
+* regenerate yat/web in place  
+#in v00
+python generate.py yat inventory.txt  makotemplates ../../yat/web
+
+* ----------shs---------------------
+* NOTES on SHS conversion
+  shs.xml uses '<lb/>' in place of '<div n="lb"/>'
+  -- should change to mdash in shs.txt
+  The 'div' generation of shs.xml is better than that in wil.xml;
+   suggest modifying make_xml.py for wil to be more like
+   make_xml.py for shs.
+  shs is word-for-word the same as wil (examples guru, Gawa).
+    Does shs extend WIL in any way?
+  Needs revision to modern IAST spelling for proper names (e.g. all caps)
+  without diacritics. Also Unadi.
+* v00 generate  shs 07-24-2018
+
+cd v00
+python generate.py shs inventory.txt  makotemplates ../../shs/webv00
+
+* install shs 
+ python install.py shs ../../shs/webv00 ../../shs
+EXTRA
+cp -r ../../pwg/web/fonts/ ../../shs/web/
+#cp ../../shs/pywork/shsheader.xml ../../shs/web/
+#mv ../../shs/web_20180521/sqlite/shsbib.sqlite ../../shs/web/sqlite/shsbib.sqlite 
+cd ../../shs/web/webtc2
+sh init_query.sh
+cd ../../../websanlexicon/v00
+* regenerate shs/web in place  
+#in v00
+python generate.py shs inventory.txt  makotemplates ../../shs/web
+
 * --------------------------------------------------------------
 * redo_web_all.sh
  in v00
  gra, bur, cae, stc, pwg, mw, skd, ae, 
- pw, ap90, ap,  pd,  bhs, wil
+ pw, ap90, ap,  pd,  bhs, wil, yat, shs,
 * --------------------------------------------------------------
 * apidev1
 * --------------------------------------------------------------

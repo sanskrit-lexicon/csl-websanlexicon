@@ -12,3 +12,5 @@ python generate.py ap inventory.txt  makotemplates ../../APScan/2014/web
 python generate.py pd inventory.txt  makotemplates ../../PDScan/2014/web
 python generate.py bhs inventory.txt  makotemplates ../../BHSScan/2014/web
 python generate.py wil inventory.txt  makotemplates ../../WILScan/2014/web
+python generate.py yat inventory.txt  makotemplates ../../YATScan/2014/web
+python generate.py shs inventory.txt  makotemplates ../../SHSScan/2014/web

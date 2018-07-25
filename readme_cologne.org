@@ -535,6 +535,57 @@ cd ../../../../websanlexicon/v00
 #in v00
 python generate.py wil inventory.txt  makotemplates ../../WILScan/2014/web
 
+* ----------yat---------------------
+* NOTES on YAT conversion
+  yat.xml uses '<br/>' in place of '<div n="lb"/>'
+         <g>X</g> (one instance) instead of <lang n="greek">X</lang>
+  -- should change to mdash in yat.txt
+* v00 generate  yat 07-24-2018
+
+cd v00
+python generate.py yat inventory.txt  makotemplates ../../YATScan/2014/webv00
+
+* install yat 
+ python install.py yat ../../YATScan/2014/webv00 ../../YATScan/2014
+EXTRA
+cp -r ../../PWGScan/2013/web/fonts/ ../../YATScan/2014/web/
+cp ../../YATScan/2014/pywork/yatheader.xml ../../YATScan/2014/web/
+#mv ../../YATScan/2014/web_20180521/sqlite/yatbib.sqlite ../../YATScan/2014/web/sqlite/yatbib.sqlite 
+cd ../../YATScan/2014/web/webtc2
+sh init_query.sh
+cd ../../../../websanlexicon/v00
+* regenerate yat/web in place  
+#in v00
+python generate.py yat inventory.txt  makotemplates ../../YATScan/2014/web
+
+* ----------shs---------------------
+* NOTES on SHS conversion
+  shs.xml uses '<lb/>' in place of '<div n="lb"/>'
+  -- should change to mdash in shs.txt
+  The 'div' generation of shs.xml is better than that in wil.xml;
+   suggest modifying make_xml.py for wil to be more like
+   make_xml.py for shs.
+  shs is word-for-word the same as wil (examples guru, Gawa).
+    Does shs extend WIL in any way?
+  Needs revision to modern IAST spelling for proper names (e.g. all caps)
+  without diacritics. Also Unadi.
+* v00 generate  shs 07-24-2018
+
+cd v00
+python generate.py shs inventory.txt  makotemplates ../../SHSScan/2014/webv00
+
+* install shs 
+ python install.py shs ../../SHSScan/2014/webv00 ../../SHSScan/2014
+EXTRA
+cp -r ../../pwg/web/fonts/ ../../SHSScan/2014/web/
+#cp ../../SHSScan/2014/pywork/shsheader.xml ../../SHSScan/2014/web/
+#mv ../../SHSScan/2014/web_20180521/sqlite/shsbib.sqlite ../../SHSScan/2014/web/sqlite/shsbib.sqlite 
+cd ../../SHSScan/2014/web/webtc2
+sh init_query.sh
+cd ../../../../websanlexicon/v00
+* regenerate shs/web in place  
+#in v00
+python generate.py shs inventory.txt  makotemplates ../../SHSScan/2014/web
 
 * --------------------------------------------------------------
 * redo_cologne_all.sh
@@ -542,7 +593,7 @@ This script runs generate.py for all the converted dictionaries,
   with parameters to update the active 'web' directory for each dictionary.
  in v00
  gra, bur, cae, stc, pwg, mw, skd, ae,
- pw,  ap, ap90, pd,  bhs, wil
+ pw,  ap, ap90, pd,  bhs, wil, yat, shs,
 * --------------------------------------------------------------
 * apidev1
 * --------------------------------------------------------------

@@ -197,10 +197,11 @@ public function __construct($key,$matches,$filterin,$dict) {
     $style = "";
     $ans = "<br/><span style='$style'>";
     return $ans;
-   }else if (in_array($this->dict,array('wil'))) {
+   }else if (in_array($this->dict,array('wil','shs'))) {
     // line break, and 
     // indent, indent if 'n' is '2'
-    // no indent if n='1' , 'E', 'lex'
+    // no indent if n='1' , 'E', 'lex' (for wil)
+    //              n='1' , 'E', 'Poem' (for wil)
     if ($n == '2') {
      $style="position:relative; left:1.5em;";
     } else {
@@ -348,6 +349,8 @@ public function __construct($key,$matches,$filterin,$dict) {
    // skd. n = H,P
    $n = $attribs['n'];
    $row .= "<strong>($n) </strong>";   
+  } else if ( ($el == "g")&&($this->dict == "yat")) {
+   # no markup.  Should remove when yat.txt changes to "<lang>" markup
   } else {
     $this->row .= "<br/>&lt;$el&gt;";
   }

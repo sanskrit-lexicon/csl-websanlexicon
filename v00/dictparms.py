@@ -134,6 +134,24 @@ alldictparms = {
   "dictaccent":False,
   "webtc2devatextoption":True,
  },
+"yat": {
+  "dictup":"YAT",
+  "dictlo":"yat",
+  "dictname":u"Yates Sanskrit-English Dictionary",
+  "dictwebversion":"00",
+  "dictyear":"2014",
+  "dictaccent":False,
+  "webtc2devatextoption":True,
+ },
+"shs": {
+  "dictup":"SHS",
+  "dictlo":"shs",
+  "dictname":u"Shabda-Sagara Sanskrit-English Dictionary",
+  "dictwebversion":"00",
+  "dictyear":"2014",
+  "dictaccent":False,
+  "webtc2devatextoption":True,
+ },
 
 }
 
