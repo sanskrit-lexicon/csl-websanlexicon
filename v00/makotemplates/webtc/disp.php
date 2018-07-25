@@ -215,6 +215,13 @@ public function __construct($key,$matches,$filterin,$dict) {
     $style="position:relative; left:$indent;";
     $ans = "<br/><span style='$style'>";
     return $ans;
+   }else if ($this->dict == 'vcp') {
+    if ($n == 'Picture') {
+     $ans = "<br/> &nbsp;<span style='font-size:smaller;'>(Picture)";
+    } else { //P, H, HI
+     $ans = "<br/> <span>";
+    }
+    return $ans;  
    }else { // default
     // currently applies to:
     // cae with <div n="p"/>

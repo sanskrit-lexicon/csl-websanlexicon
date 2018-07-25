@@ -609,6 +609,30 @@ cd ../../../../websanlexicon/v00
 #in v00
 python generate.py gst inventory.txt  makotemplates ../../GSTScan/2014/web
 
+* ----------vcp---------------------
+* NOTES on VCP conversion
+  In vcp.txt:  <P>, <HI>, <H>, <Picture> become <div n="P">" etc. in vcp.xml.
+  Also, <> of vcp.txt becomes <lb/> in vcp.xml; 
+    Perhaps push the xml codes down into vcp.txt?
+
+* v00 generate  vcp 07-25-2018
+
+cd v00
+python generate.py vcp inventory.txt  makotemplates ../../VCPScan/2013/webv00
+
+* install vcp 
+ python install.py vcp ../../VCPScan/2013/webv00 ../../VCPScan/2013
+EXTRA
+cp -r ../../PWGScan/2013/web/fonts/ ../../VCPScan/2013/web/
+cp ../../VCPScan/2013/pywork/vcpheader.xml ../../VCPScan/2013/web/
+#mv ../../VCPScan/2013/web_20180521/sqlite/vcpbib.sqlite ../../VCPScan/2013/web/sqlite/vcpbib.sqlite 
+cd ../../VCPScan/2013/web/webtc2
+sh init_query.sh
+cd ../../../../websanlexicon/v00
+* regenerate vcp/web in place  
+#in v00
+python generate.py vcp inventory.txt  makotemplates ../../VCPScan/2013/web
+
 * --------------------------------------------------------------
 * redo_cologne_all.sh
 This script runs generate.py for all the converted dictionaries,

@@ -165,6 +165,7 @@ python backup.py inventories/wil_00.txt ../wil/web  webbackup/wil/0
 python backup.py inventories/yat_00.txt ../yat/web  webbackup/yat/00
 python backup.py inventories/shs_00.txt ../shs/web  webbackup/shs/00
 python backup.py inventories/gst_00.txt ../gst/web  webbackup/gst/00
+python backup.py inventories/vcp_00.txt ../vcp/web  webbackup/vcp/00
 
 * v00 -- initial 'general' version of web
   starts as a copy of webbackup/gra/00
@@ -565,6 +566,30 @@ cd ../../../websanlexicon/v00
 * regenerate gst/web in place  
 #in v00
 python generate.py gst inventory.txt  makotemplates ../../gst/web
+
+* ----------vcp---------------------
+* NOTES on VCP conversion
+  In vcp.txt:  <P>, <HI>, <H>, <Picture> become <div n="P">" etc. in vcp.xml.
+  Also, <> of vcp.txt becomes <lb/> in vcp.xml; 
+    Perhaps push the xml codes down into vcp.txt?
+
+* v00 generate  vcp 07-25-2018
+
+cd v00
+python generate.py vcp inventory.txt  makotemplates ../../vcp/webv00
+
+* install vcp 
+ python install.py vcp ../../vcp/webv00 ../../vcp
+EXTRA
+cp -r ../../pwg/web/fonts/ ../../vcp/web/
+#cp ../../vcp/pywork/vcpheader.xml ../../vcp/web/
+#mv ../../vcp/web_20180521/sqlite/vcpbib.sqlite ../../vcp/web/sqlite/vcpbib.sqlite 
+cd ../../vcp/web/webtc2
+sh init_query.sh
+cd ../../../websanlexicon/v00
+* regenerate vcp/web in place  
+#in v00
+python generate.py vcp inventory.txt  makotemplates ../../vcp/web
 
 * --------------------------------------------------------------
 * redo_web_all.sh

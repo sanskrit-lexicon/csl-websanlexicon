@@ -161,6 +161,15 @@ alldictparms = {
   "dictaccent":False,
   "webtc2devatextoption":True,
  },
+"vcp": {
+  "dictup":"VCP",
+  "dictlo":"vcp",
+  "dictname":u"Vacaspatyam",
+  "dictwebversion":"00",
+  "dictyear":"2013",
+  "dictaccent":False,
+  "webtc2devatextoption":True,
+ },
 
 }
 
