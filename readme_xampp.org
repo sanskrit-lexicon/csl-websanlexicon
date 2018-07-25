@@ -166,6 +166,9 @@ python backup.py inventories/yat_00.txt ../yat/web  webbackup/yat/00
 python backup.py inventories/shs_00.txt ../shs/web  webbackup/shs/00
 python backup.py inventories/gst_00.txt ../gst/web  webbackup/gst/00
 python backup.py inventories/vcp_00.txt ../vcp/web  webbackup/vcp/00
+python backup.py inventories/ben_00.txt ../ben/web  webbackup/ben/00
+python backup.py inventories/bop_00.txt ../bop/web  webbackup/bop/00
+python backup.py inventories/bor_00.txt ../bor/web  webbackup/bor/00
 
 * v00 -- initial 'general' version of web
   starts as a copy of webbackup/gra/00
@@ -591,12 +594,78 @@ cd ../../../websanlexicon/v00
 #in v00
 python generate.py vcp inventory.txt  makotemplates ../../vcp/web
 
+* ----------ben---------------------
+* NOTES on BEN conversion
+  
+
+* v00 generate  ben 07-25-2018
+
+cd v00
+python generate.py ben inventory.txt  makotemplates ../../ben/webv00
+
+* install ben 
+ python install.py ben ../../ben/webv00 ../../ben
+EXTRA
+cp -r ../../pwg/web/fonts/ ../../ben/web/
+#cp ../../ben/pywork/benheader.xml ../../ben/web/
+#mv ../../ben/web_20180521/sqlite/benbib.sqlite ../../ben/web/sqlite/benbib.sqlite 
+cd ../../ben/web/webtc2
+sh init_query.sh
+cd ../../../websanlexicon/v00
+* regenerate ben/web in place  
+#in v00
+python generate.py ben inventory.txt  makotemplates ../../ben/web
+
+* ----------bop---------------------
+* NOTES on BOP conversion
+  
+
+* v00 generate  bop 07-25-2018
+
+cd v00
+python generate.py bop inventory.txt  makotemplates ../../bop/webv00
+
+* install bop 
+ python install.py bop ../../bop/webv00 ../../bop
+EXTRA
+cp -r ../../pwg/web/fonts/ ../../bop/web/
+#cp ../../bop/pywork/bopheader.xml ../../bop/web/
+#mv ../../bop/web_20180521/sqlite/bopbib.sqlite ../../bop/web/sqlite/bopbib.sqlite 
+cd ../../bop/web/webtc2
+sh init_query.sh
+cd ../../../websanlexicon/v00
+* regenerate bop/web in place  
+#in v00
+python generate.py bop inventory.txt  makotemplates ../../bop/web
+
+* ----------bor---------------------
+* NOTES on BOR conversion
+  
+
+* v00 generate  bor 07-25-2018
+
+cd v00
+python generate.py bor inventory.txt  makotemplates ../../bor/webv00
+
+* install bor 
+ python install.py bor ../../bor/webv00 ../../bor
+EXTRA
+cp -r ../../pwg/web/fonts/ ../../bor/web/
+#cp ../../bor/pywork/borheader.xml ../../bor/web/
+#mv ../../bor/web_20180521/sqlite/borbib.sqlite ../../bor/web/sqlite/borbib.sqlite 
+cd ../../bor/web/webtc2
+sh init_query.sh
+cd ../../../websanlexicon/v00
+* regenerate bor/web in place  
+#in v00
+python generate.py bor inventory.txt  makotemplates ../../bor/web
+
 * --------------------------------------------------------------
 * redo_web_all.sh
  in v00
  gra, bur, cae, stc, pwg, mw, skd, ae, 
  pw, ap90, ap,  pd,  bhs, wil, yat, shs,
-gst, vcp,
+gst, vcp,  ben, bop, bor
 * --------------------------------------------------------------
 * apidev1
 * --------------------------------------------------------------
