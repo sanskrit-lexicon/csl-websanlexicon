@@ -215,6 +215,16 @@ public function __construct($key,$matches,$filterin,$dict) {
     $style="position:relative; left:$indent;";
     $ans = "<br/><span style='$style'>";
     return $ans;
+   }else if (in_array($this->dict,array('ben'))) {
+    // in ben, this div is an empty div. The display
+    // should begin a new indented paragraph.
+    // Example under dIkz and garj.
+    if ($n == 'P') {
+     $ans = "<br/>&nbsp;&nbsp;&nbsp;<span>";
+    } else { // doesn't occur for ben
+     $ans = "<br/><span>";
+    } 
+    return $ans;
    }else if ($this->dict == 'vcp') {
     if ($n == 'Picture') {
      $ans = "<br/> &nbsp;<span style='font-size:smaller;'>(Picture)";
@@ -368,6 +378,10 @@ public function __construct($key,$matches,$filterin,$dict) {
    $row .= "<strong>($n) </strong>";   
   } else if ( ($el == "g")&&($this->dict == "yat")) {
    # no markup.  Should remove when yat.txt changes to "<lang>" markup
+  } else if ( ($el == "pic")&&($this->dict == "ben")) {
+   $filename = $attribs['name'];
+   $path = "../../web/images/$filename";
+   $this->row .= "<img src='$path'/>";   
   } else {
     $this->row .= "<br/>&lt;$el&gt;";
   }

@@ -170,6 +170,33 @@ alldictparms = {
   "dictaccent":False,
   "webtc2devatextoption":True,
  },
+"ben": {
+  "dictup":"BEN",
+  "dictlo":"ben",
+  "dictname":u"Benfey Sanskrit-English Dictionary",
+  "dictwebversion":"00",
+  "dictyear":"2014",
+  "dictaccent":False,
+  "webtc2devatextoption":True,
+ },
+"bop": {
+  "dictup":"BOP",
+  "dictlo":"bop",
+  "dictname":u"Bopp Glossarium Sanscritum",
+  "dictwebversion":"00",
+  "dictyear":"2014",
+  "dictaccent":False,
+  "webtc2devatextoption":True,
+ },
+"bor": {
+  "dictup":"BOR",
+  "dictlo":"bor",
+  "dictname":u"",
+  "dictwebversion":"00",
+  "dictyear":"2014",
+  "dictaccent":False,
+  "webtc2devatextoption":True,
+ },
 
 }
 

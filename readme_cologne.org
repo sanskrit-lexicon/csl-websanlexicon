@@ -633,6 +633,36 @@ cd ../../../../websanlexicon/v00
 #in v00
 python generate.py vcp inventory.txt  makotemplates ../../VCPScan/2013/web
 
+* ----------ben---------------------
+* NOTES on BEN conversion
+  <g></g> tag for Greek (empty). Shld change to <lang n="greek"></lang>;
+      this done in basicadjust.  (787 lines in ben.xml with <g></g>)
+  <pic name="vatsa.png'/> requires vatsa.png in images folder;
+  <P/> twice  (headword dIkz and garj):
+      indented paragraph. Better to be <div n="P">. Coded this way in 
+      basicadjust.
+  -- changed to emdash in disp.php. 
+  bold section headings -- could be converted to divs for better display.
+
+ Improvement: Move [Pagexxx] at end of entry after <LEND>; this in ben.txt.
+* v00 generate  ben 07-25-2018
+
+cd v00
+python generate.py ben inventory.txt  makotemplates ../../BENScan/2014/webv00
+
+* install ben 
+ python install.py ben ../../BENScan/2014/webv00 ../../BENScan/2014
+EXTRA
+cp -r ../../PWGScan/2013/web/fonts/ ../../BENScan/2014/web/
+cp ../../BENScan/2014/pywork/benheader.xml ../../BENScan/2014/web/
+cp ../../BENScan/2014/web_20170410/images/vatsa.png ../../BENScan/2014/web/images/
+cd ../../BENScan/2014/web/webtc2
+sh init_query.sh
+cd ../../../../websanlexicon/v00
+* regenerate ben/web in place  
+#in v00
+python generate.py ben inventory.txt  makotemplates ../../BENScan/2014/web
+
 * --------------------------------------------------------------
 * redo_cologne_all.sh
 This script runs generate.py for all the converted dictionaries,

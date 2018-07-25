@@ -96,10 +96,9 @@ class BasicAdjust {
   if ($this->getParms->dict == "mw") {
    $line = $this->move_L_mw($line);
    # remove <hom>X</hom> within head portion
-   $line = preg_replace("|<key2>(.*?)<hom>.*?</hom>(.*?<body>)|","<key2>$1$2",$line);
-   
+   $line = preg_replace("|<key2>(.*?)<hom>.*?</hom>(.*?<body>)|","<key2>$1$2",$line); 
   }
-  if ($this->getParms->dict == "ap90") {
+  else if ($this->getParms->dict == "ap90") {
    /*  ap90.xml has a line break '<lb/>' according to the printed edition.
      In the display, these are not recognized.
      Further, the display attempts to rejoin hyphenation due to line breaks.
@@ -141,6 +140,10 @@ class BasicAdjust {
    $line = preg_replace('|- <lb/>|','',$line);
    $line = preg_replace('|<lb/>|',' ',$line);
    $line = preg_replace('/--/','&#8212;',$line);  # emdash
+  } else if ($this->getParms->dict == "ben") {
+   $line = preg_replace('/--/','&#8212;',$line);  # emdash
+   $line = preg_replace('|<g></g>|','<lang n="greek"></lang>',$line);
+   $line = preg_replace('|<P/>|','<div n="P"/>',$line);
   }
  return $line;
 }
