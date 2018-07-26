@@ -1,0 +1,50 @@
+<fsm start='INIT' inputDecoding='UTF-8' outputEncoding='UTF-8'>
+<!-- Conversion of Anglicized Sanskrit letter-number combinations used
+     in Macdonell to Unicode.
+     May 30, 2014
+-->
+<e> <s>INIT</s> <in>A1</in> <out>\u00c2</out> </e>
+<e> <s>INIT</s> <in>a1</in> <out>\u00e2</out> </e> 
+<e> <s>INIT</s> <in>a11</in> <out>\u00e2\u0301</out> </e> 
+<e> <s>INIT</s> <in>a14</in> <out>\u00e2\u0301</out> </e> <!-- dup -->
+<e> <s>INIT</s> <in>a5</in> <out>\u00e2\u0301</out> </e> <!-- dup -->
+<e> <s>INIT</s> <in>a12</in> <out>\u00e2\u0306</out> </e> 
+<e> <s>INIT</s> <in>a15</in> <out>\u00e2\u0303</out> </e> 
+<e> <s>INIT</s> <in>a4</in> <out>\u00e1</out> </e>
+<e> <s>INIT</s> <in>a8</in> <out>\u0103</out> </e>  
+
+<e> <s>INIT</s> <in>e1</in> <out>\u00ea</out> </e> 
+<e> <s>INIT</s> <in>e11</in> <out>\u00ea\u0301</out> </e> 
+<e> <s>INIT</s> <in>e4</in> <out>\u00e9</out> </e>
+
+<e> <s>INIT</s> <in>I1</in> <out>\u00ce</out> </e> 
+<e> <s>INIT</s> <in>i1</in> <out>\u00ee</out> </e> 
+<e> <s>INIT</s> <in>i11</in> <out>\u00ee\u0301</out> </e> 
+<e> <s>INIT</s> <in>i14</in> <out>\u00ee\u0301</out> </e> <!-- dup -->
+<e> <s>INIT</s> <in>i5</in> <out>\u00ee\u0301</out> </e> <!-- dup -->
+<e> <s>INIT</s> <in>i12</in> <out>\u00ee\u0306</out> </e> 
+<e> <s>INIT</s> <in>i4</in> <out>\u00ed</out> </e>
+<e> <s>INIT</s> <in>i8</in> <out>\u012d</out> </e>  
+<e> <s>INIT</s> <in>i9</in> <out>\u012d</out> </e>  <!-- dup -->
+
+<e> <s>INIT</s> <in>m2</in> <out>\u006d\u0310</out> </e> 
+
+<e> <s>INIT</s> <in>N3</in> <out>\u1e44</out> </e> 
+<e> <s>INIT</s> <in>n3</in> <out>\u1e45</out> </e> 
+<e> <s>INIT</s> <in>N5</in> <out>\u00d1</out> </e> 
+<e> <s>INIT</s> <in>n5</in> <out>\u00f1</out> </e> 
+
+<e> <s>INIT</s> <in>o11</in> <out>\u00f4\u0301</out> </e> 
+<e> <s>INIT</s> <in>o4</in> <out>\u00f3</out> </e>
+
+<e> <s>INIT</s> <in>U1</in> <out>\u00db</out> </e> 
+<e> <s>INIT</s> <in>u1</in> <out>\u00fb</out> </e> 
+<e> <s>INIT</s> <in>u11</in> <out>\u00fb\u0301</out> </e> 
+<e> <s>INIT</s> <in>u14</in> <out>\u00fb\u0301</out> </e> <!-- dup -->
+<e> <s>INIT</s> <in>u5</in> <out>\u00fb\u0301</out> </e> <!-- dup -->
+<e> <s>INIT</s> <in>u12</in> <out>\u00fb\u0306</out> </e> 
+<e> <s>INIT</s> <in>u4</in> <out>\u00fa</out> </e>
+<e> <s>INIT</s> <in>u8</in> <out>\u016d</out> </e>  
+<e> <s>INIT</s> <in>u9</in> <out>\u016d</out> </e>  <!-- dup -->
+
+</fsm>

@@ -206,6 +206,15 @@ alldictparms = {
   "dictaccent":True,
   "webtc2devatextoption":True,
  },
+"md": {
+  "dictup":"MD",
+  "dictlo":"md",
+  "dictname":u"Macdonell Sanskrit-English Dictionary",
+  "dictwebversion":"00",
+  "dictyear":"2014",
+  "dictaccent":False,
+  "webtc2devatextoption":False,
+ },
 
 }
 

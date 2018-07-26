@@ -724,10 +724,31 @@ EXTRA
 cp ../../CCSScan/2014/pywork/ccsheader.xml ../../CCSScan/2014/web/
 cd ../../CCSScan/2014/web/webtc2
 sh init_query.sh
-cd ../../../websanlexicon/v00
+cd ../../../../websanlexicon/v00
 * regenerate ccs/web in place  
 #in v00
 python generate.py ccs inventory.txt  makotemplates ../../CCSScan/2014/web
+
+* ----------md---------------------
+* NOTES on MD conversion
+  
+
+* v00 generate  md 07-26-2018
+
+cd v00
+python generate.py md inventory.txt  makotemplates ../../MDScan/2014/webv00
+
+* install md 
+ python install.py md ../../MDScan/2014/webv00 ../../MDScan/2014
+EXTRA
+cp -r ../../PWGScan/2013/web/fonts/ ../../MDScan/2014/web/
+cp ../../MDScan/2014/pywork/mdheader.xml ../../MDScan/2014/web/
+cd ../../MDScan/2014/web/webtc2
+sh init_query.sh
+cd ../../../../websanlexicon/v00
+* regenerate md/web in place  
+#in v00
+python generate.py md inventory.txt  makotemplates ../../MDScan/2014/web
 
 * --------------------------------------------------------------
 * redo_cologne_all.sh

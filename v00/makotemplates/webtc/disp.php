@@ -333,9 +333,10 @@ public function __construct($key,$matches,$filterin,$dict) {
     // nothing special here  Greek remains to be filled in
     // Depends on whether the text is filled in
     $n = $attribs['n'];
-    if (in_array($this->dict,array('pwg','mw','pw','wil'))) {
-     # nothing to do.
+    if (in_array($this->dict,array('pwg','mw','pw','wil','md'))) {
+     # nothing to do.  Greek (and other) unicode has been provided.
     }else {
+     # put a placeholder where the greek, arabic, etc. needs to be provided.
      $this->row .= " ($n) ";
     }
   } else if ($el == "lb") {

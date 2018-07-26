@@ -20,3 +20,4 @@ python generate.py ben inventory.txt  makotemplates ../../BENScan/2014/web
 python generate.py bop inventory.txt  makotemplates ../../BOPScan/2014/web
 python generate.py bor inventory.txt  makotemplates ../../BORScan/2014/web
 python generate.py ccs inventory.txt  makotemplates ../../CCSScan/2014/web
+python generate.py md inventory.txt  makotemplates ../../MDScan/2014/web
