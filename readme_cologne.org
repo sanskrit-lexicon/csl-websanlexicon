@@ -655,13 +655,35 @@ python generate.py ben inventory.txt  makotemplates ../../BENScan/2014/webv00
 EXTRA
 cp -r ../../PWGScan/2013/web/fonts/ ../../BENScan/2014/web/
 cp ../../BENScan/2014/pywork/benheader.xml ../../BENScan/2014/web/
-cp ../../BENScan/2014/web_20170410/images/vatsa.png ../../BENScan/2014/web/images/
+cp ../../BENScan/2014/web_20160603/images/vatsa.png ../../BENScan/2014/web/images/
 cd ../../BENScan/2014/web/webtc2
 sh init_query.sh
 cd ../../../../websanlexicon/v00
 * regenerate ben/web in place  
 #in v00
 python generate.py ben inventory.txt  makotemplates ../../BENScan/2014/web
+
+* ----------bop---------------------
+* NOTES on BOP conversion
+  
+
+* v00 generate  bop 07-25-2018
+
+cd v00
+python generate.py bop inventory.txt  makotemplates ../../BOPScan/2014/webv00
+
+* install bop 
+ python install.py bop ../../BOPScan/2014/webv00 ../../BOPScan/2014
+EXTRA
+cp -r ../../PWGScan/2013/web/fonts/ ../../BOPScan/2014/web/
+cp ../../BOPScan/2014/pywork/bopheader.xml ../../BOPScan/2014/web/
+#mv ../../BOPScan/2014/web_20180521/sqlite/bopbib.sqlite ../../BOPScan/2014/web/sqlite/bopbib.sqlite 
+cd ../../BOPScan/2014/web/webtc2
+sh init_query.sh
+cd ../../../../websanlexicon/v00
+* regenerate bop/web in place  
+#in v00
+python generate.py bop inventory.txt  makotemplates ../../BOPScan/2014/web
 
 * --------------------------------------------------------------
 * redo_cologne_all.sh
