@@ -224,6 +224,15 @@ alldictparms = {
   "dictaccent":False,
   "webtc2devatextoption":False,
  },
+"mw72": {
+  "dictup":"MW72",
+  "dictlo":"mw72",
+  "dictname":u"Monier-Williams Sanskrit-English Dictionary, 1872",
+  "dictwebversion":"00",
+  "dictyear":"2014",
+  "dictaccent":False,
+  "webtc2devatextoption":False,
+ },
 
 }
 

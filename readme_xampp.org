@@ -145,7 +145,8 @@ webtc2/old1:
  table name is X  (e.g. whitmwtab.sqlite has table name whitmwtab.)
 * webtc2/query_dump.txt
 * next
-* backup an inventory file
+* ----------------------------------------------------------
+* backup an inventory file for previous code
 # in websanlexicon:
 These backups are done prior to the installation of version 00.
 python backup.py inventories/gra_00.txt ../gra/web  webbackup/gra/00
@@ -172,7 +173,9 @@ python backup.py inventories/bor_00.txt ../bor/web  webbackup/bor/00
 python backup.py inventories/ccs_00.txt ../ccs/web  webbackup/ccs/00
 python backup.py inventories/md_00.txt ../md/web  webbackup/md/00
 python backup.py inventories/mwe_00.txt ../mwe/web  webbackup/mwe/00
+python backup.py inventories/mw72_00.txt ../mw72/web  webbackup/mw72/00
 
+* ----------------------------------------------------------
 * v00 -- initial 'general' version of web
   starts as a copy of webbackup/gra/00
 * install datafiles to move
@@ -732,12 +735,39 @@ cd ../../../websanlexicon/v00
 #in v00
 python generate.py mwe inventory.txt  makotemplates ../../mwe/web
 
+* ----------mw72---------------------
+* NOTES on MW72 conversion
+  The <lang> tag is sometimes filled in with unicode, sometimes not.
+  Add (temporary) code in basicadjust with attribute empty="yes": e.g.
+    <lang n="greek" empty="yes"></lang>
+  And use this in sthndl of disp.php.
+
+  <nsi> tag no display
+
+* v00 generate  mw72 07-26-2018
+
+cd v00
+python generate.py mw72 inventory.txt  makotemplates ../../mw72/webv00
+
+* install mw72 
+ python install.py mw72 ../../mw72/webv00 ../../mw72
+EXTRA
+cp -r ../../pwg/web/fonts/ ../../mw72/web/
+#cp ../../mw72/pywork/mw72header.xml ../../mw72/web/
+cd ../../mw72/web/webtc2
+sh init_query.sh
+cd ../../../websanlexicon/v00
+* regenerate mw72/web in place  
+#in v00
+python generate.py mw72 inventory.txt  makotemplates ../../mw72/web
+
 * --------------------------------------------------------------
 * redo_web_all.sh
  in v00
  gra, bur, cae, stc, pwg, mw, skd, ae, 
  pw, ap90, ap,  pd,  bhs, wil, yat, shs,
-gst, vcp,  ben, bop, bor
+ gst, vcp,  ben, bop, bor, ccs, md, mwe,
+mw72, 
 * --------------------------------------------------------------
 * apidev1
 * --------------------------------------------------------------

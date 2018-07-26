@@ -192,7 +192,7 @@ public function __construct($key,$matches,$filterin,$dict) {
     }
     $ans = "<br/><span style='$style'>";
     return $ans;
-   }else if (in_array($this->dict,array('pd','bhs','mwe'))) {
+   }else if (in_array($this->dict,array('pd','bhs','mwe','mw72'))) {
     //  n = lb (line break)
     $ans = "<br/><span>";
     return $ans;
@@ -301,6 +301,7 @@ public function __construct($key,$matches,$filterin,$dict) {
   } else if ($el == "shortlong") { // mw no action
   } else if ($el == "srs") { // mw no action. Different from previous version.
   } else if ($el == "pcol") { // mw no action. Different from previous version.
+  } else if ($el == "nsi") { // mw72 no action
   } else if ($el == "pb"){
    if ($this->dict == "mw") {
     # do nothing.
@@ -334,6 +335,14 @@ public function __construct($key,$matches,$filterin,$dict) {
     $n = $attribs['n'];
     if (in_array($this->dict,array('pwg','mw','pw','wil','md'))) {
      # nothing to do.  Greek (and other) unicode has been provided.
+    }else if ($this->dict == 'mw72') {
+     $empty = $attribs['empty'];
+     if ($empty == 'yes') {
+      # placeholder required
+      $this->row .= " ($n) ";
+     }else {
+       # no placeholder required. nothing to do
+     }
     }else {
      # put a placeholder where the greek, arabic, etc. needs to be provided.
      $this->row .= " ($n) ";

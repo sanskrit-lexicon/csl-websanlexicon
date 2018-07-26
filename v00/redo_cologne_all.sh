@@ -22,3 +22,4 @@ python generate.py bor inventory.txt  makotemplates ../../BORScan/2014/web
 python generate.py ccs inventory.txt  makotemplates ../../CCSScan/2014/web
 python generate.py md inventory.txt  makotemplates ../../MDScan/2014/web
 python generate.py mwe inventory.txt  makotemplates ../../MWEScan/2013/web
+python generate.py mw72 inventory.txt  makotemplates ../../MW72Scan/2014/web

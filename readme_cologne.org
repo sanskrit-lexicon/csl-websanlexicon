@@ -769,6 +769,33 @@ cd ../../../../websanlexicon/v00
 #in v00
 python generate.py mwe inventory.txt  makotemplates ../../MWEScan/2013/web
 
+* ----------mw72---------------------
+* NOTES on MW72 conversion
+  The <lang> tag is sometimes filled in with unicode, sometimes not.
+  Add (temporary) code in basicadjust with attribute empty="yes": e.g.
+    <lang n="greek" empty="yes"></lang>
+  And use this in sthndl of disp.php.
+
+  <nsi> tag no display
+
+* v00 generate  mw72 07-26-2018
+
+cd v00
+python generate.py mw72 inventory.txt  makotemplates ../../MW72Scan/2014/webv00
+
+* install mw72 
+ python install.py mw72 ../../MW72Scan/2014/webv00 ../../MW72Scan/2014
+EXTRA
+cp -r ../../PWGScan/2013/web/fonts/ ../../MW72Scan/2014/web/
+
+cp ../../MW72Scan/2014/pywork/mw72header.xml ../../MW72Scan/2014/web/
+cd ../../MW72Scan/2014/web/webtc2
+sh init_query.sh
+cd ../../../../websanlexicon/v00
+* regenerate mw72/web in place  
+#in v00
+python generate.py mw72 inventory.txt  makotemplates ../../MW72Scan/2014/web
+
 * --------------------------------------------------------------
 * redo_cologne_all.sh
 This script runs generate.py for all the converted dictionaries,
@@ -776,7 +803,8 @@ This script runs generate.py for all the converted dictionaries,
  in v00
  gra, bur, cae, stc, pwg, mw, skd, ae,
  pw,  ap, ap90, pd,  bhs, wil, yat, shs,
- gst, vcp, ben, bop, bor, ccs, md, mwe
+ gst, vcp, ben, bop, bor, ccs, md, mwe,
+mw72, 
 * --------------------------------------------------------------
 * apidev1
 * --------------------------------------------------------------
