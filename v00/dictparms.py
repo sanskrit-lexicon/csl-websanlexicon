@@ -197,6 +197,15 @@ alldictparms = {
   "dictaccent":False,
   "webtc2devatextoption":False,
  },
+"ccs": {
+  "dictup":"CCS",
+  "dictlo":"ccs",
+  "dictname":u"Cappeller Sanskrit Wörterbuch",
+  "dictwebversion":"00",
+  "dictyear":"2014",
+  "dictaccent":True,
+  "webtc2devatextoption":True,
+ },
 
 }
 

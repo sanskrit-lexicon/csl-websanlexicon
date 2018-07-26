@@ -1,16 +1,7 @@
-; cae: Directories and files in web application subdirectories
-caeheader.xml
+; ccs: Directories and files in web application subdirectories
+ccsheader.xml
 index.php
 readme.txt
-fonts/CharterIndoCapital.otf
-fonts/Old Standard Indologique-Italic.otf
-fonts/Old Standard Indologique-Italic.ttf
-fonts/Old Standard Indologique-Regular.otf
-fonts/oldstandard.otf
-fonts/oldstandarditalic.otf
-fonts/praja.ttf
-fonts/sanskrit2003.ttf
-fonts/siddhanta.ttf
 images/cologne_univ_seal.gif
 images/encoding.gif
 js/jquery.cookie.js
@@ -19,8 +10,8 @@ mobile1/index.php
 mobile1/main.css
 mobile1/main_mobile.js
 ;mobile1/monier_serveimg.css
-;sqlite/cae.sqlite
-;sqlite/caeab.sqlite
+;sqlite/ccs.sqlite
+;sqlite/ccsab.sqlite
 ;sqlite/input.txt
 sqlite/make_input.php
 sqlite/redo.sh
@@ -54,6 +45,7 @@ webtc/pdffiles.txt
 ;webtc/readme_pdffiles.txt
 webtc/serveimg.css
 webtc/servepdf.php
+webtc/translithelp.html
 ;
 webtc1/disphier.php
 webtc1/index.php
@@ -98,7 +90,7 @@ webtc1/transcoderjs/transcoder3.js
 webtc1/transcoderjs/transcoderJson.js
 webtc2/help.html
 webtc2/index.php
-webtc2/init_query.php
+webtc2/init_query.py
 webtc2/init_query.sh
 webtc2/main.css
 webtc2/main.js

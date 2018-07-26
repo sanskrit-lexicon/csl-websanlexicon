@@ -169,6 +169,7 @@ python backup.py inventories/vcp_00.txt ../vcp/web  webbackup/vcp/00
 python backup.py inventories/ben_00.txt ../ben/web  webbackup/ben/00
 python backup.py inventories/bop_00.txt ../bop/web  webbackup/bop/00
 python backup.py inventories/bor_00.txt ../bor/web  webbackup/bor/00
+python backup.py inventories/ccs_00.txt ../ccs/web  webbackup/ccs/00
 
 * v00 -- initial 'general' version of web
   starts as a copy of webbackup/gra/00
@@ -668,6 +669,28 @@ cd ../../../websanlexicon/v00
 * regenerate bor/web in place  
 #in v00
 python generate.py bor inventory.txt  makotemplates ../../bor/web
+
+* ----------ccs---------------------
+* NOTES on CCS conversion
+  Part of the 'div' adjustment (that done in basicadjust) maybe should
+   be done either in ccs.xml or ccs.txt.
+
+* v00 generate  ccs 07-26-2018
+
+cd v00
+python generate.py ccs inventory.txt  makotemplates ../../ccs/webv00
+
+* install ccs 
+ python install.py ccs ../../ccs/webv00 ../../ccs
+EXTRA
+#cp -r ../../pwg/web/fonts/ ../../ccs/web/
+#cp ../../ccs/pywork/ccsheader.xml ../../ccs/web/
+cd ../../ccs/web/webtc2
+sh init_query.sh
+cd ../../../websanlexicon/v00
+* regenerate ccs/web in place  
+#in v00
+python generate.py ccs inventory.txt  makotemplates ../../ccs/web
 
 * --------------------------------------------------------------
 * redo_web_all.sh

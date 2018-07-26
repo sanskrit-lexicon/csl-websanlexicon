@@ -19,3 +19,4 @@ python generate.py vcp inventory.txt  makotemplates ../../vcp/web
 python generate.py ben inventory.txt  makotemplates ../../ben/web
 python generate.py bop inventory.txt  makotemplates ../../bop/web
 python generate.py bor inventory.txt  makotemplates ../../bor/web
+python generate.py ccs inventory.txt  makotemplates ../../ccs/web

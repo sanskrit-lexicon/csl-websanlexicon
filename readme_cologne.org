@@ -707,6 +707,28 @@ cd ../../../../websanlexicon/v00
 #in v00
 python generate.py bor inventory.txt  makotemplates ../../BORScan/2014/web
 
+* ----------ccs---------------------
+* NOTES on CCS conversion
+  Part of the 'div' adjustment (that done in basicadjust) maybe should
+   be done either in ccs.xml or ccs.txt.
+
+* v00 generate  ccs 07-26-2018
+
+cd v00
+python generate.py ccs inventory.txt  makotemplates ../../CCSScan/2014/webv00
+
+* install ccs 
+ python install.py ccs ../../CCSScan/2014/webv00 ../../CCSScan/2014
+EXTRA
+#cp -r ../../pwg/web/fonts/ ../../CCSScan/2014/web/
+cp ../../CCSScan/2014/pywork/ccsheader.xml ../../CCSScan/2014/web/
+cd ../../CCSScan/2014/web/webtc2
+sh init_query.sh
+cd ../../../websanlexicon/v00
+* regenerate ccs/web in place  
+#in v00
+python generate.py ccs inventory.txt  makotemplates ../../CCSScan/2014/web
+
 * --------------------------------------------------------------
 * redo_cologne_all.sh
 This script runs generate.py for all the converted dictionaries,
