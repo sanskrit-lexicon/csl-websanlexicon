@@ -195,7 +195,7 @@ alldictparms = {
   "dictwebversion":"00",
   "dictyear":"2014",
   "dictaccent":False,
-  "webtc2devatextoption":True,
+  "webtc2devatextoption":False,
  },
 
 }

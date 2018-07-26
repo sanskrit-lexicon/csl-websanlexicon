@@ -144,6 +144,13 @@ class BasicAdjust {
    $line = preg_replace('/--/','&#8212;',$line);  # emdash
    $line = preg_replace('|<g></g>|','<lang n="greek"></lang>',$line);
    $line = preg_replace('|<P/>|','<div n="P"/>',$line);
+  } else if ($this->getParms->dict == "bor") {
+   /* Put bold tag around first word of <div n="1"> or <div n="I"> 
+      Sometimes there is no space character in the div. Remedy this by always
+      putting a space before a closing div </div>.
+   */
+   $line = preg_replace('|</div>|',' </div>',$line);
+   $line = preg_replace('|<div n="([1I])">([^ ]*)|','<div n="\1"><b>\2</b>',$line);
   }
  return $line;
 }

@@ -236,6 +236,13 @@ public function __construct($key,$matches,$filterin,$dict) {
     // n = "lb" or "pfx".  Currently always a line break
     $ans = "<br/> <span>";
     return $ans;  
+   }else if ($this->dict == 'bor') {
+    if ($n == "lb") {  // 
+     $ans = "<br/> <span>";   
+    } else {
+     $ans = "<span>";
+    }
+    return $ans;  
    }else { // default
     // currently applies to:
     // cae with <div n="p"/>

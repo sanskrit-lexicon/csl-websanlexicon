@@ -648,7 +648,8 @@ python generate.py bop inventory.txt  makotemplates ../../bop/web
 
 * ----------bor---------------------
 * NOTES on BOR conversion
-  
+  Part of the 'div' adjustment (that done in basicadjust) maybe should
+   be done either in bor.xml or bor.txt.
 
 * v00 generate  bor 07-25-2018
 
