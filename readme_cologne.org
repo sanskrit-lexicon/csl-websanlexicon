@@ -702,7 +702,7 @@ cp -r ../../PWGScan/2013/web/fonts/ ../../BORScan/2014/web/
 cp ../../BORScan/2014/pywork/borheader.xml ../../BORScan/2014/web/
 cd ../../BORScan/2014/web/webtc2
 sh init_query.sh
-cd ../../../websanlexicon/v00
+cd ../../../../websanlexicon/v00
 * regenerate bor/web in place  
 #in v00
 python generate.py bor inventory.txt  makotemplates ../../BORScan/2014/web
@@ -714,7 +714,7 @@ This script runs generate.py for all the converted dictionaries,
  in v00
  gra, bur, cae, stc, pwg, mw, skd, ae,
  pw,  ap, ap90, pd,  bhs, wil, yat, shs,
- gst, vcp, ben, bop, bor
+ gst, vcp, ben, bop, bor, ccs, md, mwe
 * --------------------------------------------------------------
 * apidev1
 * --------------------------------------------------------------

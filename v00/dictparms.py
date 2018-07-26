@@ -191,7 +191,7 @@ alldictparms = {
 "bor": {
   "dictup":"BOR",
   "dictlo":"bor",
-  "dictname":u"",
+  "dictname":u"Borooah English-Sanskrit Dictionary",
   "dictwebversion":"00",
   "dictyear":"2014",
   "dictaccent":False,
