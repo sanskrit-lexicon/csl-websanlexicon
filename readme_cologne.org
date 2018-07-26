@@ -750,6 +750,25 @@ cd ../../../../websanlexicon/v00
 #in v00
 python generate.py md inventory.txt  makotemplates ../../MDScan/2014/web
 
+* ----------mwe---------------------
+* NOTES on MWE conversion
+* v00 generate  mwe 07-26-2018
+
+cd v00
+python generate.py mwe inventory.txt  makotemplates ../../MWEScan/2013/webv00
+
+* install mwe 
+ python install.py mwe ../../MWEScan/2013/webv00 ../../MWEScan/2013
+EXTRA
+cp -r ../../PWGScan/2013/web/fonts/ ../../MWEScan/2013/web/
+cp ../../MWEScan/2013/pywork/mweheader.xml ../../MWEScan/2013/web/
+cd ../../MWEScan/2013/web/webtc2
+sh init_query.sh
+cd ../../../../websanlexicon/v00
+* regenerate mwe/web in place  
+#in v00
+python generate.py mwe inventory.txt  makotemplates ../../MWEScan/2013/web
+
 * --------------------------------------------------------------
 * redo_cologne_all.sh
 This script runs generate.py for all the converted dictionaries,

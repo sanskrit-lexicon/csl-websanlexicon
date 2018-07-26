@@ -215,6 +215,15 @@ alldictparms = {
   "dictaccent":False,
   "webtc2devatextoption":False,
  },
+"mwe": {
+  "dictup":"MWE",
+  "dictlo":"mwe",
+  "dictname":u"Monier-Williams English-Sanskrit Dictionary",
+  "dictwebversion":"00",
+  "dictyear":"2013",
+  "dictaccent":False,
+  "webtc2devatextoption":False,
+ },
 
 }
 

@@ -21,3 +21,4 @@ python generate.py bop inventory.txt  makotemplates ../../bop/web
 python generate.py bor inventory.txt  makotemplates ../../bor/web
 python generate.py ccs inventory.txt  makotemplates ../../ccs/web
 python generate.py md inventory.txt  makotemplates ../../md/web
+python generate.py mwe inventory.txt  makotemplates ../../mwe/web
