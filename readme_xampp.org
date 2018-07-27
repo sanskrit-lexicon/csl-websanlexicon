@@ -177,7 +177,6 @@ python backup.py inventories/mw72_00.txt ../mw72/web  webbackup/mw72/00
 python backup.py inventories/ieg_00.txt ../ieg/web  webbackup/ieg/00
 python backup.py inventories/inm_00.txt ../inm/web  webbackup/inm/00
 python backup.py inventories/krm_00.txt ../krm/web  webbackup/krm/00
-# todo
 python backup.py inventories/mci_00.txt ../mci/web  webbackup/mci/00
 
 
@@ -767,13 +766,98 @@ cd ../../../websanlexicon/v00
 #in v00
 python generate.py mw72 inventory.txt  makotemplates ../../mw72/web
 
+* ----------ieg---------------------
+* NOTES on IEG conversion
+  
+* v00 generate  ieg 07-26-2018
+
+cd v00
+python generate.py ieg inventory.txt  makotemplates ../../ieg/webv00
+
+* install ieg 
+ python install.py ieg ../../ieg/webv00 ../../ieg
+EXTRA
+cp -r ../../pwg/web/fonts/ ../../ieg/web/
+#cp ../../ieg/pywork/iegheader.xml ../../ieg/web/
+cd ../../ieg/web/webtc2
+sh init_query.sh
+cd ../../../websanlexicon/v00
+* regenerate ieg/web in place  
+#in v00
+python generate.py ieg inventory.txt  makotemplates ../../ieg/web
+
+
+* ----------inm---------------------
+* NOTES on INM conversion
+  
+* v00 generate  inm 07-26-2018
+
+cd v00
+python generate.py inm inventory.txt  makotemplates ../../inm/webv00
+
+* install inm 
+ python install.py inm ../../inm/webv00 ../../inm
+EXTRA
+cp -r ../../pwg/web/fonts/ ../../inm/web/
+#cp ../../inm/pywork/inmheader.xml ../../inm/web/
+cd ../../inm/web/webtc2
+sh init_query.sh
+cd ../../../websanlexicon/v00
+* regenerate inm/web in place  
+#in v00
+python generate.py inm inventory.txt  makotemplates ../../inm/web
+
+
+* ----------krm---------------------
+* NOTES on KRM conversion
+  
+* v00 generate  krm 07-26-2018
+
+cd v00
+python generate.py krm inventory.txt  makotemplates ../../krm/webv00
+
+* install krm 
+ python install.py krm ../../krm/webv00 ../../krm
+EXTRA
+cp -r ../../pwg/web/fonts/ ../../krm/web/
+#cp ../../krm/pywork/krmheader.xml ../../krm/web/
+cd ../../krm/web/webtc2
+sh init_query.sh
+cd ../../../websanlexicon/v00
+* regenerate krm/web in place  
+#in v00
+python generate.py krm inventory.txt  makotemplates ../../krm/web
+
+
+
+* ----------mci---------------------
+* NOTES on MCI conversion
+  
+* v00 generate  mci 07-26-2018
+
+cd v00
+python generate.py mci inventory.txt  makotemplates ../../mci/webv00
+
+* install mci 
+ python install.py mci ../../mci/webv00 ../../mci
+EXTRA
+cp -r ../../pwg/web/fonts/ ../../mci/web/
+#cp ../../mci/pywork/mciheader.xml ../../mci/web/
+cd ../../mci/web/webtc2
+sh init_query.sh
+cd ../../../websanlexicon/v00
+* regenerate mci/web in place  
+#in v00
+python generate.py mci inventory.txt  makotemplates ../../mci/web
+
+
 * --------------------------------------------------------------
 * redo_web_all.sh
  in v00
  gra, bur, cae, stc, pwg, mw, skd, ae, 
  pw, ap90, ap,  pd,  bhs, wil, yat, shs,
- gst, vcp,  ben, bop, bor, ccs, md, mwe,
-mw72, 
+ gst, vcp, ben, bop, bor, ccs, md, mwe,
+mw72, ieg, inm, krm, mci
 * --------------------------------------------------------------
 * apidev1
 * --------------------------------------------------------------

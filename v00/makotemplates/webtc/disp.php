@@ -208,7 +208,7 @@ public function __construct($key,$matches,$filterin,$dict) {
     }
      $ans = "<br/><span style='$style'>";
     return $ans;
-   }else if (in_array($this->dict,array('gst'))) {
+   }else if (in_array($this->dict,array('gst','ieg'))) {
     if ($n == 'P') {$indent = "1.0em";}
     else if ($n == 'lb') {$indent = "0.0em"; }
     $style="position:relative; left:$indent;";

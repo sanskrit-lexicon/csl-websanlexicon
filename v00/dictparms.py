@@ -233,6 +233,42 @@ alldictparms = {
   "dictaccent":False,
   "webtc2devatextoption":False,
  },
+"ieg": {
+  "dictup":"IEG",
+  "dictlo":"ieg",
+  "dictname":u"Indian Epigraphical Glossary",
+  "dictwebversion":"00",
+  "dictyear":"2014",
+  "dictaccent":False,
+  "webtc2devatextoption":False,
+ },
+"inm": {
+  "dictup":"INM",
+  "dictlo":"inm",
+  "dictname":u"Index to the Names in the Mahabharata",
+  "dictwebversion":"00",
+  "dictyear":"2013",
+  "dictaccent":False,
+  "webtc2devatextoption":False,
+ },
+"krm": {
+  "dictup":"KRM",
+  "dictlo":"krm",
+  "dictname":u"Kṛdantarūpamālā",
+  "dictwebversion":"00",
+  "dictyear":"2014",
+  "dictaccent":False,
+  "webtc2devatextoption":True,
+ },
+"mci": {
+  "dictup":"MCI",
+  "dictlo":"mci",
+  "dictname":u"Mehendale Mahabharata Cultural Index",
+  "dictwebversion":"00",
+  "dictyear":"2014",
+  "dictaccent":False,
+  "webtc2devatextoption":False,
+ },
 
 }
 
