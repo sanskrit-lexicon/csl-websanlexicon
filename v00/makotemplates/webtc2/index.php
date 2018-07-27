@@ -76,7 +76,7 @@ Sanskrit word:
 
 </td>
 </tr>
-%if dictlo not in ['skd','vcp']:
+%if dictlo not in ['skd','vcp','krm']:
 <tr>
 %else:
 <tr style="display:none"/>  <!-- "visibility:hidden;" -->

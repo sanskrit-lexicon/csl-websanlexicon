@@ -166,6 +166,14 @@ public function __construct($key,$matches,$filterin,$dict) {
      $ans .= "<br/>&nbsp;<span class='footnote'>[Footnote: ";
     }
     return $ans; 
+   }else if ($this->dict == 'krm') {
+    if ($n == "F") {
+     $ans = "<br/><b>Footnote </b> <span>";
+    }else {
+     // krm: n=lb, NI, P
+     $ans = "<br/><span>";
+    }
+    return $ans; 
    }else if ($this->dict == 'pw') {
     //  n = 1 (number div), n = 2 (English letter), n = 3 (Greek letter)
     //  n = p (prefixed form, in verbs
@@ -323,7 +331,7 @@ public function __construct($key,$matches,$filterin,$dict) {
   } else if ($el == "hwtype") {
    // Ignore
   } else if ($el == "sup") {
-   if (in_array($this->dict,array('gst'))) {
+   if (in_array($this->dict,array('gst','krm'))) {
     $this->row .= '<sup style="font-weight:bold;">';
    } else {
     $this->row .= "<sup>";
@@ -405,6 +413,11 @@ public function __construct($key,$matches,$filterin,$dict) {
    $filename = $attribs['name'];
    $path = "../../web/images/$filename";
    $this->row .= "<img src='$path'/>";   
+  } else if ($el == "note") {
+   // no action currently. For krm.   
+  } else if ($el == "Poem") {
+   // For krm.   
+    $this->row .= "<br/>";
   } else {
     $this->row .= "<br/>&lt;$el&gt;";
   }
