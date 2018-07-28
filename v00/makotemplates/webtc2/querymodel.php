@@ -110,7 +110,7 @@ class QueryModel{
    $this->search_regexp_nonSanskrit = null;
    #$search_opt = $this->queryParms->opt_stransLit;
    $opt_swordhw = $this->queryParms->opt_swordhw;
-   #$tempar = smatchkey($fp,$lastLnum,$search_regexp,$max,$search_opt,opt_swordhw );
+   #$tempar = smatchkey($fp,$lastLnum,$search_regexp,$max,$search_opt,$opt_swordhw );
    $tempar = $this->smatchkey($search_regexp);
    $this->querymatches = $tempar['ans'];
    $this->lastLnum = $tempar['lastLnum'];
@@ -197,7 +197,7 @@ public function smatchkey($regexp) {
  #$transLit = $this->queryParms->opt_stransLit;
  $ntot = 0;
  fseek($fp,$lastLnum,0); // reposition
- $line=fgets($fp);
+ //$line=fgets($fp);
  $ans=array();
  if (!feof($fp)) {
   $line=fgets($fp);

@@ -200,9 +200,11 @@ public function __construct($key,$matches,$filterin,$dict) {
     }
     $ans = "<br/><span style='$style'>";
     return $ans;
-   }else if (in_array($this->dict,array('pd','bhs','mwe','mw72','sch'))) {
+   }else if (in_array($this->dict,array('pd','bhs','mwe','mw72','sch','snp','vei'))) {
     //  n = lb (line break)
     //  But for 'sch', there is no n attribute  (so $n is null or undefined).
+    // snp has n=lb, P, HI.  Currently all are rendered as line break.
+    // vei has n=lb, P.  Both are rendered as line break.
     $ans = "<br/><span>";
     return $ans;
    }else if (in_array($this->dict,array('wil','shs'))) {
