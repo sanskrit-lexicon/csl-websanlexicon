@@ -200,8 +200,9 @@ public function __construct($key,$matches,$filterin,$dict) {
     }
     $ans = "<br/><span style='$style'>";
     return $ans;
-   }else if (in_array($this->dict,array('pd','bhs','mwe','mw72'))) {
+   }else if (in_array($this->dict,array('pd','bhs','mwe','mw72','sch'))) {
     //  n = lb (line break)
+    //  But for 'sch', there is no n attribute  (so $n is null or undefined).
     $ans = "<br/><span>";
     return $ans;
    }else if (in_array($this->dict,array('wil','shs'))) {
@@ -223,7 +224,7 @@ public function __construct($key,$matches,$filterin,$dict) {
     $style="position:relative; left:$indent;";
     $ans = "<br/><span style='$style'>";
     return $ans;
-   }else if (in_array($this->dict,array('ben'))) {
+   }else if (in_array($this->dict,array('ben','pui'))) {
     // in ben, this div is an empty div. The display
     // should begin a new indented paragraph.
     // Example under dIkz and garj.
@@ -349,7 +350,9 @@ public function __construct($key,$matches,$filterin,$dict) {
   } else if ($el == "key1"){
   } else if ($el == "hom"){ // handled wholly in chrhndl
   } else if ($el == "F"){
-   $this->row .= "<br/>&nbsp;<span class='footnote'>[Footnote: ";
+   #$this->row .= "<br/>&nbsp;<span class='footnote'>[Footnote: ";
+   $style = "font-weight:bold;";
+   $this->row .= "<br/>[<span style='$style'>Footnote: </span><span>";
   } else if ($el == "symbol") {
   } else if ($el == "div") {
    $this->row .= $this->sthndl_div($attribs);
@@ -452,6 +455,8 @@ public function __construct($key,$matches,$filterin,$dict) {
     // For krm.   
     $this->row .= "<br/>";    
    }
+  } else if ($el == "type") {
+    // displayed in chrhndl
   } else {
     $this->row .= "<br/>&lt;$el&gt;";
   }
@@ -579,6 +584,9 @@ public function __construct($key,$matches,$filterin,$dict) {
    #$data1 = format_ls($data);
    #$this->row .= $data1;
    $this->row .= $data;
+  } else if ($this->parentEl == "type") {
+    // prepend to $row1, so it precedes key2
+    $this->row1 = "<strong>$data</strong> " . $row1;
   } else { // Arbitrary other text
    $this->row .= $data;
   }
