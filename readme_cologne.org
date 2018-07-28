@@ -796,6 +796,89 @@ cd ../../../../websanlexicon/v00
 #in v00
 python generate.py mw72 inventory.txt  makotemplates ../../MW72Scan/2014/web
 
+* ----------ieg---------------------
+* NOTES on IEG conversion
+  
+* v00 generate  ieg 07-27-2018
+
+cd v00
+python generate.py ieg inventory.txt  makotemplates ../../IEGScan/2014/webv00
+
+* install ieg 
+ python install.py ieg ../../IEGScan/2014/webv00 ../../IEGScan/2014
+EXTRA
+cp -r ../../PWGScan/2013/web/fonts/ ../../IEGScan/2014/web/
+cp ../../IEGScan/2014/pywork/iegheader.xml ../../IEGScan/2014/web/
+cd ../../IEGScan/2014/web/webtc2
+sh init_query.sh
+cd ../../../../websanlexicon/v00
+* regenerate ieg/web in place  
+#in v00
+python generate.py ieg inventory.txt  makotemplates ../../IEGScan/2014/web
+
+
+* ----------inm---------------------
+* NOTES on INM conversion
+  
+* v00 generate  inm 07-27-2018
+
+cd v00
+python generate.py inm inventory.txt  makotemplates ../../INMScan/2013/webv00
+
+* install inm 
+ python install.py inm ../../INMScan/2013/webv00 ../../INMScan/2013
+EXTRA
+cp -r ../../PWGScan/2013/web/fonts/ ../../INMScan/2013/web/
+cp ../../INMScan/2013/pywork/inmheader.xml ../../INMScan/2013/web/
+cd ../../INMScan/2013/web/webtc2
+sh init_query.sh
+cd ../../../../websanlexicon/v00
+* regenerate inm/web in place  
+#in v00
+python generate.py inm inventory.txt  makotemplates ../../INMScan/2013/web
+
+
+* ----------krm---------------------
+* NOTES on KRM conversion
+  
+* v00 generate  krm 07-27-2018
+
+cd v00
+python generate.py krm inventory.txt  makotemplates ../../KRMScan/2014/webv00
+
+* install krm 
+ python install.py krm ../../KRMScan/2014/webv00 ../../KRMScan/2014
+EXTRA
+cp -r ../../PWGScan/2013/web/fonts/ ../../KRMScan/2014/web/
+cp ../../KRMScan/2014/pywork/krmheader.xml ../../KRMScan/2014/web/
+cd ../../KRMScan/2014/web/webtc2
+sh init_query.sh
+cd ../../../../websanlexicon/v00
+* regenerate krm/web in place  
+#in v00
+python generate.py krm inventory.txt  makotemplates ../../KRMScan/2014/web
+
+* ----------mci---------------------
+* NOTES on MCI conversion
+  
+* v00 generate  mci 07-27-2018
+
+cd v00
+python generate.py mci inventory.txt  makotemplates ../../MCIScan/2014/webv00
+
+* install mci 
+ python install.py mci ../../MCIScan/2014/webv00 ../../MCIScan/2014
+EXTRA
+cp -r ../../PWGScan/2013/web/fonts/ ../../MCIScan/2014/web/
+cp ../../MCIScan/2014/pywork/mciheader.xml ../../MCIScan/2014/web/
+cd ../../MCIScan/2014/web/webtc2
+sh init_query.sh
+cd ../../../../websanlexicon/v00
+* regenerate mci/web in place  
+#in v00
+python generate.py mci inventory.txt  makotemplates ../../MCIScan/2014/web
+
+
 * --------------------------------------------------------------
 * redo_cologne_all.sh
 This script runs generate.py for all the converted dictionaries,
@@ -804,7 +887,7 @@ This script runs generate.py for all the converted dictionaries,
  gra, bur, cae, stc, pwg, mw, skd, ae,
  pw,  ap, ap90, pd,  bhs, wil, yat, shs,
  gst, vcp, ben, bop, bor, ccs, md, mwe,
-mw72, 
+mw72, ieg, inm, krm, mci 
 * --------------------------------------------------------------
 * apidev1
 * --------------------------------------------------------------

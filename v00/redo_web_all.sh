@@ -23,3 +23,7 @@ python generate.py ccs inventory.txt  makotemplates ../../ccs/web
 python generate.py md inventory.txt  makotemplates ../../md/web
 python generate.py mwe inventory.txt  makotemplates ../../mwe/web
 python generate.py mw72 inventory.txt  makotemplates ../../mw72/web
+python generate.py ieg inventory.txt  makotemplates ../../ieg/web
+python generate.py inm inventory.txt  makotemplates ../../inm/web
+python generate.py krm inventory.txt  makotemplates ../../krm/web
+python generate.py mci inventory.txt  makotemplates ../../mci/web

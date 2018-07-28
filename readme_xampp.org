@@ -828,8 +828,6 @@ cd ../../../websanlexicon/v00
 #in v00
 python generate.py krm inventory.txt  makotemplates ../../krm/web
 
-
-
 * ----------mci---------------------
 * NOTES on MCI conversion
   
