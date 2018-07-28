@@ -251,7 +251,36 @@ public function __construct($key,$matches,$filterin,$dict) {
      $ans = "<span>";
     }
     return $ans;  
-   }else { // default
+   }else if ($this->dict == 'pe') {
+    // the div tag is empty for pe.
+    // hence, indentation doesn't work using the position:relative trick.
+    if ($n == 'P') {
+     // line break plus indent. Since div is empty tag, it has no
+     // content. Thus, position:relative; left:3.0em  doesn't indent.
+     // Instead, use several &nbsp;
+     $ans= "<br/><span>&nbsp;&nbsp;&nbsp;"; 
+    }else if ($n == 'NI') {
+     // two line breaks, no indent
+     $ans = "<br/><br/><span>";
+    }else { 
+     // $n == "lb" . line break, no indent
+     $ans = "<br/><span>";
+    }
+    return $ans;  
+    }else if ($this->dict == 'pgn') {
+    // the div tag is empty for pgn.
+    // hence, indentation doesn't work using the position:relative trick.
+    if ($n == 'P') {
+     // line break plus indent. Since div is empty tag, it has no
+     // content. Thus, position:relative; left:3.0em  doesn't indent.
+     // Instead, use several &nbsp;
+     $ans= "<br/><span>&nbsp;&nbsp;&nbsp;"; 
+    }else { 
+     // $n == "lb" . line break, no indent
+     $ans = "<br/><span>";
+    }
+    return $ans;  
+  }else { // default
     // currently applies to:
     // cae with <div n="p"/>
     // mw 
@@ -366,7 +395,7 @@ public function __construct($key,$matches,$filterin,$dict) {
      $this->row .= "<br/>";
     }
    }
-   $this->row .= "<strong>(C$n)</strong>";
+   $this->row .= "<strong>(C$n)</strong>"; // any dictionary
   } else if ($el == "edit"){ // vcp
     // no display
   } else if ($el == "ls") {
@@ -416,8 +445,13 @@ public function __construct($key,$matches,$filterin,$dict) {
   } else if ($el == "note") {
    // no action currently. For krm.   
   } else if ($el == "Poem") {
-   // For krm.   
-    $this->row .= "<br/>";
+   if ($this->dict == 'pe') {
+    $style = "position:relative; left:3.0em;";
+    $this->row .= "<br/><div style='$style'>";
+   }else {
+    // For krm.   
+    $this->row .= "<br/>";    
+   }
   } else {
     $this->row .= "<br/>&lt;$el&gt;";
   }

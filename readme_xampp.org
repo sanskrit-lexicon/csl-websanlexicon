@@ -178,19 +178,13 @@ python backup.py inventories/ieg_00.txt ../ieg/web  webbackup/ieg/00
 python backup.py inventories/inm_00.txt ../inm/web  webbackup/inm/00
 python backup.py inventories/krm_00.txt ../krm/web  webbackup/krm/00
 python backup.py inventories/mci_00.txt ../mci/web  webbackup/mci/00
-#todo
 python backup.py inventories/pe_00.txt ../pe/web  webbackup/pe/00
 python backup.py inventories/pgn_00.txt ../pgn/web  webbackup/pgn/00
 python backup.py inventories/pui_00.txt ../pui/web  webbackup/pui/00
-# todo
 python backup.py inventories/sch_00.txt ../sch/web  webbackup/sch/00
 python backup.py inventories/snp_00.txt ../snp/web  webbackup/snp/00
 python backup.py inventories/vei_00.txt ../vei/web  webbackup/vei/00
 python backup.py inventories/acc_00.txt ../acc/web  webbackup/acc/00
-
-
-
-
 
 * ----------------------------------------------------------
 * v00 -- initial 'general' version of web
@@ -861,6 +855,50 @@ cd ../../../websanlexicon/v00
 python generate.py mci inventory.txt  makotemplates ../../mci/web
 
 
+* ----------pe---------------------
+* NOTES on PE conversion
+  This is a line-by-line digitization.  Hyphenations not resolved.
+  There are some {??} unreadable text items.
+* v00 generate  pe 07-27-2018
+
+cd v00
+python generate.py pe inventory.txt  makotemplates ../../pe/webv00
+
+* install pe 
+ python install.py pe ../../pe/webv00 ../../pe
+EXTRA
+cp -r ../../pwg/web/fonts/ ../../pe/web/
+#cp ../../pe/pywork/peheader.xml ../../pe/web/
+cd ../../pe/web/webtc2
+sh init_query.sh
+cd ../../../websanlexicon/v00
+* regenerate pe/web in place  
+#in v00
+python generate.py pe inventory.txt  makotemplates ../../pe/web
+
+
+* ----------pgn---------------------
+* NOTES on PGN conversion
+  
+* v00 generate  pgn 07-27-2018
+
+cd v00
+python generate.py pgn inventory.txt  makotemplates ../../pgn/webv00
+
+* install pgn 
+ python install.py pgn ../../pgn/webv00 ../../pgn
+EXTRA
+cp -r ../../pwg/web/fonts/ ../../pgn/web/
+#cp ../../pgn/pywork/pgnheader.xml ../../pgn/web/
+cd ../../pgn/web/webtc2
+sh init_query.sh
+cd ../../../websanlexicon/v00
+* regenerate pgn/web in place  
+#in v00
+python generate.py pgn inventory.txt  makotemplates ../../pgn/web
+
+
+
 * --------------------------------------------------------------
 * redo_web_all.sh
  in v00
@@ -895,3 +933,113 @@ cp v00/makotemplates/webtc/disp.php ../apidev1/basicdisplay.php
   for dictionaries that have been 'converted'.
 
 * THE END
+* ----------pui---------------------
+* NOTES on PUI conversion
+  
+* v00 generate  pui 07-27-2018
+
+cd v00
+python generate.py pui inventory.txt  makotemplates ../../pui/webv00
+
+* install pui 
+ python install.py pui ../../pui/webv00 ../../pui
+EXTRA
+cp -r ../../pwg/web/fonts/ ../../pui/web/
+#cp ../../pui/pywork/puiheader.xml ../../pui/web/
+cd ../../pui/web/webtc2
+sh init_query.sh
+cd ../../../websanlexicon/v00
+* regenerate pui/web in place  
+#in v00
+python generate.py pui inventory.txt  makotemplates ../../pui/web
+
+
+
+* ----------sch---------------------
+* NOTES on SCH conversion
+  
+* v00 generate  sch 07-27-2018
+
+cd v00
+python generate.py sch inventory.txt  makotemplates ../../sch/webv00
+
+* install sch 
+ python install.py sch ../../sch/webv00 ../../sch
+EXTRA
+cp -r ../../pwg/web/fonts/ ../../sch/web/
+#cp ../../sch/pywork/schheader.xml ../../sch/web/
+cd ../../sch/web/webtc2
+sh init_query.sh
+cd ../../../websanlexicon/v00
+* regenerate sch/web in place  
+#in v00
+python generate.py sch inventory.txt  makotemplates ../../sch/web
+
+
+
+* ----------snp---------------------
+* NOTES on SNP conversion
+  
+* v00 generate  snp 07-27-2018
+
+cd v00
+python generate.py snp inventory.txt  makotemplates ../../snp/webv00
+
+* install snp 
+ python install.py snp ../../snp/webv00 ../../snp
+EXTRA
+cp -r ../../pwg/web/fonts/ ../../snp/web/
+#cp ../../snp/pywork/snpheader.xml ../../snp/web/
+cd ../../snp/web/webtc2
+sh init_query.sh
+cd ../../../websanlexicon/v00
+* regenerate snp/web in place  
+#in v00
+python generate.py snp inventory.txt  makotemplates ../../snp/web
+
+
+
+* ----------vei---------------------
+* NOTES on VEI conversion
+  
+* v00 generate  vei 07-27-2018
+
+cd v00
+python generate.py vei inventory.txt  makotemplates ../../vei/webv00
+
+* install vei 
+ python install.py vei ../../vei/webv00 ../../vei
+EXTRA
+cp -r ../../pwg/web/fonts/ ../../vei/web/
+#cp ../../vei/pywork/veiheader.xml ../../vei/web/
+cd ../../vei/web/webtc2
+sh init_query.sh
+cd ../../../websanlexicon/v00
+* regenerate vei/web in place  
+#in v00
+python generate.py vei inventory.txt  makotemplates ../../vei/web
+
+
+
+* ----------acc---------------------
+* NOTES on ACC conversion
+  
+* v00 generate  acc 07-27-2018
+
+cd v00
+python generate.py acc inventory.txt  makotemplates ../../acc/webv00
+
+* install acc 
+ python install.py acc ../../acc/webv00 ../../acc
+EXTRA
+cp -r ../../pwg/web/fonts/ ../../acc/web/
+#cp ../../acc/pywork/accheader.xml ../../acc/web/
+cd ../../acc/web/webtc2
+sh init_query.sh
+cd ../../../websanlexicon/v00
+* regenerate acc/web in place  
+#in v00
+python generate.py acc inventory.txt  makotemplates ../../acc/web
+
+
+
