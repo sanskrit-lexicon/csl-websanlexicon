@@ -27,3 +27,12 @@ python generate.py ieg inventory.txt  makotemplates ../../IEGScan/2014/web
 python generate.py inm inventory.txt  makotemplates ../../INMScan/2013/web
 python generate.py krm inventory.txt  makotemplates ../../KRMScan/2014/web
 python generate.py mci inventory.txt  makotemplates ../../MCIScan/2014/web
+#
+python generate.py pe inventory.txt  makotemplates ../../PEScan/2014/web
+python generate.py pgn inventory.txt  makotemplates ../../PGNScan/2014/web
+python generate.py pui inventory.txt  makotemplates ../../PUIScan/2014/web
+#
+python generate.py sch inventory.txt  makotemplates ../../SCHScan/2014/web
+python generate.py snp inventory.txt  makotemplates ../../SNPScan/2014/web
+python generate.py vei inventory.txt  makotemplates ../../VEIScan/2014/web
+python generate.py acc inventory.txt  makotemplates ../../ACCScan/2014/web

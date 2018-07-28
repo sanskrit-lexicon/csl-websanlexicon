@@ -178,6 +178,18 @@ python backup.py inventories/ieg_00.txt ../ieg/web  webbackup/ieg/00
 python backup.py inventories/inm_00.txt ../inm/web  webbackup/inm/00
 python backup.py inventories/krm_00.txt ../krm/web  webbackup/krm/00
 python backup.py inventories/mci_00.txt ../mci/web  webbackup/mci/00
+#todo
+python backup.py inventories/pe_00.txt ../pe/web  webbackup/pe/00
+python backup.py inventories/pgn_00.txt ../pgn/web  webbackup/pgn/00
+python backup.py inventories/pui_00.txt ../pui/web  webbackup/pui/00
+# todo
+python backup.py inventories/sch_00.txt ../sch/web  webbackup/sch/00
+python backup.py inventories/snp_00.txt ../snp/web  webbackup/snp/00
+python backup.py inventories/vei_00.txt ../vei/web  webbackup/vei/00
+python backup.py inventories/acc_00.txt ../acc/web  webbackup/acc/00
+
+
+
 
 
 * ----------------------------------------------------------
@@ -855,7 +867,9 @@ python generate.py mci inventory.txt  makotemplates ../../mci/web
  gra, bur, cae, stc, pwg, mw, skd, ae, 
  pw, ap90, ap,  pd,  bhs, wil, yat, shs,
  gst, vcp, ben, bop, bor, ccs, md, mwe,
-mw72, ieg, inm, krm, mci
+mw72, ieg, inm, krm, mci, pe, pgn, pui,
+
+sch, snp, vei, acc
 * --------------------------------------------------------------
 * apidev1
 * --------------------------------------------------------------
