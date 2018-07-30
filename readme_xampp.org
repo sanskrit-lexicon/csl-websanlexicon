@@ -1008,6 +1008,26 @@ cd ../../../websanlexicon/v00
 python generate.py vei inventory.txt  makotemplates ../../vei/web
 
 
+* ----------acc---------------------
+* NOTES on ACC conversion
+  <symbol n="C."/>C.</symbol>   used to code a backwards C:
+  Maybe this is just an abbreviation for 'Commentary' ?
+* v00 generate  acc 07-28-2018
+
+cd v00
+python generate.py acc inventory.txt  makotemplates ../../acc/webv00
+
+* install acc 
+ python install.py acc ../../acc/webv00 ../../acc
+EXTRA
+cp -r ../../pwg/web/fonts/ ../../acc/web/
+#cp ../../acc/pywork/accheader.xml ../../acc/web/
+cd ../../acc/web/webtc2
+sh init_query.sh
+cd ../../../websanlexicon/v00
+* regenerate acc/web in place  
+#in v00
+python generate.py acc inventory.txt  makotemplates ../../acc/web
 * --------------------------------------------------------------
 * redo_web_all.sh
  in v00
@@ -1042,25 +1062,6 @@ cp v00/makotemplates/webtc/disp.php ../apidev1/basicdisplay.php
   for dictionaries that have been 'converted'.
 
 * THE END
-* ----------acc---------------------
-* NOTES on ACC conversion
-  
-* v00 generate  acc 07-28-2018
-
-cd v00
-python generate.py acc inventory.txt  makotemplates ../../acc/webv00
-
-* install acc 
- python install.py acc ../../acc/webv00 ../../acc
-EXTRA
-cp -r ../../pwg/web/fonts/ ../../acc/web/
-#cp ../../acc/pywork/accheader.xml ../../acc/web/
-cd ../../acc/web/webtc2
-sh init_query.sh
-cd ../../../websanlexicon/v00
-* regenerate acc/web in place  
-#in v00
-python generate.py acc inventory.txt  makotemplates ../../acc/web
 
 
 

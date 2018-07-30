@@ -156,6 +156,13 @@ class BasicAdjust {
   } else if ($this->getParms->dict == "sch") {
    # this should have been done in sch.txt or sch.xml
    $line = preg_replace('|\^(.)|',"<sup>\\1</sup>",$line);
+  } else if ($this->getParms->dict == "acc") {
+   # this should have been done in acc.txt or acc.xml
+   $line = preg_replace('|\^([a-d02th]+)|',"<sup>\\1</sup>",$line);
+   $line = preg_replace('/--/','&#8212;',$line);  # emdash
+   # also, remove breaks.  This is a display choice, maybe not for acc.txt,xml
+   $line = preg_replace('|- <br/>|','',$line);
+   $line = preg_replace('|<br/>|',' ',$line);
   }
  return $line;
 }

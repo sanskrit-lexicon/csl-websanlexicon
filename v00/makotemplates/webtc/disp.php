@@ -270,7 +270,7 @@ public function __construct($key,$matches,$filterin,$dict) {
      $ans = "<br/><span>";
     }
     return $ans;  
-    }else if ($this->dict == 'pgn') {
+    } else if ($this->dict == 'pgn') {
     // the div tag is empty for pgn.
     // hence, indentation doesn't work using the position:relative trick.
     if ($n == 'P') {
@@ -282,6 +282,22 @@ public function __construct($key,$matches,$filterin,$dict) {
      // $n == "lb" . line break, no indent
      $ans = "<br/><span>";
     }
+    return $ans;  
+    } else if ($this->dict == 'acc') {
+     // line break, and 
+     // indent, whether 'n' is '2' or 'P' (only values allowed) 05-04-2017
+     // also, n='3' 05-21-2017 
+     //  Examples: n=2: akulAgamatantra
+     //  n=P paRqitasvAmin
+     //  n=3 agastyasaMhitA
+     if (($n == '2') || ($n=='P')) {
+      $style="position:relative; left:1.5em;";
+      $ans = "<br/><span style='$style'>";
+     } else {
+     // e.g. n="3"
+     $style="";
+     $ans = "<br/><span style='$style'>";
+   }
     return $ans;  
   }else { // default
     // currently applies to:

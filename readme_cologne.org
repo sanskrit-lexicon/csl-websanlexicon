@@ -878,6 +878,179 @@ cd ../../../../websanlexicon/v00
 #in v00
 python generate.py mci inventory.txt  makotemplates ../../MCIScan/2014/web
 
+* ----------pe---------------------
+* NOTES on PE conversion
+  This is a line-by-line digitization.  Hyphenations not resolved.
+  There are some {??} unreadable text items.
+* v00 generate  pe 07-27-2018
+
+cd v00
+python generate.py pe inventory.txt  makotemplates ../../PEScan/2014/webv00
+
+* install pe 
+ python install.py pe ../../PEScan/2014/webv00 ../../PEScan/2014
+EXTRA
+cp -r ../../PWGScan/2013/web/fonts/ ../../PEScan/2014/web/
+cp ../../PEScan/2014/pywork/peheader.xml ../../PEScan/2014/web/
+cd ../../PEScan/2014/web/webtc2
+sh init_query.sh
+cd ../../../../websanlexicon/v00
+* regenerate pe/web in place  
+#in v00
+python generate.py pe inventory.txt  makotemplates ../../PEScan/2014/web
+
+
+* ----------pgn---------------------
+* NOTES on PGN conversion
+  
+* v00 generate  pgn 07-27-2018
+
+cd v00
+python generate.py pgn inventory.txt  makotemplates ../../PGNScan/2014/webv00
+
+* install pgn 
+ python install.py pgn ../../PGNScan/2014/webv00 ../../PGNScan/2014
+EXTRA
+cp -r ../../PWGScan/2013/web/fonts/ ../../PGNScan/2014/web/
+cp ../../PGNScan/2014/pywork/pgnheader.xml ../../PGNScan/2014/web/
+cd ../../PGNScan/2014/web/webtc2
+sh init_query.sh
+cd ../../../../websanlexicon/v00
+* regenerate pgn/web in place  
+#in v00
+python generate.py pgn inventory.txt  makotemplates ../../PGNScan/2014/web
+
+
+* ----------pui---------------------
+* NOTES on PUI conversion
+  pui.txt is line by line. Hyphenated lines not resolved.
+  <div n="P"/> is used in two ways.  Most introduce a section of references at
+  the end of entries; these don't need indenting.  Fewer others introduce
+  additional paragraphs, and should be indented.  
+  The current markup and displays do not recognize this distinction:
+  <div n="P"/> and <div n="lb"/> are both displayed as simple line breaks.
+  In revised version v00, I've indented the 'P', of whichever of the two kinds.
+
+  No Devanagari in print;  in digitization, key1 form of headword is in slp1
+  representation of Devanagari.  Perhaps change wording in Adv. Search for
+  'Sanskrit word'
+* v00 generate  pui 07-28-2018
+
+cd v00
+python generate.py pui inventory.txt  makotemplates ../../PUIScan/2014/webv00
+
+* install pui 
+ python install.py pui ../../PUIScan/2014/webv00 ../../PUIScan/2014
+EXTRA
+cp -r ../../PWGScan/2013/web/fonts/ ../../PUIScan/2014/web/
+cp ../../PUIScan/2014/pywork/puiheader.xml ../../PUIScan/2014/web/
+cd ../../PUIScan/2014/web/webtc2
+sh init_query.sh
+cd ../../../../websanlexicon/v00
+* regenerate pui/web in place  
+#in v00
+python generate.py pui inventory.txt  makotemplates ../../PUIScan/2014/web
+
+
+* ----------sch---------------------
+* NOTES on SCH conversion
+  No Devanagari in print;  in digitization, key1 form of headword is in slp1
+  representation of Devanagari.  Perhaps change wording in Adv. Search for
+  'Sanskrit word'
+  
+  <div>X</div> coding used in sch.xml.  No attribute to div tag.
+
+  The 'key2' is not part of body: This should be changed in sch.txt.
+  Also, the <type>*</type> tag appears at end, while it should precede
+  the key2.  A crude step in this direction is used in 'chrhndl' in disp.php.
+  Better would be to change sch.txt in <body> to show : <type>*</type> {key2-iast}
+  
+  Superscripts are shown as '^x'.  Should recode as <sup>x</sup> in sch.txt.
+    Altered basicadjust to do this transform.
+* v00 generate  sch 07-28-2018
+
+cd v00
+python generate.py sch inventory.txt  makotemplates ../../SCHScan/2014/webv00
+
+* install sch 
+ python install.py sch ../../SCHScan/2014/webv00 ../../SCHScan/2014
+EXTRA
+cp -r ../../PWGScan/2013/web/fonts/ ../../SCHScan/2014/web/
+cp ../../SCHScan/2014/pywork/schheader.xml ../../SCHScan/2014/web/
+cd ../../SCHScan/2014/web/webtc2
+sh init_query.sh
+cd ../../../../websanlexicon/v00
+* regenerate sch/web in place  
+#in v00
+python generate.py sch inventory.txt  makotemplates ../../SCHScan/2014/web
+
+
+* ----------snp---------------------
+* NOTES on SNP conversion
+  Corrected a bug in smatchkey of querymodel.php in webtc2 -- the error
+     prevented matches with the FIRST record of query_dump.txt.  This
+     error applies to all dictionaries, so they all need to be updated.
+     (via redo_web_all.sh or redo_cologne_all.sh).
+* v00 generate  snp 07-28-2018
+
+cd v00
+python generate.py snp inventory.txt  makotemplates ../../SNPScan/2014/webv00
+
+* install snp 
+ python install.py snp ../../SNPScan/2014/webv00 ../../SNPScan/2014
+EXTRA
+cp -r ../../PWGScan/2013/web/fonts/ ../../SNPScan/2014/web/
+cp ../../SNPScan/2014/pywork/snpheader.xml ../../SNPScan/2014/web/
+cd ../../SNPScan/2014/web/webtc2
+sh init_query.sh
+cd ../../../../websanlexicon/v00
+* regenerate snp/web in place  
+#in v00
+python generate.py snp inventory.txt  makotemplates ../../SNPScan/2014/web
+
+* ----------vei---------------------
+* NOTES on VEI conversion
+  Footnote:  line break before AND after;  previous display only 
+     breaks before.  This could be changed by dictionary specific
+     code in endhndl (of webtc/disp.php)
+* v00 generate  vei 07-28-2018
+
+cd v00
+python generate.py vei inventory.txt  makotemplates ../../VEIScan/2014/webv00
+
+* install vei 
+ python install.py vei ../../VEIScan/2014/webv00 ../../VEIScan/2014
+EXTRA
+cp -r ../../PWGScan/2013/web/fonts/ ../../VEIScan/2014/web/
+cp ../../VEIScan/2014/pywork/veiheader.xml ../../VEIScan/2014/web/
+cd ../../VEIScan/2014/web/webtc2
+sh init_query.sh
+cd ../../../../websanlexicon/v00
+* regenerate vei/web in place  
+#in v00
+python generate.py vei inventory.txt  makotemplates ../../VEIScan/2014/web
+
+
+* ----------acc---------------------
+* NOTES on ACC conversion
+  <symbol n="C."/>C.</symbol>   used to code a backwards C:
+  Maybe this is just an abbreviation for 'Commentary' ?
+* v00 generate  acc 07-28-2018
+
+cd v00
+python generate.py acc inventory.txt  makotemplates ../../ACCScan/2014/webv00
+
+* install acc 
+ python install.py acc ../../ACCScan/2014/webv00 ../../ACCScan/2014
+EXTRA
+cp -r ../../PWGScan/2013/web/fonts/ ../../ACCScan/2014/web/
+cp ../../ACCScan/2014/pywork/accheader.xml ../../ACCScan/2014/web/
+cd ../../ACCScan/2014/web/webtc2
+sh init_query.sh
+cd ../../../../websanlexicon/v00
+* regenerate acc/web in place  
+#in v00
+python generate.py acc inventory.txt  makotemplates ../../ACCScan/2014/web
 
 * --------------------------------------------------------------
 * redo_cologne_all.sh
