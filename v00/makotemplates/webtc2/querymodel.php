@@ -66,9 +66,9 @@ class QueryModel{
     $search_regexp = "[\t].*$word";
    } 
    $this->search_regexp_nonSanskrit = $search_regexp;
-   $search_opt = $sopt_case;
+   $search_opt = $this->sopt_case;
    #$tempar = matchkey($lastLnum,$search_regexp,$max,$search_opt,$word);
-   $tempar = $this->matchkey($search_regexp,$search_opt);
+   $tempar = $this->matchkey($search_regexp,$search_opt,$word);
    $this->querymatches = $tempar['ans'];
    $this->lastLnum = $tempar['lastLnum'];
    if (count($this->querymatches) == 0) {
@@ -117,11 +117,12 @@ class QueryModel{
    $this->status = true;
  }
 #public function matchkey($fp,$lastLnum,$regexp,$max,$opt,$word) {
- public function matchkey($regexp,$opt) {
+ public function matchkey($regexp,$opt,$word) {
+ // word is lower case
  $fp = $this->fp;
  $lastLnum = $this->queryParms->lastLnum;
  $max = $this->queryParms->max;
- $word = $this->word;
+ #$word = $this->word;
 // print "matchkey: $lastLnum,$regexp,$max,$opt,$word\n";
  $ntot=0;
  if (!($word)) {
