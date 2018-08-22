@@ -24,17 +24,28 @@ $dbg=false;
 dbgprint($dbg,"servepdf: page=$page\n");
 $dictinfo = new DictInfo($dict);
 $year = $dictinfo->get_year();
-#$webpath = $dictinfo->get_webPath();
+$webpath = $dictinfo->get_webPath();
 $webparent = $dictinfo->webparent;
 $pdffiles_filename = "$webparent/web/webtc/pdffiles.txt";
 $dictupper = $dictinfo->dictupper;
 
 list($filename,$pageprev,$pagenext)=getfiles($pdffiles_filename,$page,$dictupper);
 // 04-17-2018. Use The cologne images
-// $dir = "$webpath/pdfpages"; // location of pdf files
-$dir = "{$dictinfo->get_cologne_webPath()}/pdfpages";
-$pdf = "$dir/$filename";
-
+// 04-20-2018. Use relative path if $pdf exists
+/*
+$dir = $webpath . "/pdfpages"; 
+$pdffile = $dir . "/$filename";
+$ds = DIRECTORY_SEPARATOR;
+$pdfpages = dirname(__FILE__,2) . $ds . 'pdfpages';
+$pdffile = dirname(__FILE__,2) . $ds . 'pdfpages' . $ds . "{$filename}";
+*/
+$pdffile = "../pdfpages/$filename";
+if(file_exists($pdffile)) {
+ $pdf = $pdffile;
+}else { // Use the cologne images
+ $dir = "{$dictinfo->get_cologne_webPath()}/pdfpages";
+ $pdf = "$dir/$filename";
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -98,8 +109,9 @@ function getfiles($pdffiles_filename,$pagestr_in0,$dictupper) {
  $pagehash=array(); // hash
  $n=0;
  foreach($lines as $line) {
+  $line = trim($line);  // 08-21-2018 Removes end of line chars, and white spc
   list($pagestr,$pagefile,$pagetitle) = preg_split('|:|',$line);
-  # pagetitle currently unused
+  # pagetitle currently unused, and may be absent, eg. in Wilson
   $n++;
   //$pagehash[$pagestr]=$n;
   $pagestr_trim = preg_replace('/^0+/','',$pagestr);
