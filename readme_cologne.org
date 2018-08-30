@@ -1062,27 +1062,12 @@ This script runs generate.py for all the converted dictionaries,
  gst, vcp, ben, bop, bor, ccs, md, mwe,
 mw72, ieg, inm, krm, mci 
 * --------------------------------------------------------------
-* apidev1
+* apidev
 * --------------------------------------------------------------
-* copy modules from webtc, and modify for apidev1.
-** previous copies in apidev1
-cp basicadjust.php.php temp_prev_basicadjust.php
-cp basicadjust.php temp_prev_basicadjust.php
-cp basicdisplay.php temp_prev_basicdisplay.php
-
-** dalraw
-cp v00/makotemplates/webtc/dal.php ../apidev1/dalraw.php
-# also, change class name to Dalraw
-** basicadjust
-cp v00/makotemplates/webtc/basicadjust.php ../apidev1/basicadjust.php
-additional changes: 
- a) dal.php -> dalraw.php (one)
- b) new Dal -> new Dalraw (three or more)
-** basicdisplay ??
-cp v00/makotemplates/webtc/disp.php ../apidev1/basicdisplay.php
-# no additional changes
-
-** modify apidev1/dalwhich.php
-  for dictionaries that have been 'converted'.
-
+* General workflow for cologne update of apidev
+a) On local server, follow steps for update of apidev after
+   changes to websanlexicon
+b) push those changes to Github from local apidev repository
+c) pull those changes from Github to the Cologne apidev repository
+That's all.
 * THE END

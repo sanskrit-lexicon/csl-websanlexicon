@@ -1038,27 +1038,27 @@ mw72, ieg, inm, krm, mci, pe, pgn, pui,
 
 sch, snp, vei, acc
 * --------------------------------------------------------------
-* apidev1
+* apidev
 * --------------------------------------------------------------
-* copy modules from webtc, and modify for apidev1.
-** previous copies in apidev1
+* copy modules from webtc, and modify for apidev.
+** previous copies in apidev
 cp basicadjust.php.php temp_prev_basicadjust.php
 cp basicadjust.php temp_prev_basicadjust.php
 cp basicdisplay.php temp_prev_basicdisplay.php
 
 ** dalraw
-cp v00/makotemplates/webtc/dal.php ../apidev1/dalraw.php
+cp v00/makotemplates/webtc/dal.php ../apidev/dalraw.php
 # also, change class name to Dalraw
 ** basicadjust
-cp v00/makotemplates/webtc/basicadjust.php ../apidev1/basicadjust.php
+cp v00/makotemplates/webtc/basicadjust.php ../apidev/basicadjust.php
 additional changes: 
  a) dal.php -> dalraw.php (one)
  b) new Dal -> new Dalraw (three or more)
-** basicdisplay ??
-cp v00/makotemplates/webtc/disp.php ../apidev1/basicdisplay.php
+** basicdisplay 
+cp v00/makotemplates/webtc/disp.php ../apidev/basicdisplay.php
 # no additional changes
 
-** modify apidev1/dalwhich.php
+** modify apidev/dalwhich.php
   for dictionaries that have been 'converted'.
 
 * THE END
