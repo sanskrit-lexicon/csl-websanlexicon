@@ -3,6 +3,7 @@
 //ejf 2010-01-28
 //ejf Oct 1, 2012  Adapated for sanskrit1d
 // 06-30-2018
+// 09-07-2018
 require_once("../webtc/dictcode.php");
 $dict = $dictcode;
 require_once("../webtc/parm.php");
@@ -29,14 +30,21 @@ $ntab = 0;
 //  don't do this 06-30-2018
 //$data = preg_replace('/\\\\"/','"',$data);
 // the '/s' is to skip over \n.
-preg_match_all('/<H.*?>.*?<key1>(.*?)<\/key1>.*?<\/H.*?>/s',$data,$matchall);
-$matches0=$matchall[0];
-$matches1=$matchall[1];
-$nmatches0=count($matches0);
-for ($imatch=0;$imatch<$nmatches0;$imatch++) {
- $xmlnew = $matches0[$imatch];
+
+$lines = explode("\n",$data);
+$dbg=false;
+dbgprint($dbg,"query_multi. # lines=" . count($lines) . "\n");
+$nx=0;
+foreach($lines as $line) {
+ dbgprint($dbg," nx=$nx, line=$line\n");
+ $nx++;
+ if (! preg_match("/^key=(.*?),(.*)$/",$line,$matches0)) {
+  // some internal problem
+  continue;
+ }
+ $key = $matches0[1];
+ $xmlnew = $matches0[2];
  $xmlnew = trim($xmlnew);
- $key = $matches1[$imatch];
  if ($prevkey == '') {
   // first record
   $prevkey = $key;
@@ -60,16 +68,17 @@ if ($n != -1) {
 }
 exit;
 function print_table($filter,$key,$ntab,$nmatchesin,$matchesin,$dict) {
+ #dbgprint(true,"query_multi: print_table: $key, $nmatchesin\n");
  $table0 = "<span class='key' id='record_$ntab' /></span>\n";
  $matches=array();
  for($i=0;$i<$nmatchesin;$i++) {
   $matches[$i]=$matchesin[$i];
  }
- #$table = basicDisplay($key,$matches,$filter);
  $display = new BasicDisplay($key,$matches,$filter,$dict);
  $table = $display->table;
  $table1 = transcoder_processElements($table,"slp1",$filter,"SA");
  echo $table0;
  echo $table1;
 }
+
 ?>

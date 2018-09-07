@@ -1,6 +1,6 @@
 <?php
 // web/webtc2/query_gather.php
-// Revised 06-29-2018
+// Revised 06-29-2018, 09-07-2018
 if (isset($_GET['callback'])) {
  header('content-type: application/json; charset=utf-8');
  header("Access-Control-Allow-Origin: *");
@@ -30,26 +30,31 @@ $matches=array();
 $nmatches=0;
 
 foreach($keyar as $key) {
- #$results = $dal->get1($key,$dictcode);
- $results = $dal->get1_basic($key,$dictcode);
- foreach($results as $line) {
-  list($key1,$lnum1,$data2) = $line;
-  $getParms->key = $key;
-  $adjxml = new BasicAdjust($getParms,array(trim($data2)));
-  $matches2 = $adjxml->adjxmlrecs;
-  $data2 = $matches2[0];
-  $matches[$nmatches]=trim($data2);
-  // 
-  $nmatches++;
- }
+ $results = $dal->get1_basic($key);
  if (count($results) == 0) {
-  $data1 = "<Hx><h><key1>$key1</key1></h><body>" .
+  $data1 = "key=$key," . "<Hx><h><key1>$key1</key1></h><body>" .
 		"no data for key1=$key1</body><tail></tail></Hx>";
   $matches[$nmatches]=trim($data1);
   $nmatches++;
+  continue;
+ } 
+ 
+ $data2arr = array();
+ foreach($results as $line) {
+  list($key1,$lnum1,$data2) = $line;
+  $data2arr[] = trim($data2);
  }
+ $getParms->key = $key;
+ $adjxml = new BasicAdjust($getParms,$data2arr);
+ $adjlines = $adjxml->adjxmlrecs;
+
+ foreach($adjlines as $line) {
+  $matches[] = "key=$key," . trim($line);
+  $nmatches++;
+ }
+
 }
-$table1 = join('\n',$matches);
+$table1 = join("\n",$matches);
 print $table1;
 
 exit;
