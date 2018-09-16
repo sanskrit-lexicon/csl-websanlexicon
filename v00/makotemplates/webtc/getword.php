@@ -9,8 +9,8 @@ $getParms = new Parm($dictcode);
 
 if (isset($_GET['callback'])) {
  header('content-type: application/json; charset=utf-8');
- header("Access-Control-Allow-Origin: *");
 }
+ header("Access-Control-Allow-Origin: *");
 $meta = '<meta charset="UTF-8">'; 
 echo $meta;  // Why?
 require_once('getwordviewmodel.php');
