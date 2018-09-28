@@ -476,9 +476,9 @@ public function htmlspecial($text) {
  // and then generates a parse error if this single quote occurs
  //  within an atribute value expresses as <x attr='y'>  (i.e. y has a
  //  single quote).
- // Because of this we change &#039; to &quot;  -- which xml_parser
+ // Because of this we change &#039; to &#8217;  -- which xml_parser
  // apparently leaves unchanged, and generates no error.
- $tooltip = preg_replace('/&#039;/','&quot;',$tooltip);
+ $tooltip = preg_replace('/&#039;/','&#8217;',$tooltip);
  return $tooltip;
 }
 }
@@ -595,9 +595,9 @@ public function htmlspecial($text) {
  // and then generates a parse error if this single quote occurs
  //  within an atribute value expresses as <x attr='y'>  (i.e. y has a
  //  single quote).
- // Because of this we change &#039; to &quot;  -- which xml_parser
+ // Because of this we change &#039; to &#8217;  -- which xml_parser
  // apparently leaves unchanged, and generates no error.
- $tooltip = preg_replace('/&#039;/','&quot;',$tooltip);
+ $tooltip = preg_replace('/&#039;/','&#8217;',$tooltip);
  return $tooltip;
 }
 }
