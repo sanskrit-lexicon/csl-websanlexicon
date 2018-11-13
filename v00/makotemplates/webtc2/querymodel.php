@@ -1,5 +1,6 @@
 <?php //querymodel.php
 require_once("../webtc/dal.php");
+require_once("../webtc/dbgprint.php");
 class QueryModel{
  // Gathers a collection of dictionary records 
  public $querymatches; // primary result of constructor
@@ -265,19 +266,34 @@ public function translate_string2SLP($transLit,$keyin) {
  $key = transcoder_processString($key,$transLit,'slp1');
  return $key;
 }
-public function new_key_line($ntot,$line,$lines) {
+public function extract_key($line) {
+ // 11-13-2018.  Do same as in querlistview.php function display_outopt4
  if (! preg_match('/^(.*?)\t(.*?)$/',$line,$matches)) {
   return FALSE;
  }
- $key = $matches[1];
+ $keypart = $matches[1];
+ list($key,$sanskrit) = preg_split('|:|',$keypart);
+ $key = trim($key);
+ return $key;
+}
+public function new_key_line($ntot,$line,$lines) {
+ $dbg=FALSE;
+ $key = $this->extract_key($line);
+ if ($key == FALSE) {
+  return FALSE;
+ }
+ dbgprint($dbg,"new_key_line: key=$key, line=$line\n");
  foreach($lines as $line1) {
-  if (preg_match('/^(.*?)\t(.*?)$/',$line1,$matches)) {
-   $key1 = $matches[1];
+  dbgprint($dbg,"line1=$line1\n");
+  $key1 = $this->extract_key($line1);
+  if ($key1 != FALSE) {
    if ($key1 == $key) {
+    dbgprint($dbg,"new_key_line returns false\n");
     return FALSE;
    }
   }
  }
+ dbgprint($dbg,"new_key_line returns true\n");
  return TRUE;
 }
 

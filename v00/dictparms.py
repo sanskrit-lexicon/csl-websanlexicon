@@ -3,7 +3,7 @@
 # of contextvariable dictwebversion.
 # It is suffixed with this 'microversion', which should be
 #  changed often.
-microversion = '.002'
+microversion = '.003'
 alldictparms = {
  "gra": {
   "dictup":"GRA",
