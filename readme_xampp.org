@@ -1042,23 +1042,29 @@ sch, snp, vei, acc
 * --------------------------------------------------------------
 * copy modules from webtc, and modify for apidev.
 ** previous copies in apidev
-cp basicadjust.php.php temp_prev_basicadjust.php
+# in apidev
 cp basicadjust.php temp_prev_basicadjust.php
 cp basicdisplay.php temp_prev_basicdisplay.php
+cp dalraw.php temp_prev_dalraw.php
 
-** dalraw
+** dalraw 
+# in websanlexicon
 cp v00/makotemplates/webtc/dal.php ../apidev/dalraw.php
-# also, change class name to Dalraw
+# in apidev/dalraw.php
+ a) change class name to Dalraw
 ** basicadjust
+# in websanlexicon
 cp v00/makotemplates/webtc/basicadjust.php ../apidev/basicadjust.php
 additional changes: 
+# in apidev/basicadjust.php
  a) dal.php -> dalraw.php (one)
  b) new Dal -> new Dalraw (three or more)
 ** basicdisplay 
+# in websanlexicon
 cp v00/makotemplates/webtc/disp.php ../apidev/basicdisplay.php
 # no additional changes
 
-** modify apidev/dalwhich.php
+** modify apidev/dalwhich.php  NO LONGER NEED THIS STEP (11/13/2018)
   for dictionaries that have been 'converted'.
 
 * THE END
