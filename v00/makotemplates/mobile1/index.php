@@ -8,9 +8,9 @@ error_reporting( error_reporting() & ~E_NOTICE );
  <meta charset="UTF-8" />
  <title>${dictup} Mobile</title>
   <meta name="viewport" content="width=device-width, initial-scale=1"> 
-  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
-  <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
-  <script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+  <link rel="stylesheet" href="//code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+  <script src="//code.jquery.com/jquery-1.8.2.min.js"></script>
+  <script src="//code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
    <link rel="stylesheet" href="main.css" type="text/css">
    <link rel="stylesheet" href="../webtc/font.css" type="text/css">
   <script type="text/javascript" src="../js/jquery.cookie.js"></script>
@@ -27,7 +27,7 @@ error_reporting( error_reporting() & ~E_NOTICE );
   <table style="left:1px">
    <tr>
    <td>
-    <a href="http://www.sanskrit-lexicon.uni-koeln.de/" 
+    <a href="//www.sanskrit-lexicon.uni-koeln.de/" 
       style="background-color:#5e87b0;">  
     <img id="unilogo" src="../images/cologne_univ_seal.gif"
            title="Cologne Sanskrit Lexicon" width="40" height="40"/>

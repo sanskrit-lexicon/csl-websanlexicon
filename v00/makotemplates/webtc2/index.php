@@ -32,7 +32,7 @@ font-size: 14pt;
  <body>
 <div id="querydiv">
  <div id="dictid"> 
-     <a href="http://www.sanskrit-lexicon.uni-koeln.de/"
+     <a href="//www.sanskrit-lexicon.uni-koeln.de/"
 	style="background-color:#DBE4ED">
      <img id="unilogo" src="../images/cologne_univ_seal.gif"
             width="60" height="60" alt="University of Cologne"

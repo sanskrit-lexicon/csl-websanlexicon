@@ -23,7 +23,7 @@ font-size: 14pt;
  <table width="100%">
   <tr>
     <td width="10%">
-      <a href="http://www.sanskrit-lexicon.uni-koeln.de/">
+      <a href="//www.sanskrit-lexicon.uni-koeln.de/">
       <img id="unilogo" src="../images/cologne_univ_seal.gif"
            alt="University of Cologne" width="60" height="60" 
            title="Cologne Sanskrit Lexicon"/>

@@ -54,7 +54,7 @@ if(file_exists($pdffile)) {
 <title><?= $dictupper?> Cologne Scan</title>
 <link rel='stylesheet' type='text/css' href='serveimg.css' />
 <!--
-<link rel='stylesheet' type='text/css' href='http://www.sanskrit-lexicon.uni-koeln.de/scans/awork/apidev/css/serveimg.css' />
+<link rel='stylesheet' type='text/css' href='//www.sanskrit-lexicon.uni-koeln.de/scans/awork/apidev/css/serveimg.css' />
 -->
 </head>
 <body>

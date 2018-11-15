@@ -1,0 +1,270 @@
+4 changes in ../makotemplates/mobile1/index.php
+
+change#1:
+old:   <link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+new:   <link rel="stylesheet" href="//code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+----------------------------------------
+change#2:
+old:   <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+new:   <script src="//code.jquery.com/jquery-1.8.2.min.js"></script>
+----------------------------------------
+change#3:
+old:   <script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+new:   <script src="//code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+----------------------------------------
+change#4:
+old:     <a href="http://www.sanskrit-lexicon.uni-koeln.de/" 
+new:     <a href="//www.sanskrit-lexicon.uni-koeln.de/" 
+----------------------------------------
+1 changes in ../makotemplates/utilities/transcoder/wx_slp1.xml
+
+change#1:
+old: <!-- http://indology.info/email/members/wujastyk/#x1-120005.2 -->
+new: <!-- //indology.info/email/members/wujastyk/#x1-120005.2 -->
+----------------------------------------
+1 changes in ../makotemplates/utilities/transcoder.php
+
+change#1:
+old: // Creative Commons Attribution Non-Commercial Share Alike license available in full at <ptr target="http://creativecommons.org/licenses/by-nc-sa/3.0/legalcode"/>, and summarized at <ptr target="http://creativecommons.org/licenses/by-nc-sa/3.0/"/>.  Permission is granted to build upon this work non-commercially, as long as credit is explicitly acknowledged exactly as described herein and derivative work is distributed under the same license.
+new: // Creative Commons Attribution Non-Commercial Share Alike license available in full at <ptr target="//creativecommons.org/licenses/by-nc-sa/3.0/legalcode"/>, and summarized at <ptr target="//creativecommons.org/licenses/by-nc-sa/3.0/"/>.  Permission is granted to build upon this work non-commercially, as long as credit is explicitly acknowledged exactly as described herein and derivative work is distributed under the same license.
+----------------------------------------
+1 changes in ../makotemplates/webtc/dal.php
+
+change#1:
+old:    $this->file_db = null;  //ref: http://php.net/manual/en/pdo.connections.php
+new:    $this->file_db = null;  //ref: //php.net/manual/en/pdo.connections.php
+----------------------------------------
+1 changes in ../makotemplates/webtc/dalraw.php
+
+change#1:
+old:    $this->file_db = null;  //ref: http://php.net/manual/en/pdo.connections.php
+new:    $this->file_db = null;  //ref: //php.net/manual/en/pdo.connections.php
+----------------------------------------
+1 changes in ../makotemplates/webtc/dictinfo.php
+
+change#1:
+old:   $cologne_scandir = "http://www.sanskrit-lexicon.uni-koeln.de/scans";
+new:   $cologne_scandir = "//www.sanskrit-lexicon.uni-koeln.de/scans";
+----------------------------------------
+2 changes in ../makotemplates/webtc/disp.php
+
+change#1:
+old:   $href0="http://www.sanskrit-lexicon.uni-koeln.de/scans/KALEScan/WRScan/disp2/index.php";
+new:   $href0="//www.sanskrit-lexicon.uni-koeln.de/scans/KALEScan/WRScan/disp2/index.php";
+----------------------------------------
+change#2:
+old:   $href0="http://www.sanskrit-lexicon.uni-koeln.de/scans/MWScan/Westergaard/disp/index.php";
+new:   $href0="//www.sanskrit-lexicon.uni-koeln.de/scans/MWScan/Westergaard/disp/index.php";
+----------------------------------------
+6 changes in ../makotemplates/webtc/download.html
+
+change#1:
+old:    <a href="http://www.sanskrit-lexicon.uni-koeln.de/"
+new:    <a href="//www.sanskrit-lexicon.uni-koeln.de/"
+----------------------------------------
+change#2:
+old:  <li><a href='http://www.sanskrit-lexicon.uni-koeln.de/scans/${dictup}Scan/${dictyear}/downloads/${dictlo}txt.zip'><span class='downloadItem'>${dictlo}txt.zip</span></a>
+new:  <li><a href='//www.sanskrit-lexicon.uni-koeln.de/scans/${dictup}Scan/${dictyear}/downloads/${dictlo}txt.zip'><span class='downloadItem'>${dictlo}txt.zip</span></a>
+----------------------------------------
+change#3:
+old:  <li><a href='http://www.sanskrit-lexicon.uni-koeln.de/scans/${dictup}Scan/${dictyear}/downloads/${dictlo}_bookmark.pdf'><span class='downloadItem'>${dictlo}_bookmark.pdf (right-click 'save as' to download)</span></a>
+new:  <li><a href='//www.sanskrit-lexicon.uni-koeln.de/scans/${dictup}Scan/${dictyear}/downloads/${dictlo}_bookmark.pdf'><span class='downloadItem'>${dictlo}_bookmark.pdf (right-click 'save as' to download)</span></a>
+----------------------------------------
+change#4:
+old:  <li><a href='http://www.sanskrit-lexicon.uni-koeln.de/scans/${dictup}Scan/${dictyear}/downloads/${dictlo}xml.zip'><span class='downloadItem'>${dictlo}xml.zip</span></a> 
+new:  <li><a href='//www.sanskrit-lexicon.uni-koeln.de/scans/${dictup}Scan/${dictyear}/downloads/${dictlo}xml.zip'><span class='downloadItem'>${dictlo}xml.zip</span></a> 
+----------------------------------------
+change#5:
+old:  <li><a href='http://www.sanskrit-lexicon.uni-koeln.de/scans/${dictup}Scan/${dictyear}/downloads/${dictlo}web.zip'><span class='downloadItem'>${dictlo}web.zip </span></a>  Materials to construct an offline version of the
+new:  <li><a href='//www.sanskrit-lexicon.uni-koeln.de/scans/${dictup}Scan/${dictyear}/downloads/${dictlo}web.zip'><span class='downloadItem'>${dictlo}web.zip </span></a>  Materials to construct an offline version of the
+----------------------------------------
+change#6:
+old:  <li><a href='http://www.sanskrit-lexicon.uni-koeln.de/scans/${dictup}Scan/${dictyear}/downloads/${dictlo}web1.zip'><span class='downloadItem'>${dictlo}web1.zip </span></a>  Materials to construct an offline version of the
+new:  <li><a href='//www.sanskrit-lexicon.uni-koeln.de/scans/${dictup}Scan/${dictyear}/downloads/${dictlo}web1.zip'><span class='downloadItem'>${dictlo}web1.zip </span></a>  Materials to construct an offline version of the
+----------------------------------------
+6 changes in ../makotemplates/webtc/download_fr.html
+
+change#1:
+old:    <a href="http://www.sanskrit-lexicon.uni-koeln.de/"
+new:    <a href="//www.sanskrit-lexicon.uni-koeln.de/"
+----------------------------------------
+change#2:
+old:      <a href="http://www.sanskrit-lexicon.uni-koeln.de/index.html">
+new:      <a href="//www.sanskrit-lexicon.uni-koeln.de/index.html">
+----------------------------------------
+change#3:
+old:  <li><a href='http://www.sanskrit-lexicon.uni-koeln.de/scans/${dictup}Scan/${dictyear}/downloads/${dictlo}txt.zip'><span class='downloadItem'>${dictlo}txt.zip</span></a>
+new:  <li><a href='//www.sanskrit-lexicon.uni-koeln.de/scans/${dictup}Scan/${dictyear}/downloads/${dictlo}txt.zip'><span class='downloadItem'>${dictlo}txt.zip</span></a>
+----------------------------------------
+change#4:
+old:  <li><a href='http://www.sanskrit-lexicon.uni-koeln.de/scans/${dictup}Scan/${dictyear}/downloads/${dictlo}_bookmark.pdf'><span class='downloadItem'>${dictlo}_bookmark.pdf (faites un clic droit "Enregistrer sous" pour télécharger)</span></a>
+new:  <li><a href='//www.sanskrit-lexicon.uni-koeln.de/scans/${dictup}Scan/${dictyear}/downloads/${dictlo}_bookmark.pdf'><span class='downloadItem'>${dictlo}_bookmark.pdf (faites un clic droit "Enregistrer sous" pour télécharger)</span></a>
+----------------------------------------
+change#5:
+old:  <li><a href='http://www.sanskrit-lexicon.uni-koeln.de/scans/${dictup}Scan/${dictyear}/downloads/${dictlo}xml.zip'><span class='downloadItem'>${dictlo}xml.zip</span></a> 
+new:  <li><a href='//www.sanskrit-lexicon.uni-koeln.de/scans/${dictup}Scan/${dictyear}/downloads/${dictlo}xml.zip'><span class='downloadItem'>${dictlo}xml.zip</span></a> 
+----------------------------------------
+change#6:
+old:  <li><a href='http://www.sanskrit-lexicon.uni-koeln.de/scans/${dictup}Scan/${dictyear}/downloads/${dictlo}web1.zip'><span class='downloadItem'>${dictlo}web1.zip </span></a> Comment construire une version hors ligne de l'affichage Web du dictionnaire. Aucune image numérisée. <br/>
+new:  <li><a href='//www.sanskrit-lexicon.uni-koeln.de/scans/${dictup}Scan/${dictyear}/downloads/${dictlo}web1.zip'><span class='downloadItem'>${dictlo}web1.zip </span></a> Comment construire une version hors ligne de l'affichage Web du dictionnaire. Aucune image numérisée. <br/>
+----------------------------------------
+1 changes in ../makotemplates/webtc/help.html
+
+change#1:
+old: <a href="http://www.sanskritlibrary.org">
+new: <a href="//www.sanskritlibrary.org">
+----------------------------------------
+3 changes in ../makotemplates/webtc/help_fr.html
+
+change#1:
+old: href="http://www.sanskrit-lexicon.uni-koeln.de/monier/help.html">translittération
+new: href="//www.sanskrit-lexicon.uni-koeln.de/monier/help.html">translittération
+----------------------------------------
+change#2:
+old: <a href="http://www.sanskrit-lexicon.uni-koeln.de/scans/STCScan/web/index_fr.php">recherche
+new: <a href="//www.sanskrit-lexicon.uni-koeln.de/scans/STCScan/web/index_fr.php">recherche
+----------------------------------------
+change#3:
+old: href="http://www.sanskrit-lexicon.uni-koeln.de/scans/STCScan/2013/web/webtc2/index.php">Recherche
+new: href="//www.sanskrit-lexicon.uni-koeln.de/scans/STCScan/2013/web/webtc2/index.php">Recherche
+----------------------------------------
+1 changes in ../makotemplates/webtc/indexcaller.php
+
+change#1:
+old:       <a href="http://www.sanskrit-lexicon.uni-koeln.de/"
+new:       <a href="//www.sanskrit-lexicon.uni-koeln.de/"
+----------------------------------------
+1 changes in ../makotemplates/webtc/indexcaller_fr.php
+
+change#1:
+old:       <a href="http://www.sanskrit-lexicon.uni-koeln.de/">
+new:       <a href="//www.sanskrit-lexicon.uni-koeln.de/">
+----------------------------------------
+1 changes in ../makotemplates/webtc/servepdf.php
+
+change#1:
+old: <link rel='stylesheet' type='text/css' href='http://www.sanskrit-lexicon.uni-koeln.de/scans/awork/apidev/css/serveimg.css' />
+new: <link rel='stylesheet' type='text/css' href='//www.sanskrit-lexicon.uni-koeln.de/scans/awork/apidev/css/serveimg.css' />
+----------------------------------------
+1 changes in ../makotemplates/webtc/translithelp.html
+
+change#1:
+old: <a href="http://www.sanskritlibrary.org">
+new: <a href="//www.sanskritlibrary.org">
+----------------------------------------
+1 changes in ../makotemplates/webtc/unused_servepdf.php
+
+change#1:
+old:   '<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">';
+new:   '<html xmlns="//www.w3.org/1999/xhtml" lang="en" xml:lang="en">';
+----------------------------------------
+1 changes in ../makotemplates/webtc1/help/accents.html
+
+change#1:
+old: <a href="http://sanskritlibrary.org/">sanskritlibrary.org</a>, in the
+new: <a href="//sanskritlibrary.org/">sanskritlibrary.org</a>, in the
+----------------------------------------
+2 changes in ../makotemplates/webtc1/help/ack.html
+
+change#1:
+old: as part of the <a href='http://www.sanskritlibrary.org/'>Sanskrit Library</a>.
+new: as part of the <a href='//www.sanskritlibrary.org/'>Sanskrit Library</a>.
+----------------------------------------
+change#2:
+old:     as part of the <a href='http://www.sanskritlibrary.org/'>Sanskrit Library</a>.  We have slightly modified their work.
+new:     as part of the <a href='//www.sanskritlibrary.org/'>Sanskrit Library</a>.  We have slightly modified their work.
+----------------------------------------
+1 changes in ../makotemplates/webtc1/help/help.html
+
+change#1:
+old: <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+new: <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "//www.w3.org/TR/html4/loose.dtd">
+----------------------------------------
+2 changes in ../makotemplates/webtc1/help/keyboard.html
+
+change#1:
+old:   <img src="http://www.language.brown.edu/Sanskrit/software/keyboard/keyboard.png" />, the user toggles a window whose appearance depends on the
+new:   <img src="//www.language.brown.edu/Sanskrit/software/keyboard/keyboard.png" />, the user toggles a window whose appearance depends on the
+----------------------------------------
+change#2:
+old: keyboard image <img src="http://www.language.brown.edu/Sanskrit/software/keyboard/keyboard.png" />.
+new: keyboard image <img src="//www.language.brown.edu/Sanskrit/software/keyboard/keyboard.png" />.
+----------------------------------------
+1 changes in ../makotemplates/webtc1/help/phonetic.html
+
+change#1:
+old: <a href="http://www.sanskritlibrary.org">
+new: <a href="//www.sanskritlibrary.org">
+----------------------------------------
+4 changes in ../makotemplates/webtc1/help/preferences.html
+
+change#1:
+old:    <a href="http://en.wikipedia.org/wiki/Harvard-Kyoto">&#9758;</a>
+new:    <a href="//en.wikipedia.org/wiki/Harvard-Kyoto">&#9758;</a>
+----------------------------------------
+change#2:
+old:    <a href="http://www.sanskritlibrary.org">&#9758;</a>
+new:    <a href="//www.sanskritlibrary.org">&#9758;</a>
+----------------------------------------
+change#3:
+old:    <a href="http://en.wikipedia.org/wiki/ITRANS">&#9758;</a>
+new:    <a href="//en.wikipedia.org/wiki/ITRANS">&#9758;</a>
+----------------------------------------
+change#4:
+old:    <a href="http://en.wikipedia.org/wiki/InScript_keyboard">&#9758;</a>
+new:    <a href="//en.wikipedia.org/wiki/InScript_keyboard">&#9758;</a>
+----------------------------------------
+2 changes in ../makotemplates/webtc1/index.php
+
+change#1:
+old:      <a href="http://www.sanskrit-lexicon.uni-koeln.de/"
+new:      <a href="//www.sanskrit-lexicon.uni-koeln.de/"
+----------------------------------------
+change#2:
+old:     <a class="nav" href="http://www.sanskrit-lexicon.uni-koeln.de/index.html" target="_top">Home</a>
+new:     <a class="nav" href="//www.sanskrit-lexicon.uni-koeln.de/index.html" target="_top">Home</a>
+----------------------------------------
+4 changes in ../makotemplates/webtc1/preferences.htm
+
+change#1:
+old: <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+new: <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "//www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+----------------------------------------
+change#2:
+old: <html xmlns="http://www.w3.org/1999/xhtml">
+new: <html xmlns="//www.w3.org/1999/xhtml">
+----------------------------------------
+change#3:
+old: <!--ejf<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.1/jquery.min.js"></script>-->
+new: <!--ejf<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.3.1/jquery.min.js"></script>-->
+----------------------------------------
+change#4:
+old: // radio button functions from http://www.somacon.com/p143.php   
+new: // radio button functions from //www.somacon.com/p143.php   
+----------------------------------------
+1 changes in ../makotemplates/webtc1/transcoderfield_VKI.js
+
+change#1:
+old:  // See http://www.javascripter.net/faq/keycodes.htm for keycode information
+new:  // See //www.javascripter.net/faq/keycodes.htm for keycode information
+----------------------------------------
+3 changes in ../makotemplates/webtc2/help.html
+
+change#1:
+old:    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+new:    "//www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+----------------------------------------
+change#2:
+old: <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+new: <html xmlns="//www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+----------------------------------------
+change#3:
+old:   <a href="http://www.sanskrit-lexicon.uni-koeln.de/">
+new:   <a href="//www.sanskrit-lexicon.uni-koeln.de/">
+----------------------------------------
+1 changes in ../makotemplates/webtc2/index.php
+
+change#1:
+old:      <a href="http://www.sanskrit-lexicon.uni-koeln.de/"
+new:      <a href="//www.sanskrit-lexicon.uni-koeln.de/"
+----------------------------------------
