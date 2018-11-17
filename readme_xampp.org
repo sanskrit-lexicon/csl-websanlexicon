@@ -1064,9 +1064,6 @@ additional changes:
 cp v00/makotemplates/webtc/disp.php ../apidev/basicdisplay.php
 # no additional changes
 
-** modify apidev/dalwhich.php  NO LONGER NEED THIS STEP (11/13/2018)
-  for dictionaries that have been 'converted'.
-
 * THE END
 
 
