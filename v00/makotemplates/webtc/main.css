@@ -22,8 +22,10 @@ td {line-height: 130%;}  /*150%; changed 07-14-2018*/
 }
 .g {font-size:smaller;font-style:italic;}
 .lang {font-size:smaller;font-style:italic;}
-.hrefdata {font-size:smaller;}
-.lnum {font-size:smaller;}
+.hrefdata,.lnum {
+ font-size:smaller;
+ background-color:rgb(240,240,240);
+}
 /*.sdata {color:black;font-size:larger;} */ /* for devanagari */
 .sdata {color:teal;}
 .sdatadeva {color:teal;font-size:larger;}
