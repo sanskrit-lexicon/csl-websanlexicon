@@ -15,7 +15,7 @@ python generate.py wil inventory.txt  makotemplates ../../WILScan/2014/web
 python generate.py yat inventory.txt  makotemplates ../../YATScan/2014/web
 python generate.py shs inventory.txt  makotemplates ../../SHSScan/2014/web
 python generate.py gst inventory.txt  makotemplates ../../GSTScan/2014/web
-python generate.py vcp inventory.txt  makotemplates ../../VCPScan/2013/web
+python generate.py vcp inventory.txt  makotemplates ../../VCPScan/2020/web
 python generate.py ben inventory.txt  makotemplates ../../BENScan/2014/web
 python generate.py bop inventory.txt  makotemplates ../../BOPScan/2014/web
 python generate.py bor inventory.txt  makotemplates ../../BORScan/2014/web

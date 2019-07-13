@@ -166,7 +166,7 @@ alldictparms = {
   "dictlo":"vcp",
   "dictname":u"Vacaspatyam",
   "dictwebversion":"00",
-  "dictyear":"2013",
+  "dictyear":"2020",
   "dictaccent":False,
   "webtc2devatextoption":True,
  },
