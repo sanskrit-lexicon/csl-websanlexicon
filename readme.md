@@ -1,5 +1,5 @@
 
-### websanlexicon
+### csl-websanlexicon
 This repository has code and documentation for installing the web displays
 used in the http://www.sanskrit-lexicon.uni-koeln.de/ web displays.
 
