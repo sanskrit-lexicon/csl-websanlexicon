@@ -6,7 +6,7 @@ mobile1/index.php:T
 mobile1/main.css:C
 ;mobile1/main_mobile.js:C
 ;mobile1/monier_serveimg.css:C
-sqlite/def.sql:C
+sqlite/def.sql:T
 ;sqlite/gra.sqlite
 ;sqlite/input.txt
 sqlite/make_input.php:C
