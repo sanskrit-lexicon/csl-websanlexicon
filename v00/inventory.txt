@@ -9,7 +9,7 @@ mobile1/main.css:C
 sqlite/def.sql:C
 ;sqlite/gra.sqlite
 ;sqlite/input.txt
-sqlite/make_input.php:T
+sqlite/make_input.php:C
 sqlite/redo.sh:T
 utilities/transcoder.php:C
 utilities/transcoder/as_roman.xml:C
