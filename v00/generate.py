@@ -81,8 +81,8 @@ if __name__=="__main__":
    copyfile(filename1,newfile)
   elif category == 'T':
    # process as a template
-   template = Template(filename=filename1,input_encoding='utf-8')
-   renderedtext = template.render(**dictparms)
+   template = Template(filename=filename1,input_encoding='utf-8',)
+   renderedtext = template.render_unicode(**dictparms)
    with codecs.open(newfile,"w","utf-8") as f:
     f.write(renderedtext)
   else:
