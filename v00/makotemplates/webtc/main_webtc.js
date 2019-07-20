@@ -43,6 +43,9 @@ function getWord() {
 	url:url,
 	type:"GET",
         success: function(data,textStatus,jqXHR) {
+            var elmnt = document.getElementById("disp");
+	    elmnt.scrollTop = 0;
+            elmnt.scrollLeft = 0;
 	    jQuery("#disp").html(data);
 	},
 	error:function(jqXHR, textStatus, errorThrown) {
