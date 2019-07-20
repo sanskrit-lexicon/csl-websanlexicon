@@ -3,3 +3,5 @@ temp*
 *.pyc
 v00/mako/*
 v00/*.pyc
+v00/redo_cologne_2020.sh
+

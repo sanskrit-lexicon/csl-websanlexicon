@@ -55,6 +55,7 @@ if __name__=="__main__":
  filein = sys.argv[2]  # inventory
  oldweb = sys.argv[3]  # "templates"
  newweb = sys.argv[4]
+ dictcode = dictcode.lower() # Make case insensitive.
  # make newweb directory, and needed subdirectories
  makedirs(newweb)
  dictparms = alldictparms[dictcode]
