@@ -13,11 +13,12 @@
   input == transLit
   output == filter
  Jun 2, 2017. changed $_GET to $_REQUEST
+ Jul 20, 2019. Add viewAs to attributes. This used in webtc1
 */
 require_once('dictinfo.php');
 require_once('dbgprint.php');
 class Parm {
- public $filter0,$filterin0,$keyin,$dict,$accent;
+ public $filter0,$filterin0,$keyin,$dict,$accent,$viewAs;
  public $filter,$filerin;
  public $dictinfo,$english;
  public $keyin1,$key;
@@ -42,7 +43,7 @@ class Parm {
   $this->keyin = trim($this->keyin); // remove leading and trailing whitespace
   #$this->dict = $_REQUEST['dict'];
   $this->accent = $_REQUEST['accent']; 
-
+  $this->viewAs = $_REQUEST['viewAs'];  // 07/20/2019
   if(!$this->accent) {$this->accent="no";}  # no, yes
 
   $this->filter = transcoder_standardize_filter($this->filter0);
@@ -54,7 +55,7 @@ class Parm {
    $this->keyin1 = $this->keyin;
    $this->key = $this->keyin1;  
   }else {
-   $this->keyin1 = $this->preprocess_unicode_input($this->keyin,$this->filterin);
+   $this->keyin1 = $this->preprocess_unicode_input($this->keyin,$this->filterin,$this->viewAs);
    $this->key = transcoder_processString($this->keyin1,$this->filterin,"slp1");
   }
  dbgprint($dbg,"parm construct keyin = {$this->keyin}\n");
@@ -64,7 +65,7 @@ class Parm {
 
  }  
 
- public function preprocess_unicode_input($x,$filterin) {
+ public function preprocess_unicode_input($x,$filterin,$viewAs) {
  // when a unicode form is input in the citation field, for instance
  // rAma (where the unicode roman for 'A' is used), then,
  // the value present as 'keyin' is 'r%u0101ma' (a string with 9 characters!).
@@ -72,9 +73,16 @@ class Parm {
  // altered.  This is what this function aims to accomplish.
  /* June 15, 2015 - try php urldecode */
 // return urldecode($x);
+// link=http://localhost/cologne/mw/web/webtc1/disphier.php?key=j%F1%u0101&keyboard=yes&inputType=phonetic&unicodeInput=devInscript&phoneticInput=slp1&serverOptions=roman&accent=no&viewAs=roman
+// $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}";
+
  $hex = "0123456789abcdefABCDEF";
  $x1 = $x;
- if ($filterin == 'roman') {
+ if (($filterin == 'roman')|| ($viewAs   == 'roman')) {
+  /* special logic when n-tilde is present in $x (keyin. e.g. keyin = jYA (slp1)
+   Although the raw URI ($actual_link above) is j%F1%u0101,  php changes this
+   to j\xf1%u0101.    The next preg changes this to j%u00f1%u0101.
+   */
   $x1 = preg_replace("/\xf1/","%u00f1",$x);
  }
  $ans = preg_replace_callback("/(%u)([$hex][$hex][$hex][$hex])/",
