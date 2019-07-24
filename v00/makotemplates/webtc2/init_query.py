@@ -8,6 +8,7 @@
 // modified to included embedded sanskrit, which is converted to slp
   
 """
+from __future__ import print_function
 import sys, re,codecs
 
 def make(filein,fileout):
@@ -58,8 +59,8 @@ def make(filein,fileout):
  fp.close()
  fpout.close()
 
- print n,"records read from",filein
- print nfound1,"records written to",fileout
+ print(n,"records read from",filein)
+ print(nfound1,"records written to",fileout)
 
 def query_line(x):
  # see construction in make_xml.php for some details

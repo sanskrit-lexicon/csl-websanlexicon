@@ -3,6 +3,7 @@
 # of contextvariable dictwebversion.
 # It is suffixed with this 'microversion', which should be
 #  changed often.
+from __future__ import print_function
 microversion = '.003'
 alldictparms = {
  "gra": {

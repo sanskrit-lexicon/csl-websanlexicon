@@ -3,6 +3,7 @@
  07-18-2018
   
 """
+from __future__ import print_function
 import sys,re
 import codecs
 import os.path,time
@@ -87,6 +88,6 @@ if __name__=="__main__":
    with codecs.open(newfile,"w","utf-8") as f:
     f.write(renderedtext)
   else:
-   print "unexpected inventory category:",category,filename
+   print("unexpected inventory category:",category,filename)
    exit(1)
 
