@@ -87,6 +87,12 @@ if __name__=="__main__":
    renderedtext = template.render_unicode(**dictparms)
    with codecs.open(newfile,"w","utf-8") as f:
     f.write(renderedtext)
+  elif category == 'D':
+   if os.path.exists(newfile):
+    os.remove(newfile)
+   else:
+    pass
+    #print('WARNING: %s does not exist -- cannot delete'%newfile)
   else:
    print("unexpected inventory category:",category,filename)
    exit(1)

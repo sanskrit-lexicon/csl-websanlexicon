@@ -101,3 +101,14 @@ webtc2/query_multi.php:T
 webtc2/querylistview.php:T
 webtc2/querymodel.php:T
 webtc2/queryparm.php:T
+; 7/30/2019 ejf. delete unused font files from dictionary web directory
+fonts/praja.ttf:D
+fonts/Old Standard Indologique-Italic.otf:D
+fonts/Old Standard Indologique-Italic.ttf:D
+fonts/Old Standard Indologique-Regular.otf:D
+fonts/sanskrit2003.ttf:D
+; copy used font files
+fonts/siddhanta.ttf:C
+fonts/CharterIndoCapital.otf:C
+fonts/oldstandard.otf:C
+fonts/oldstandarditalic.otf:C
