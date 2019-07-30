@@ -1,22 +1,4 @@
 @font-face { 
- src: url(../../web/fonts/praja.ttf);
- font-family: praja_deva;
-}
-.sdata_praja {
- color:teal;
- font-size:larger;
- font-family: praja_deva;
-}
-@font-face { 
- src: url(../../web/fonts/sanskrit2003.ttf);
- font-family: sanskrit2003_deva;
-}
-.sdata_sanskrit2003 {
- color:teal;
- font-size:larger;
- font-family: sanskrit2003_deva;
-}
-@font-face { 
  src: url(../../web/fonts/siddhanta.ttf);
  font-family: siddhanta_deva;
 }

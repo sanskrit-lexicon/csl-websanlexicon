@@ -160,11 +160,7 @@ function displayDB(data) {
             //data = decodeURIComponent(data); // required to decode
 	    //console.log('query_multi success 2');
 	    jQuery("#data").html(data);
-	    /*
-	    if (filter == 'deva') { // is this needed ?
-                modifyDeva();
-	    }
-	    */
+	    
 	},
 	error:function(jqXHR, textStatus, errorThrown) {
 	    alert("Error: " + textStatus);
@@ -188,29 +184,7 @@ function displayDBupdatePage() {
 //   alert("Note! Request readyState is " + request.readyState);
  }
 }
-/* remove 07-10-2018
-function getFontClass() {
-// June 25. Modify to always use siddhanta
- //var family = document.getElementById("devafont").value;
- var family = "siddhanta";
- if (family === "system") {return "sdata_system";}
- if (family === "praja") {return "sdata_praja";}
- if (family === "oldstandard") {return "sdata_oldstandard";}   
- if (family === "sanskrit2003") {return "sdata_sanskrit2003";}   
- if (family === "siddhanta") {return "sdata_siddhanta";}   
- return "sdata";
-}
-function modifyDeva() {
-    var fontclass = getFontClass();
-    var useragent = navigator.userAgent;
-    if (!useragent) {useragent='';}
-    if ((useragent.match(/Windows/i)) || (useragent.match(/Macintosh/i))){
-  jQuery(".sdata").removeClass("sdata").addClass(fontclass);
- }else {
-	//alert('useragent not "Windows"=' + useragent);
- }
-}
-*/
+
 function cookieUpdate(flag) {
  // 1. Cookie named 'mwiobasic' for holding transLit and filter values;
  // this cookie name is different from that used in the 'Preferences'
