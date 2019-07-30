@@ -8,7 +8,9 @@ mobile1/main.css:C
 ;mobile1/monier_serveimg.css:C
 sqlite/def.sql:T
 ;sqlite/gra.sqlite
-;sqlite/input.txt
+; 7/30/2019 - delete any remaining input.txt files. 
+; Ref: 
+sqlite/input.txt:D
 sqlite/make_input.php:T
 sqlite/redo.sh:T
 utilities/transcoder.php:C
