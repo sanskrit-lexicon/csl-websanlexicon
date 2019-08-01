@@ -25,7 +25,7 @@ class BasicAdjust {
   $this->dbg=false;
   $this->dal_ab = new Dal($dict,"ab");
   if (in_array($dict,array('pwg','pw'))) {
-   $this->dal_auth = new Dal($dict,"bib");  # powgbib
+   $this->dal_auth = new Dal($dict,"bib");  # pwgbib
    dbgprint(false,"basicadjust: bib file open? " . $this->dal_auth->status ."\n");
   }else if ($dict == 'mw'){
    $this->dal_auth = new Dal($dict,"authtooltips");
