@@ -1066,7 +1066,7 @@ mw72, ieg, inm, krm, mci
 * --------------------------------------------------------------
 * General workflow for cologne update of apidev
 a) On local server, follow steps for update of apidev after
-   changes to websanlexicon
+   changes to websanlexicon. (see 'apidev' section of readme_xampp.org')
 b) push those changes to Github from local apidev repository
 c) pull those changes from Github to the Cologne apidev repository
 That's all.

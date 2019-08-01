@@ -1049,21 +1049,20 @@ cp dalraw.php temp_prev_dalraw.php
 
 ** dalraw 
 # copy from websanlexicon # note file name change.
-cp ../websanlexicon/v00/makotemplates/webtc/dal.php dalraw.php
+cp ../csl-websanlexicon/v00/makotemplates/webtc/dal.php dalraw.php
 # in apidev/dalraw.php
  a) change class name to Dalraw
 ** basicadjust
 # in apidev
-cp ../websanlexicon/v00/makotemplates/webtc/basicadjust.php .
+cp ../csl-websanlexicon/v00/makotemplates/webtc/basicadjust.php .
 additional changes: 
 # in apidev/basicadjust.php
  a) dal.php -> dalraw.php (one)
  b) new Dal -> new Dalraw (three or more)
 ** basicdisplay 
 # in apidev - note file name change.
-cp ../websanlexicon/v00/makotemplates/webtc/disp.php basicdisplay.php
+cp ../csl-websanlexicon/v00/makotemplates/webtc/disp.php basicdisplay.php
 # no additional changes
-
 * THE END
 
 
