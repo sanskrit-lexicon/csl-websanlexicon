@@ -1061,7 +1061,7 @@ additional changes:
  b) new Dal -> new Dalraw (three or more)
 ** basicdisplay 
 # in apidev - note file name change.
-cp ../csl-websanlexicon/v00/makotemplates/webtc/disp.php basicdisplay.php
+cp ../csl-websanlexicon/v00/makotemplates/webtc/basicdisplay.php basicdisplay.php
 # no additional changes
 * THE END
 

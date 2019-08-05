@@ -57,7 +57,7 @@ class ListHierView {
   $filterin = $getParms->filter;
   if ($filterin == "deva") {
    /* use $filterin to generate the class to use for Sanskrit (<s>) text 
-    This repeats logic of disp.php
+    This repeats logic of basicdisplay.php
     This lets us use siddhanta font for Devanagari.
    */
    $sdata = "sdata_siddhanta"; // consistent with font.css

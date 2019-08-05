@@ -32,7 +32,7 @@ webtc/dal.php:C
 webtc/dbgprint.php:C
 webtc/dictcode.php:T
 webtc/dictinfo.php:T
-webtc/disp.php:C
+webtc/basicdisplay.php:C
 webtc/download.html:T
 webtc/getword.php:T
 webtc/getwordviewmodel.php:C

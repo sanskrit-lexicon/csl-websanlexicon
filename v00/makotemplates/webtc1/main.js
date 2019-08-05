@@ -231,7 +231,7 @@ function updateDisplist() {
  }
 }
 function winls(url,anchor) {
-// Called by a link made by monierdisp.php
+// Called by a link made by basicdisplay.php
  var url1 = '../mwauth/'+url+'#'+anchor;
  win_ls = window.open(url1,
     "winls", "width=520,height=210,scrollbars=yes");

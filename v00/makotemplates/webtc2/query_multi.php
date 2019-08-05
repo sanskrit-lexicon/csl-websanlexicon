@@ -9,7 +9,7 @@ $dict = $dictcode;
 require_once("../webtc/parm.php");
 $getParms = new Parm($dictcode);  
 $filter = $getParms->filter;
-require_once('../webtc/disp.php'); // BasicDisplay
+require_once('../webtc/basicdisplay.php'); // BasicDisplay
 $data = $_POST['data'];
 if (isset($_GET['callback'])) {
  header('content-type: application/json; charset=utf-8');

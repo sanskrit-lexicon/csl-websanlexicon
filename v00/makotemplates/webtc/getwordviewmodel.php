@@ -35,7 +35,7 @@ class GetwordViewModel {
    $table = null;
    $this->status = false;
   }else {
-   require_once("disp.php");
+   require_once("basicdisplay.php");
    $matches1=array();
    foreach($matches as $m) {
     $matches1[] = $m[2];  # the data field
@@ -44,7 +44,7 @@ class GetwordViewModel {
    // 07-01-2018
    // matches2 takes into account various adjustments preliminary to
    //  to the conversion of the xml to html that happens in BasicDisplay
-   // This formerly done by line_adjust functions in disp.php
+   // This formerly done by line_adjust functions in basicdisplay.php
    $adjxml = new BasicAdjust($getParms,$matches1);
    $matches2 = $adjxml->adjxmlrecs;
    if ($dbg) {
