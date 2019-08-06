@@ -1045,24 +1045,14 @@ sch, snp, vei, acc
 # in apidev
 cp basicadjust.php temp_prev_basicadjust.php
 cp basicdisplay.php temp_prev_basicdisplay.php
-cp dalraw.php temp_prev_dalraw.php
+cp dal.php temp_prev_dal.php
 
-** dalraw 
-# copy from websanlexicon # note file name change.
-cp ../csl-websanlexicon/v00/makotemplates/webtc/dal.php dalraw.php
-# in apidev/dalraw.php
- a) change class name to Dalraw
-** basicadjust
-# in apidev
+# copy from websanlexicon 
+cp ../csl-websanlexicon/v00/makotemplates/webtc/dal.php .
 cp ../csl-websanlexicon/v00/makotemplates/webtc/basicadjust.php .
-additional changes: 
-# in apidev/basicadjust.php
- a) dal.php -> dalraw.php (one)
- b) new Dal -> new Dalraw (three or more)
-** basicdisplay 
-# in apidev - note file name change.
-cp ../csl-websanlexicon/v00/makotemplates/webtc/basicdisplay.php basicdisplay.php
-# no additional changes
+cp ../csl-websanlexicon/v00/makotemplates/webtc/basicdisplay.php .
+
+
 * THE END
 
 
