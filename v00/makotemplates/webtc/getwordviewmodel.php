@@ -18,7 +18,7 @@ class GetwordViewModel {
   $dal = new Dal($dict);
 
   // matches is array of results from the dictionary database
-  $matches = $dal->get1_basic($key);
+  $matches = $dal->get1_mwalt($key); 
   $dal->close();
   $nmatches = count($matches);
   $dbg=false;

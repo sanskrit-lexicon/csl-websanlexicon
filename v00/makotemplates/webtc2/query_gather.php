@@ -30,7 +30,7 @@ $matches=array();
 $nmatches=0;
 
 foreach($keyar as $key) {
- $results = $dal->get1_basic($key);
+ $results = $dal->get1_mwalt($key);
  if (count($results) == 0) {
   $data1 = "key=$key," . "<Hx><h><key1>$key1</key1></h><body>" .
 		"no data for key1=$key1</body><tail></tail></Hx>";
