@@ -15,7 +15,6 @@ class Dal {
  public $dbname; 
  public $tabname;  # name of table in sqlitefile. 
  public $tabid;    # name of 'id' key used by getgeneral
- public $rawflag;  # used by apidev1
  // dbname is assumed to be for auxiliary sqlite data, such as
  // abbreviations  xab.sqlite, xath.sqlite -- new Dal('mw','mwab')
  // Not yet implemented.  Would need to modify dictinfo for filenames also.
@@ -23,7 +22,6 @@ class Dal {
  public function __construct($dict,$dbname=null) {
   $this->dict=strtolower($dict);
   $this->dbname = $dbname;
-  $this->rawflag = true;
   #echo "<p>Dal: dict={$this->dict}</p>\n";
   $this->dictinfo = new DictInfo($dict);
   $sqlitedir = $this->dictinfo->sqlitedir;
@@ -31,7 +29,7 @@ class Dal {
    $this->sqlitefile = "$sqlitedir/{$this->dict}.sqlite";
    $this->tabname = $this->dict;
    $this->tabid = 'key';
-   dbgprint($this->dbg,"Dalraw construct. sqlitefile={$this->sqlitefile}, tabname={$this->tabname}\n");
+   dbgprint($this->dbg,"Dal construct. sqlitefile={$this->sqlitefile}, tabname={$this->tabname}\n");
   }else if ($dbname == "ab") {
    $this->tabname = $this->dict . "ab";
    $this->sqlitefile = "$sqlitedir/{$this->tabname}.sqlite";
