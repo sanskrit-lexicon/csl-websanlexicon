@@ -1062,7 +1062,15 @@ This script runs generate.py for all the converted dictionaries,
  gst, vcp, ben, bop, bor, ccs, md, mwe,
 mw72, ieg, inm, krm, mci 
 * --------------------------------------------------------------
-* apidev
+* apidev update
+copy files dal.php,  basicadjust.php, and basicadjust.php from
+ csl-websanlexicon/v00/makotemplates/webtc/ to apidev
+If in scans/awork/apidev directory on Cologne server, the copy commands are:
+
+cp ../csl-websanlexicon/v00/makotemplates/webtc/dal.php .
+cp ../../csl-websanlexicon/v00/makotemplates/webtc/basicadjust.php .
+cp ../../csl-websanlexicon/v00/makotemplates/webtc/basicdisplay.php .
+
 * --------------------------------------------------------------
 * General workflow for cologne update of apidev
 a) On local server, follow steps for update of apidev after
