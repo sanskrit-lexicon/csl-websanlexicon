@@ -8,13 +8,11 @@ class ListHierModel{
  public function __construct($listParms) {
   $this->dict = $listParms->dict;
   $this->key = $listParms->key;
-  #echo "<p>ListHierModel: dict={$this->dict}, key={$this->key}</p>";
   $this->direction = $listParms->direction;
   $this->dal = new Dal($this->dict);
   // step 1: get a match for key
   $matches = $this->match_key($this->key);
   list($key1,$lnum1,$data1) = $matches[0];
-  //echo "<p>key1=$key1, lnum1=$lnum1</p>\n";
   // step 2:  get several keys preceding and several keys following $key1
   $nprev=12;
   $nnext=12;
@@ -33,7 +31,6 @@ class ListHierModel{
   // this function 'guaranteed' to return an array with one entry
   $matches = $this->list1a($key);
   $nmatches = count($matches);
-  //echo "chk1: $key, $nmatches\n";
   if ($nmatches != 1) {
    $key1 = $key;
    $nmatches=0;
@@ -57,8 +54,6 @@ class ListHierModel{
     if ($nmatches == 0) {$n1--;}
    } 
   }
-  // $nmatches = count($matches);
-  // echo "chk2: $key, $nmatches\n";
    return $matches;
  }
  public function list1a($key) {

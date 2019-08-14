@@ -58,7 +58,6 @@ transcoder = {
 		var match = transcoder.processString_match(line,n,m,fsmentry);
 		var nmatch=match.length;
 		//console.log('transcoder1 : ',line,n,line[n],match,i,fsmentry);
-                //   echo "chk2: n=n, c='c', nmatch=nmatch<br>\n"
 		if (nmatch > nbest) {
 		    best = match;
 		    nbest=nmatch;

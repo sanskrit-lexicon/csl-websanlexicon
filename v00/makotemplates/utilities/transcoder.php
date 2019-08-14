@@ -21,7 +21,6 @@ $transcoder_dir=dirname(__FILE__); //use php magic constant
 //$transcoder_dir =dirname($transcoder_dir); // go up one level
 //$transcoder_dir .= "/data/transcoder";
 $transcoder_dir .="/transcoder";
-//echo "transcoder_dir = " . $transcoder_dir . "\n"; //dbg
 $transcoder_fsmarr = array();
 function transcoder_fsm($from,$to) {
 // Uses xml file from_to.xml (in transcoder_dir) to initialize a
@@ -35,7 +34,6 @@ function transcoder_fsm($from,$to) {
   return;
  }
  $filein = $transcoder_dir . "/" . $fromto . ".xml";
- //echo "transcoder debug: filein = $filein\n";
  if (!file_exists($filein)) {return;}
  // The php routine simplexml_load_file  parses the xml file.
  // It was discovered that unicode values expressed as html entities
@@ -231,7 +229,6 @@ global $transcoder_htmlentities;
    if ($k == -1) {continue;}
    $match = transcoder_processString_match($line,$n,$m,$fsmentry);
    $nmatch=strlen($match);
-//   echo "chk2: n=$n, c='$c', nmatch=$nmatch<br>\n";
    if ($nmatch > $nbest) {
     $best = $match;
     $nbest=$nmatch;
@@ -268,7 +265,6 @@ function transcoder_processString($line,$from,$to) {
   transcoder_fsm($from,$to);
   $fsm = $transcoder_fsmarr[$fromto];
   if (!$fsm) {
-//   echo "could not find fsm\n";
    return $line;
   }
  }
@@ -425,7 +421,6 @@ function transcoder_set_dir($dir) {
   echo "transcoder_set_dir ERROR: \ndir = $dir\nnewdir = $newdir\n";
   return;
  }
-//  echo "transcoder_set_dir change: \ndir = $dir\nold = $transcoder_dir\nnewdir = $newdir\n";
  $transcoder_dir=$newdir;
  return $transcoder_dir;
 }

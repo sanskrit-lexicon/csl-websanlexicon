@@ -12,7 +12,6 @@ echo $meta; // why?
 require_once('../webtc/dictcode.php');
 require_once('listparm.php');
 $getParms = new ListParm($dictcode);
-#echo "<p>listhier.php: dictcode=$dictcode</p>";
 
 require_once('listhiermodel.php');
 $model = new ListHierModel($getParms);

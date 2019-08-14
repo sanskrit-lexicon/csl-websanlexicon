@@ -25,7 +25,6 @@ if (isset($_POST['data'])) {
 #$utilchoice = $_POST['utilchoice'];
 #$filter0 = $_POST['filter'];
 #$filter = transcoder_standardize_filter($filter0);
-#echo count($keyar) . " keyar len\n";
 $matches=array();
 $nmatches=0;
 

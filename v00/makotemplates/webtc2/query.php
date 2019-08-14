@@ -6,11 +6,9 @@ if (isset($_GET['callback'])) {
  header("Access-Control-Allow-Origin: *");
 }
 $meta = '<meta charset="UTF-8">';
-#echo $meta; // why?
 $dbg = false;
 require_once("../webtc/dbgprint.php");
 dbgprint($dbg,"query.php starts\n");
-#include("../utilities/transcoder.php");
 require_once('../webtc/dictcode.php');
 require_once('queryparm.php');
 dbgprint($dbg,"query.php call QueryParm: dictcode=$dictcode\n");

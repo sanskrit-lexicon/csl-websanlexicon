@@ -31,7 +31,6 @@ class ListParm extends Parm {
 
  public function __construct($dict) {
   // Part 1 of construction identical to Parm class
-  #echo "<p>ListParm: dict=$dict</p>";
   parent::__construct($dict);  // Parm's constructor
   // direction: either 'UP', 'DOWN', or 'CENTER' (default)
   $direction = $_REQUEST['direction'];

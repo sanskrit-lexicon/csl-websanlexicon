@@ -33,7 +33,6 @@ class Queryparm extends Parm {
  public $accent;
  public function __construct($dict) {
   // Part 1 of construction identical to Parm class
-  #echo "<p>Queryparm: dict=$dict</p>";
   parent::__construct($dict);  // Parm's constructor
   #Use parms filter and filterin from Parm 
   #$this->filter = $_REQUEST['filter'];
@@ -47,17 +46,9 @@ class Queryparm extends Parm {
   // parms for sanskrit word
   $this->opt_sregexp = $_REQUEST['sregexp'];
   $this->opt_sword = $_REQUEST['sword'];
-  #echo "<p>queryparm: sword={$this->opt_sword}</p>";
   
   // parms for non-Sanskrit word
   $this->word = $_REQUEST['word'];
-  #echo "<p>queryparm: word={$this->word}</p>";
-  /*
-  if (!($this->word)) {
-    //  $this->word="horse";
-    $this->word = $argv[1];
-  }
-  */
   $this->word = strtolower($this->word);
   $this->opt_regexp = $_REQUEST['regexp'];
   $this->sopt_case = $_REQUEST['scase'];

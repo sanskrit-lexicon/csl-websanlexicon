@@ -23,7 +23,6 @@ class Parm {
  public $dictinfo,$english;
  public $keyin1,$key;
  public function __construct($dict) {
-  #echo "<p>Parm: dict=$dict</p>";
   $this->dict = $dict;
   $dbg=false;
   dbgprint($dbg,"enter parm construct\n");

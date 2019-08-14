@@ -101,8 +101,6 @@ function getfiles($pdffiles_filename,$pagestr_in0,$dictupper) {
  }
 
  $pagestr_in = preg_replace('/^0+/','',$pagestr_in);
- // echo "{$pagestr_in0}  -> {$pagestr_in}\n";
- //exit(1);
  $filename=$pdffiles_filename;
  $lines = file($filename);
  $pagearr=array(); //sequential
@@ -147,8 +145,6 @@ function getfiles($pdffiles_filename,$pagestr_in0,$dictupper) {
    $pagestr = sprintf('%d',$ipage);
    $ncur = $pagehash[$pagestr]; 
   }
-  //echo "check GRA: $pagestr_in, $ipage, $ncur<br/>\n";
-  //exit(1);
  }
  if(!$ncur) {
   $ncur=1;
@@ -158,11 +154,8 @@ function getfiles($pdffiles_filename,$pagestr_in0,$dictupper) {
  if ($nnext > $n) {$nnext = 1;}
  $nprev = $ncur - 1;
  if ($nprev < 1) {$nprev = $n;}
- //echo "nprev,ncur,nnext = $nprev,$ncur,$nnext\n";
  list($pagenext,$dummy) = $pagearr[$nnext];
  list($pageprev,$dummy) = $pagearr[$nprev];
- //echo "($filecur,$pageprev,$pagenext)";
- //exit(1);
  return array($filecur,$pageprev,$pagenext);
 }
 
