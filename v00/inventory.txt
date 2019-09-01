@@ -34,6 +34,7 @@ webtc/dictcode.php:T
 webtc/dictinfo.php:T
 webtc/disp.php:D
 webtc/basicdisplay.php:C
+webtc/dictinfowhich.php:C
 webtc/download.html:T
 webtc/getword.php:T
 webtc/getwordviewmodel.php:C
