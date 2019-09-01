@@ -47,6 +47,7 @@ webtc/parm.php:C
 ;webtc/pdffiles.txt:C
 webtc/serveimg.css:C
 webtc/servepdf.php:C
+webtc/servepdfClass.php:C
 webtc/translithelp.html:C
 webtc1/disphier.php:T
 webtc1/index.php:T
