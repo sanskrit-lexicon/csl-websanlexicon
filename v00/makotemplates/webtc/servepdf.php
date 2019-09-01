@@ -1,22 +1,29 @@
 <?php
-error_reporting(E_ALL & ~E_NOTICE );
+error_reporting(E_ALL & ~E_NOTICE & ~E_WARNING);
 ?>
 <?php
-/* servepdf.php  Apr 27, 2015 Multidictionary display of scanned images
-  Similar to servepdf for the dictionaries
+/* 
 Parameters:
  dict: one of the dictionary codes (case insensitive)
  page: a specific page of the dictionary.  In the form of the contents
        of a <pc> element
- key: a headword, in SLP1.  
-  Only one of 'page' and 'key' should be used.  If both are present, then
-  'key' parameter is ignored and 'page' parameter prevails.
- July 11, 2018. Modify to work with 'raw' data or html data
+ 08-31-2019 Refactored to do work in a ServepdfClass.
+            
 */
-require_once('dictcode.php');
 require_once('dbgprint.php');
 require_once('parm.php');
 require_once('dictinfo.php');
+function servepdfCall() {
+  $temp = new ServepdfClass();
+  $table1 = $temp->html;
+  echo $table1;
+}
+servepdfCall();
+
+class ServepdfClass {
+ public $html;
+ public function __construct() {
+require_once('dictcode.php');
 $dict = $dictcode;
 $getParms = new Parm($dict);
 $page = $_REQUEST['page'];
@@ -29,36 +36,12 @@ $webparent = $dictinfo->webparent;
 $pdffiles_filename = "$webparent/web/webtc/pdffiles.txt";
 $dictupper = $dictinfo->dictupper;
 
-list($filename,$pageprev,$pagenext)=getfiles($pdffiles_filename,$page,$dictupper);
-// 04-17-2018. Use The cologne images
-// 04-20-2018. Use relative path if $pdf exists
-/*
-$dir = $webpath . "/pdfpages"; 
-$pdffile = $dir . "/$filename";
-$ds = DIRECTORY_SEPARATOR;
-$pdfpages = dirname(__FILE__,2) . $ds . 'pdfpages';
-$pdffile = dirname(__FILE__,2) . $ds . 'pdfpages' . $ds . "{$filename}";
-*/
-$pdffile = "../pdfpages/$filename";
-if(file_exists($pdffile)) {
- $pdf = $pdffile;
-}else { // Use the cologne images
- $dir = "{$dictinfo->get_cologne_webPath()}/pdfpages";
- $pdf = "$dir/$filename";
-}
-?>
-<!DOCTYPE html>
-<html>
-<head>
- <meta charset="UTF-8" />
-<title><?= $dictupper?> Cologne Scan</title>
-<link rel='stylesheet' type='text/css' href='serveimg.css' />
-<!--
-<link rel='stylesheet' type='text/css' href='//www.sanskrit-lexicon.uni-koeln.de/scans/awork/apidev/css/serveimg.css' />
--->
-</head>
-<body>
-<?php  
+list($filename,$pageprev,$pagenext)=$this->getfiles($pdffiles_filename,$page,$dictupper);
+
+$pdfpages_url = $dictinfo->get_pdfpages_url();
+dbgprint($dbg,"servepdf: pdfpages_url=$pdfpages_url\n");
+$pdf = "$pdfpages_url/$filename";
+
 $imageParms = array(
  'WIL' => "width ='1000' height='1500'",
  'PW'  => "width ='1600' height='2300'",
@@ -66,24 +49,37 @@ $imageParms = array(
  'MD'  => "width ='1000' height='1370'",
 );
 $imageParm = $imageParms[$dictinfo->dictupper];
-?>
-<?php if ($imageParm){?>
-<img src='<?=$pdf?>' <?=$imageParm?> />
-<?php }else{?>
-<object id='servepdf' type='application/pdf' data='<?=$pdf?>'
-  style="width: 98%; height:98%"></object>
-<?php }?>
+if ($imageParm) {
+ $imageElt = "<img src='$pdf' $imageParm />";
+} else {
+ $imageElt = "<object id='servepdf' type='application/pdf' data='$pdf'" . 
+             "style='width: 98%; height:98%'></object>";
+}
+// Use PHP 'heredoc' syntax to generate html
+$html = <<<HTML
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>$dictupper Cologne Scan</title>
+<link rel='stylesheet' type='text/css' href='serveimg.css' />
+</head>
+<body>
+$imageElt
 
 <div id='pagenav'>
-<a href="servepdf.php?dict=<?=$dict?>&page=<?=$pageprev?>" 
+<a href="servepdf.php?dict=$dict&page=$pageprev" 
    class='nppage'><span class='nppage1'>&lt;</span>&nbsp;</a>
-<a href="servepdf.php?dict=<?=$dict?>&page=<?=$pagenext?>" 
+<a href="servepdf.php?dict=$dict&page=$pagenext" 
    class='nppage'><span class='nppage1'>&gt;</span>&nbsp;</a>
 </div>
 </body>
 </html>
-<?php
-function getfiles($pdffiles_filename,$pagestr_in0,$dictupper) { 
+HTML;
+
+$this->html = $html;
+}
+public function getfiles($pdffiles_filename,$pagestr_in0,$dictupper) { 
  // Next line for MW, where pagestr_in0 may start with 'Page', which we remove
  $pagestr_in0 = preg_replace('|^[^0-9]+|','',$pagestr_in0);
  // Recognize two basic cases: vol-page or page.
@@ -158,5 +154,5 @@ function getfiles($pdffiles_filename,$pagestr_in0,$dictupper) {
  list($pageprev,$dummy) = $pagearr[$nprev];
  return array($filecur,$pageprev,$pagenext);
 }
-
+}
 ?>
