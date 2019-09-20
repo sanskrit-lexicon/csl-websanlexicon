@@ -115,7 +115,7 @@ Text Word:
 <option value="200">200</option>
 <option value="500">500</option>
 <option value="1000">1000</option>
-<option value="1000000">all</option>
+<!-- <option value="1000000">all</option> -->
 </select> 
     &nbsp;output:
     <select name="filter" id="filter">

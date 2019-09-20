@@ -86,6 +86,12 @@ class QueryModel{
    $slpword = $this->translate_string2SLP($this->queryParms->opt_stransLit,$this->queryParms->opt_sword);
    $wordchrs = preg_split ('/[^a-zA-Z.*?+]/',$slpword);
    $slpword = join('',$wordchrs);
+   if ($slpword == '') {
+    $this->status = true;
+    $this->querymatches = array();
+    $this->errmsg = "No matches found for '$slpword'";
+    return;
+   }
    $non_word = "[^a-zA-Z0-9]";
    $wordreg = "[a-zA-Z0-9-]";
    $wordin = $slpword;

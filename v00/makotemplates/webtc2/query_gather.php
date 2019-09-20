@@ -17,7 +17,11 @@ echo "$meta\n";
 if (isset($_POST['data'])) {
  $data = $_POST['data'];
  $data1 = preg_replace('/<\/key1>/','',$data);
- $keyar = preg_split('/<key1>/',$data1);
+ if ($data1 == "") {
+  $keyar = array();
+ }else {
+  $keyar = preg_split('/<key1>/',$data1);
+ }
 }else {
  $data = "";
  $keyar = array();
