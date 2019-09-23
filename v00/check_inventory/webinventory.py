@@ -19,7 +19,9 @@ dictyear={"ACC":"2014" , "AE":"2014" , "AP":"2014" , "AP90":"2014",
        "SHS":"2014" , "SKD":"2013" , "SNP":"2014" , "STC":"2013",
        "VCP":"2013" , "VEI":"2014" , "WIL":"2014" , "YAT":"2014"}
 standard_fonts = 'CharterIndoCapital.otf, Old Standard Indologique-Italic.otf, Old Standard Indologique-Italic.ttf, Old Standard Indologique-Regular.otf, oldstandard.otf, oldstandarditalic.otf, praja.ttf, sanskrit2003.ttf, siddhanta.ttf'
-
+# revised 08-26-2019 to contain just the 4 fonts that are currently used in
+# displays.
+standard_fonts = 'CharterIndoCapital.otf, oldstandard.otf, oldstandarditalic.otf, siddhanta.ttf'
 class wslRec(object):
  # csl-websanlexicon inventory.txt
  dirs = {}
@@ -35,7 +37,11 @@ def init_wslRecs(filename):
   for line in f:
    if line.startswith(';'):
     continue # comment
-   recs.append(wslRec(line))
+   rec = wslRec(line)
+   if rec.type == 'D': # exclude deletion
+    print('exclude csl-websanlexicon deletion:',rec.path)
+   else:
+    recs.append(rec)
  return recs
 
 def walkdir(dirweb):
@@ -69,7 +75,7 @@ def getinfo(code,wslrecs):
   # Take into account relative location of this program file
   dirbase = "../../../" + dirmain
   dirweb = "%s/web" %dirbase
-  #print('dirweb=%s'%dirweb)
+  print('dirweb=%s'%dirweb)
   filenames = walkdir(dirweb)
   #filenames = os.listdir(dirweb)
   files = []

@@ -1,400 +1,363 @@
-STANDARD FONTS=CharterIndoCapital.otf, Old Standard Indologique-Italic.otf, Old Standard Indologique-Italic.ttf, Old Standard Indologique-Regular.otf, oldstandard.otf, oldstandarditalic.otf, praja.ttf, sanskrit2003.ttf, siddhanta.ttf
+STANDARD FONTS=CharterIndoCapital.otf, oldstandard.otf, oldstandarditalic.otf, siddhanta.ttf
 ------------------------------------------------------------
 
 ACCScan/2014
 0 files in csl-websanlexicon but not in web directory for ACC
-15 files in web directory (excluding pdfpages) for ACC but not in csl-websanlexicon 
+5 files in web directory (excluding pdfpages) for ACC but not in csl-websanlexicon 
 web:2:accheader.xml, index.php
-web/fonts:9:<STANDARD FONTS>
 web/pdfpages:1216:...
-web/sqlite:2:acc.sqlite, accab.sqlite
+web/sqlite:1:acc.sqlite
 web/webtc:1:pdffiles.txt
 web/webtc2:1:query_dump.txt
 ------------------------------------------------------------
 
 BENScan/2014
 0 files in csl-websanlexicon but not in web directory for BEN
-16 files in web directory (excluding pdfpages) for BEN but not in csl-websanlexicon 
+6 files in web directory (excluding pdfpages) for BEN but not in csl-websanlexicon 
 web:2:benheader.xml, index.php
-web/fonts:9:<STANDARD FONTS>
 web/images:1:vatsa.png
 web/pdfpages:1127:...
-web/sqlite:2:ben.sqlite, benab.sqlite
+web/sqlite:1:ben.sqlite
 web/webtc:1:pdffiles.txt
 web/webtc2:1:query_dump.txt
 ------------------------------------------------------------
 
 GSTScan/2014
 0 files in csl-websanlexicon but not in web directory for GST
-15 files in web directory (excluding pdfpages) for GST but not in csl-websanlexicon 
+5 files in web directory (excluding pdfpages) for GST but not in csl-websanlexicon 
 web:2:gstheader.xml, index.php
-web/fonts:9:<STANDARD FONTS>
 web/pdfpages:334:...
-web/sqlite:2:gst.sqlite, gstab.sqlite
+web/sqlite:1:gst.sqlite
 web/webtc:1:pdffiles.txt
 web/webtc2:1:query_dump.txt
 ------------------------------------------------------------
 
 BOPScan/2014
 0 files in csl-websanlexicon but not in web directory for BOP
-15 files in web directory (excluding pdfpages) for BOP but not in csl-websanlexicon 
+5 files in web directory (excluding pdfpages) for BOP but not in csl-websanlexicon 
 web:2:bopheader.xml, index.php
-web/fonts:9:<STANDARD FONTS>
 web/pdfpages:421:...
-web/sqlite:2:bop.sqlite, bopab.sqlite
+web/sqlite:1:bop.sqlite
 web/webtc:1:pdffiles.txt
 web/webtc2:1:query_dump.txt
 ------------------------------------------------------------
 
 BORScan/2014
 0 files in csl-websanlexicon but not in web directory for BOR
-15 files in web directory (excluding pdfpages) for BOR but not in csl-websanlexicon 
+5 files in web directory (excluding pdfpages) for BOR but not in csl-websanlexicon 
 web:2:borheader.xml, index.php
-web/fonts:9:<STANDARD FONTS>
 web/pdfpages:808:...
-web/sqlite:2:bor.sqlite, borab.sqlite
+web/sqlite:1:bor.sqlite
 web/webtc:1:pdffiles.txt
 web/webtc2:1:query_dump.txt
 ------------------------------------------------------------
 
 KRMScan/2014
 0 files in csl-websanlexicon but not in web directory for KRM
-16 files in web directory (excluding pdfpages) for KRM but not in csl-websanlexicon 
+5 files in web directory (excluding pdfpages) for KRM but not in csl-websanlexicon 
 web:2:index.php, krmheader.xml
-web/fonts:9:<STANDARD FONTS>
 web/pdfpages:1489:...
-web/sqlite:3:input.txt, krm.sqlite, krmab.sqlite
+web/sqlite:1:krm.sqlite
 web/webtc:1:pdffiles.txt
 web/webtc2:1:query_dump.txt
 ------------------------------------------------------------
 
 CCSScan/2014
 0 files in csl-websanlexicon but not in web directory for CCS
-16 files in web directory (excluding pdfpages) for CCS but not in csl-websanlexicon 
+5 files in web directory (excluding pdfpages) for CCS but not in csl-websanlexicon 
 web:2:ccsheader.xml, index.php
-web/fonts:9:<STANDARD FONTS>
 web/pdfpages:541:...
-web/sqlite:3:ccs.sqlite, ccsab.sqlite, input.txt
+web/sqlite:1:ccs.sqlite
 web/webtc:1:pdffiles.txt
 web/webtc2:1:query_dump.txt
 ------------------------------------------------------------
 
 SKDScan/2013
 0 files in csl-websanlexicon but not in web directory for SKD
-16 files in web directory (excluding pdfpages) for SKD but not in csl-websanlexicon 
+5 files in web directory (excluding pdfpages) for SKD but not in csl-websanlexicon 
 web:2:index.php, skdheader.xml
-web/fonts:9:<STANDARD FONTS>
 web/pdfpages:3164:...
-web/sqlite:3:input.txt, skd.sqlite, skdab.sqlite
+web/sqlite:1:skd.sqlite
 web/webtc:1:pdffiles.txt
 web/webtc2:1:query_dump.txt
 ------------------------------------------------------------
 
 SHSScan/2014
 0 files in csl-websanlexicon but not in web directory for SHS
-15 files in web directory (excluding pdfpages) for SHS but not in csl-websanlexicon 
+5 files in web directory (excluding pdfpages) for SHS but not in csl-websanlexicon 
 web:2:index.php, shsheader.xml
-web/fonts:9:<STANDARD FONTS>
 web/pdfpages:842:...
-web/sqlite:2:shs.sqlite, shsab.sqlite
+web/sqlite:1:shs.sqlite
 web/webtc:1:pdffiles.txt
 web/webtc2:1:query_dump.txt
 ------------------------------------------------------------
 
 MWEScan/2013
 0 files in csl-websanlexicon but not in web directory for MWE
-16 files in web directory (excluding pdfpages) for MWE but not in csl-websanlexicon 
+5 files in web directory (excluding pdfpages) for MWE but not in csl-websanlexicon 
 web:2:index.php, mweheader.xml
-web/fonts:9:<STANDARD FONTS>
 web/pdfpages:860:...
-web/sqlite:3:input.txt, mwe.sqlite, mweab.sqlite
+web/sqlite:1:mwe.sqlite
 web/webtc:1:pdffiles.txt
 web/webtc2:1:query_dump.txt
 ------------------------------------------------------------
 
 CAEScan/2014
 0 files in csl-websanlexicon but not in web directory for CAE
-16 files in web directory (excluding pdfpages) for CAE but not in csl-websanlexicon 
+6 files in web directory (excluding pdfpages) for CAE but not in csl-websanlexicon 
 web:2:caeheader.xml, index.php
-web/fonts:9:<STANDARD FONTS>
 web/pdfpages:677:...
-web/sqlite:3:cae.sqlite, caeab.sqlite, input.txt
+web/sqlite:2:cae.sqlite, caeab.sqlite
 web/webtc:1:pdffiles.txt
 web/webtc2:1:query_dump.txt
 ------------------------------------------------------------
 
 PWScan/2014
 0 files in csl-websanlexicon but not in web directory for PW
-18 files in web directory (excluding pdfpages) for PW but not in csl-websanlexicon 
+7 files in web directory (excluding pdfpages) for PW but not in csl-websanlexicon 
 web:2:index.php, pwheader.xml
-web/fonts:9:<STANDARD FONTS>
 web/pdfpages:2141:...
-web/sqlite:5:.sqlite, input.txt, pw.sqlite, pwab.sqlite, pwbib.sqlite
+web/sqlite:3:pw.sqlite, pwab.sqlite, pwbib.sqlite
 web/webtc:1:pdffiles.txt
 web/webtc2:1:query_dump.txt
 ------------------------------------------------------------
 
 INMScan/2013
 0 files in csl-websanlexicon but not in web directory for INM
-15 files in web directory (excluding pdfpages) for INM but not in csl-websanlexicon 
+5 files in web directory (excluding pdfpages) for INM but not in csl-websanlexicon 
 web:2:index.php, inmheader.xml
-web/fonts:9:<STANDARD FONTS>
 web/pdfpages:852:...
-web/sqlite:2:inm.sqlite, inmab.sqlite
+web/sqlite:1:inm.sqlite
 web/webtc:1:pdffiles.txt
 web/webtc2:1:query_dump.txt
 ------------------------------------------------------------
 
 BURScan/2013
 0 files in csl-websanlexicon but not in web directory for BUR
-16 files in web directory (excluding pdfpages) for BUR but not in csl-websanlexicon 
+6 files in web directory (excluding pdfpages) for BUR but not in csl-websanlexicon 
 web:2:burheader.xml, index.php
-web/fonts:9:<STANDARD FONTS>
 web/pdfpages:394:...
-web/sqlite:3:bur.sqlite, burab.sqlite, input.txt
+web/sqlite:2:bur.sqlite, burab.sqlite
 web/webtc:1:pdffiles.txt
 web/webtc2:1:query_dump.txt
 ------------------------------------------------------------
 
 AP90Scan/2014
 0 files in csl-websanlexicon but not in web directory for AP90
-16 files in web directory (excluding pdfpages) for AP90 but not in csl-websanlexicon 
+5 files in web directory (excluding pdfpages) for AP90 but not in csl-websanlexicon 
 web:2:ap90header.xml, index.php
-web/fonts:9:<STANDARD FONTS>
 web/pdfpages:1211:...
-web/sqlite:3:ap90.sqlite, ap90ab.sqlite, input.txt
+web/sqlite:1:ap90.sqlite
 web/webtc:1:pdffiles.txt
 web/webtc2:1:query_dump.txt
 ------------------------------------------------------------
 
 PDScan/2014
 0 files in csl-websanlexicon but not in web directory for PD
-15 files in web directory (excluding pdfpages) for PD but not in csl-websanlexicon 
+5 files in web directory (excluding pdfpages) for PD but not in csl-websanlexicon 
 web:2:index.php, pdheader.xml
-web/fonts:9:<STANDARD FONTS>
 web/pdfpages:4328:...
-web/sqlite:2:pd.sqlite, pdab.sqlite
+web/sqlite:1:pd.sqlite
 web/webtc:1:pdffiles.txt
 web/webtc2:1:query_dump.txt
 ------------------------------------------------------------
 
 PEScan/2014
 0 files in csl-websanlexicon but not in web directory for PE
-15 files in web directory (excluding pdfpages) for PE but not in csl-websanlexicon 
+5 files in web directory (excluding pdfpages) for PE but not in csl-websanlexicon 
 web:2:index.php, peheader.xml
-web/fonts:9:<STANDARD FONTS>
 web/pdfpages:929:...
-web/sqlite:2:pe.sqlite, peab.sqlite
+web/sqlite:1:pe.sqlite
 web/webtc:1:pdffiles.txt
 web/webtc2:1:query_dump.txt
 ------------------------------------------------------------
 
 VEIScan/2014
 0 files in csl-websanlexicon but not in web directory for VEI
-15 files in web directory (excluding pdfpages) for VEI but not in csl-websanlexicon 
+5 files in web directory (excluding pdfpages) for VEI but not in csl-websanlexicon 
 web:2:index.php, veiheader.xml
-web/fonts:9:<STANDARD FONTS>
 web/pdfpages:1155:...
-web/sqlite:2:vei.sqlite, veiab.sqlite
+web/sqlite:1:vei.sqlite
 web/webtc:1:pdffiles.txt
 web/webtc2:1:query_dump.txt
 ------------------------------------------------------------
 
 PGNScan/2014
 0 files in csl-websanlexicon but not in web directory for PGN
-15 files in web directory (excluding pdfpages) for PGN but not in csl-websanlexicon 
+5 files in web directory (excluding pdfpages) for PGN but not in csl-websanlexicon 
 web:2:index.php, pgnheader.xml
-web/fonts:9:<STANDARD FONTS>
 web/pdfpages:420:...
-web/sqlite:2:pgn.sqlite, pgnab.sqlite
+web/sqlite:1:pgn.sqlite
 web/webtc:1:pdffiles.txt
 web/webtc2:1:query_dump.txt
 ------------------------------------------------------------
 
 MW72Scan/2014
 0 files in csl-websanlexicon but not in web directory for MW72
-16 files in web directory (excluding pdfpages) for MW72 but not in csl-websanlexicon 
+5 files in web directory (excluding pdfpages) for MW72 but not in csl-websanlexicon 
 web:2:index.php, mw72header.xml
-web/fonts:9:<STANDARD FONTS>
 web/pdfpages:1212:...
-web/sqlite:3:input.txt, mw72.sqlite, mw72ab.sqlite
+web/sqlite:1:mw72.sqlite
 web/webtc:1:pdffiles.txt
 web/webtc2:1:query_dump.txt
 ------------------------------------------------------------
 
 AEScan/2014
 0 files in csl-websanlexicon but not in web directory for AE
-16 files in web directory (excluding pdfpages) for AE but not in csl-websanlexicon 
+5 files in web directory (excluding pdfpages) for AE but not in csl-websanlexicon 
 web:2:aeheader.xml, index.php
-web/fonts:9:<STANDARD FONTS>
 web/pdfpages:518:...
-web/sqlite:3:ae.sqlite, aeab.sqlite, input.txt
+web/sqlite:1:ae.sqlite
 web/webtc:1:pdffiles.txt
 web/webtc2:1:query_dump.txt
 ------------------------------------------------------------
 
 STCScan/2013
 0 files in csl-websanlexicon but not in web directory for STC
-20 files in web directory (excluding pdfpages) for STC but not in csl-websanlexicon 
+9 files in web directory (excluding pdfpages) for STC but not in csl-websanlexicon 
 web:3:index.php, index_fr.php, stcheader.xml
-web/fonts:9:<STANDARD FONTS>
 web/pdfpages:904:...
-web/sqlite:3:input.txt, stc.sqlite, stcab.sqlite
+web/sqlite:1:stc.sqlite
 web/webtc:4:download_fr.html, help_fr.html, indexcaller_fr.php, pdffiles.txt
 web/webtc2:1:query_dump.txt
 ------------------------------------------------------------
 
 YATScan/2014
 0 files in csl-websanlexicon but not in web directory for YAT
-15 files in web directory (excluding pdfpages) for YAT but not in csl-websanlexicon 
+5 files in web directory (excluding pdfpages) for YAT but not in csl-websanlexicon 
 web:2:index.php, yatheader.xml
-web/fonts:9:<STANDARD FONTS>
 web/pdfpages:928:...
-web/sqlite:2:yat.sqlite, yatab.sqlite
+web/sqlite:1:yat.sqlite
 web/webtc:1:pdffiles.txt
 web/webtc2:1:query_dump.txt
 ------------------------------------------------------------
 
 VCPScan/2013
 0 files in csl-websanlexicon but not in web directory for VCP
-15 files in web directory (excluding pdfpages) for VCP but not in csl-websanlexicon 
+5 files in web directory (excluding pdfpages) for VCP but not in csl-websanlexicon 
 web:2:index.php, vcpheader.xml
-web/fonts:8:CharterIndoCapital.otf, Old Standard Indologique-Italic.otf, Old Standard Indologique-Italic.ttf, Old Standard Indologique-Regular.otf, oldstandard.otf, oldstandarditalic.otf, sanskrit2003.ttf, siddhanta.ttf
 web/pdfpages:5447:...
-web/sqlite:3:input.txt, vcp.sqlite, vcpab.sqlite
+web/sqlite:1:vcp.sqlite
 web/webtc:1:pdffiles.txt
 web/webtc2:1:query_dump.txt
 ------------------------------------------------------------
 
 APScan/2014
 0 files in csl-websanlexicon but not in web directory for AP
-15 files in web directory (excluding pdfpages) for AP but not in csl-websanlexicon 
+5 files in web directory (excluding pdfpages) for AP but not in csl-websanlexicon 
 web:2:apheader.xml, index.php
-web/fonts:9:<STANDARD FONTS>
 web/pdfpages:1914:...
-web/sqlite:2:ap.sqlite, apab.sqlite
+web/sqlite:1:ap.sqlite
 web/webtc:1:pdffiles.txt
 web/webtc2:1:query_dump.txt
 ------------------------------------------------------------
 
 GRAScan/2014
 0 files in csl-websanlexicon but not in web directory for GRA
-15 files in web directory (excluding pdfpages) for GRA but not in csl-websanlexicon 
-web:1:index.php
-web/fonts:9:<STANDARD FONTS>
+5 files in web directory (excluding pdfpages) for GRA but not in csl-websanlexicon 
+web:2:graheader.xml, index.php
 web/pdfpages:893:...
-web/sqlite:3:gra.sqlite, graab.sqlite, input.txt
+web/sqlite:1:gra.sqlite
 web/webtc:1:pdffiles.txt
 web/webtc2:1:query_dump.txt
 ------------------------------------------------------------
 
 IEGScan/2014
 0 files in csl-websanlexicon but not in web directory for IEG
-15 files in web directory (excluding pdfpages) for IEG but not in csl-websanlexicon 
+5 files in web directory (excluding pdfpages) for IEG but not in csl-websanlexicon 
 web:2:iegheader.xml, index.php
-web/fonts:9:<STANDARD FONTS>
 web/pdfpages:580:...
-web/sqlite:2:ieg.sqlite, iegab.sqlite
+web/sqlite:1:ieg.sqlite
 web/webtc:1:pdffiles.txt
 web/webtc2:1:query_dump.txt
 ------------------------------------------------------------
 
 SCHScan/2014
 0 files in csl-websanlexicon but not in web directory for SCH
-15 files in web directory (excluding pdfpages) for SCH but not in csl-websanlexicon 
+5 files in web directory (excluding pdfpages) for SCH but not in csl-websanlexicon 
 web:2:index.php, schheader.xml
-web/fonts:9:<STANDARD FONTS>
 web/pdfpages:406:...
-web/sqlite:2:sch.sqlite, schab.sqlite
+web/sqlite:1:sch.sqlite
 web/webtc:1:pdffiles.txt
 web/webtc2:1:query_dump.txt
 ------------------------------------------------------------
 
 MDScan/2014
 0 files in csl-websanlexicon but not in web directory for MD
-16 files in web directory (excluding pdfpages) for MD but not in csl-websanlexicon 
+5 files in web directory (excluding pdfpages) for MD but not in csl-websanlexicon 
 web:2:index.php, mdheader.xml
-web/fonts:9:<STANDARD FONTS>
 web/pdfpages:395:...
-web/sqlite:3:input.txt, md.sqlite, mdab.sqlite
+web/sqlite:1:md.sqlite
 web/webtc:1:pdffiles.txt
 web/webtc2:1:query_dump.txt
 ------------------------------------------------------------
 
 PUIScan/2014
 0 files in csl-websanlexicon but not in web directory for PUI
-15 files in web directory (excluding pdfpages) for PUI but not in csl-websanlexicon 
+5 files in web directory (excluding pdfpages) for PUI but not in csl-websanlexicon 
 web:2:index.php, puiheader.xml
-web/fonts:9:<STANDARD FONTS>
 web/pdfpages:2232:...
-web/sqlite:2:pui.sqlite, puiab.sqlite
+web/sqlite:1:pui.sqlite
 web/webtc:1:pdffiles.txt
 web/webtc2:1:query_dump.txt
 ------------------------------------------------------------
 
 MCIScan/2014
 0 files in csl-websanlexicon but not in web directory for MCI
-15 files in web directory (excluding pdfpages) for MCI but not in csl-websanlexicon 
+5 files in web directory (excluding pdfpages) for MCI but not in csl-websanlexicon 
 web:2:index.php, mciheader.xml
-web/fonts:9:<STANDARD FONTS>
 web/pdfpages:1024:...
-web/sqlite:2:mci.sqlite, mciab.sqlite
+web/sqlite:1:mci.sqlite
 web/webtc:1:pdffiles.txt
 web/webtc2:1:query_dump.txt
 ------------------------------------------------------------
 
 WILScan/2014
 0 files in csl-websanlexicon but not in web directory for WIL
-16 files in web directory (excluding pdfpages) for WIL but not in csl-websanlexicon 
+5 files in web directory (excluding pdfpages) for WIL but not in csl-websanlexicon 
 web:2:index.php, wilheader.xml
-web/fonts:9:<STANDARD FONTS>
 web/pdfpages:988:...
-web/sqlite:3:input.txt, wil.sqlite, wilab.sqlite
+web/sqlite:1:wil.sqlite
 web/webtc:1:pdffiles.txt
 web/webtc2:1:query_dump.txt
 ------------------------------------------------------------
 
 PWGScan/2013
 0 files in csl-websanlexicon but not in web directory for PWG
-17 files in web directory (excluding pdfpages) for PWG but not in csl-websanlexicon 
+7 files in web directory (excluding pdfpages) for PWG but not in csl-websanlexicon 
 web:2:index.php, pwgheader.xml
-web/fonts:9:<STANDARD FONTS>
 web/pdfpages:4737:...
-web/sqlite:4:input.txt, pwg.sqlite, pwgab.sqlite, pwgbib.sqlite
+web/sqlite:3:pwg.sqlite, pwgab.sqlite, pwgbib.sqlite
 web/webtc:1:pdffiles.txt
 web/webtc2:1:query_dump.txt
 ------------------------------------------------------------
 
 MWScan/2014
 0 files in csl-websanlexicon but not in web directory for MW
-23 files in web directory (excluding pdfpages) for MW but not in csl-websanlexicon 
+9 files in web directory (excluding pdfpages) for MW but not in csl-websanlexicon 
 web:2:index.php, mwheader.xml
-web/fonts:9:<STANDARD FONTS>
-web/sqlite:7:input.txt, mw.sqlite, mwab.sqlite, mwauthtooltips.sqlite, mwkeys.sqlite, old/make_input.php, old/make_input_new.php
-web/webtc:2:dbg_apidev.txt, pdffiles.txt
-web/webtc1:1:dbg_apidev.txt
+web/sqlite:4:mw.sqlite, mwab.sqlite, mwauthtooltips.sqlite, mwkeys.sqlite
+web/webtc:1:pdffiles.txt
 web/webtc2:2:dbg_apidev.txt, query_dump.txt
 ------------------------------------------------------------
 
 SNPScan/2014
 0 files in csl-websanlexicon but not in web directory for SNP
-15 files in web directory (excluding pdfpages) for SNP but not in csl-websanlexicon 
+5 files in web directory (excluding pdfpages) for SNP but not in csl-websanlexicon 
 web:2:index.php, snpheader.xml
-web/fonts:9:<STANDARD FONTS>
 web/pdfpages:135:...
-web/sqlite:2:snp.sqlite, snpab.sqlite
+web/sqlite:1:snp.sqlite
 web/webtc:1:pdffiles.txt
 web/webtc2:1:query_dump.txt
 ------------------------------------------------------------
 
 BHSScan/2014
 0 files in csl-websanlexicon but not in web directory for BHS
-16 files in web directory (excluding pdfpages) for BHS but not in csl-websanlexicon 
+5 files in web directory (excluding pdfpages) for BHS but not in csl-websanlexicon 
 web:2:bhsheader.xml, index.php
-web/fonts:9:<STANDARD FONTS>
 web/pdfpages:634:...
-web/sqlite:2:bhs.sqlite, bhsab.sqlite
+web/sqlite:1:bhs.sqlite
 web/webtc:1:pdffiles.txt
-web/webtc2:2:dbg_apidev.txt, query_dump.txt
+web/webtc2:1:query_dump.txt
 ------------------------------------------------------------
 
