@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+  <head>
+ <meta charset="UTF-8" />
+    <title>${dictup} Téléchargements</title>
+    <link type="text/css" rel="stylesheet" href="/Cologne.css" />
+    <style type="text/css">
+body {
+	color: black;
+	background-color:  #DBE4ED;
+	font-family: verdana,arial,helvetica,sansserif;
+	font-size: small;
+}
+#purpose {
+ background-color: #FFFFCC;
+}
+#header {
+font-size:14pt;
+}
+.downloadItem {
+  font-size: medium;
+  color: maroon;
+}
+#footer {
+ /*background-color: #FFCCCC;*/
+ background-color:  #DBE4ED;
+ font-size: smaller;
+}
+.Downloads {
+ font-size:16pt;
+ font-style:italic;
+}
+.title {
+ font-size:14pt;
+}
+#purpose {
+padding-bottom:10px;padding-top:10px;
+}
+</style>
+</head>
+<!--
+UNIVERSITÉ DE KÖLN (COLOGNE) 
+INSTITUT D'ÉTUDES INDIENNES ET TAMOULES
+-->
+<body>
+ <table width="100%"> 
+  <tr><td width="10%">
+   <a href="//www.sanskrit-lexicon.uni-koeln.de/"
+		style="background-color:#DBE4ED">
+   <img id="unilogo" src="../images/cologne_univ_seal.gif"
+     alt="University of Cologne" width="60" height="60" 
+     title="Cologne Sanskrit Lexicon"/>
+   </a>
+   </td>
+   <td>
+  <span class="title">${dictname}</span>
+   </td>
+  </tr>
+ </table>
+ 
+  <p>
+     <span class="Downloads">Téléchargements </span>  
+ </p>
+</div>
+<div id="purpose">
+  <div id="home"
+  <p> Pour d'autres dictionnaires sanskrits, s'il vous plaît visitez la page d'accueil de 
+     <a href="//www.sanskrit-lexicon.uni-koeln.de/index.html">
+        COLOGNE Lexiques sanskrits.</a>
+  </p>
+  </div>
+
+<ol>
+
+<ol>
+ <li><!--<a href='//www.sanskrit-lexicon.uni-koeln.de/scans/${dictup}Scan/${dictyear}/downloads/${dictlo}txt.zip'><span class='downloadItem'>${dictlo}txt.zip</span></a> -->
+   <a href='../../downloads/${dictlo}txt.zip'><span class='downloadItem'>${dictlo}txt.zip</span></a>
+     <span class='downloadDef'>
+      <ul>
+       <li><b>${dictlo}.txt</b> La numérisation en fichier texte.</li>
+       <li><b>${dictlo}-meta2.txt</b> Documentation des conventions de codage de  ${dictlo}.txt.</li>
+       <li><b>${dictlo}header.xml</b> Détaille les autorisations d'utilisation et d'autres renseignements concernant cette édition.</li>
+       <!-- <li><b>CDSL.pdf</b> Description du projet sanskrit-Lexique.</li> -->
+      </ul>
+     </span>
+ </li>
+ <!--
+ <li><a href='//www.sanskrit-lexicon.uni-koeln.de/scans/${dictup}Scan/${dictyear}/downloads/${dictlo}_bookmark.pdf'><span class='downloadItem'>${dictlo}_bookmark.pdf (faites un clic droit "Enregistrer sous" pour télécharger)</span></a>
+     <span class='downloadDef'> Fichier pdf des images numérisées des pages du dictionnaire. Des signets (notant le premier mot de chaque page) permettent d'accéder aux pages.</span>
+ </li>
+ -->
+ <li><!--<a href='//www.sanskrit-lexicon.uni-koeln.de/scans/${dictup}Scan/${dictyear}/downloads/${dictlo}xml.zip'><span class='downloadItem'>${dictlo}xml.zip</span></a> -->
+  <a href='../../downloads/${dictlo}xml.zip'><span class='downloadItem'>${dictlo}xml.zip</span></a>
+     <span class='downloadDef'>
+      <ul>
+       <li><b>${dictlo}.xml</b> Une version XML de {$dictlo}.txt, par mots-clés. </li>
+       <li><b>${dictlo}.dtd</b> Définition du type de document pour  ${dictlo}.xml.</li>
+       <li><b>${dictlo}header.xml</b> Détaille les autorisations d'utilisation et d'autres renseignements concernant cette édition.</li>
+      </ul>
+     </span>
+ </li>
+
+
+ <li><!--<a href='//www.sanskrit-lexicon.uni-koeln.de/scans/${dictup}Scan/${dictyear}/downloads/${dictlo}web1.zip'><span class='downloadItem'>${dictlo}web1.zip </span></a> -->
+  <a href='../../downloads/${dictlo}web1.zip'><span class='downloadItem'>${dictlo}web1.zip </span></a>
+   Une version hors ligne de l'affichage Web du dictionnaire. Aucune image numérisée. <br/>
+</li>
+
+
+</ol>
+
+</div>
+<div id="footer">
+ <p>Dernière mise à jour: ${dictmmddyyyy} </p> <!-- 8 juillet 2018 -->
+</div>
+</body>
+</html>

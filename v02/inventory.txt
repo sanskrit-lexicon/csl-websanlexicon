@@ -1,0 +1,122 @@
+; -----------------------------------------------------
+; constants and templates
+; -----------------------------------------------------
+*:web/images/cologne_univ_seal.gif:C
+*:web/images/encoding.gif:C
+*:web/js/jquery.cookie.js:C
+*:web/js/jquery.min.js:C
+*:web/mobile1/index.php:T
+*:web/mobile1/main.css:C
+; Next so that web/sqlite directory will be created. We put in an empty file
+*:web/sqlite/empty.txt:C
+;mobile1/main_mobile.js:C
+;mobile1/monier_serveimg.css:C
+*:web/utilities/transcoder.php:C
+*:web/utilities/transcoder/as_roman.xml:C
+*:web/utilities/transcoder/deva_slp1.xml:C
+*:web/utilities/transcoder/hk_slp1.xml:C
+*:web/utilities/transcoder/itrans_slp1.xml:C
+*:web/utilities/transcoder/roman_slp1.xml:C
+*:web/utilities/transcoder/slp1_as.xml:C
+*:web/utilities/transcoder/slp1_deva.xml:C
+*:web/utilities/transcoder/slp1_hk.xml:C
+*:web/utilities/transcoder/slp1_itrans.xml:C
+*:web/utilities/transcoder/slp1_roman.xml:C
+*:web/utilities/transcoder/slp1_romanpms.xml:C
+*:web/utilities/transcoder/slp1_wx.xml:C
+*:web/utilities/transcoder/wx_slp1.xml:C
+*:web/webtc/basicadjust.php:C
+*:web/webtc/dal.php:C
+*:web/webtc/dbgprint.php:C
+*:web/webtc/dictcode.php:T
+*:web/webtc/dictinfo.php:T
+*:web/webtc/disp.php:D
+*:web/webtc/basicdisplay.php:C
+*:web/webtc/dictinfowhich.php:C
+*:web/webtc/download.html:T
+*:web/webtc/getword.php:T
+*:web/webtc/getwordviewmodel.php:C
+*:web/webtc/help.html:T
+*:web/webtc/indexcaller.php:T
+*:web/webtc/main.css:T
+*:web/webtc/font.css:C
+*:web/webtc/main_webtc.js:C
+*:web/webtc/parm.php:C
+*:web/webtc/serveimg.css:C
+*:web/webtc/servepdf.php:C
+*:web/webtc/servepdfClass.php:C
+*:web/webtc/translithelp.html:C
+*:web/webtc1/disphier.php:T
+*:web/webtc1/index.php:T
+*:web/webtc1/keyboard.css:C
+*:web/webtc1/keyboard.js:C
+*:web/webtc1/keyboard.png:C
+*:web/webtc1/listhier.php:T
+*:web/webtc1/listhiermodel.php:C
+*:web/webtc1/listhierview.php:C
+*:web/webtc1/listparm.php:C
+*:web/webtc1/main.css:C
+*:web/webtc1/main.js:C
+*:web/webtc1/preferences.htm:C
+*:web/webtc1/transcoderfield_VKI.js:C
+*:web/webtc1/help/accents.html:C
+*:web/webtc1/help/ack.html:C
+*:web/webtc1/help/definition.html:C
+*:web/webtc1/help/help.css:C
+*:web/webtc1/help/help.html:C
+*:web/webtc1/help/help.js:C
+*:web/webtc1/help/helpmain.html:C
+*:web/webtc1/help/input.html:C
+*:web/webtc1/help/keyboard.html:C
+*:web/webtc1/help/links.html:C
+*:web/webtc1/help/list.html:C
+*:web/webtc1/help/phonetic.html:C
+*:web/webtc1/help/preferences.html:C
+*:web/webtc1/help/system.html:C
+*:web/webtc1/help/images/aham_deva.PNG:C
+*:web/webtc1/help/images/aham_roman.PNG:C
+*:web/webtc1/help/images/aham1_scan.PNG:C
+*:web/webtc1/help/images/aham2_scan.PNG:C
+*:web/webtc1/help/images/anudatta_deva.PNG:C
+*:web/webtc1/help/images/anudatta_roman.PNG:C
+*:web/webtc1/help/images/anudatta_scan.PNG:C
+*:web/webtc1/help/images/svarita_deva.PNG:C
+*:web/webtc1/help/images/svarita_roman.PNG:C
+*:web/webtc1/help/images/svarita_scan.PNG:C
+*:web/webtc1/help/images/udatta_deva.PNG:C
+*:web/webtc1/help/images/udatta_roman.PNG:C
+*:web/webtc1/help/images/udatta_scan.PNG:C
+*:web/webtc1/transcoderjs/transcoder3.js:C
+*:web/webtc1/transcoderjs/transcoderJson.js:C
+*:web/webtc2/help.html:T
+*:web/webtc2/index.php:T
+*:web/webtc2/main.css:C
+*:web/webtc2/main.js:C
+*:web/webtc2/query.php:T
+*:web/webtc2/query_gather.php:T
+*:web/webtc2/query_multi.php:T
+*:web/webtc2/querylistview.php:T
+*:web/webtc2/querymodel.php:T
+*:web/webtc2/queryparm.php:T
+; 7/30/2019 ejf. delete unused font files from dictionary web directory
+*:web/fonts/praja.ttf:D
+*:web/fonts/Old Standard Indologique-Italic.otf:D
+*:web/fonts/Old Standard Indologique-Italic.ttf:D
+*:web/fonts/Old Standard Indologique-Regular.otf:D
+*:web/fonts/sanskrit2003.ttf:D
+; copy used font files
+*:web/fonts/siddhanta.ttf:C
+*:web/fonts/CharterIndoCapital.otf:C
+*:web/fonts/oldstandard.otf:C
+*:web/fonts/oldstandarditalic.otf:C
+stc:web/webtc/indexcaller_fr.php:T
+stc:web/index_fr.php:CD
+stc:web/webtc/download_fr.html:T
+stc:web/webtc/help_fr.html:T
+; -----------------------------------------------------
+; distinct files
+; -----------------------------------------------------
+*:web/index.php:CD
+*:web/${dictlo}header.xml:CD
+*:web/webtc/pdffiles.txt:CD
+ben:web/images/vatsa.png:CD
