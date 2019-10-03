@@ -10,13 +10,11 @@ if [ -z "$1" ] || [ -z "$2" ]
    echo "Example: sh generate_web.sh acc ../../ACCScan/2020"
    exit 1
   else
-    dict=${1^^} # Uppercase
+    dict=$1
     outdir=$2
 fi
 
-dictlo=${dict,,} # Lowercase
-dictup=${dict^^} # Uppercase
 
  echo "updating for websanlexicon for dictionary $dict to $outdir"
- python generate.py "$dictlo" inventory.txt  makotemplates distinctfiles/$dictlo $outdir
+ python generate.py "$dict" inventory.txt  makotemplates distinctfiles/$dict $outdir
 
