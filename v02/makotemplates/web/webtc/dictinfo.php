@@ -17,7 +17,7 @@ class DictInfo {
  #public $bibfile;     // path to bibliography file for pw, pwg
  public $advsearchfile;  // path to query_dump file used by webtc2 display.
  public $transcodefile; // path to transcoder.php
- public $year = '${dictyear}';  # used in get_cologne_webPath method
+ public $year = '${dictyear}';  # template variable used in get_cologne_webPath method
  public function __construct($dict) {
   $this->dict=strtolower($dict);
   $this->dictupper=strtoupper($dict);
@@ -65,8 +65,17 @@ class DictInfo {
   }
   // otherwise, $dictinfowhich == 'xampp'
   // Try relative url, either in web directory, or parent of web directory
+  // 10-26-2019 First choice is cologne/scans/xxx/pdfpages; relative to where
+  // We are (in cologne/xxx/web/webtc); so rel path is ../../../scans/xxx/pdfpages
+  // dictionary code xxx is available as $this->dict
   // Use relative url if it is a non-empty directory.
-  $testpaths = array ( "../pdfpages",   "../../pdfpages" );
+<%doc>
+ mako comment
+  // Since this file is processed as a mako template, we can't use
+  // ${this->dict} syntax. So,
+</%doc>
+  $dict = $this->dict;
+  $testpaths = array ( "../../../scans/$dict/pdfpages", "../pdfpages",   "../../pdfpages" );
   foreach($testpaths as $testpath) {
    if (!$this->dir_is_empty($testpath)) {
     return $testpath;
