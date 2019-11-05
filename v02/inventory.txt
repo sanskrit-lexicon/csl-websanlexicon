@@ -113,10 +113,13 @@ stc:web/webtc/indexcaller_fr.php:T
 stc:web/index_fr.php:CD
 stc:web/webtc/download_fr.html:T
 stc:web/webtc/help_fr.html:T
+*:web/index.php:T
 ; -----------------------------------------------------
 ; distinct files
 ; -----------------------------------------------------
-*:web/index.php:CD
-*:web/${dictlo}header.xml:CD
+; 11-05-2019. changed web/index.php to template
+;*:web/index.php:CD
+; 11-05-2019. xxxheader.xml will come from the copy in csl-pywork
+;*:web/${dictlo}header.xml:CD
 *:web/webtc/pdffiles.txt:CD
 ben:web/images/vatsa.png:CD
