@@ -50,7 +50,26 @@ text-align:left;
  </ol>
  
  <ol ><b>Related material</b>
-  <li><a href="//www.sanskrit-lexicon.uni-koeln.de/scans/csldev/csldoc/build/dictionaries/${dictlo}.html">Front Matter</a></li>
+<?php
+require_once('webtc/dictinfowhich.php');
+$href_fm_cologne="//www.sanskrit-lexicon.uni-koeln.de/scans/csldev/csldoc/build/dictionaries/${dictlo}.html";
+if ($dictinfowhich == "cologne") {
+ $href_fm = $href_fm_cologne;
+}else {
+ // for xampp installation
+ $dir_web = dirname(__DIR__); // directory continaing this program
+ $testpath = "../../csl-doc";
+ if ( is_dir($testpath)) {
+  // use local installation csl-doc
+  $href_fm = "$testpath/build/dictionaries/${dictlo}.html";
+ } else {
+  // local installation not available, use Cologne
+  $href_fm = $href_fm_cologne;
+ }
+}
+echo("<li><a href='$href_fm'>Front Matter</a></li>\n");
+?>
+  
   <li><a href="${dictlo}header.xml">License of Digital Edition</a></li>
   <li><a href="${dictwc}">WorldCat reference</a></li>
   <li>Bibliographic entry: ${dictbe}</li>
