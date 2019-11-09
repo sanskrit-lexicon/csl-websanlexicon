@@ -680,9 +680,15 @@ public function mw_extra_line($line) {
   $href0_west = $href0_west_cologne;
  } else {
   // use local module if it exists. Otherwise, use Cologne
-  // We are in cologne/xxx/web/webtc
-  $href0_whit = "../../../csl-whitroot/disp/index.php";
-  $href0_west = "../../../csl-westergaard/disp/index.php";
+  // We are in cologne/xxx/web/webtc OR in cologne/csl-apidev/
+  if (preg_match("|webtc$|",__DIR__)) {
+   $href0_whit = "../../../csl-whitroot/disp/index.php";
+   $href0_west = "../../../csl-westergaard/disp/index.php";
+  }else {  
+   // assume we are in cologne/csl-apidev
+   $href0_whit = "../csl-whitroot/disp/index.php";
+   $href0_west = "../csl-westergaard/disp/index.php";
+  }
   if (! file_exists($href0_whit)) {
    $href0_whit = $href0_whit_cologne;
   }
