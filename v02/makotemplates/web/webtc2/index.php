@@ -72,6 +72,8 @@ Sanskrit word:
      <option value="hk" selected="selected">Kyoto-Harvard</option>
      <option value="slp1">SLP1</option>
      <option value="itrans">ITRANS</option>
+     <option value="roman">Roman Unicode</option>
+     <option value="deva">Devanagari Unicode</option>
     </select>
 
 </td>

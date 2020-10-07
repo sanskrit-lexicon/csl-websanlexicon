@@ -104,6 +104,10 @@ $inithash=array();
   $x="hk";
  }else if (preg_match('/IT/',$x)) {
   $x="itrans";
+ }else if (preg_match('/DE/',$x)) {
+  $x="deva";
+ }else if (preg_match('/RO/',$x)) {
+  $x="roman";
  }else {
   $x="slp1";
  }
@@ -145,6 +149,8 @@ global $inithash;
  $hk = output_option("hk","Kyoto-Harvard",$init);
  $slp1= output_option("slp1","SLP1",$init);
  $itrans=output_option("itrans","ITRANS",$init);
+ $roman=output_option("roman","Roman Unicode",$init);
+ $deva=output_option("deva","Devanagri Unicode",$init);
  $ans=<<<FORM
  <table >
  <tr>
@@ -155,6 +161,8 @@ global $inithash;
  $hk
  $slp1
  $itrans
+ $roman
+ $deva
  </select>
  </td>
  </tr>
