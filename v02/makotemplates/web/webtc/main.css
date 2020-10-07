@@ -36,9 +36,6 @@ td {line-height: 130%;}  /*150%; changed 07-14-2018*/
 .ls {
 color:gray; 
 font-size:smaller;
-%if dictlo in ['pwg','pw']:
-font-family:charterindocapital;
-%endif
 }
 .gram {font-weight:bold;}
 .divm {font-weight:bold;}

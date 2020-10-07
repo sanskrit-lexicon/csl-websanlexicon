@@ -4,20 +4,21 @@ require_once("../webtc/dbgprint.php");
 class QueryModel{
  // Gathers a collection of dictionary records 
  public $querymatches; // primary result of constructor
- public $dict, $dal; 
+ public $dict; 
  public $status;
  public $queryParms;
  public $errmsg;
  public $word;
  public $fp;
  public $search_regexp_nonSanskrit;
-
+ public $sopt_case;
  public function __construct($queryParms) {
   $this->dict = $queryParms->dict;
-  $this->dal = new Dal($this->dict);
+  //$this->dal = new Dal($this->dict);
   $this->queryParms = $queryParms;
   $this->querymatches = array();
   $this->word = $queryParms->word;
+  $this->sopt_case = false;
   $n = 0;
   $xmldata;
   $xmlnew="";
@@ -50,9 +51,7 @@ class QueryModel{
    */
    $wordin = $this->word;
    $word = $this->word; // for simplicity in following string expressions
-%if dictlo not in ['skd','vcp']:
    $word = mb_strtolower($word);
-%endif
    if ($this->queryParms->opt_regexp == "exact"){
     $search_regexp = "[\t].*$non_word($word)$non_word";
    }else if ($this->queryParms->opt_regexp == "prefix") {
@@ -68,7 +67,6 @@ class QueryModel{
    } 
    $this->search_regexp_nonSanskrit = $search_regexp;
    $search_opt = $this->sopt_case;
-   #$tempar = matchkey($lastLnum,$search_regexp,$max,$search_opt,$word);
    $tempar = $this->matchkey($search_regexp,$search_opt,$word);
    $this->querymatches = $tempar['ans'];
    $this->lastLnum = $tempar['lastLnum'];
@@ -111,25 +109,22 @@ class QueryModel{
     //$search_regexp = ".*$slpword.*" . "[\t]";
     $search_regexp = "$non_word($wordreg*$slpword$wordreg*)$non_word.*[\t]";
    }else {
-    //$search_regexp = "^$slpword" . "[\t]";
     $search_regexp = "$slpword.*[\t]";
    } 
    $this->search_regexp_nonSanskrit = null;
    #$search_opt = $this->queryParms->opt_stransLit;
    $opt_swordhw = $this->queryParms->opt_swordhw;
-   #$tempar = smatchkey($fp,$lastLnum,$search_regexp,$max,$search_opt,$opt_swordhw );
    $tempar = $this->smatchkey($search_regexp);
    $this->querymatches = $tempar['ans'];
    $this->lastLnum = $tempar['lastLnum'];
    $this->status = true;
  }
-#public function matchkey($fp,$lastLnum,$regexp,$max,$opt,$word) {
+
  public function matchkey($regexp,$opt,$word) {
- // word is lower case
+ // word is lower case. $opt is 
  $fp = $this->fp;
  $lastLnum = $this->queryParms->lastLnum;
  $max = $this->queryParms->max;
- #$word = $this->word;
 // print "matchkey: $lastLnum,$regexp,$max,$opt,$word\n";
  $ntot=0;
  if (!($word)) {
@@ -162,14 +157,27 @@ class QueryModel{
    }
   }
   if ($linex !="") {
-   $newFlag = $this->new_key_line($ntot,$line,$ans);
-   // print "chk($newFlag): $line\n";
-   if ($newFlag){
-    $ans[$ntot] = $line;
-    $ntot++;
-    $lastLnum=ftell($fp); // get new file position
+    //$ans[$ntot] = $line;
+    // return key and non-sanskrit matchword
+    if (!preg_match('/^(.*?)\t(.*?)$/',$linex,$matches)) {
+     continue; // should not happen
+    }
+    $keypart = $matches[1];
+    list($key,$sanskrit) = preg_split('|:|',$keypart);
+    $key = trim($key);  // the headword
+    if (!preg_match("/$regexp/",$linex,$matches)){
+     $matchword=""; // should not happen
+    }else {
+     $matchword = $matches[1];
+     //dbgprint(true,"querymodel: matchword=$matchword, regexp=$regexp\n");
+    }
+    if ($this->new_key_line($ntot,$key,$ans)){
+     $ans[$ntot] = array( "key"=>$key, "matchword"=>$matchword);
+     $ntot++;
+     $lastLnum=ftell($fp); // get new file position
+    }
    }
-  }
+  
   if (!feof($fp)) {
    $line=fgets($fp);
   }else {
@@ -189,7 +197,7 @@ class QueryModel{
  $ans1['ntot'] = $ntot;
  return $ans1;
 }
-//function smatchkey($fp,$lastLnum,$regexp,$max,$transLit) {
+
 public function smatchkey($regexp) {
  //dbg: $fplog = fopen('query_log.txt','w');
  //dbg: fwrite($fplog,"smatchkey regexp = $regexp\n");
@@ -245,12 +253,21 @@ public function smatchkey($regexp) {
   }
   if ($linex !="") {
    dbgprint($dbg,"liney=$liney\n");
-   if ($this->new_key_line($ntot,$line,$ans)){
-    $ans[$ntot] = $line ;
-    $ntot++;
-    $lastLnum=ftell($fp); // get new file position
+    //$ans[$ntot] = $line ;
+    if (!preg_match('/^(.*?)\t(.*?)$/',$linex,$matches)) {
+     continue; // should not happen
+    }
+    $keypart = $matches[1];
+    list($key,$sanskrit) = preg_split('|:|',$keypart);
+    $key = trim($key);  // the headword
+    $matchword = ""; // only relevant for non-sanskrit match
+    if ($this->new_key_line($ntot,$key,$ans)){
+     $ans[$ntot] = array( "key"=>$key, "matchword"=>$matchword);
+     $ntot++;
+     $lastLnum=ftell($fp); // get new file position
+    }
    }
-  }
+  
   if (!feof($fp)) {
    $line=fgets($fp);
   }else {
@@ -282,26 +299,19 @@ public function extract_key($line) {
  $key = trim($key);
  return $key;
 }
-public function new_key_line($ntot,$line,$lines) {
- $dbg=FALSE;
- $key = $this->extract_key($line);
- if ($key == FALSE) {
-  return FALSE;
- }
- dbgprint($dbg,"new_key_line: key=$key, line=$line\n");
- foreach($lines as $line1) {
-  dbgprint($dbg,"line1=$line1\n");
-  $key1 = $this->extract_key($line1);
-  if ($key1 != FALSE) {
+
+ public function new_key_line($ntot,$key,$ans) {
+  $dbg=false;
+  dbgprint($dbg,"new_key_line: key=$key, line=$line\n");
+  foreach($ans as $a) {
+   $key1 = $a['key'];
    if ($key1 == $key) {
-    dbgprint($dbg,"new_key_line returns false\n");
-    return FALSE;
+    return false;  # duplicate key
    }
   }
+  dbgprint($dbg,"new_key_line returns true\n");
+  return true;
  }
- dbgprint($dbg,"new_key_line returns true\n");
- return TRUE;
-}
 
 }
   

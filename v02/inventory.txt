@@ -36,6 +36,7 @@
 *:web/webtc/download.html:T
 *:web/webtc/getword.php:T
 *:web/webtc/getwordviewmodel.php:C
+*:web/webtc/dispitem.php:C
 *:web/webtc/help.html:T
 *:web/webtc/indexcaller.php:T
 *:web/webtc/main.css:T
@@ -93,9 +94,10 @@
 *:web/webtc2/main.css:C
 *:web/webtc2/main.js:C
 *:web/webtc2/query.php:T
-*:web/webtc2/query_gather.php:T
-*:web/webtc2/query_multi.php:T
-*:web/webtc2/querylistview.php:T
+*:web/webtc2/query_gather.php:D
+*:web/webtc2/query_multi.php:D
+*:web/webtc2/querylistview.php:D
+*:web/webtc2/query_gather1.php:C
 *:web/webtc2/querymodel.php:T
 *:web/webtc2/queryparm.php:T
 ; 7/30/2019 ejf. delete unused font files from dictionary web directory

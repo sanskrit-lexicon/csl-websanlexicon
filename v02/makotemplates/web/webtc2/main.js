@@ -1,6 +1,9 @@
 // web/webtc2/main.js
 // Mar 29, 2014.  Changed escape to encodeURIComponent, and
-
+// Aug 6, 2020. query_gather and query_multi replaced by query_gather1
+//  JS additions: process_outopt5, gather1
+//  JS deletions: process_outopt4, displayDB , displayDBupdatePage.
+//     gather, 
 function getWord() {
   lastLnum=0;
   jQuery("#nextbtn").hide();
@@ -60,21 +63,52 @@ function getNext() {
 	url:url,
 	type:"GET",
         success: function(data,textStatus,jqXHR) {
-	    var mark = data.lastIndexOf("#");
-	    lastLnum = data.substring(0,mark);
-	    var databack = data.substring(mark+1);
-	    if (lastLnum >= 0) {jQuery("#nextbtn").show();}
-	    else {jQuery("#nextbtn").hide();}
-	    jQuery("#disp").html(databack);
-	    process_outopt4(databack);
+         let json = JSON.parse(data);
+         console.log('json=',json);
+         lastLnum = json['lastlnum'];
+	 if (lastLnum >= 0) {jQuery("#nextbtn").show();}
+	 else {jQuery("#nextbtn").hide();}
+         let keydata = json['data'];
+         let filter = json['filter'];
+         let html = getNext_html(keydata,filter);
+         jQuery("#disp").html(html);
+         process_outopt5(keydata);
 	},
 	error:function(jqXHR, textStatus, errorThrown) {
 	    alert("Error: " + textStatus);
 	}
     });
     
-    jQuery("#disp").html="'<p>working...</p>'";
-    jQuery("#data").html="";  
+    jQuery("#disp").html("<p>working...</p>");
+    jQuery("#data").html("");
+}
+function getNext_html(keydata,filter) {
+ if (keydata.length == 0) {
+  return "<p>No matches found</p>";
+ }
+ let htmlarr = [];
+ //htmlarr.push("<p class='words'>");
+ //let c = 'words';
+ htmlarr.push("<p class='words'>");
+ let c = 'sdata';
+ if (filter == 'deva') {
+  c = 'sdata_siddhanta';
+ }
+ for(let i=0;i<keydata.length;i++) {
+  let rec = keydata[i];
+  let nx = i+1;
+  let key = rec.key;
+  let keyout = rec.keyout;
+  let matchword = rec.matchword
+  if (matchword != ''){
+   matchword = ` (${matchword})`;
+  }
+  let x = `${nx} <!-- ${key} --><a class='${c}' onclick='getWord4(\"${nx}\");'>${keyout}</a>${matchword}<br>`;
+  htmlarr.push(x);
+ }
+ htmlarr.push("</p>");
+ html = htmlarr.join("\n");
+ return html;
 }
 
 function getWord4(word) {
@@ -88,35 +122,40 @@ function Hideworkbtn() {
   document.getElementById("workbtn").value='working...';
 }
 
-function process_outopt4(databack) {
- var reg = new RegExp("<!-- [^ ]+","g");
- var result;
- var result1="";
- var wlen,word;
- do
-  {
-  result=reg.exec(databack);
-  if (result!=null) {
-   result = result + ''; // convert to string
-   result = result.substring(5);
-   result1 = result1 + "<key1>" + result + "</key1>";
-  }
-  }
-  while (result != null) {
-  // next, gather all the data for result1
-   gather(result1);
+function process_outopt5(keydata) {
+ if (keydata.length == 0) {return;}
+ let resultarr = [];
+ for(let i=0;i<keydata.length;i++) {
+  let rec = keydata[i];
+  let key = rec.key;
+  resultarr.push(key);
  }
+ gather1(resultarr); 
 }
-function gather (data) {
-  var filter="NONE";
-  var utilchoice = "dump_key1";
+
+function unused_process_outopt5(keydata) {
+ if (keydata.length == 0) {return;}
+ let resultarr = [];
+ for(let i=0;i<keydata.length;i++) {
+  let rec = keydata[i];
+  let nx = i+1;
+  let key = rec.key;
+  let result = `<key1>${key}</key1>`;
+  resultarr.push(result);
+ }
+ let result1 = resultarr.join('');
+ gather1(result1); 
+}
+function gather1 (keys) {
+  var filter = document.getElementById("filter").value;
+
   var accent = "";
   if (document.getElementById("accent")) {
     accent = document.getElementById("accent").value;
   }
-  var url = "query_gather.php";
-  var sendData = "data=" + encodeURIComponent(data)+
-   "&utilchoice="+encodeURIComponent(utilchoice) +
+  let json = JSON.stringify(keys);
+  var url = "query_gather1.php";
+  var sendData = "data=" + encodeURIComponent(json)+
    "&accent=" + encodeURIComponent(accent) +
    "&filter=" +encodeURIComponent(filter);
 
@@ -125,8 +164,7 @@ function gather (data) {
 	type:"POST",
 	data:sendData,
         success: function(data,textStatus,jqXHR) {
-	    //jQuery("#data").html(data);
-	    displayDB(data);
+            jQuery("#data").html(data);
 	},
 	error:function(jqXHR, textStatus, errorThrown) {
 	    alert("Error: " + textStatus);
@@ -134,55 +172,6 @@ function gather (data) {
     });
     jQuery("#data").html("<p>gathering data...");
 
-}
-
-function displayDB(data) {
-  var filter = document.getElementById("filter").value;
-  var url = "query_multi.php";
-  // Change Mar 19, 2014
-  // Change June 25, 2014 Is accent needed here?
-  var accent = "";
-  if (document.getElementById("accent")) {
-   accent = document.getElementById("accent").value;
-  }
-  var sendData = "data=" +  encodeURIComponent(data) +
-   "&accent=" + encodeURIComponent(accent) +
-   "&filter=" +encodeURIComponent(filter);
-    jQuery.ajax({
-	url:url,
-	type:"POST",
- 	data:sendData,
-        success: function(data,textStatus,jqXHR) {
-	    /* 07-10-2018: the decodeURIComponent function failed with PWG.
-	       Display seems to be fine without this function. 
-            */
-	    //console.log('query_multi success 1.  data=\n',data);
-            //data = decodeURIComponent(data); // required to decode
-	    //console.log('query_multi success 2');
-	    jQuery("#data").html(data);
-	    
-	},
-	error:function(jqXHR, textStatus, errorThrown) {
-	    alert("Error: " + textStatus);
-	}
-    });
-    jQuery("#data").html("<p>preparing data display...");
-
-}
-function displayDBupdatePage() {
-  if (request.readyState == 4) {
-   requestActive=false;
-   if (request.status == 200) {
-    var response = request.responseText;
-    var ansEl = document.getElementById("data"); 
-    ansEl.innerHTML = response;
-    return;
-  } else {
-    alert("Error! Request status is " + request.status);
-  }
- } else {
-//   alert("Note! Request readyState is " + request.readyState);
- }
 }
 
 function cookieUpdate(flag) {
