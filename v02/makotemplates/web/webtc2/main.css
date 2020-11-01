@@ -239,3 +239,6 @@ li.display {
   height: 50px;
 /*  border: thin solid;  */
 }
+#CologneBasic .cssshade {
+ background-color:#EAEAEA; /* light gray */
+}
