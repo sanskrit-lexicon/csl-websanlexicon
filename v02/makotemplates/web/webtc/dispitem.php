@@ -172,10 +172,8 @@ dbgprint($dbg,"dispitem. key2=$key2\n");
    $lnumshowid = $this->get_lnumshow_id($lnum);
    $lnumshow = "<span class='lnum'> $lnumshowid</span>";
   }
-  //$pageshow = "<span class='hrefdata'> [<span title='Printed book page-column'>p=</span> $hrefdata]</span>";
   $pageshow = $this->get_pageshow($hrefdata); 
   $pageshow = "<span class='hrefdata'> [<span title='Printed book page-column'>p=</span> $hrefdata]</span>";
-  //dbgprint(true,"hrefdata = $hrefdata\nhrefdata_prev={$hrefdata_prev}\n");
   if ($hrefdata == $hrefdata_prev) {
    $pageshow="";
   }
@@ -220,7 +218,7 @@ dbgprint($dbg,"dispitem. key2=$key2\n");
    // but in csl-apidev/dispitem.php, no argument is required.
    // 11-02-2020. Use from $dictinfo
    //$getParms = new Parm($this->dict); 
-   $getParms = new Parm(); 
+   $getParms = new Parm();
    if ($getParms->filter == "roman") {
     $row = preg_replace('|<SA>|','<i><SA>',$row);
     $row = preg_replace('|</SA>|','</SA></i>',$row);
