@@ -15,7 +15,8 @@ require_once('dispitem.php');
 class GetwordViewModel {
  public $table, $table1, $status;
  public $getParms, $matches;
- public function __construct($getParms) {
+ public function __construct() { // remove $getParms
+  $getParms = new Parm();
   $this->getParms = $getParms;
   $dict = $getParms->dict;
   $key = $getParms->key;

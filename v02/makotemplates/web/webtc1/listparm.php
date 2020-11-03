@@ -29,9 +29,10 @@ class ListParm extends Parm {
  public $direction;
  public $phoneticInput,$serverOptions,$viewAs;
 
- public function __construct($dict) {
+ public function __construct() {
   // Part 1 of construction identical to Parm class
-  parent::__construct($dict);  // Parm's constructor
+  parent::__construct();  // Parm's constructor
+  $dict = $this->dict;  // from Parm constructor
   // direction: either 'UP', 'DOWN', or 'CENTER' (default)
   $direction = $_REQUEST['direction'];
   if(!$direction) {$direction = $argv[2];}

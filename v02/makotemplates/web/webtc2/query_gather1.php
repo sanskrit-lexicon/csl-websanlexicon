@@ -16,7 +16,7 @@ require_once('../webtc/dbgprint.php');
 require_once('../webtc/parm.php');
 require_once('../webtc/getwordviewmodel.php');
 
-$filter = $getParms->filter;
+//$filter = $getParms->filter;  unused variable
 echo "$meta\n";
 if (isset($_POST['data'])) {
  $data = $_POST['data'];
@@ -31,8 +31,9 @@ foreach($keyar as $key) {
  $nkey++;
  $_REQUEST['key'] = $key;
  $_REQUEST['input'] = 'slp1';
- $getParms = new Parm();
- $vm = new GetwordViewModel($getParms);
+ //$getParms = new Parm();
+ //$vm = new GetwordViewModel($getParms);
+ $vm = new GetwordViewModel();
  $table1 = $vm->table1;
  $table0 = "<span class='key' id='record_$nkey' /></span>\n";
  echo $table0;
