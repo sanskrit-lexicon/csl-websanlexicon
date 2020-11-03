@@ -1063,7 +1063,7 @@ This script runs generate.py for all the converted dictionaries,
 mw72, ieg, inm, krm, mci 
 * --------------------------------------------------------------
 * apidev update
-copy files dal.php,  basicadjust.php, and basicadjust.php from
+copy files dal.php,  basicadjust.php, and basicdisplay.php from
  csl-websanlexicon/v00/makotemplates/webtc/ to apidev
 If in scans/awork/apidev directory on Cologne server, the copy commands are:
 
