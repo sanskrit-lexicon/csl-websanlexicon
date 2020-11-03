@@ -6,13 +6,14 @@ if (isset($_GET['callback'])) {
  header("Access-Control-Allow-Origin: *");
 }
 $meta = '<meta charset="UTF-8">'; 
-require_once('../webtc/dictcode.php');
+//require_once('../webtc/dictcode.php');
 require_once('../webtc/dal.php');
 require_once('../webtc/basicadjust.php');
 require_once('../webtc/dbgprint.php');
 require_once('../webtc/parm.php');
-$getParms = new Parm($dictcode);
-$dal = new Dal($dictcode);
+$getParms = new Parm();
+$dict = $getParms->dict;
+$dal = new Dal($dict);
 echo "$meta\n";
 if (isset($_POST['data'])) {
  $data = $_POST['data'];

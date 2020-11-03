@@ -10,9 +10,9 @@ if (isset($_GET['callback'])) {
 header("Access-Control-Allow-Origin: *");
 require_once('getwordviewmodel.php');
 function getwordCall() {
- include('dictcode.php'); # init $dictcode variable
  require_once('parm.php');
- $getParms = new Parm($dictcode);  
+ //$getParms = new Parm($dictcode);  
+ $getParms = new Parm();  
   $temp = new GetwordViewModel($getParms);
   $table1 = $temp->table1;
   if (isset($_GET['callback'])) {

@@ -14,6 +14,8 @@
   output == filter
  Jun 2, 2017. changed $_GET to $_REQUEST
  Jul 20, 2019. Add viewAs to attributes. This used in webtc1
+ Nov 2, 2020. Change constructor to take no parameters (formerly $dict)
+ Get $dict from dictcode.php
 */
 require_once('dictinfo.php');
 require_once('dbgprint.php');
@@ -22,8 +24,10 @@ class Parm {
  public $filter,$filerin;
  public $dictinfo,$english;
  public $keyin1,$key;
- public function __construct($dict) {
-  $this->dict = $dict;
+ //public function __construct($dict) {
+ public function __construct() {
+  include('dictcode.php'); # init $dictcode variable
+  $this->dict = $dictcode;
   $dbg=false;
   dbgprint($dbg,"enter parm construct\n");
   $this->dictinfo = new DictInfo($this->dict);

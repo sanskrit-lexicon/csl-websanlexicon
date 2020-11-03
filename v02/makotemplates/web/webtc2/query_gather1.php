@@ -11,13 +11,12 @@ if (isset($_GET['callback'])) {
  header("Access-Control-Allow-Origin: *");
 }
 $meta = '<meta charset="UTF-8">'; 
-require_once('../webtc/dictcode.php');
+//require_once('../webtc/dictcode.php');
 require_once('../webtc/dbgprint.php');
 require_once('../webtc/parm.php');
 require_once('../webtc/getwordviewmodel.php');
 
 $filter = $getParms->filter;
-//$dal = new Dal($dictcode);
 echo "$meta\n";
 if (isset($_POST['data'])) {
  $data = $_POST['data'];
@@ -27,11 +26,12 @@ if (isset($_POST['data'])) {
  $keyar = array();
 }
 $nkey = 0;
+
 foreach($keyar as $key) {
  $nkey++;
  $_REQUEST['key'] = $key;
  $_REQUEST['input'] = 'slp1';
- $getParms = new Parm($dictcode);
+ $getParms = new Parm();
  $vm = new GetwordViewModel($getParms);
  $table1 = $vm->table1;
  $table0 = "<span class='key' id='record_$nkey' /></span>\n";

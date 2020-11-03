@@ -218,7 +218,9 @@ dbgprint($dbg,"dispitem. key2=$key2\n");
   if ($this->dictup == 'MW') {
    // The Parm constructor for dispitem here requires 'dict' parameter
    // but in csl-apidev/dispitem.php, no argument is required.
-   $getParms = new Parm($this->dict); 
+   // 11-02-2020. Use from $dictinfo
+   //$getParms = new Parm($this->dict); 
+   $getParms = new Parm(); 
    if ($getParms->filter == "roman") {
     $row = preg_replace('|<SA>|','<i><SA>',$row);
     $row = preg_replace('|</SA>|','</SA></i>',$row);

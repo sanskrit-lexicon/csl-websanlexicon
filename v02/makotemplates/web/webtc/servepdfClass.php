@@ -8,9 +8,10 @@ require_once('dictinfo.php');
 class ServepdfClass {
  public $html;
  public function __construct() {
-require_once('dictcode.php');
-$dict = $dictcode;
-$getParms = new Parm($dict);
+//require_once('dictcode.php');
+//$dict = $dictcode;
+$getParms = new Parm();
+$dict = $getParms->dict;
 $page = $_REQUEST['page'];
 $dbg=false;
 dbgprint($dbg,"servepdf: page=$page\n");

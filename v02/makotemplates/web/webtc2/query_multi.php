@@ -4,10 +4,11 @@
 //ejf Oct 1, 2012  Adapated for sanskrit1d
 // 06-30-2018
 // 09-07-2018
-require_once("../webtc/dictcode.php");
-$dict = $dictcode;
+//require_once("../webtc/dictcode.php");
+//$dict = $dictcode;
 require_once("../webtc/parm.php");
-$getParms = new Parm($dictcode);  
+$getParms = new Parm();  
+$dict = $getParms->$dict;
 $filter = $getParms->filter;
 require_once('../webtc/basicdisplay.php'); // BasicDisplay
 $data = $_POST['data'];
