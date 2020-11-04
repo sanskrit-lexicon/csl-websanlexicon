@@ -35,7 +35,9 @@
 *:web/webtc/dictinfowhich.php:C
 *:web/webtc/download.html:T
 *:web/webtc/getword.php:T
-*:web/webtc/getwordviewmodel.php:C
+*:web/webtc/getwordviewmodel.php:D
+*:web/webtc/getwordClass.php:C
+*:web/webtc/getword_data.php:C
 *:web/webtc/dispitem.php:C
 *:web/webtc/help.html:T
 *:web/webtc/indexcaller.php:T

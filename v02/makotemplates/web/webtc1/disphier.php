@@ -16,9 +16,9 @@ if (isset($_GET['callback'])) {
 }
 $meta = '<meta charset="UTF-8">'; 
 echo $meta;  // Why?
-require_once('../webtc/getwordviewmodel.php');
+require_once('../webtc/getwordClass.php');
 //$vm = new GetwordViewModel($getParms);
-$vm = new GetwordViewModel(); // 11-02-2020
+$vm = new GetwordClass(); // 11-02-2020
 $table1 = $vm->table1;
 
 echo $table1;
