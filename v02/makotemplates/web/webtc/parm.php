@@ -7,6 +7,7 @@
   key     keyin            keyin1, key
   dict    dict             dictinfo   ***
   accent  accent
+  basicOption == true   webtc style display. GetwordViewModel 
  *** for individual dictionaries, this parameter is provided to
  the constructory
  Aug 4, 2015 - synonym for $_GET:
@@ -26,6 +27,7 @@ class Parm {
  public $keyin1,$key;
  //public function __construct($dict) {
  public function __construct() {
+  $this->basicOption = true; 
   include('dictcode.php'); # init $dictcode variable
   $this->dict = $dictcode;
   $dbg=false;
