@@ -3,7 +3,8 @@
  <head>
  <meta charset="UTF-8" />
   <title>${dictup} Advanced</title>
-    <link rel="stylesheet" type="text/css" href="main.css" media="screen" />
+   <link rel="stylesheet" type="text/css" href="../webtc/main.css" media="screen" />
+   <link rel="stylesheet" type="text/css" href="main.css" media="screen" />
    <link rel="stylesheet" href="../webtc/font.css" type="text/css">
   <script type="text/javascript" src="../js/jquery.min.js"></script>
   <script type="text/javascript" src="../js/jquery.cookie.js"></script>

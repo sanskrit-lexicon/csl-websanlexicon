@@ -79,7 +79,6 @@ a:visited {
 a:active {
 	color: #4876ff;
 }
-
 a:hover {
 	background-color: #ffffcc;
 	color: #000033;
@@ -90,7 +89,6 @@ a:hover {
 #disp {
  position:absolute;
  background-color: white;
- /*top: */
  left: 1%;
  width: 98%;
  height: 400px;

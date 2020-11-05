@@ -1,82 +1,8 @@
-body {
-	color: black;
-	background-color: white ; /*#bcee68; */
-	/*font-family: verdana,arial,helvetica,sansserif; */
-	font-size: 12pt;
-}
-.greek {
- font-family: Gentium, Palatino Linotype, Arial Unicode MS;
- font-size: 12pt;
-}
-.g {font-size:smaller;font-style:italic;}
-.lang {font-size:smaller;font-style:italic;}
-.hrefdata {font-size:smaller;}
-.lnum {font-size:smaller;}
-.sdata {color:teal;}
-.asdata {color:blue;}
-.pb {font-size:smaller; }
-.hom {color:red;}
-.footnote {font-size:smaller;}
-.ls {color:gray; font-size:smaller;}
-.gram {font-weight:bold;}
-.divm {font-weight:bold;}
-.wide {font-stretch:wider;}
-
-p {
-	padding-left: 15pt;
-	padding-right: 15pt;
-}
-p.words {
-text-align: left;
-}
-a.words {
- color: blue;
-font-size: larger; 
-font-family: arial,helvetica,verdana,sansserif;
-}
-plex {
-	color: black;
-	background-color: #36648b;
-	font-family: verdana,arial,helvetica,sansserif;
-	font-size: 12pt;
-}
-
-h1 {
-	font-size: 24pt;
-}
-
-h2 {
-	font-size: 20pt;
-	padding-left: 15pt;
-	padding-top: 20pt;
-}
-
-h3 {
-	font-size: 18pt;
-	padding-left: 30pt;
-	padding-top: 20pt;
-}
-
-a:link {
-}
-
-a:visited {
-	color: #36648b;
-}
-
-a:active {
-	color: #4876ff;
-}
-
+/* selectors in both webtc2 and webtc with new values in webtc2 */
 a:hover {
 	background-color: #ffffcc;
 	color: #000033;
 	cursor:pointer;
-}
-body {
-  font-family:     Verdana, Geneva, Arial, sans-serif;
-  font-size:       small;
-  text-align:      center;
 }
 h1 {
   color:           #cc6600;
@@ -87,7 +13,36 @@ h1 {
 h2 {
   font-size:       1.3em;
 }
+body {
+  font-family:     Verdana, Geneva, Arial, sans-serif;
+  font-size:       small;
+  text-align:      center;
+}
+/*
+th {
+  text-align:      left;
+  background-color: #DBE4ED; 
+}
+*/
+#disp {
+ position:absolute;
+ background-color: white;
+ left: 1%;
+ height: 400px;
+ width: 29%;
+ overflow: auto;
+ border: solid;
+}
 
+/* selectors for webtc2 not in webtc */
+p.words {
+text-align: left;
+}
+a.words {
+ color: blue;
+font-size: larger; 
+font-family: arial,helvetica,verdana,sansserif;
+}
 table {
   width: 100%;
   margin-left:     5px;
@@ -95,30 +50,9 @@ table {
   margin-top: 0px;
   font-size:       larger;
 }
-table.display {
-  width: 100%;
-  margin-left:     5px;
-  margin-right:    5px;
-/*
-  margin-top: 20px;
-  border: 2px;
-*/
-  font-size:       larger;
-}
-td.display {
-/*
-  border-width: 2px;
-  border-style: solid;
-  border-color: orange;
-*/
-}
+
 li.display {
 margin-left: 5px;
-}
-td, th {
-  padding:         5px;
-  text-align:      left;
-/*  background-color: #DBE4ED;  */
 }
 td.ready {
 /* font-size: ; */
@@ -130,10 +64,6 @@ td.ready {
 }
 .hklarge {
  font-size: 150%;
-}
-th {
-  text-align:      left;
-  background-color: #DBE4ED; 
 }
 span.abbr {
  color: #339933;
@@ -173,15 +103,6 @@ span.pb {
 .container {
  width: 800px;
 }
-#head {
-/*
- background-color: #DBE4ED; 
- padding: 10px;
-  position:absolute;
-  left: 1%;
-  width: 29%;
-*/
-}
 
 #headtitle {
  font-size: normal;
@@ -190,19 +111,10 @@ span.pb {
 #updbutton {
  background-color: red;
 }
-#disp {
-  position:absolute;
-  left: 1%;
-  width: 29%;
- background-color: white;
- overflow: auto;
- height: 400px;
- border: solid;
-}
 #data {
  position:absolute;
  left: 31%;
-  width: 68%;
+ width: 68%;
  background-color: white;
  overflow: auto;
  height: 400px;
@@ -222,23 +134,14 @@ span.pb {
 }
 th.display {
  font-size: larger;
-/*	text-decoration: underline; */
 }
 li.display {
  font-size: larger;
-/*	text-decoration: underline; */
 }
 
 #navbtns {
   position:absolute;
-/*
-  top: 580px;
-*/
   left: 1%;
   width: 48%;
   height: 50px;
-/*  border: thin solid;  */
-}
-#CologneBasic .cssshade {
- background-color:#EAEAEA; /* light gray */
 }
