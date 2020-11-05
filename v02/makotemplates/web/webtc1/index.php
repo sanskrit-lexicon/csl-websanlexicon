@@ -3,24 +3,10 @@
  <head>
  <meta charset="UTF-8" />
   <title>${dictup} List</title>
+  <link rel="stylesheet" type="text/css" href="../webtc/main.css" />
   <link rel="stylesheet" type="text/css" href="main.css" />
    <link rel="stylesheet" href="../webtc/font.css" type="text/css">
   <link rel="stylesheet" type="text/css" href="keyboard.css"/>
-  <style type="text/css">
-#dictid {  /* override webtc1/main.css */
- font-size: 14pt;
- right: 5px;
- width: 100%; /* override main.css */
-}
-/* Move dictcit and disp and displist up since dictnav is gone*/
-#dictcit,#preferences,.keyboardinput,#accent {top:85px;}
-#disp {top:120px;}
-#displist {top:120px;}
-#title {
-font-family: verdana,arial,helvetica,sansserif;
-font-size: 14pt;
-}
- </style>
 
   <script type="text/javascript" src="../js/jquery.min.js"></script>
   <script type="text/javascript" src="transcoderjs/transcoder3.js"> </script>
@@ -40,21 +26,6 @@ font-size: 14pt;
 	  title="Cologne Sanskrit Lexicon"></a>
      <span id="title">${dictname}</span>
  </div>
-<!-- put help link as in basic display.
- <div id="dictnav">
- <ul class="nav"
-   <li class="nav">
-     <a class="nav" href="help/help.html" target="output">Help</a>
-   </li>
-
-   <li class="nav">
-    &nbsp;
-    <a class="nav" href="//www.sanskrit-lexicon.uni-koeln.de/index.html" target="_top">Home</a>
-   </li> 
- </ul>
- </div>
--->
-
 
 <div id="preferences">
 <input type='button' id='preferenceBtn'  value='Preferences' style='position:relative; bottom: 5px;' />

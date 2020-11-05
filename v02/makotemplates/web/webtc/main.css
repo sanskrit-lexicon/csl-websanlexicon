@@ -13,9 +13,9 @@ body {
            used to display devanagari and roman unicode
 	font-family: verdana,arial,helvetica,sansserif;
         */
-	font-size: 12pt; /*14pt; changed 07-14-2018*/
+	font-size: 12pt;
 }
-td {line-height: 130%;}  /*150%; changed 07-14-2018*/
+td {line-height: 130%;}
 .greek {
  font-family: Gentium, Palatino Linotype, Arial Unicode MS;
  font-size: 12pt;
@@ -45,36 +45,15 @@ p {
 	padding-left: 15pt;
 	padding-right: 15pt;
 }
-#disp {
-  position:absolute;
-  left: 1%;
-  width: 98%;
- background-color: white;
- /* 
- overflow: auto; 
- */
- overflow-y:auto;
- overflow-x:hidden;
- height: 400px;
-/* border: thin; */
-}
-
 table.display {
   width: 100%;
   margin-left:     5px;
   margin-right:    5px;
-  margin-top: 10px; /* 20px; Dec 5, 2013 */
-/*
-  font-size:       larger;
-  border-style: solid;
-  border: 2px;
-  padding: 15px;
-*/
+  margin-top: 10px;
 }
 td, th {
   padding:         5px;
   text-align:      left;
-/*  background-color: #DBE4ED;  */
 }
 td.display {
  /* font-weight: normal; */
@@ -121,4 +100,13 @@ a:hover {
 }
 #CologneBasic .cssshade {
  background-color:#EAEAEA; /* light gray */
+}
+#disp {
+ position:absolute;
+ background-color: white;
+ /*top: */
+ left: 1%;
+ width: 98%;
+ height: 400px;
+ overflow-y:auto;overflow-x:hidden;
 }
