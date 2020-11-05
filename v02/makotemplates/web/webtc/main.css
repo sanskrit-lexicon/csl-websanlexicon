@@ -1,18 +1,5 @@
 body {
 	color: black; background-color: #DBE4ED;
-         /*
-         #ABC5D2; pleasing darker blue
-         #C0D0DD; slightly paler blue
-	
-         #bcee68;  green
-         rgb(64, 96, 144); dark blue
-         white; gray; #333;
-         */
-        /* Dec 5, 2013.  This font-family specification
-           interacts unfavorably with the combining characters
-           used to display devanagari and roman unicode
-	font-family: verdana,arial,helvetica,sansserif;
-        */
 	font-size: 12pt;
 }
 td {line-height: 130%;}
@@ -26,7 +13,6 @@ td {line-height: 130%;}
  font-size:smaller;
  background-color:rgb(240,240,240);
 }
-/*.sdata {color:black;font-size:larger;} */ /* for devanagari */
 .sdata {color:teal;}
 .sdatadeva {color:teal;font-size:larger;}
 .asdata {color:blue;font-size:larger;}

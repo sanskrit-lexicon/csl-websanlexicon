@@ -11,6 +11,7 @@ error_reporting( error_reporting() & ~E_NOTICE );
   <link rel="stylesheet" href="//code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
   <script src="//code.jquery.com/jquery-1.8.2.min.js"></script>
   <script src="//code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+   <link rel="stylesheet" href="../webtc/main.css" type="text/css">
    <link rel="stylesheet" href="main.css" type="text/css">
    <link rel="stylesheet" href="../webtc/font.css" type="text/css">
   <script type="text/javascript" src="../js/jquery.cookie.js"></script>
