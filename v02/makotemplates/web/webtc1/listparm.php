@@ -15,10 +15,13 @@
   input == transLit
   output == filter
  Jun 2, 2017. changed $_REQUEST to $_REQUEST
+ 11-18-2020 Due to changes in webtc,  it is now necessary to
+ modify $_REQUEST  so that webtc/parm constructor will also
+ pick up the 'filter' and 'transLit' parameters
 */
 require_once('../webtc/dictinfo.php');
 require_once('../webtc/parm.php');
-#require_once('dbgprint.php');
+//require_once('dbgprint.php');
 class ListParm extends Parm {
  # from Parm
   #public $filter0,$filterin0,$keyin,$dict,$accent;
@@ -46,6 +49,13 @@ class ListParm extends Parm {
   if (in_array($dict,array('ae','mwe','bor'))) {
    // force filterin to be 'slp1' for dictionaries with english headwords
    $this->filterin = 'slp1';
+  }
+  // 11-18-2020
+  if (!isset($_REQUEST['filter'])) {
+   $_REQUEST['filter'] = $this->filter;
+  }
+  if (!isset($_REQUEST['transLit'])) {
+   $_REQUEST['transLit'] = $this->filterin;
   }
   // recompute $this->key, 
   $this->key = transcoder_processString($this->keyin1,$this->filterin,"slp1");
