@@ -402,5 +402,15 @@ alldictparms = {
   "dictwc":"https://www.worldcat.org/title/dictionary-in-sanscrit-and-english-designed-for-the-use-of-private-students-and-of-indian-colleges-and-schools/oclc/12413832",
   "dictbe":u"YATES, W. (1846). A dictionary in Sanscrit and English: designed for the use of private students and of Indian colleges and schools. Calcutta, Printed at the Baptist Mission Press.",
  },
-
+ "lan":{
+  "dictup":"LAN",
+  "dictlo":"lan",
+  "dictname":u"Lanman Sanskrit Reader Dictionary",
+  "dictversion":"02",
+  "dictyear":"2020",
+  "dictaccent":False,
+  "webtc2devatextoption":True,
+  "dictwc":"?",
+  "dictbe":u"?",
+ }
 }
