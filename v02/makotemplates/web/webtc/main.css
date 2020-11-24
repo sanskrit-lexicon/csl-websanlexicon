@@ -31,12 +31,18 @@ p {
 	padding-left: 15pt;
 	padding-right: 15pt;
 }
+
 table.display {
   width: 100%;
   margin-left:     5px;
   margin-right:    5px;
   margin-top: 10px;
+ max-width:600px;
+ text-align:justify;
+ margin-right:10px;
+
 }
+
 td, th {
   padding:         5px;
   text-align:      left;
@@ -90,7 +96,8 @@ a:hover {
  position:absolute;
  background-color: white;
  left: 1%;
- width: 98%;
+ /*width: 98%; 11-23-2020 */
+ right: 5px;
  height: 400px;
  overflow-y:auto;overflow-x:hidden;
 }
