@@ -101,3 +101,8 @@ a:hover {
  height: 400px;
  overflow-y:auto;overflow-x:hidden;
 }
+%if dictlo in ['lan']:
+sup {
+ font-size:x-small;
+}
+%endif
