@@ -410,7 +410,7 @@ alldictparms = {
   "dictyear":"2020",
   "dictaccent":False,
   "webtc2devatextoption":True,
-  "dictwc":"?",
-  "dictbe":u"?",
+  "dictwc":"https://www.worldcat.org/title/sanskrit-reader-with-vocabulary-and-notes/oclc/1120214238",
+  "dictbe":u"LANMAN, C. R. (1888). A Sanskrit Reader: with vocabulary and notes. Ginn and Co, Boston, U.S.A. ",
  }
 }
