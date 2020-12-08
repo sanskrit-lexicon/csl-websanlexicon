@@ -5,7 +5,7 @@ error_reporting( error_reporting() & ~E_NOTICE );
 <html>
  <head>
  <meta charset="UTF-8" />
-   <title>${dictup} Simple</title>
+   <title>${dicttitle} Simple</title>
     <link rel="stylesheet" href="main.css" type="text/css">
    <link rel="stylesheet" href="font.css" type="text/css">
   <script type="text/javascript" src="../js/jquery.min.js"></script>

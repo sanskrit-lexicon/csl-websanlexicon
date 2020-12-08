@@ -16,6 +16,7 @@ alldictparms = {
   "webtc2devatextoption":False,
   "dictwc":"https://www.worldcat.org/title/catalogus-catalogorum-an-alphabetical-register-of-sanskrit-works-and-authors/oclc/4478703",
   "dictbe":u"AUFRECHT, T. (1891). Catalogus catalogorum. An alphabetical register of Sanskrit works and authors. Leipzig, F.A. Brockhaus.",
+  "dicttitle":u"Aufrecht Catalogus Catalogorum",
  },
  "ae": {
   "dictup":"AE",
@@ -27,6 +28,7 @@ alldictparms = {
   "webtc2devatextoption":False,
   "dictwc":"https://www.worldcat.org/title/students-english-sanskrit-dictionary/oclc/43456219",
   "dictbe":u"APTE, V. S. (1884). The student's English-Sanskrit dictionary. Poona, [Printed at the 'Arya bhushana' Press].",
+  "dicttitle":u"Apte English-Sanskrit Dictionary",
  },
  "ap": {
   "dictup":"AP",
@@ -38,6 +40,7 @@ alldictparms = {
   "webtc2devatextoption":True,
   "dictwc":"https://www.worldcat.org/title/prin-vs-aptes-the-practical-sanskrit-english-dictionary/oclc/716419540&referer=brief_results",
   "dictbe":u"V. S. Apte’s The practical Sanskrit-English dictionary (1957-<1979>) / ed. in chief P. K. Gode and C. G. Karve; K. V. Abhyankar. – Poona: Prasad Prakashan.",
+  "dicttitle":u"Apte Sanskrit Dictionary 1957",
  },
  "ap90": {
   "dictup":"AP90",
@@ -49,6 +52,7 @@ alldictparms = {
   "webtc2devatextoption":True,
   "dictwc":"https://www.worldcat.org/title/practical-sanskrit-english-dictionary-containing-appendices-on-sanskrit-prosody-and-important-literary-geographical-names-in-the-ancient-history-of-india-for-the-use-of-schools-and-colleges/oclc/18293791",
   "dictbe":u"APTE, V. S. (1890). The practical Sanskrit-English dictionary, containing appendices on Sanskrit prosody and important literary & geographical names in the ancient history of India, for the use of schools and colleges. Poona, Shiralkar.",
+  "dicttitle":u"Apte Sanskrit Dictionary 1890",
  },
  "ben": {
   "dictup":"BEN",
@@ -60,6 +64,7 @@ alldictparms = {
   "webtc2devatextoption":True,
   "dictwc":"https://www.worldcat.org/title/sanskrit-english-dictionary-with-references-to-the-best-editions-of-sanskrit-authors-and-etymologies-and-comparisons-of-cognate-words-chiefly-in-greek-latin-gothic-and-anglo-saxon/oclc/3320706 ",
   "dictbe":u"BENFEY, T. (1866). A Sanskrit-English dictionary: with references to the best editions of Sanskrit authors and etymologies and comparisons of cognate words chiefly in Greek, Latin, Gothic, and Anglo-Saxon. London, Longmans, Green, and Co.",
+  "dicttitle":u"Benfey Sanskrit Dictionary",
  },
  "bhs": {
   "dictup":"BHS",
@@ -71,6 +76,7 @@ alldictparms = {
   "webtc2devatextoption":False,
   "dictwc":"https://www.worldcat.org/title/buddhist-hybrid-sanskrit-grammar-and-dictionary-2-dictionary/oclc/174004867 ",
   "dictbe":u"EDGERTON, F. (1953). Buddhist hybrid sanskrit grammar and dictionary 2. 2. New Haven, Yale Univ. Press [u.a.].",
+  "dicttitle":u"Edgerton Sanskrit Dictionary",
  },
  "bop": {
   "dictup":"BOP",
@@ -82,6 +88,7 @@ alldictparms = {
   "webtc2devatextoption":True,
   "dictwc":"https://www.worldcat.org/title/glossarium-sanscritum-in-quo-omnes-radices-et-vocabula-usitatissima-explicantur-et-cum-vocabulis-graecis-latinis-germanicis-lithuanicis-slavicis-celticis-comparantur/oclc/257696310",
   "dictbe":u"BOPP, F. (1847). Glossarium Sanscritum in quo omnes radices et vocabula usitatissima explicantur et cum vocabulis Graecis, Latinis, Germanicis, Lithuanicis, Slavicis, Celticis comparantur. Berolini, Dümmler.",
+  "dicttitle":u"Bopp Glossarium Sanscritum",
  },
  "bor": {
   "dictup":"BOR",
@@ -93,6 +100,7 @@ alldictparms = {
   "webtc2devatextoption":False,
   "dictwc":"https://www.worldcat.org/title/practical-english-sanskrit-dictionary-by-anundoram-borooah/oclc/457102878",
   "dictbe":u"BOROOAH, A. (1877). A Practical English-Sanskrit Dictionary, by Anundoram Borooah. Calcutta, Wyman.",
+  "dicttitle":u"Borooah English-Sanskrit Dictionary",
  },
  "bur": {
   "dictup":"BUR",
@@ -104,6 +112,7 @@ alldictparms = {
   "webtc2devatextoption":True,
   "dictwc":"https://www.worldcat.org/title/dictionnaire-classique-sanscrit-francais-ou-sont-coordonnes-revises-et-completes-les-travaux-de-wilson-bopp-westergaard-johnson-etc-et-contenant-le-devanagari-sa-transcription-europeene-linterpretation-les-racines-et-de-nombreux-rapprochements-philologiques/oclc/3436551",
   "dictbe":u"BURNOUF, E., & LEUPOL, L. (1866). Dictionnaire classique sanscrit-français où sont coordonnés, revisés et complétés les travaux de Wilson, Bopp, Westergaard, Johnson, etc. et contenant le dêvanâgari, sa transcription européene, l'interprétation, les racines et de nombreux rapprochements philologiques. Paris, Maissonneuve.",
+  "dicttitle":u"Burnouf Dictionnaire Sanscrit",
  },
  "cae": {
   "dictup":"CAE",
@@ -115,6 +124,7 @@ alldictparms = {
   "webtc2devatextoption":True,
   "dictwc":"https://www.worldcat.org/title/sanskrit-english-dictionary-based-upon-the-st-petersburg-lexicons/oclc/786426334 ",
   "dictbe":u"CAPPELLER, C. (1891). A Sanskrit-English dictionary: based upon the St. Petersburg lexicons. Strassburg, Trübner.",
+  "dicttitle":u"Cappeller Sanskrit Dictionary",
  },
  "ccs": {
   "dictup":"CCS",
@@ -126,6 +136,7 @@ alldictparms = {
   "webtc2devatextoption":True,
   "dictwc":"https://www.worldcat.org/title/sanskrit-worterbuch-nach-den-petersburger-worterbuchern/oclc/3192816",
   "dictbe":u"CAPPELLER, C. (1887). Sanskrit wörterbuch, nach den Petersburger wörterbüchern. Strassburg, K.J. Trübner.",
+  "dicttitle":u"Cappeller Sanskrit Wörterbuch",
  },
  "gra": {
   "dictup":"GRA",
@@ -137,6 +148,7 @@ alldictparms = {
   "webtc2devatextoption":False,
   "dictwc":"https://www.worldcat.org/title/worterbuch-zum-rig-veda/oclc/184798352",
   "dictbe":u"GRASSMAN, H. G. (1873). Worterbuch zum Rig-veda. Wiesbaden, O. Harrassowitz.",
+  "dicttitle":u"Grassman Wörterbuch",
  },
  "gst": {
   "dictup":"GST",
@@ -148,6 +160,7 @@ alldictparms = {
   "webtc2devatextoption":True,
   "dictwc":"https://www.worldcat.org/title/dictionary-sanskrit-and-english-extended-and-improved-from-the-second-edition-of-the-dictionary-of-prof-h-h-wilson-together-with-a-supplement-grammatical-appendices-and-an-index-serving-as-an-english-sanskrit-vocabulary/oclc/61965219",
   "dictbe":u"GOLDSTÜCKER, T., & WILSON, H. H. (1856). A Dictionary, Sanskrit and English: extended and improved from the second edition of the dictionary of Prof. H. H. Wilson ...; together with a supplement, grammatical appendices and an index, serving as an English-Sanskrit vocabulary. Berlin, Asher.",
+  "dicttitle":u"Goldstücker Sanskrit Dictionary",
  },
  "ieg": {
   "dictup":"IEG",
@@ -159,6 +172,7 @@ alldictparms = {
   "webtc2devatextoption":False,
   "dictwc":"https://www.worldcat.org/title/indian-epigraphical-glossary/oclc/769741727",
   "dictbe":u"SIRCAR, D. C. (1966). Indian epigraphical glossary. Delhi, Motilal Banarsidass.",
+  "dicttitle":u"Indian Epigraphical Glossary",
  },
  "inm": {
   "dictup":"INM",
@@ -170,6 +184,7 @@ alldictparms = {
   "webtc2devatextoption":False,
   "dictwc":"https://www.worldcat.org/title/index-to-the-names-in-the-mahabharata-with-short-explanations-and-a-concordance-to-the-bombay-and-calcutta-editions-and-pc-roys-translation/oclc/2302004",
   "dictbe":u"SØRENSEN, S., RĀYA, P., OLESEN, E., & ANDERSEN, D. (1904). An index to the names in the Mahābhārata, with short explanations and a concordance to the Bombay and Calcutta editions and P.C. Roy's translation. Delhi, Motilal Banarsidass.",
+  "dicttitle":u"Index to the Names in the Mahabharata",
  },
  "krm": {
   "dictup":"KRM",
@@ -181,6 +196,7 @@ alldictparms = {
   "webtc2devatextoption":True,
   "dictwc":"https://www.worldcat.org/title/krdantarupamala/oclc/11091001",
   "dictbe":u"RAMASUBBA SASTRI, S., PRANATARTIHARAN, T. K., & ŚRĪVATSĀṄKĀCĀRYAR, V. (1965-71). Kr̥dantarūpamālā. Madrās, Madrapurīsaṃskr̥tavidyāsamitisacivaiḥ prakāśitā.",
+  "dicttitle":u"Kṛdantarūpamālā",
  },
  "mci": {
   "dictup":"MCI",
@@ -192,6 +208,7 @@ alldictparms = {
   "webtc2devatextoption":False,
   "dictwc":"https://www.worldcat.org/title/mahabharata-cultural-index/oclc/30512863",
   "dictbe":u"MEHENDALE, M. A. (1993-2007). Mahābhārata, cultural index. Pune, India, Bhandarkar Oriental Research Institute.",
+  "dicttitle":u"Mahabharata Cultural Index",
  },
  "md": {
   "dictup":"MD",
@@ -203,6 +220,7 @@ alldictparms = {
   "webtc2devatextoption":False,
   "dictwc":"https://www.worldcat.org/title/sanskrit-english-dictionary-being-a-practical-handbook-with-transliteration-accentuation-and-etymological-analysis-throughout/oclc/5140323",
   "dictbe":u"MACDONELL, A. A. (1893). A Sanskrit-English dictionary: being a practical handbook with transliteration, accentuation, and etymological analysis throughout. London, Longmans, Green.",
+  "dicttitle":u"Macdonell Sanskrit Dictionary",
  },
  "mw": {
   "dictup":"MW",
@@ -214,6 +232,7 @@ alldictparms = {
   "webtc2devatextoption":True,
   "dictwc":"https://www.worldcat.org/title/sanskrit-english-dictionary-etymologically-and-philologically-arranged-with-special-reference-to-cognate-indo-european-languages/oclc/471589783",
   "dictbe":u"MONIER-WILLIAMS, M. (1899). A Sanskrit-English dictionary: Etymologically and philologically arranged with special reference to Cognate indo-european languages. Oxford, The Clarendon Press.",
+  "dicttitle":u"Monier-Williams Sanskrit Dictionary 1899",
  },
  "mw72": {
   "dictup":"MW72",
@@ -225,6 +244,7 @@ alldictparms = {
   "webtc2devatextoption":False,
   "dictwc":"https://www.worldcat.org/title/sanskrit-english-dictionary-etymologically-and-philologically-arranged-with-special-reference-to-greek-latin-gothic-german-anglo-saxon-and-other-cognate-indo-european-languages/oclc/3592375",
   "dictbe":u"MONIER-WILLIAMS, M. (1872). A Sanskṛit-English dictionary etymologically and philologically arranged with special reference to Greek, Latin, Gothic, German, Anglo-Saxon, and other cognate Indo-European languages. Oxford, The Clarendon Press.",
+  "dicttitle":u"Monier-Williams Sanskrit Dictionary 1872",
  },
  "mwe": {
   "dictup":"MWE",
@@ -236,6 +256,7 @@ alldictparms = {
   "webtc2devatextoption":False,
   "dictwc":"https://www.worldcat.org/title/dictionary-english-and-sanscrit/oclc/5333096",
   "dictbe":u"MONIER-WILLIAMS, M. (1851). A dictionary, English and Sanscrit. London, W.H. Allen and Co.",
+  "dicttitle":u"Monier-Williams English-Sanskrit Dictionary",
  },
  "pd": {
   "dictup":"PD",
@@ -247,6 +268,7 @@ alldictparms = {
   "webtc2devatextoption":True,
   "dictwc":"https://www.worldcat.org/title/encyclopaedic-dictionary-of-sanskrit-on-historical-principles/oclc/3932453&referer=brief_results",
   "dictbe":u"Ghatage, A. M., Joshi, S. D., Ranade, H. G., Bhatta, V. P., Gandhe, V. S. (1976–<2009>). An Encyclopaedic Dictionary of Sanskrit on Historical Principles. – Poona: Deccan College Post Graduate and Research Institute.",
+  "dicttitle":u"Encyclopedic Dictionary of Sanskrit",
  },
  "pe": {
   "dictup":"PE",
@@ -258,6 +280,7 @@ alldictparms = {
   "webtc2devatextoption":False,
   "dictwc":"https://www.worldcat.org/title/puranic-encyclopaedia-a-comprehensive-dictionary-with-special-reference-to-the-epic-and-puranic-literature/oclc/638562346?expanded=addlists",
   "dictbe":u"MANI, V. (1975). Puranic encyclopaedia: a comprehensive dictionary with special reference to the epic and Puranic literature. Delhi, Motilal Banarsidass.",
+  "dicttitle":u"Puranic Encyclopedia",
  },
  "pgn": {
   "dictup":"PGN",
@@ -269,6 +292,7 @@ alldictparms = {
   "webtc2devatextoption":False,
   "dictwc":"https://www.worldcat.org/title/personal-and-geographical-names-in-the-gupta-inscriptions/oclc/5413655",
   "dictbe":u"SHARMA, T. R. (1978). Personal and geographical names in the Gupta inscriptions. Delhi, Concept.",
+  "dicttitle":u"Names in the Gupta Inscriptions",
  },
  "pui": {
   "dictup":"PUI",
@@ -280,6 +304,7 @@ alldictparms = {
   "webtc2devatextoption":False,
   "dictwc":"https://www.worldcat.org/title/purana-index-1-from-a-to-n/oclc/174625299",
   "dictbe":u"RAMACHANDRA DĪKSHITAR, V. R. (1951-55). The Purana index. Madras, Univ. of Madras.",
+  "dicttitle":u"Purana Index",
  },
  "pw": {
   "dictup":"PW",
@@ -291,6 +316,7 @@ alldictparms = {
   "webtc2devatextoption":True,
   "dictwc":"https://www.worldcat.org/title/sanskrit-worterbuch-in-kurzerer-fassung/oclc/3028346",
   "dictbe":u"BÖHTLINGK, O. V. (1879). Sanskrit-wörterbuch in kürzerer fassung. St. Petersburg, Buchdr. der Kaiserlichen akademie der wissenschaften, zu beziehen durch Eggers & comp.",
+  "dicttitle":u"Böhtlingk Sanskrit-Wörterbuch",
  },
  "pwg": {
   "dictup":"PWG",
@@ -302,6 +328,7 @@ alldictparms = {
   "webtc2devatextoption":True,
   "dictwc":"https://www.worldcat.org/title/sanskrit-worterbuch-herausgegeben-von-der-kaiserlichen-akademie-der-wissenschaften-bearbeitet-von-otto-bohtlingk-und-rudolph-roth/oclc/457088562",
   "dictbe":u"BÖHTLINGK, O. (1855). Sanskrit Wörterbuch, herausgegeben von der kaiserlichen Akademie der Wissenschaften, bearbeitet von Otto Böhtlingk und Rudolph Roth. St-Petersburg, Eggers.",
+  "dicttitle":u"Böhtlingk and Roth  Wörterbuch",
  },
  "sch": {
   "dictup":"SCH",
@@ -313,6 +340,7 @@ alldictparms = {
   "webtc2devatextoption":False,
   "dictwc":"https://www.worldcat.org/title/nachtrage-zum-sanskrit-worterbuch-in-kurzerer-fassung-von-otto-bohtlingk/oclc/5901453",
   "dictbe":u"SCHMIDT, R., & BÖHTLINGK, O. V. (1928). Nachträge zum Sanskrit-Wörterbuch in kürzerer Fassung von Otto Böhtlingk. Leipzig, O. Harrassowitz.",
+  "dicttitle":u"Schmidt Nachträge zum Sanskrit-Wörterbuch",
  },
  "shs": {
   "dictup":"SHS",
@@ -324,6 +352,7 @@ alldictparms = {
   "webtc2devatextoption":True,
   "dictwc":"https://www.worldcat.org/title/shabda-sagara-or-a-comprehensive-sanskrit-english-lexicon-chiefly-based-on-professor-horace-hayman-wilsons-sanskrit-english-dictionary-and-compiled-from-various-recent-authorities-for-the-use-of-schools-and-colleges-by-pandit-kulapati-jibananda-vidyasagara-1st-edition/oclc/457574734",
   "dictbe":u"BHAṬṬĀCĀRYA, J. V. (1900). A comprehensive Sanskrit-English lexicon: chiefly based on Professor Horace Hayman Wilson's Sanskrit-English Dictionary and compiled from various recent authorities for the use of schools and colleges. Calcutta, Calcutta Press.",
+  "dicttitle":u"Shabda-Sagara Sanskrit Dictionary",
  },
  "skd": {
   "dictup":"SKD",
@@ -335,6 +364,7 @@ alldictparms = {
   "webtc2devatextoption":True,
   "dictwc":"https://www.worldcat.org/title/sabdakalpadrumah-or-an-encyclopedic-dictionary-of-sanskrit-words-arranged-in-alphabetical-order-giving-the-etymological-origin-of-the-words-according-to-panini-their-gender-various-meanings-and-synonyms-and-illustrating-their-syntactical-usage-and-connotation-with-quotations-drawn-from-various-authoritative-sources-such-as-vedas-vedanta-nyaya-other-darshanas-puranithas-music-art-astronomy-tantra-rhetorics-and-prosody-and-medicine-etc/oclc/214968657",
   "dictbe":u"RĀDHĀKĀNTADEVA, VASU, V., & VASU, H. (1886).Śabdakalpadrumah or an encyclopedic dictionary of Sanskrit words arranged in alphabetical order giving the etymological origin of the words according to Panini, their gender, various meanings and synonyms, and illustrating their syntactical usage and connotation with quotations drawn from various authoritative sources such as Vedas, Vedanta, Nyaya, other Darshanas, Puranithas, music, art, astronomy tantra, rhetorics and prosody and medicine etc. Kalikātā, Barada Prasad Basu, and Hari Charan Basu.",
+  "dicttitle":u"Sabda-kalpadruma",
  },
  "snp": {
   "dictup":"SNP",
@@ -346,6 +376,7 @@ alldictparms = {
   "webtc2devatextoption":False,
   "dictwc":"https://www.worldcat.org/title/madhavanidana-and-its-chief-commentary-chapters-1-10-introduction-translation-and-notes/oclc/463543891",
   "dictbe":u"MEULENBELD, G. J. (1974). The Mādhavanidāna and its chief commentary. chapters 1-10, chapters 1-10. Leiden, E.J. Brill.",
+  "dicttitle":u"Meulenbeld Sanskrit Names of Plants",
  },
  "stc": {
   "dictup":"STC",
@@ -357,6 +388,7 @@ alldictparms = {
   "webtc2devatextoption":False,
   "dictwc":"https://www.worldcat.org/title/dictionnaire-sanskrit-francais-par-n-stchoupak-l-nitti-et-l-renou-etc/oclc/504480084",
   "dictbe":u"STCHOUPAK, N., NITTI, A. D., LUIGIA, & RENOU, L. (1932). Dictionnaire sanskrit-français. Par N. Stchoupak, L. Nitti et L. Renou, etc.",
+  "dicttitle":u"Stchoupak Dictionnaire Sanscrit",
  },
  "vcp": {
   "dictup":"VCP",
@@ -368,6 +400,7 @@ alldictparms = {
   "webtc2devatextoption":True,
   "dictwc":"https://www.worldcat.org/title/vacaspatyam-brhat-samskrtabhidhanam-5/oclc/634904608",
   "dictbe":u"BHAṬṬĀCĀRYA, T. V. (1873). Vācaspatyam: bṛhat saṃskṛtābhidhānam. 5 5. Vārāṇasī, Caukhambā Saṃskṛta Sīrīja Āphisa.",
+  "dicttitle":u"Vacaspatyam",
  },
  "vei": {
   "dictup":"VEI",
@@ -379,6 +412,7 @@ alldictparms = {
   "webtc2devatextoption":False,
   "dictwc":"https://www.worldcat.org/title/vedic-index-of-names-and-subjects/oclc/600507768?referer=di&ht=edition",
   "dictbe":u"MACDONELL, A. A., & KEITH, A. B. (1912). Vedic index of names and subjects. London, J. Murray.",
+  "dicttitle":u"Vedic Index",
  },
  "wil": {
   "dictup":"WIL",
@@ -390,6 +424,7 @@ alldictparms = {
   "webtc2devatextoption":True,
   "dictwc":"https://www.worldcat.org/title/dictionary-in-sanskrit-and-english-translated-amended-and-enlarged-from-an-original-compilation/oclc/473496524",
   "dictbe":u"WILSON, H. (1832). A dictionary in Sanskrit and English: Translated, amended, and enlarged from an original compilation. Calcutta, The Education Press.",
+  "dicttitle":u"Wilson Sanskrit Dictionary",
  },
  "yat": {
   "dictup":"YAT",
@@ -401,6 +436,7 @@ alldictparms = {
   "webtc2devatextoption":True,
   "dictwc":"https://www.worldcat.org/title/dictionary-in-sanscrit-and-english-designed-for-the-use-of-private-students-and-of-indian-colleges-and-schools/oclc/12413832",
   "dictbe":u"YATES, W. (1846). A dictionary in Sanscrit and English: designed for the use of private students and of Indian colleges and schools. Calcutta, Printed at the Baptist Mission Press.",
+  "dicttitle":u"Yates Sanskrit Dictionary",
  },
  "lan":{
   "dictup":"LAN",
@@ -412,5 +448,6 @@ alldictparms = {
   "webtc2devatextoption":True,
   "dictwc":"https://www.worldcat.org/title/sanskrit-reader-with-vocabulary-and-notes/oclc/1120214238",
   "dictbe":u"LANMAN, C. R. (1888). A Sanskrit Reader: with vocabulary and notes. Ginn and Co, Boston, U.S.A. ",
+  "dicttitle":u"Lanman Sanskrit Reader Dictionary",
  }
 }

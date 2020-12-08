@@ -2,7 +2,7 @@
 <html>
  <head>
  <meta charset="UTF-8" />
-  <title>${dictup} List</title>
+  <title>${dicttitle} List</title>
   <link rel="stylesheet" type="text/css" href="../webtc/main.css" />
   <link rel="stylesheet" type="text/css" href="main.css" />
    <link rel="stylesheet" href="../webtc/font.css" type="text/css">

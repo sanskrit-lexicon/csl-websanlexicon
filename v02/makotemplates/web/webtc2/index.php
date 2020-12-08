@@ -2,7 +2,7 @@
 <html>
  <head>
  <meta charset="UTF-8" />
-  <title>${dictup} Advanced</title>
+  <title>${dicttitle} Advanced</title>
    <link rel="stylesheet" type="text/css" href="../webtc/main.css" media="screen" />
    <link rel="stylesheet" type="text/css" href="main.css" media="screen" />
    <link rel="stylesheet" href="../webtc/font.css" type="text/css">

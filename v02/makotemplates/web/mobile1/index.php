@@ -6,7 +6,7 @@ error_reporting( error_reporting() & ~E_NOTICE );
 <html>
  <head>
  <meta charset="UTF-8" />
- <title>${dictup} Mobile</title>
+ <title>${dicttitle} Mobile</title>
   <meta name="viewport" content="width=device-width, initial-scale=1"> 
   <link rel="stylesheet" href="//code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
   <script src="//code.jquery.com/jquery-1.8.2.min.js"></script>
