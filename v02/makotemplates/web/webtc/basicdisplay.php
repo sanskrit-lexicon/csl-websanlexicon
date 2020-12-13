@@ -670,7 +670,11 @@ public function __construct($key,$string_or_array,$filterin,$dict) {
   } else if ($this->parentEl == "lang") {
    // Greek typically uncoded
    //$data = $data . ' (greek)';
-   $this->row .= $data;
+   if ($this->dict == "mw") {
+    $this->row .= "<i>$data</i>"; # Greek italic for MW
+   } else {
+    $this->row .= $data;
+   }
   } else if ($this->parentEl == "ab") {
    $this->row .= "$data";
    /* not used 12-14-2017
