@@ -364,7 +364,7 @@ alldictparms = {
   "webtc2devatextoption":True,
   "dictwc":"https://www.worldcat.org/title/sabdakalpadrumah-or-an-encyclopedic-dictionary-of-sanskrit-words-arranged-in-alphabetical-order-giving-the-etymological-origin-of-the-words-according-to-panini-their-gender-various-meanings-and-synonyms-and-illustrating-their-syntactical-usage-and-connotation-with-quotations-drawn-from-various-authoritative-sources-such-as-vedas-vedanta-nyaya-other-darshanas-puranithas-music-art-astronomy-tantra-rhetorics-and-prosody-and-medicine-etc/oclc/214968657",
   "dictbe":u"RĀDHĀKĀNTADEVA, VASU, V., & VASU, H. (1886).Śabdakalpadrumah or an encyclopedic dictionary of Sanskrit words arranged in alphabetical order giving the etymological origin of the words according to Panini, their gender, various meanings and synonyms, and illustrating their syntactical usage and connotation with quotations drawn from various authoritative sources such as Vedas, Vedanta, Nyaya, other Darshanas, Puranithas, music, art, astronomy tantra, rhetorics and prosody and medicine etc. Kalikātā, Barada Prasad Basu, and Hari Charan Basu.",
-  "dicttitle":u"Sabda-kalpadruma 1822",
+  "dicttitle":u"Sabda-kalpadruma 1886",
  },
  "snp": {
   "dictup":"SNP",
