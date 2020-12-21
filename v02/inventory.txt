@@ -127,3 +127,4 @@ stc:web/webtc/help_fr.html:T
 ;*:web/${dictlo}header.xml:CD
 *:web/webtc/pdffiles.txt:CD
 ben:web/images/vatsa.png:CD
+*:web/readme.txt:T
