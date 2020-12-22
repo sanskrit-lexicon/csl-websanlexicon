@@ -42,7 +42,6 @@ NOTES:
     cd HOME
     chmod -R 755 cologne
 2. The above installation of xampp on Windows has been tested for 
-   PHP version 7.1.9.
-3. A user recently reported a problem that may exist for PHP version 8.
+   PHP version 7.1.9 and PHP version 8.0.0.
 
 
