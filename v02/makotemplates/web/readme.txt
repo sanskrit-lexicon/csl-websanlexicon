@@ -45,3 +45,26 @@ NOTES:
    PHP version 7.1.9 and PHP version 8.0.0.
 
 
+INSTALLATION OF LOCAL SCANNED IMAGES (Optional)
+
+For the displays above, clicking on a link to a page of the scanned
+images retrieves the image file from the Cologne server.  However,
+you may also install the scanned images locally.
+
+
+1.  get a copy of the scanned images for ${dictlo}
+ 1a.  make a directory named 'scans' as a child of the 'cologne' directory
+ 1b. cd into cologne/scans
+ 1c. git clone https://github.com/sanskrit-lexicon-scans/${dictlo}.git
+     This will download a directory called '${dictlo}' into cologne/scans folder.
+     PDFs for individual pages are in the subfolder named 
+     'cologne/scans/${dictlo}/pdfpages'
+     Note: If you don't have git on your computer, you could go to the
+      https://github.com/sanskrit-lexicon-scans/${dictlo}
+      click the 'Code' button, and then 'Download ZIP'
+
+2.  Access a particular page (say page 123) via the browser with this url:
+    http://localhost/cologne/${dictlo}/web/webtc/servepdf.php?page=123
+3.  Also, in your ${dictlo} displays,  clicking on a page link should now
+    show an image from the local installation.
+
