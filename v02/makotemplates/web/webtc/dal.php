@@ -361,6 +361,8 @@ if ($nrecs == 0) {
 }
 // Step 1: fill in forward gaps in $recs
 $newitems=array();
+// So defined even if next loop doesn't run. Else error at line 415
+$lnum1 = -1; 
 for($i=0;$i<$nrecs-1;$i++) {
  $item0 = $recs[$i];  // key,lnum,data
  $item1 = $recs[$i+1];

@@ -1,5 +1,5 @@
 <?php
-error_reporting( error_reporting() & ~E_NOTICE );
+error_reporting( error_reporting() & ~E_NOTICE & ~E_WARNING);
 ?>
 <!DOCTYPE html>
 <html>

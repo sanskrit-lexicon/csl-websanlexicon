@@ -1,4 +1,4 @@
-<?php error_reporting (E_ALL ^ E_NOTICE); ?>
+<?php error_reporting ((E_ALL & ~E_NOTICE) & ~E_WARNING); ?>
 <?php
 // Sep 24, 2012 ejf modified for sanskrit1d
 // Jan 25, 2010
@@ -30,7 +30,7 @@ function transcoder_fsm($from,$to) {
 // returned, so the xml file does not have to be re-parsed.
  global $transcoder_dir,$transcoder_fsmarr;
  $fromto = $from . "_" . $to;
- if ($transcoder_fsmarr[$fromto]) {
+ if (isset($transcoder_fsmarr[$fromto])) {
   return;
  }
  $filein = $transcoder_dir . "/" . $fromto . ".xml";
@@ -106,7 +106,11 @@ function transcoder_fsm($from,$to) {
  foreach($fsmentries as $i => $fsmentry) {
   $in = $fsmentry['in'];
   $c = $in[0];
-  $state=$states[$c];
+  if (isset($states[$c])) {
+   $state=$states[$c];
+  }else {
+   $state = null;
+  }
   if ($state) {
     $state[]=$i;
     $states[$c]=$state;
@@ -205,8 +209,9 @@ global $transcoder_htmlentities;
  $m=strlen($line);
  while ($n < $m) {
   $c = $line[$n];
-  $isubs = $states[$c];
-  if (! $isubs) {
+  if (isset($states[$c])) {
+   $isubs = $states[$c];
+  }else {
    $result .= $c;
    $currentState=$fsm['start'];
    $n++;
@@ -260,8 +265,9 @@ function transcoder_processString($line,$from,$to) {
  global $transcoder_dir,$transcoder_fsmarr;
  if ($from == $to) {return $line;}
  $fromto = $from . "_" . $to;
- $fsm = $transcoder_fsmarr[$fromto];
- if (!$fsm) {
+ if (isset($transcoder_fsmarr[$fromto])) {
+  $fsm = $transcoder_fsmarr[$fromto];
+ }else {
   transcoder_fsm($from,$to);
   $fsm = $transcoder_fsmarr[$fromto];
   if (!$fsm) {
@@ -305,7 +311,12 @@ function transcoder_processString_match($line,$n,$m,$fsmentry) {
   if (!$b) { return $match;}
   if ($k != $nedge)  { return $match;}
   $match=$edge;
+  /*
   if (!$fsmentry['regex']) {
+   return $match;
+  }
+  */
+  if (!isset($fsmentry['regex'])) {
    return $match;
   }
   //  additional logic when $fsmentry['regex'] is DEVA or TAMIL
