@@ -277,7 +277,7 @@ include('dictinfowhich.php');
   #$serve = "//www.sanskrit-lexicon.uni-koeln.de/scans/awork/apidev/$serve";
   $serve = "//www.sanskrit-lexicon.uni-koeln.de/scans/csl-apidev/$serve";
  }else {
-  $serve = "//localhost/cologne/csl-apidev/$serve";
+  $serve = "../webtc/$serve";
  }
  #dbgprint(true,"dispitem.getHrefPage: serve=$serve\n");
  foreach($lnums as $lnum) {
