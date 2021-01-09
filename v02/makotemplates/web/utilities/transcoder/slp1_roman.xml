@@ -1,10 +1,5 @@
 <fsm start='SKT' inputDecoding='UTF-8' outputEncoding='UTF-8'>
-<!-- Problems: i^ 
-F^  \u1e5d\u0302 displays poorly.
-E^ a\u00ec wrong, replace with a\u00ee
-M/ M\ M^  
-H/ H\ H^
--->
+
 <e> <s>SKT</s> <in>E</in> <out>ai</out> </e>
 <e> <s>SKT</s> <in>O</in> <out>au</out> </e>
 <e> <s>SKT</s> <in>K</in> <out>kh</out> </e>
@@ -89,10 +84,35 @@ H/ H\ H^
 <e> <s>SKT</s> <in>M</in> <out>\u1e43</out> </e> <!-- dot below 07-09-2018 -->
 <e> <s>SKT</s> <in>'</in> <out>'</out> </e>
 
+<!--
 <e> <s>SKT</s> <in>L</in> <out>\u1e37</out> </e>
 <e> <s>SKT</s> <in>|</in> <out>\u1e37h</out> </e>
+ \u1e37  (lower-case L with dot under) is used for slp1 vowel 'x'.
+ There is no authoritative iast substitute for slp1 L.
+
+\u1e39 already represents slp1 X.
+We choose \u0142  Latin small letter L with stroke
+          \u0141  is capitalized form
+-->
+<e> <s>SKT</s> <in>L</in> <out>\u0142</out> </e>
+<e> <s>SKT</s> <in>|</in> <out>\u0142h</out> </e>
 
 <e> <s>SKT</s> <in>~</in> <out>\u0303</out></e>
 
-<!--<e> <s>SKT</s> <in>\</in> <out></out></e>-->
+<!-- IAST currently has no provision for hiatus  (two vowels) which 
+  can occur with Devanagari.
+  We give a partial solution, based on cases sufficient form MW
+  Convert ai -> a + i-diaresis, similarly for au
+<e> <s>SKT</s> <in>\</in> <out></out></e>
+-->
+<e> <s>SKT</s> <in>ai</in> <out>aï</out></e>
+<e> <s>SKT</s> <in>au</in> <out>aü</out></e>
+
+<!-- Sep 9, 2014 
+Z =  jihvamuliya = h with line below
+V =  upadhmaniya = h with breve below
+-->
+<e> <s>SKT</s> <in>Z</in> <out>\u1e96</out> </e>  
+<e> <s>SKT</s> <in>V</in> <out>\u1e2b</out> </e>  
+
 </fsm>
