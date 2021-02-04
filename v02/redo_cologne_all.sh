@@ -35,3 +35,4 @@ sh generate_web.sh vei  ../../VEIScan/2020/
 sh generate_web.sh wil  ../../WILScan/2020/
 sh generate_web.sh yat  ../../YATScan/2020/
 sh generate_web.sh lan  ../../LANScan/2020/
+sh generate_web.sh armh  ../../LANSCAN/2020/

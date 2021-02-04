@@ -33,3 +33,4 @@ sh generate_web.sh vei  ../../vei
 sh generate_web.sh wil  ../../wil
 sh generate_web.sh yat  ../../yat
 sh generate_web.sh lan  ../../lan
+sh generate_web.sh armh  ../../armh
