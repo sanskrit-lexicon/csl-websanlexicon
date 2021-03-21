@@ -141,13 +141,13 @@ alldictparms = {
  "gra": {
   "dictup":"GRA",
   "dictlo":"gra",
-  "dictname":u"Grassman Wörterbuch zum Rig Veda",
+  "dictname":u"Grassmann Wörterbuch zum Rig Veda",
   "dictversion":"02",
   "dictyear":"2020",
   "dictaccent":False,
   "webtc2devatextoption":False,
   "dictwc":"https://www.worldcat.org/title/worterbuch-zum-rig-veda/oclc/184798352",
-  "dictbe":u"GRASSMAN, H. G. (1873). Worterbuch zum Rig-veda. Wiesbaden, O. Harrassowitz.",
+  "dictbe":u"GRASSMANN, H. G. (1873). Worterbuch zum Rig-veda. Wiesbaden, O. Harrassowitz.",
   "dicttitle":u"Grassman Wörterbuch 1873",
  },
  "gst": {
