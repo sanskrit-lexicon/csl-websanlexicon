@@ -21,7 +21,7 @@ td {line-height: 130%;}
 .footnote {font-size:smaller;}
 .ls {
 color:gray; 
-font-size:smaller;
+font-size:10pt; /*smaller;*/
 }
 .gram {font-weight:bold;}
 .divm {font-weight:bold;}
@@ -106,3 +106,6 @@ sup {
  font-size:x-small;
 }
 %endif
+.dotunder {
+  border-bottom: 1px dotted #000;  
+}

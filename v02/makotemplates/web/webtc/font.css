@@ -34,8 +34,10 @@ i {
  font-family: oldstandard;
 }
 .ls {
+/* in main.css
 color:gray; 
 font-size:smaller;
+*/
 font-family:charterindocapital;
 /* text-transform:capitalize; */
 }
