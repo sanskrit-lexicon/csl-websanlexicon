@@ -22,6 +22,11 @@
  font-family: oldstandard_i;
  
 }
+.sdata_italic_iast {
+ color:teal;
+ font-family: oldstandard_i;
+}
+
 @font-face { /* for 'ls' text in pwg */
  src: url(../../web/fonts/CharterIndoCapital.otf);
  font-family: charterindocapital;
