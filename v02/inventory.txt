@@ -113,6 +113,8 @@
 *:web/fonts/CharterIndoCapital.otf:C
 *:web/fonts/oldstandard.otf:C
 *:web/fonts/oldstandarditalic.otf:C
+; 05-17-2021 replace oldstandarditalic.otf for mw displays of iast italic
+*:web/fonts/CharisSIL-I.woff:C
 stc:web/webtc/indexcaller_fr.php:T
 stc:web/index_fr.php:CD
 stc:web/webtc/download_fr.html:T

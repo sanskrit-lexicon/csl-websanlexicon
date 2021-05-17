@@ -18,13 +18,11 @@
  font-family: oldstandard;
 }
 @font-face { 
- src: url(../../web/fonts/oldstandarditalic.otf);
+ /*src: url(../../web/fonts/oldstandarditalic.otf); */
+ src: url(../../web/fonts/CharisSIL-I.woff);
+ font-style:italic;  
  font-family: oldstandard_i;
  
-}
-.sdata_italic_iast {
- color:teal;
- font-family: oldstandard_i;
 }
 
 @font-face { /* for 'ls' text in pwg */
@@ -38,6 +36,11 @@ i {
 .noti {
  font-family: oldstandard;
 }
+.sdata_italic_iast i{
+ color:teal;
+ font-family: oldstandard_i;
+}
+
 .ls {
 /* in main.css
 color:gray; 
