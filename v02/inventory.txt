@@ -19,6 +19,9 @@
 *:web/utilities/transcoder/roman_slp1.xml:C
 *:web/utilities/transcoder/slp1_as.xml:C
 *:web/utilities/transcoder/slp1_deva.xml:C
+; accent transcoding for pwk, pw 08-18-2021
+pwg:web/utilities/transcoder/slp1_deva1.xml:C
+pw:web/utilities/transcoder/slp1_deva1.xml:C
 *:web/utilities/transcoder/slp1_hk.xml:C
 *:web/utilities/transcoder/slp1_itrans.xml:C
 *:web/utilities/transcoder/slp1_roman.xml:C
@@ -108,8 +111,10 @@
 *:web/fonts/Old Standard Indologique-Italic.ttf:D
 *:web/fonts/Old Standard Indologique-Regular.otf:D
 *:web/fonts/sanskrit2003.ttf:D
+; 08/18/2021 ejf.Delete unused siddhanta.ttf
+*:web/fonts/siddhanta.ttf:D
 ; copy used font files
-*:web/fonts/siddhanta.ttf:C
+*:web/fonts/siddhanta1.ttf:C
 *:web/fonts/CharterIndoCapital.otf:C
 *:web/fonts/oldstandard.otf:C
 *:web/fonts/oldstandarditalic.otf:C

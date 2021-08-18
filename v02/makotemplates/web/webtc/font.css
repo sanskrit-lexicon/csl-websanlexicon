@@ -1,5 +1,6 @@
 @font-face { 
- src: url(../../web/fonts/siddhanta.ttf);
+  src: url(../../web/fonts/siddhanta1.ttf); /*change siddhanta1 08-18-2021 */
+  
  font-family: siddhanta_deva;
 }
 .sdata_siddhanta {
