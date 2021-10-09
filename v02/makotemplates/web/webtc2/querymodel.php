@@ -82,16 +82,17 @@ class QueryModel{
   //we may need to modify from HK or ITRANS
   
    $slpword = $this->translate_string2SLP($this->queryParms->opt_stransLit,$this->queryParms->opt_sword);
-   $wordchrs = preg_split ('/[^a-zA-Z.*?+]/',$slpword);
+   $wordchrs = preg_split ('/[^a-zA-Z.*?+|]/',$slpword); // 10-9-2021
    $slpword = join('',$wordchrs);
+   //dbgprint(true,"match_Sanskrit: slpword='$slpword'\n");
    if ($slpword == '') {
     $this->status = true;
     $this->querymatches = array();
     $this->errmsg = "No matches found for '$slpword'";
     return;
    }
-   $non_word = "[^a-zA-Z0-9]";
-   $wordreg = "[a-zA-Z0-9-]";
+   $non_word = "[^a-zA-Z0-9|]";  // 10-9-2021
+   $wordreg = "[a-zA-Z0-9-|]";
    $wordin = $slpword;
    if ($this->queryParms->opt_sregexp == "exact"){
     //$search_regexp = "^$slpword" . "[\t]";
@@ -110,7 +111,10 @@ class QueryModel{
     $search_regexp = "$non_word($wordreg*$slpword$wordreg*)$non_word.*[\t]";
    }else {
     $search_regexp = "$slpword.*[\t]";
-   } 
+   }
+   //dbgprint(true,"search_regexp='$search_regexp'\n");
+   $search_regexp = preg_replace('/\|/','\\|',$search_regexp);
+   //dbgprint(true,"search_regexp ADJ='$search_regexp'\n");
    $this->search_regexp_nonSanskrit = null;
    #$search_opt = $this->queryParms->opt_stransLit;
    $opt_swordhw = $this->queryParms->opt_swordhw;
