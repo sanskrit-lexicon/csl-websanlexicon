@@ -1,4 +1,7 @@
 <?php
+error_reporting( error_reporting() & ~E_NOTICE );
+?>
+<?php
 /* dal.php  Apr 28, 2015 Multidictionary access to sqlite Databases
  June 4, 2015 - use pywork/html/Xhtml.sqlite
  May 10, 2015 - also allow use of web/sqlite/X.sqlite
@@ -60,7 +63,7 @@ class Dal {
   }
   // connection to sqlitefile
   $dbg=false;
-  if (file_exists($this->sqlitefile)) {
+  if (($this->sqlitefile) &&file_exists($this->sqlitefile)) {
   try {
    $this->file_db = new PDO('sqlite:' .$this->sqlitefile);
    $this->file_db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
