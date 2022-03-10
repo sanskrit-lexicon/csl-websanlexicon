@@ -84,7 +84,7 @@ class Dal {
  }
   // connection to keydoc file
   //$dbg=false;
-  if (file_exists($this->keydoc_file) && $this->devFlag) {
+  if (($this->keydoc_file) && file_exists($this->keydoc_file) && $this->devFlag) {
   try {
    $this->keydoc_db = new PDO('sqlite:' .$this->keydoc_file);
    $this->keydoc_db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
