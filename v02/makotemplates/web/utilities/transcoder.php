@@ -411,6 +411,7 @@ function transcoder_standardize_filter($filter) {
   "ROMAN" => "roman",
   "DEVA" => "deva"
  );
+if (! $filter) {$filter = "";}
 $filter = strtoupper($filter);
 $result=$standard_hash[$filter];
 if (!$result) {$result="slp1";}
