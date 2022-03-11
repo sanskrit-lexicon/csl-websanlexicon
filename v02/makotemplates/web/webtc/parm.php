@@ -46,7 +46,9 @@ class Parm {
    $this->filterin0 = $_REQUEST['input']; 
   }
   $this->keyin = $_REQUEST['key'];
-  $this->keyin = trim($this->keyin); // remove leading and trailing whitespace
+  if ($this->keyin) {
+   $this->keyin = trim($this->keyin); // remove leading and trailing whitespace
+  }
   #$this->dict = $_REQUEST['dict'];
   $this->accent = $_REQUEST['accent']; 
   $this->viewAs = $_REQUEST['viewAs'];  // 07/20/2019
@@ -91,6 +93,7 @@ class Parm {
    */
   $x1 = preg_replace("/\xf1/","%u00f1",$x);
  }
+ if (! $x1) {$x1 = "";}
  $ans = preg_replace_callback("/(%u)([$hex][$hex][$hex][$hex])/",
      "Parm::preprocess_unicode_callback_hex",$x1);
  return $ans;
