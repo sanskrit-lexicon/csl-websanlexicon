@@ -461,5 +461,18 @@ alldictparms = {
   "dictwc":"https://www.worldcat.org/title/halayudhas-abhidhanaratnamala-a-sanskrit-vocabulary/oclc/320893849",
   "dictbe":u"HALĀYUDHA & JOSHĪ JAYAŚAṄKARA , Halāyudhakśa (Abhidhānaratnamālā) of Halāyudha",
   "dicttitle":u"Abhidhānaratnamālā of Halāyudha 1957",
- }
+ },
+ "pwkvn": {
+  "dictup":"PWKVN",
+  "dictlo":"pwkvn",
+  "dictname":u"Böhtlingk Sanskrit-Wörterbuch in kürzerer Fassung, Nachträge und Verbesserungen",
+  "dictversion":"02",
+  "dictyear":"2020",
+  "dictaccent":True,
+  "webtc2devatextoption":True,
+  "dictwc":"https://www.worldcat.org/title/sanskrit-worterbuch-in-kurzerer-fassung/oclc/3028346",
+  "dictbe":u"BÖHTLINGK, O. V. (1879). Sanskrit-wörterbuch in kürzerer fassung. St. Petersburg, Buchdr. der Kaiserlichen akademie der wissenschaften, zu beziehen durch Eggers & comp.",
+  "dicttitle":u"Böhtlingk Sanskrit-Wörterbuch 1879",
+ },
+
 }

@@ -48,7 +48,7 @@ class Dal {
    $this->tabname = $this->dict . "ab";
    $this->sqlitefile = "$sqlitedir/{$this->tabname}.sqlite";
    $this->tabid = 'id';
-  }else if ($dbname == "bib") {  // author file for pwg, pw
+  }else if ($dbname == "bib") {  // author file for pwg, pw, pwkvn
    $this->tabname = $this->dict . "bib";
    $this->sqlitefile = "$sqlitedir/{$this->tabname}.sqlite";
    $this->tabid = 'id';

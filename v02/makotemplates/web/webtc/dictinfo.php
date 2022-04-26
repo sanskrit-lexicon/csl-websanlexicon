@@ -160,6 +160,7 @@ class DictInfo {
   "YAT"=>"//www.sanskrit-lexicon.uni-koeln.de/scans/YATScan/2014/web/pdfpages" ,
   "LAN"=>"//www.sanskrit-lexicon.uni-koeln.de/scans/LANScan/2019/web/pdfpages" ,
   "ARMH"=>"//www.sanskrit-lexicon.uni-koeln.de/scans/ARMHScan/2020/web/pdfpages" ,
+  "PWKVN"=>"//www.sanskrit-lexicon.uni-koeln.de/scans/PWScan/2014/web/pdfpages" ,
  );
  $url = $cologne_pdfpages_urls[$this->dictupper];
  return $url;
