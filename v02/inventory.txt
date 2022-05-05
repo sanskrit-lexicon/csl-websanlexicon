@@ -22,6 +22,7 @@
 ; accent transcoding for pwk, pw 08-18-2021
 pwg:web/utilities/transcoder/slp1_deva1.xml:C
 pw:web/utilities/transcoder/slp1_deva1.xml:C
+pwkvn:web/utilities/transcoder/slp1_deva1.xml:C
 *:web/utilities/transcoder/slp1_hk.xml:C
 *:web/utilities/transcoder/slp1_itrans.xml:C
 *:web/utilities/transcoder/slp1_roman.xml:C
