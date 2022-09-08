@@ -139,7 +139,7 @@ function init_inputs_key() {
  }else {
   $x = "";
  }
- $invalid_characters = array("$", "%", "#", "<", ">", "=");
+ $invalid_characters = array("$", "%", "#", "<", ">", "=", "(", ")");
  $ans = str_replace($invalid_characters, "", $x);
  return $ans;
 }

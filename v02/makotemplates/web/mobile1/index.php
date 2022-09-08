@@ -73,16 +73,27 @@ echo init_preferences();
 </body>
 </html>
 <?php 
+function init_inputs_key() {
+ // word = citation.
+ $ans = "";
+ if (isset($_GET['word'])) {
+  $x = $_GET['word'];
+ }else if (isset($_GET['citation'])) {
+  $x = $_GET['citation'];
+ }else if (isset($_GET['key'])) {
+  $x = $_GET['key'];
+ }else {
+  $x = "";
+ }
+ $invalid_characters = array("$", "%", "#", "<", ">", "=", "(", ")");
+ $ans = str_replace($invalid_characters, "", $x);
+ return $ans;
+}
 function init_inputs() {
 // from GET/POST parameters, initialize $inithash
 global $inithash;
 $inithash=array();
- // word = citation
- $x = $_REQUEST['word'];
- if (!$x) {$x = $_REQUEST['citation'];}
- if (!$x) {$x = $_REQUEST['key'];}
- if (!$x) {$x = "";}
- $inithash['word'] = $x;
+ $inithash['word'] = init_inputs_key();
 
  // translit = input
  $x = $_REQUEST['translit'];
