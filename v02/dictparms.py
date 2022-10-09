@@ -474,5 +474,18 @@ alldictparms = {
   "dictbe":u"BÖHTLINGK, O. V. (1879). Sanskrit-wörterbuch in kürzerer fassung. St. Petersburg, Buchdr. der Kaiserlichen akademie der wissenschaften, zu beziehen durch Eggers & comp.",
   "dicttitle":u"Böhtlingk Sanskrit-Wörterbuch 1879",
  },
+ "lrv": {
+  "dictup":"LRV",
+  "dictlo":"lrv",
+  "dictname":u"Vaidya Standard Sanskrit-English Dictionary",
+  "dictversion":"02",
+  "dictyear":"2020",
+  "dictaccent":False,
+  "webtc2devatextoption":True,
+  "dictwc":"https://www.worldcat.org/title/1264141730",
+  "dictbe":u"VAIDYA L. R. (1889). The Standard Sanskrit-English Dictionary containing appendices on Sanskrit prosody and names of noted mythological persons &c. (For the use of schools and colleges). Bombay, Mrs. Radhabai Atmaram Sagoon.",
+  "dicttitle":u"Vaidya Sanskrit Dictionary 1889",
+ },
+
 
 }
