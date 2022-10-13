@@ -161,6 +161,7 @@ class DictInfo {
   "LAN"=>"//www.sanskrit-lexicon.uni-koeln.de/scans/LANScan/2019/web/pdfpages" ,
   "ARMH"=>"//www.sanskrit-lexicon.uni-koeln.de/scans/ARMHScan/2020/web/pdfpages" ,
   "PWKVN"=>"//www.sanskrit-lexicon.uni-koeln.de/scans/PWScan/2014/web/pdfpages" ,
+  "LRV"=>"//www.sanskrit-lexicon.uni-koeln.de/scans/LRVScan/2022/pdfpages" ,
  );
  $url = $cologne_pdfpages_urls[$this->dictupper];
  return $url;
