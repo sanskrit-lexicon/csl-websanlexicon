@@ -10,6 +10,7 @@ require_once('dispitem.php');
 
 class GetwordClass {
  public $getParms,$matches,$table1,$status,$basicOption;
+ public $xmlmatches;
  public function __construct() {
   $this->getParms = new Parm();
   $this->basicOption = $this->getParms->basicOption;
@@ -143,9 +144,14 @@ EOT;
  // modify dispitem->keyshow, (when to show the key)
  for($i=0;$i<$ntot;$i++) {
   $dispItem=$dispItems[$i];
+  if (isset($dispItem->hcode)) {
+   $hcode = $dispItem->hcode;
+  }else {
+   $hcode = '';
+  }
   if ($i==0) {//show if first item
   }else if ($dispItem->hom) { // show if a homonym
-  }else if (strlen($dispItem->hcode) == 2) { // show; Only restrictive for MW
+  }else if (strlen($hcode) == 2) { // show; Only restrictive for MW
   }else if (($i>0) and ($dispItem->key== $dispItems[$i-1]->key)){ // don't show
    $dispItem->keyshow = ''; 
   }
