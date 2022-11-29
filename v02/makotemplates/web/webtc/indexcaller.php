@@ -10,7 +10,7 @@ error_reporting( error_reporting() & ~E_NOTICE & ~E_WARNING);
    <link rel="stylesheet" href="font.css" type="text/css">
   <script type="text/javascript" src="../js/jquery.min.js"></script>
   <script type="text/javascript" src="../js/jquery.cookie.js"></script>
-
+$
   <script type="text/javascript" src="main_webtc.js"> </script>
 <style>
 #title {
@@ -110,10 +110,10 @@ output_option("deva","Devanagari Unicode",$init);
    <input name="output" id="input_output" value="deva" style="visibility:hidden" />
  <?php 
  // set invisible 'indexcaller' 
- $x = $_GET['translit'];
- if (!$x) {$x = $_GET['input'];}
- $y = $_GET['filter'];
- if (!$y) {$y = $_GET['output'];}
+ $x = $_REQUEST['translit'];
+ if (!$x) {$x = $_REQUEST['input'];}
+ $y = $_REQUEST['filter'];
+ if (!$y) {$y = $_REQUEST['output'];}
  if ($x ||$y) {
   $val="YES";
  }else {
@@ -130,12 +130,12 @@ output_option("deva","Devanagari Unicode",$init);
 function init_inputs_key() {
  // word = citation.
  $ans = "";
- if (isset($_GET['word'])) {
-  $x = $_GET['word'];
- }else if (isset($_GET['citation'])) {
-  $x = $_GET['citation'];
- }else if (isset($_GET['key'])) {
-  $x = $_GET['key'];
+ if (isset($_REQUEST['word'])) {
+  $x = $_REQUEST['word'];
+ }else if (isset($_REQUEST['citation'])) {
+  $x = $_REQUEST['citation'];
+ }else if (isset($_REQUEST['key'])) {
+  $x = $_REQUEST['key'];
  }else {
   $x = "";
  }
@@ -150,13 +150,13 @@ $inithash=array();
  $inithash['word'] = init_inputs_key();
  
  // translit = input
- $x = $_GET['translit'];
- if (!$x) {$x = $_GET['input'];}
+ $x = $_REQUEST['translit'];
+ if (!$x) {$x = $_REQUEST['input'];}
  if (!$x) {$x = "";}
  $translit0 = $x;
  // filter = output
- $x = $_GET['filter'];
- if (!$x) {$x = $_GET['output'];}
+ $x = $_REQUEST['filter'];
+ if (!$x) {$x = $_REQUEST['output'];}
  if (!$x) {$x = "";}
  $filter0=$x;
 

@@ -45,7 +45,8 @@ class Parm {
   }else {
    $this->filterin0 = $_REQUEST['input']; 
   }
-  $this->keyin = $_REQUEST['key'];
+  //$this->keyin = $_REQUEST['key'];
+  $this->keyin = $this->init_inputs_key();
   if ($this->keyin) {
    $this->keyin = trim($this->keyin); // remove leading and trailing whitespace
   }
@@ -103,5 +104,22 @@ class Parm {
  $y = unichr(hexdec($x));
  return $y;
 }
+ public function init_inputs_key() {
+ // word = citation.  
+ $ans = "";
+ if (isset($_REQUEST['word'])) {
+  $x = $_REQUEST['word'];
+ }else if (isset($_REQUEST['citation'])) {
+  $x = $_REQUEST['citation'];
+ }else if (isset($_REQUEST['key'])) {
+  $x = $_REQUEST['key'];
+ }else {
+  $x = "";
+ }
+ $invalid_characters = array("$", "%", "#", "<", ">", "=", "(", ")");
+ $ans = str_replace($invalid_characters, "", $x);
+ return $ans;
+}
+
 }
 ?>
