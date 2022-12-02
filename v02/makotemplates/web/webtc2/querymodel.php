@@ -1,4 +1,4 @@
-<?php //querymodel.php
+<?php error_reporting (E_ALL & ~E_NOTICE & ~E_WARNING); //querymodel.php
 require_once("../webtc/dal.php");
 require_once("../webtc/dbgprint.php");
 class QueryModel{

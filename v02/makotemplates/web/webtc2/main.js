@@ -64,7 +64,7 @@ function getNext() {
 	type:"GET",
         success: function(data,textStatus,jqXHR) {
          let json = JSON.parse(data);
-         console.log('json=',json);
+         //console.log('json=',json);
          lastLnum = json['lastlnum'];
 	 if (lastLnum >= 0) {jQuery("#nextbtn").show();}
 	 else {jQuery("#nextbtn").hide();}

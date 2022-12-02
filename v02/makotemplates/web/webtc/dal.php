@@ -1,5 +1,5 @@
 <?php
-error_reporting( error_reporting() & ~E_NOTICE );
+//error_reporting( error_reporting() & ~E_NOTICE );
 ?>
 <?php
 /* dal.php  Apr 28, 2015 Multidictionary access to sqlite Databases

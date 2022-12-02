@@ -1,4 +1,6 @@
-<?//php error_reporting ((E_ALL & ~E_NOTICE) & ~E_WARNING); ?>
+<?php
+//error_reporting (E_ALL & ~E_NOTICE & ~E_WARNING);
+?>
 <?php
 /* parm.php  Jul 10, 2015  Contains Parm class, which
   converts various $_GET parameters into member attributes. 

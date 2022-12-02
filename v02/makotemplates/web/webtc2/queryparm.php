@@ -1,4 +1,4 @@
-<?php
+<?php  error_reporting (E_ALL & ~E_NOTICE & ~E_WARNING); 
 /* queryparm.php  Jul 10, 2015  Contains Queryparm class, which
   converts various $_GET parameters into member attributes. 
   Parameters are for listhier view. Essentially extends the
@@ -38,8 +38,11 @@ class Queryparm extends Parm {
   #$this->filter = $_REQUEST['filter'];
   #$this->opt_stransLit = $_REQUEST['transLit'];
   $this->opt_stransLit = $this->filterin; # rename filterin to opt_stransLit
- 
-  $this->filename = $_REQUEST['dictionary'];
+  if (isset($_REQUEST['dictionary'])) {
+   $this->filename = $_REQUEST['dictionary'];
+  }else {
+   $this->filename = "query_dump.txt";
+  }
   $this->lastLnum = $_REQUEST['lastLnum']; // file position, for seek&tell
   $this->max = $_REQUEST['max'];
   
