@@ -18,10 +18,10 @@
  11-18-2020 Due to changes in webtc,  it is now necessary to
  modify $_REQUEST  so that webtc/parm constructor will also
  pick up the 'filter' and 'transLit' parameters
+ 12-01-2022
 */
 require_once('../webtc/dictinfo.php');
 require_once('../webtc/parm.php');
-//require_once('dbgprint.php');
 class ListParm extends Parm {
  # from Parm
   #public $filter0,$filterin0,$keyin,$dict,$accent;
@@ -37,11 +37,7 @@ class ListParm extends Parm {
   parent::__construct();  // Parm's constructor
   $dict = $this->dict;  // from Parm constructor
   // direction: either 'UP', 'DOWN', or 'CENTER' (default)
-  $direction = $_REQUEST['direction'];
-  if(!$direction) {$direction = $argv[2];}
-  if (($direction != 'UP') && ($direction != 'DOWN')) {
-   $direction = 'CENTER';
-  }
+  $direction = $this->init_request(array('UP', 'DOWN', 'CENTER'),'CENTER');
   // Two 'styles' are supported, as determined by presence (or absence) of
   //  'keyboard'
   $this->keyboard = $_REQUEST['keyboard'];
@@ -61,15 +57,7 @@ class ListParm extends Parm {
   $this->key = transcoder_processString($this->keyin1,$this->filterin,"slp1");
 
  }  
-/*
-public function unused_getParameters() {
- $filter0 = $_REQUEST['filter'];
- $filterin0 = $_REQUEST['transLit']; 
- if (!$filter0) {$filter0 = "SLP2SLP";}
- if (!$filterin0) {$filterin0 = "SLP2SLP";}
- return array($filter0,$filterin0);
-}
-*/
+
 public function getParameters_keyboard() {
 //inputType = $_REQUEST['inputType'];
 //unicodeInput = $_REQUEST['unicodeInput'];
@@ -99,6 +87,18 @@ function getParameters_keyboard_helper($type,$phoneticInput) {
  return "slp1";
 }
 
+public function init_request($keys,$default) {
+ $ans = $default;
+ $dbg=false;
+ foreach($keys as $key) {
+  if (isset($_REQUEST[$key])) {
+   $ans = $_REQUEST[$key];
+   if($dbg) {echo "init_request: using REQUEST[$key] = $ans<br>\n";}
+   break;
+  }
+ }
+ return $ans;
+}
 
 }
 

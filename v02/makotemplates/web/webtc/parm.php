@@ -1,4 +1,4 @@
-<?php error_reporting ((E_ALL & ~E_NOTICE) & ~E_WARNING); ?>
+<?//php error_reporting ((E_ALL & ~E_NOTICE) & ~E_WARNING); ?>
 <?php
 /* parm.php  Jul 10, 2015  Contains Parm class, which
   converts various $_GET parameters into member attributes. 
@@ -35,24 +35,36 @@ class Parm {
   dbgprint($dbg,"enter parm construct\n");
   $this->dictinfo = new DictInfo($this->dict);
   require_once($this->dictinfo->transcodefile);
+  $this->filter0 = $this->init_request(array('filter','output'),'slp1');
+  /*
   if ($_REQUEST['filter']) {
    $this->filter0 = $_REQUEST['filter'];
   }else{
    $this->filter0 = $_REQUEST['output'];
   }
+  */
+  $this->filterin0 = $this->init_request(array('transLit','input'),'slp1');
+  /*
   if ($_REQUEST['transLit']) {
    $this->filterin0 = $_REQUEST['transLit']; 
   }else {
    $this->filterin0 = $_REQUEST['input']; 
   }
+  */
   //$this->keyin = $_REQUEST['key'];
   $this->keyin = $this->init_inputs_key();
   if ($this->keyin) {
    $this->keyin = trim($this->keyin); // remove leading and trailing whitespace
   }
   #$this->dict = $_REQUEST['dict'];
-  $this->accent = $_REQUEST['accent']; 
-  $this->viewAs = $_REQUEST['viewAs'];  // 07/20/2019
+  $this->accent = $this->init_request(array('yes','no'),'no');
+  // $this->accent = $_REQUEST['accent']; 
+  // How to set viewAs ?
+  if (!isset($_REQUEST['viewAs'])) {
+   $this->viewAs = "" ;  // 07/20/2019
+  } else {
+   $this->viewAs = $_REQUEST['viewAs'];
+  }
   if(!$this->accent) {$this->accent="no";}  # no, yes
 
   $this->filter = transcoder_standardize_filter($this->filter0);
@@ -116,8 +128,20 @@ class Parm {
  }else {
   $x = "";
  }
- $invalid_characters = array("$", "%", "#", "<", ">", "=", "(", ")");
+ //'%' is used in html_encoding of unicode.
+ //$invalid_characters = array("$", "%", "#", "<", ">", "=", "(", ")");
+ $invalid_characters = array("$",  "#", "<", ">", "=", "(", ")");
  $ans = str_replace($invalid_characters, "", $x);
+ return $ans;
+}
+public function init_request($keys,$default) {
+ $ans = $default;
+ foreach($keys as $key) {
+  if (isset($_REQUEST[$key])) {
+   $ans = $_REQUEST[$key];
+   break;
+  }
+ }
  return $ans;
 }
 

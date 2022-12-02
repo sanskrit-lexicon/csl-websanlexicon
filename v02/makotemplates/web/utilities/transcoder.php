@@ -1,4 +1,4 @@
-<?php error_reporting ((E_ALL & ~E_NOTICE) & ~E_WARNING); ?>
+<?//php error_reporting ((E_ALL & ~E_NOTICE) & ~E_WARNING); ?>
 <?php
 // Sep 24, 2012 ejf modified for sanskrit1d
 // Jan 25, 2010
@@ -398,6 +398,7 @@ function transcoder_standardize_filter($filter) {
   "SKTDEVAUNICODE"=>"deva",
   "SKTROMANUNICODE"=>"roman",
   "SLP2SLP"=>"slp1",
+  "SLP1"=>"slp1", // 12-01-2022
   "SLP2HK" =>"hk",
   "HK2SLP" =>"hk",
   "SLP2ITRANS" => "itrans",
@@ -411,10 +412,20 @@ function transcoder_standardize_filter($filter) {
   "ROMAN" => "roman",
   "DEVA" => "deva"
  );
-if (! $filter) {$filter = "";}
-$filter = strtoupper($filter);
-$result=$standard_hash[$filter];
-if (!$result) {$result="slp1";}
+// 12-01-2022  
+$default = "slp1";
+if (! isset($filter)) {
+ $result = $default;
+}else if (! $filter) {
+ $result = $default;
+}else {
+ $filter1 = strtoupper($filter);
+ if (! isset($standard_hash[$filter1]))  {
+  $result = $default;
+ } else {
+  $result=$standard_hash[$filter1];
+ }
+}
 return $result;
 }
 function transcoder_set_htmlentities($flag) {

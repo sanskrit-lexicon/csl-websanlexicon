@@ -1,6 +1,7 @@
 <?php
 // Exclude WARNING messages also, to solve Peter Scharf Mac version.
-error_reporting(E_ALL & ~E_NOTICE & ~E_WARNING);
+// 12-01-2022. Disable exclusions of error_reporting
+//error_reporting(E_ALL & ~E_NOTICE & ~E_WARNING);
 ?>
 <?php
 require_once('dbgprint.php');

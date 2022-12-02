@@ -15,6 +15,7 @@ class ListHierView {
   if ($i == 0) {
    //  put 'upward button'
    $spc="&nbsp;&nbsp;";
+   $c="color:black";
    $out1 = "$spc<a  onclick='getWordlistUp_keyboard(\"<SA>$key2</SA>\");'><span style='$c'>&#x25B2;</span></a><br/>\n";  
    $table .= $out1;
   }
