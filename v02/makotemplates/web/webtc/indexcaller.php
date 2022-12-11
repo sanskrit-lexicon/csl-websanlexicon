@@ -1,5 +1,5 @@
 <?php
-//error_reporting( error_reporting() & ~E_NOTICE & ~E_WARNING);
+error_reporting( error_reporting() & ~E_NOTICE & ~E_WARNING);
 ?>
 <!DOCTYPE html>
 <html>
@@ -10,7 +10,6 @@
    <link rel="stylesheet" href="font.css" type="text/css">
   <script type="text/javascript" src="../js/jquery.min.js"></script>
   <script type="text/javascript" src="../js/jquery.cookie.js"></script>
-$
   <script type="text/javascript" src="main_webtc.js"> </script>
 <style>
 #title {
