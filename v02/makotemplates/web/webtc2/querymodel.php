@@ -5,7 +5,7 @@ class QueryModel{
  // Gathers a collection of dictionary records 
  public $querymatches; // primary result of constructor
  public $dict; 
- public $status;
+ public $status,$lastLnum;
  public $queryParms;
  public $errmsg;
  public $word;

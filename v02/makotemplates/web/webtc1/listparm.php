@@ -31,7 +31,7 @@ class ListParm extends Parm {
  # new for ListParm
  public $direction;
  public $phoneticInput,$serverOptions,$viewAs;
-
+ public $keyboard;
  public function __construct() {
   // Part 1 of construction identical to Parm class
   parent::__construct();  // Parm's constructor

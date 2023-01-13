@@ -51,8 +51,12 @@ class Queryparm extends Parm {
   $this->opt_sword = $_REQUEST['sword'];
   
   // parms for non-Sanskrit word
-  $this->word = $_REQUEST['word'];
-  $this->word = strtolower($this->word);
+  if (isset($_REQUEST['word'])){
+   $this->word = $_REQUEST['word'];
+   $this->word = strtolower($this->word);
+  }else {
+   $this->word="";
+  }
   $this->opt_regexp = $_REQUEST['regexp'];
   $this->sopt_case = $_REQUEST['scase'];
   $this->outopt = $_REQUEST['outopt'];

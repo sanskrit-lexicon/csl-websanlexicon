@@ -31,6 +31,7 @@ class BasicDisplay {
  public $filterin; // transcoding for output
  public $key; // the original key being searched for
  public $basicOption,$serve;
+ public $getParms,$status,$mwx,$html;
 public function __construct($key,$string_or_array,$filterin,$dict) {
  
  $this->key = $key;

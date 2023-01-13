@@ -24,7 +24,7 @@ class Dal {
  // dbname is assumed to be for auxiliary sqlite data, such as
  // abbreviations  xab.sqlite, xath.sqlite -- new Dal('mw','mwab')
  // Not yet implemented.  Would need to modify dictinfo for filenames also.
- // 
+ public $status;
  public function __construct($dict,$dbname=null) {
   $this->dict=strtolower($dict);
   $this->dbname = $dbname;
