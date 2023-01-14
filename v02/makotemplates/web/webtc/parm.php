@@ -58,8 +58,9 @@ class Parm {
   if ($this->keyin) {
    $this->keyin = trim($this->keyin); // remove leading and trailing whitespace
   }
-  #$this->dict = $_REQUEST['dict'];
-  $this->accent = $this->init_request(array('yes','no'),'no');
+  // $this->dict = $_REQUEST['dict'];
+  //$this->accent = $this->init_request(array('yes','no'),'no');
+  $this->accent = $this->init_request(array('accent'),'no');
   // $this->accent = $_REQUEST['accent']; 
   // How to set viewAs ?
   if (!isset($_REQUEST['viewAs'])) {
