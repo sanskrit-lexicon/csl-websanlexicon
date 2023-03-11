@@ -171,6 +171,5 @@ Text Word:
   <div id="data">
   </div>
 
-<script type="text/javascript" src="/js/piwik_analytics.js"></script>
 </body>
 </html>

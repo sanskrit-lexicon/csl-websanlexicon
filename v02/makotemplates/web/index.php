@@ -76,6 +76,6 @@ echo("<li><a href='$href_fm'>Front Matter</a></li>\n");
  </ol>
 
  </div>
-<script type="text/javascript" src="/js/piwik_analytics.js"></script>
+
 </body>
 </html>

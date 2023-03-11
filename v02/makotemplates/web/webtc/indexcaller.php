@@ -121,7 +121,6 @@ output_option("deva","Devanagari Unicode",$init);
  $id = "indexcaller";
  echo "<input name=\"$id\"  id=\"$id\" value=\"$val\"  style=\"visibility:hidden\" />";
  ?>
-<script type="text/javascript" src="/js/piwik_analytics.js"></script>
 
 </body>
 </html>
