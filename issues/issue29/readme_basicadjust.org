@@ -1,0 +1,251 @@
+This file is best viewed with Emacs org mode.
+
+Documentation for basicadjust.php
+Based on https://github.com/sanskrit-lexicon/csl-websanlexicon/blob/master/v02/makotemplates/web/webtc/basicadjust.php
+  as of commit 380bfc1f22721137a69ccef2ea1c0deaf70afae0
+April 5, 2023.
+
+Some related comments in issue#29.
+An identical copy of this file is maintained in csl-apidev repository.
+(Similarly, copy of basicdisplay.php is maintained in csl-apidev repository.)
+
+* BasicAdjust class constructor :
+  $getParms : various parameters (which?)
+  $xmlrecs : array of strings.  Each string is a line of xxx.xml.
+* dal_ab : object for sqlite database of common abbreviations.
+  Dal($dict,"ab") . 
+   Generates sqlite file name:  
+   Suppose xxx is the (locase) dictionary id (value of $dict)
+   tabname : xxxab  Example: mwab, pwgab
+   sqlitedir = from Dictinfo($dict) object
+   sqlitefile : path to sqlite file. e.g. to mwab.sqlite
+   file_db: PHP object representing sqlitefile. 
+     null if no sqlite file is found at path sqlitefile
+   tabid : 'id' -  name of sqlite table column for searching.
+* dal_auth : object represent author tooltips
+   There are two file formats in use
+   1) DAL($dict,"bib") for pwg, pw, pwkvn,
+   2) DAL($dict,"authtooltips") for mw, ap90, ben, sch
+   null  for other dictionaries
+* line_adjust loop
+  Does all adjustments for each xml line, using line_adjust function.
+   Results put into adjxmlrecs public variable of object instance.
+* line_adjust 
+  adjusted line returned.
+  adjustments done by regex replacements
+
+  '¦' -> ' '
+  <s>X</s> -> <s>Y</s> s_callback (calls remove_slp1_accent)
+    Remove accents based on 'accent' parameter.
+  <key2>X</key2> -> <key2>Y</key2 key2_callback (calls remove_slp1_accent)
+    Remove accents based on 'accent' parameter.
+  [PageX] -> <pb>PageX</pb>
+  <pc>PageX</pc> -> <pc>X</pc>
+  <pc>X</pc> -> '' conditional on $this->pagecol. Also sets pagecol.
+  <lsX>Y</ls> adjusted via ls_callback_pwg for dict = pw, pwg, pwkvn
+  <lsX>Y</ls> adjusted via ls_callback_mw  for dict = mw, ap90, ben, sch
+     <ls>ib. -> <ls><ab>ib.</ab> also for the same dictionaries mw,...
+  <ab n="tip">X</ab> -> Z via abbrv_callback 
+  dict = gra, links to AV and . see gralink section below
+ <ls n="X">Y</ls>  ->  links to lanman dictionary or whitney grammar.
+     lanman_link_callback
+  <lexA>B</lex>  ? add_lex_markup calls add_lex_markup_mw if dict = mw
+  <key2>X<hom>Y</hom> -> <key2>X   dict = mw, md.
+    also '√ ' -> '
+  for dict=ap90, remove <lb/> variously.
+  for dict=ap, several replacements
+  for dict=yat, several replacements
+  for dict=shs,  several replacements
+  for dict=ben, several replacements
+  for dict=bor, several replacements
+  for dict=mw72, several replacements
+  for dict=inm, several replacements
+  for dict=sch, several replacements commented out
+  for dict=acc, several replacements
+  for dict=mw   adjust <div n="vp"/><ab>X</ab> -> 
+    <div n="vp"/><b><ab>X</ab></b> 
+  ls
+* gralink  for dict=gra
+** {AV. X,Y,Z} avveda_verse_callback
+  X,Y,Z are mandala, hymn, verse [all are digit sequences]
+  url example with {AV. 14,2,71}
+   URL= https://sanskrit-lexicon.github.io/avlinks/avhymns/av14.002.html#av14.002.71
+   TIP= "Atharva Veda 14.002.71"
+   <gralink href='URL' n='TIP'>AV. X,Y,Z</gralink>
+     
+** {A,B} rgveda_verse_callback
+   {A,Z} mandala, verse.  But in an old form
+   A -> X.Y  = rgveda_verse_modern(A)  (modern mandala, hymn)
+   Example: {912,8} ->10,86,8
+   URL=https://sanskrit-lexicon.github.io/rvlinks/rvhymns/rv10.086.html#rv10.086.08
+   TIP="Rg Veda 10.86.8 mandala.hymn.verse"
+
+  <gralink href='url' n='TIP'>A,B</gralink> 
+     
+* ls_callback_pwg
+  pwg, pw, pwkvn
+  $rec  record from dal_auth  (ls_matchabbr also used for mw-type dictionaries)
+    Use rec to get TIP
+  
+  Use ls_callback_pwg_href(code,data) to get URL
+   
+  if URL available,
+   <gralink href='URL' n='TIP'><span class='ls'>SHOW</span></gralink>
+  else
+   <ls n='TIP'><span class='dotunder ls'>SHOW</span></ls>
+* ls_callback_pwg_href(CODE,DATA)
+  <ls>DATA</ls>   CODE is the ls abbreviation (so DATA = 'CODE NUMS)
+   example <ls>R. 1,2,3.</ls>  CODE = R., DATA = R. 1,2,3, NUMS=1,2,3
+** <ls>Spr. NUMS</ls>, dict = pw  
+  (<ls>Spr. 1234</ls>
+  URL = "https://funderburkjim.github.io/boesp-prep/web1/boesp.html?$verse"
+** <ls>Spr. (II) NUMS</ls>, dict = pwg
+  URL = "https://funderburkjim.github.io/boesp-prep/web1/boesp.html?$verse"
+** <ls>MBH. X,Y</ls>, pwg
+  X = parvan, Y = verse.  Mahabharata, Calcutta edition
+  URL = https://sanskrit-lexicon-scans.github.io/mbhcalc?5.12
+** <ls>HARIV. X</ls>, HarivaMSa
+  ? Mahabharata, Calcutta edition for harivamsa
+ https://sanskrit-lexicon-scans.github.io/hariv?1300
+** <ls>Chr. X</ls>,  pw
+   X is page
+   <ls>Chr. 123.</ls>
+   https://sanskrit-lexicon-scans.github.io/bchrest/index.html?123
+** <ls>ṚV. X,Y,Z</ls> pw, pwkvn, pwg
+  <ls>ṚV. 9,5,7</ls>
+   https://sanskrit-lexicon.github.io/rvlinks/rvhymns/rv09.005.html#rv09.005.07
+** <ls>AV. X,Y,Z</ls> pw, pwkvn, pwg
+  <ls>AV. 9,5,7</ls>
+   https://sanskrit-lexicon.github.io/avlinks/avhymns/av09.005.html#av09.005.07
+** <ls>P. X,Y,Z</ls>  pw, pwkvn, pwg
+    panini
+    <ls>P. 8,4,5
+    https://ashtadhyayi.com/sutraani/8/4/5
+** <ls>R. GORR. X,Y,Z</ls> pw, pwkvn, pwg
+  Gorresio edition of Ramayana
+  Also <ls>GORR. X,Y,Z</ls>,  <ls>R. ed. GORR. X,Y,Z</ls>
+  <ls>GORR. 7,3,15</ls>
+  https://sanskrit-lexicon-scans.github.io/ramayanagorr?7,3,15
+** <ls>R. X,Y,Z</ls> pw, pwkvn, pwg
+   Schlegel edition of Ramayana when X = 1,2
+     also <ls>R. SCHL. X,Y,Z</ls>  any X (but only 1,2 are relevant)
+   also <ls>R. X,Y,Z</ls> if X != 1 or 2  Gorressio
+   <ls>R. 2,5,15</ls>
+    https://sanskrit-lexicon-scans.github.io/ramayanaschl?2,5,15
+   <ls>R. 4,7,19</ls>
+    https://sanskrit-lexicon-scans.github.io/ramayanagorr?4,7,19
+
+* ls_callback_mw
+  <ls>A B</ls>
+  dict = mw, also ap90, ben, sch
+  if dict = mw, URL from ls_callback_mw_href
+  if dict = ap90, URL from ls_callback_ap90_href
+  TIP
+  <gralink href='URL' n='TIP'><span class='ls'>A B</span></gralink>
+* ls_callback_mw_href
+** <ls>RV. X,Y,Z</ls>
+  <ls>RV. 9,5,7</ls>
+   https://sanskrit-lexicon.github.io/rvlinks/rvhymns/rv09.005.html#rv09.005.07
+** <ls>AV. X,Y,Z</ls> 
+  <ls>AV. 9,5,7</ls>
+   https://sanskrit-lexicon.github.io/avlinks/avhymns/av09.005.html#av09.005.07
+** <ls>Pāṇ. romanlo,Y,Z</ls> 
+    panini
+     X = roman_int(romanlo)
+    <ls>Pāṇ. iii,4,5</ls>
+    https://ashtadhyayi.com/sutraani/3/4/5
+** <ls>R. romanlo,Y,Z</ls> 
+  Gorressio edition of Ramayana
+  Also R. G., Also R. (G), also R. (G.), also R. [G], also R. ed Gorresio
+  X = roman_int(romanlo)
+   <ls>R. ii,5,15</ls>
+    https://sanskrit-lexicon-scans.github.io/ramayanagorr?2,5,15
+   
+*** NOTE THIS LOGIC NOT IMPLEMENTED for MW. Always Gorressio ??
+   Gorressio edition of Ramayana when X = 1,2
+     also <ls>R. SCHL. X,Y,Z</ls>  any X (but only 1,2 are relevant)
+   also <ls>R. X,Y,Z</ls> if X != 1 or 2  Gorressio
+   <ls>R. 2,5,15</ls>
+    https://sanskrit-lexicon-scans.github.io/ramayanaschl?2,5,15
+   <ls>R. 4,7,19</ls>
+    https://sanskrit-lexicon-scans.github.io/ramayanagorr?4,7,19
+
+** <ls>MBh. romanlo,Y</ls> ??
+  Mahabharata, Calcutta edition 
+  romanlo = parvan, Y = verse.  Mahabharata, Calcutta edition
+  X = roman_int(romanlo)
+  <ls>MBh. v,12</ls>
+   also MBh. (ed. Cal
+  URL = https://sanskrit-lexicon-scans.github.io/mbhcalc?5.12
+** <ls>Hariv. X</ls>, HarivaMSa
+  ? Mahabharata, Calcutta edition for harivamsa
+   <ls>Hariv. 1300</ls>
+ https://sanskrit-lexicon-scans.github.io/hariv?1300
+* ls_callback_sch_href
+** <ls>Spr. X</ls>
+  Assumed to be 2nd edition
+  <ls>Spr. 1234</ls>
+  https://funderburkjim.github.io/boesp-prep/web1/boesp.html?1234
+** <ls>ṚV. X,Y,Z</ls>
+  <ls>ṚV. 9,5,7</ls>
+   https://sanskrit-lexicon.github.io/rvlinks/rvhymns/rv09.005.html#rv09.005.07
+** <ls>AV. X,Y,Z</ls> 
+  <ls>AV. 9,5,7</ls>
+   https://sanskrit-lexicon.github.io/avlinks/avhymns/av09.005.html#av09.005.07
+
+** <ls>P. X,Y,Z</ls>  
+    panini
+    <ls>P. 8,4,5
+    https://ashtadhyayi.com/sutraani/8/4/5
+** <ls>Hariv. X</ls>, HarivaMSa
+  ? Mahabharata, Calcutta edition for harivamsa
+   <ls>Hariv. 1300</ls>
+ https://sanskrit-lexicon-scans.github.io/hariv?1300
+** <ls>R. GORR. X,Y,Z</ls> 
+** TODO <ls>R. X,Y,Z</ls> 
+  Schlegel edition of Ramayana.  
+  NOTE: May be erroneous when X!=1,2
+93 matches in 90 lines for "<ls>R. [3-9]" in buffer: sch.txt
+72 matches for "<ls>R. [12]" in buffer: sch.txt
+
+  <ls>R. 7,3,15</ls> fails
+  https://sanskrit-lexicon-scans.github.io/ramayanagorr?7,3,15
+* ls_callback_ap90_href
+** <ls>Rv. X,Y,Z</ls>
+  <ls>Rv. 9,5,7</ls>
+   https://sanskrit-lexicon.github.io/rvlinks/rvhymns/rv09.005.html#rv09.005.07
+** <ls>Av. X,Y,Z</ls> 
+  <ls>Av. 9,5,7</ls>
+   https://sanskrit-lexicon.github.io/avlinks/avhymns/av09.005.html#av09.005.07
+** <ls>P. romanup,Y,Z</ls>  
+    panini
+    romanlo = strtolower(romanup)
+    X = roman_int(romanlo)
+    <ls>P. VI,4,5
+    https://ashtadhyayi.com/sutraani/6/4/5
+* LS LINK TARGETS
+  https://sanskrit-lexicon.github.io/avlinks/avhymns/av14.002.html#av14.002.71
+    gra  avveda_verse_callback {AV. X,Y,Z}
+  https://sanskrit-lexicon.github.io/rvlinks/rvhymns/rv10.086.html#rv10.086.08
+    gra  rgveda_verse_callback {W,Z}
+  https://funderburkjim.github.io/boesp-prep/web1/boesp.html?1234
+    ls_callback_pwg_href. pw <ls>Spr. N</ls>;  pwg <ls>Spr. (II) N</ls>
+  https://sanskrit-lexicon-scans.github.io/mbhcalc?5.12
+    ls_callback_pwg_href
+** 
+* TODO editing improvements to basicadjust.php
+  902  delete 
+  Delete many commented lines  e.g. line 56
+  59  simplify 
+  849 delete
+  128-150 delete
+  189-191 delete
+  260 delete
+  391 delete  (Spr. handled elsewhere
+  438 add  sch
+  633 and 622  compare 604,588,547
+  
+
+* -------------------------------------------
+* TODO editing improvements to basicdisplay.php
+ graverse  remove these sections at 414, 592. Not used
