@@ -56,3 +56,30 @@ The link target has only kandas 1 and 2.
 * Sample URL: https://sanskrit-lexicon-scans.github.io/hariv?1300
 * pw, pwkvn, pwg `<ls>HARIV. 1300</ls>`
 * sch, mw `<ls>Hariv. 1300</ls>`
+
+## Whitney roots
+* mw only. link generated in basicdisplay.php and placed 'at the top' of display.
+* Sample URL: https://www.sanskrit-lexicon.uni-koeln.de/scans/csl-whitroot/disp/index.php?page=34
+* `<info whitneyroots="gam,34"/>` in mw.txt provides page number for the link.
+  * 873 of these
+* `<info whitneyroots="akz1,1;akz2,1"/>` two links
+  * only 12 of these
+
+## Westergaard DAtupAWa
+* mw only. link generated in basicdisplay.php and placed 'at the top' of display.
+* Sample URL: https://www.sanskrit-lexicon.uni-koeln.de/scans/csl-westergaard/disp/index.php?section=33
+* `<info westergaard="gala,33.26,10.0143"/>` in mw.txt provides section number for the link.
+  * '33.26' =  'section.rootnum'
+  * '10.0143' = Corresponding reference to Madhaviya Dhatupatha. Not used in display.
+  * 1487 `<info westergaard="..."/>` links in mw.txt.
+* Sample URL: https://www.sanskrit-lexicon.uni-koeln.de/scans/csl-westergaard/disp/index.php?page=350
+  This 'page' parameter is not used in the CDSL displays.
+
+## Whitney Grammar, 2nd edition
+* lan cdsl dictionary display links to specific sections of Whitney's grammar.
+* Sample URL: https://funderburkjim.github.io/WhitneyGrammar/step1/pages2c.html#section_1007
+
+## Kale Higher Sanskrit Grammar
+ CDSL dictionary displays do not generate links to Kale's Grammar.
+* Sample URL: https://sanskrit-lexicon.uni-koeln.de/scans/csl-kale/disp/index.php?pageua=100
+
