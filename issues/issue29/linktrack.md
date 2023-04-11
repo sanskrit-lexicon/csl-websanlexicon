@@ -65,7 +65,7 @@ The link target has only kandas 1 and 2.
 * `<info whitneyroots="akz1,1;akz2,1"/>` two links
   * only 12 of these
 
-## Westergaard DAtupAWa
+## Westergaard Dhātupāṭha
 * mw only. link generated in basicdisplay.php and placed 'at the top' of display.
 * Sample URL: https://www.sanskrit-lexicon.uni-koeln.de/scans/csl-westergaard/disp/index.php?section=33
 * `<info westergaard="gala,33.26,10.0143"/>` in mw.txt provides section number for the link.
