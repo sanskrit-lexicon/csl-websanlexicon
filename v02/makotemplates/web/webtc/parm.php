@@ -1,5 +1,6 @@
 <?php
 //error_reporting (E_ALL & ~E_NOTICE & ~E_WARNING);
+ini_set("pcre.jit", "0");
 ?>
 <?php
 /* parm.php  Jul 10, 2015  Contains Parm class, which
