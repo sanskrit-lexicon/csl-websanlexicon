@@ -3,6 +3,7 @@
 // Removed 'queryInputChar' function (formerly used as keydown handler)
 // Removed standard_input
 // Oct 15, 2012.  Modified to work with transcoderjs.
+// May 15, 2023.  keyboard_parms:  escape deprecated. Use encodeURI.
 jQuery(document).ready(function(){ 
  theTranscoderField = new TranscoderField('key1',keydown_return);
  win_ls=null;
@@ -184,15 +185,16 @@ function keyboard_parms(keyserver,listurlFlag) {
     }
    var ans = 
    url + 
-   "?key=" +escape(word) + 
-   "&keyboard=" +escape("yes") +
-   "&inputType=" +escape(inputType) +
-   "&unicodeInput=" +escape(unicodeInput) +
-   "&phoneticInput=" +escape(phoneticInput) +
-   "&serverOptions=" +escape(serverOptions) +
-   "&accent=" + escape(accent) +
-   "&viewAs=" + escape(viewAs);
-    return ans;
+   "?key=" +  word + 
+   "&keyboard=" + "yes" +
+   "&inputType=" + inputType +
+   "&unicodeInput=" + unicodeInput +
+   "&phoneticInput=" + phoneticInput +
+   "&serverOptions=" + serverOptions +
+   "&accent=" +  accent +
+   "&viewAs=" +  viewAs;
+ let ans1 = encodeURI(ans);
+    return ans1;
 }
 
 function updateDisp() {
