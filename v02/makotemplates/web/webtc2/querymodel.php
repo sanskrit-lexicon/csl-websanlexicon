@@ -99,10 +99,10 @@ class QueryModel{
     $search_regexp = "$non_word($slpword)$non_word.*[\t]";
    }else if ($this->queryParms->opt_sregexp == "prefix") {
     //$search_regexp = "^$slpword.+" . "[\t]";
-    $search_regexp = "$non_word($slpword$wordreg+)$non_word.*[\t]";
+    $search_regexp = "$non_word($slpword$wordreg*)$non_word.*[\t]";
    }else if ($this->queryParms->opt_sregexp == "suffix") {
     //$search_regexp = ".+$slpword" . "[\t]";
-    $search_regexp = "$non_word($wordreg+$slpword)$non_word.*[\t]";
+    $search_regexp = "$non_word($wordreg*$slpword)$non_word.*[\t]";
    }else if ($this->queryParms->opt_sregexp == "instring"){
     //$search_regexp = ".+$slpword.+" . "[\t]";
     $search_regexp = "$non_word($wordreg+$slpword$wordreg+)$non_word.*[\t]";
