@@ -32,7 +32,8 @@
 }
 
 i {
- font-family: oldstandard_i;
+    /*font-family: oldstandard_i;  08-08-2023 */
+    font-style:italic;
 }
 .noti {
  font-family: oldstandard;
