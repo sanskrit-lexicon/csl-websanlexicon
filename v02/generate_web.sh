@@ -15,6 +15,6 @@ if [ -z "$1" ] || [ -z "$2" ]
 fi
 
 
- echo "updating for websanlexicon for dictionary $dict to $outdir"
+ echo "generate web code for dictionary $dict to $outdir"
  python generate.py "$dict" inventory.txt  makotemplates distinctfiles/$dict $outdir
 

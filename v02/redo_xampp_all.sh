@@ -36,4 +36,6 @@ sh generate_web.sh lan  ../../lan
 sh generate_web.sh pwkvn  ../../pwkvn
 sh generate_web.sh armh  ../../armh
 sh generate_web.sh lrv  ../../lrv
+sh generate_web.sh abch  ../../abch
+
 

@@ -486,6 +486,18 @@ alldictparms = {
   "dictbe":u"VAIDYA L. R. (1889). The Standard Sanskrit-English Dictionary containing appendices on Sanskrit prosody and names of noted mythological persons &c. (For the use of schools and colleges). Bombay, Mrs. Radhabai Atmaram Sagoon.",
   "dicttitle":u"Vaidya Sanskrit Dictionary 1889",
  },
+ "abch":{
+  "dictup":"ABCH",
+  "dictlo":"abch",
+  "dictname":u"Abhidhānacintāmaṇi of Hemacandrācārya",
+  "dictversion":"03",
+  "dictyear":"2023",
+  "dictaccent":False,
+  "webtc2devatextoption":True,
+  "dictwc":u"https://www.worldcat.org/title/Abhidhānacintāmaṇi of Hemacandrācārya",
+  "dictbe":u"Abhidhānacintāmaṇi of Hemacandrācārya",
+  "dicttitle":u"Abhidhānacintāmaṇi of Hemacandrācārya",
+ },
 
 
 }

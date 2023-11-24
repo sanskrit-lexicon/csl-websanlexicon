@@ -38,3 +38,4 @@ sh generate_web.sh pwkvn  ../../PWKVNScan/2020/
 sh generate_web.sh lan  ../../LANScan/2020/
 sh generate_web.sh armh  ../../ARMHScan/2020/
 sh generate_web.sh lrv  ../../LRVScan/2022/
+sh generate_web.sh abch  ../../ABCHScan/2023/

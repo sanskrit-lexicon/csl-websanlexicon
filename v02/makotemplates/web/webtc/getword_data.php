@@ -49,6 +49,13 @@ class Getword_data {
    list($key0,$lnum0,$xmldata0) = $xmlmatch;
    $adjxmldata0 = $adjmatches[$i];
    $html = $this->getword_data_html_adapter($key0,$lnum0,$adjxmldata0,$dict,$getParms,$xmldata0);
+   // dbgprint(true,"getword_data: i = $i, html=\n$html\n\n");
+   // 10-23-2023 For dict abch, use $L instead of $lnum0.
+   if (in_array($dict,['abch'])) {
+    if(preg_match('|<L>(.*?)</L>|',$xmldata0,$tempmatch)) {
+     $lnum0 = $tempmatch[1];
+    }
+   }
    $htmlmatches[] = array($key0,$lnum0,$html);
   }
  if ($dbg) {
@@ -90,14 +97,19 @@ public function getword_data_html_adapter($key,$lnum,$adjxml,$dict,$getParms,$xm
  dbgprint($dbg,"info = $info\n");
  dbgprint($dbg,"body = $body\n");
 
- # adjust body
- $body = preg_replace('|<td.*?>|','',$body);
- $body = preg_replace('|</td></tr>|','',$body);
- if ($dict == 'mw') {
-  // in case of MW, we remove [ID=...]</span>
-  $body = preg_replace('|<span class=\'lnum\'.*?\[ID=.*?\]</span>|','',$body);
+
+ if (in_array($dict,['abch'])) {
+  // no adjust body
+ }else {
+  // adjust body
+  $body = preg_replace('|<td.*?>|','',$body);
+  $body = preg_replace('|</td></tr>|','',$body);
+  if ($dict == 'mw') {
+   // in case of MW, we remove [ID=...]</span>
+   $body = preg_replace('|<span class=\'lnum\'.*?\[ID=.*?\]</span>|','',$body);
+  }
  }
- # adjust $info - keep only the displayed page
+ // adjust $info - keep only the displayed page
  if ($dict == 'mw') {
   if(!preg_match('|>([^<]*?)</a>,(.*?)\]|',$info,$matches)) {
    dbgprint(true,"html ERROR 2: \n" . $info . "\n");
@@ -158,7 +170,7 @@ public function adjust_key2_mw($key2) {
  $ans1 = preg_replace('|</?hom>|','',$ans1);
  $ans1 = preg_replace('|<shortlong/>|','',$ans1);
  if (preg_match('|<|',$ans1)) {
-  #dbgprint(true,"adjust_key2: $ans1\n");
+  //dbgprint(true,"adjust_key2: $ans1\n");
   exit(1);
  }
  return $ans;
