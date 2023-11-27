@@ -109,7 +109,8 @@ public function getfiles($pdffiles_filename,$pagestr_in0,$dictupper) {
   $pagestr = "$pagenum";
   $ncur = $pagehash[$pagestr];
  }
- if ((!$ncur) && ($dictupper == 'PWG')) {
+ // 11-26-2023. PW page forms same as PW
+ if ((!$ncur) && (in_array($dictupper, array('PWG','PW')))) {
   $lnum = $pagestr_in;
   list($vol,$page) =  preg_split('/[,-]/',$lnum);
   $pagestr=$lnum;
