@@ -212,7 +212,7 @@ dbgprint($dbg,"dispitem. key2=$key2\n");
   // 08-04-2020
   $style = "font-size:normal; color:rgb(160,160,160);";
   $ans = "[<span title='Cologne record ID' style='$style'>ID=$lnum</span>]";
-  if (in_array($this->dictlo, array("abch"))) {
+  if (in_array($this->dictlo, array("abch", "acph", "acsj"))) {
    // 10-30-2023
    $ans .= "<hr style='height:3px;border-width:0;color:gray;background-color:gray'>";
   }

@@ -39,3 +39,6 @@ sh generate_web.sh lan  ../../LANScan/2020/
 sh generate_web.sh armh  ../../ARMHScan/2020/
 sh generate_web.sh lrv  ../../LRVScan/2022/
 sh generate_web.sh abch  ../../ABCHScan/2023/
+sh generate_web.sh acph  ../../ACPHScan/2023/
+sh generate_web.sh acsj  ../../ACSJScan/2023/
+

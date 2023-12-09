@@ -51,7 +51,7 @@ class Getword_data {
    $html = $this->getword_data_html_adapter($key0,$lnum0,$adjxmldata0,$dict,$getParms,$xmldata0);
    // dbgprint(true,"getword_data: i = $i, html=\n$html\n\n");
    // 10-23-2023 For dict abch, use $L instead of $lnum0.
-   if (in_array($dict,['abch'])) {
+   if (in_array($dict,['abch', 'acph', 'acsj'])) {
     if(preg_match('|<L>(.*?)</L>|',$xmldata0,$tempmatch)) {
      $lnum0 = $tempmatch[1];
     }
@@ -98,7 +98,7 @@ public function getword_data_html_adapter($key,$lnum,$adjxml,$dict,$getParms,$xm
  dbgprint($dbg,"body = $body\n");
 
 
- if (in_array($dict,['abch'])) {
+ if (in_array($dict,['abch', 'acph', 'acsj'])) {
   // no adjust body
  }else {
   // adjust body
