@@ -163,6 +163,8 @@ class DictInfo {
   "PWKVN"=>"//www.sanskrit-lexicon.uni-koeln.de/scans/PWScan/PWScanpng" ,
   "LRV"=>"//www.sanskrit-lexicon.uni-koeln.de/scans/LRVScan/LRVScanpdf" ,
   "ABCH"=>"//www.sanskrit-lexicon.uni-koeln.de/scans/ABCHScan/pdfpages" ,
+  "ACPH"=>"//www.sanskrit-lexicon.uni-koeln.de/scans/ACPHScan/pdfpages" ,
+  "ACSJ"=>"//www.sanskrit-lexicon.uni-koeln.de/scans/ACSJScan/pdfpages" ,
  );
  $url = $cologne_pdfpages_urls[$this->dictupper];
  return $url;
