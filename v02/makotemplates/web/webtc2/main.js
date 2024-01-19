@@ -4,6 +4,32 @@
 //  JS additions: process_outopt5, gather1
 //  JS deletions: process_outopt4, displayDB , displayDBupdatePage.
 //     gather, 
+// Jan 10, 2024  highlighting.
+//   Based on code from Anatoly Artemenko
+//   Ref: https://github.com/sanskrit-lexicon/COLOGNE/issues/5#issuecomment-1884373054
+var nextButton,prevButton,nearestButton,currentIndex;  // globals for highlight
+function init_highlight_globals() {
+    currentIndex = -1;
+    // console.log('nextButton', nextButton == undefined); //true 1st time
+    if (nextButton == undefined) {
+     // initialize
+    nextButton = document.getElementById("nextButton");
+    prevButton = document.getElementById("prevButton");
+    nearestButton = document.getElementById("nearestButton");
+
+    nextButton.addEventListener("click", function() {
+      navigateToNextHighlight();
+    });
+
+    nearestButton.addEventListener("click", function() {
+      activateNearestVisibleHighlight();
+    });
+
+    prevButton.addEventListener("click", function() {
+      navigateToPreviousHighlight();
+    });
+    } // end of initialization
+}
 function getWord() {
   lastLnum=0;
   jQuery("#nextbtn").hide();
@@ -64,7 +90,6 @@ function getNext() {
 	type:"GET",
         success: function(data,textStatus,jqXHR) {
          let json = JSON.parse(data);
-         //console.log('json=',json);
          lastLnum = json['lastlnum'];
 	 if (lastLnum >= 0) {jQuery("#nextbtn").show();}
 	 else {jQuery("#nextbtn").hide();}
@@ -72,7 +97,13 @@ function getNext() {
          let filter = json['filter'];
          let html = getNext_html(keydata,filter);
          jQuery("#disp").html(html);
-         process_outopt5(keydata);
+	let hword;
+	if (word != ''){
+ 	 hword = word;
+	}else {
+	 hword = sword;
+	}
+         process_outopt5(keydata,hword);
 	},
 	error:function(jqXHR, textStatus, errorThrown) {
 	    alert("Error: " + textStatus);
@@ -122,7 +153,7 @@ function Hideworkbtn() {
   document.getElementById("workbtn").value='working...';
 }
 
-function process_outopt5(keydata) {
+function process_outopt5(keydata,hword) {
  if (keydata.length == 0) {return;}
  let resultarr = [];
  for(let i=0;i<keydata.length;i++) {
@@ -130,23 +161,10 @@ function process_outopt5(keydata) {
   let key = rec.key;
   resultarr.push(key);
  }
- gather1(resultarr); 
+ gather1(resultarr,hword); 
 }
 
-function unused_process_outopt5(keydata) {
- if (keydata.length == 0) {return;}
- let resultarr = [];
- for(let i=0;i<keydata.length;i++) {
-  let rec = keydata[i];
-  let nx = i+1;
-  let key = rec.key;
-  let result = `<key1>${key}</key1>`;
-  resultarr.push(result);
- }
- let result1 = resultarr.join('');
- gather1(result1); 
-}
-function gather1 (keys) {
+function gather1 (keys,hword) {
   var filter = document.getElementById("filter").value;
 
   var accent = "";
@@ -165,6 +183,12 @@ function gather1 (keys) {
 	data:sendData,
         success: function(data,textStatus,jqXHR) {
             jQuery("#data").html(data);
+            let elt = document.getElementById("data");
+	    let searchTerm = hword; // The text you are looking for
+	    let divContent = elt.innerHTML;
+            let highlightedContent = divContent.replace(new RegExp(searchTerm,'gi'), '<span class="highlight">$&</span>');
+            elt.innerHTML = highlightedContent;
+	    init_highlight_globals();
 	},
 	error:function(jqXHR, textStatus, errorThrown) {
 	    alert("Error: " + textStatus);
@@ -234,3 +258,52 @@ $(document).ready(function() {
   var word=jQuery("#key").val();
   if (word) {getWord();}
 });
+// Functions used in highlighting, See init_highlight_globals above.
+    function navigateToPreviousHighlight() {
+      const highlightElements = document.querySelectorAll(".highlight");
+
+      if (currentIndex !== -1) {
+        highlightElements[currentIndex].classList.remove("active");
+      }
+
+      currentIndex = (currentIndex - 1 + highlightElements.length) % highlightElements.length;
+      highlightElements[currentIndex].classList.add("active");
+      highlightElements[currentIndex].scrollIntoView({ behavior: "smooth" });
+    }
+
+    function navigateToNextHighlight() {
+      const highlightElements = document.querySelectorAll(".highlight");
+
+      if (currentIndex !== -1) {
+        highlightElements[currentIndex].classList.remove("active");
+      }
+
+      currentIndex = (currentIndex + 1) % highlightElements.length;
+      highlightElements[currentIndex].classList.add("active");
+      highlightElements[currentIndex].scrollIntoView({ behavior: "smooth" });
+    }
+
+    function activateNearestVisibleHighlight() {
+      const highlightElements = document.querySelectorAll(".highlight");
+
+      highlightElements.forEach(element => element.classList.remove("active"));
+
+      let minDistance = Number.MAX_SAFE_INTEGER;
+      let nearestIndex = -1;
+
+      highlightElements.forEach((element, index) => {
+        const rect = element.getBoundingClientRect();
+        const distance = Math.abs(rect.top);
+
+        if (distance < minDistance) {
+          minDistance = distance;
+          nearestIndex = index;
+        }
+      });
+
+      if (nearestIndex !== -1) {
+        currentIndex = nearestIndex;
+        highlightElements[currentIndex].classList.add("active");
+        highlightElements[currentIndex].scrollIntoView({ behavior: "smooth" });
+      }
+    }

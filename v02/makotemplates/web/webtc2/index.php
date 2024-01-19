@@ -166,8 +166,14 @@ Text Word:
 <input name="input" id="input_input" value="hk" style="visibility:hidden" /> 
 <input name="output" id="input_output" value="deva" style="visibility:hidden" />
  <div id="disp">
-
  </div>
+ 
+<div id="button-container">
+<button id="prevButton">&lt;</button>
+<button id="nearestButton">=</button>
+<button id="nextButton">&gt;</button>
+</div>
+
   <div id="data">
   </div>
 
