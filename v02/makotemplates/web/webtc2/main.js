@@ -7,6 +7,8 @@
 // Jan 10, 2024  highlighting.
 //   Based on code from Anatoly Artemenko
 //   Ref: https://github.com/sanskrit-lexicon/COLOGNE/issues/5#issuecomment-1884373054
+// Jan 26, 2024  Revised highlighting per problem noted in
+// https://github.com/sanskrit-lexicon/MWS/issues/160
 var nextButton,prevButton,nearestButton,currentIndex;  // globals for highlight
 function init_highlight_globals() {
     currentIndex = -1;
@@ -186,7 +188,11 @@ function gather1 (keys,hword) {
             let elt = document.getElementById("data");
 	    let searchTerm = hword; // The text you are looking for
 	    let divContent = elt.innerHTML;
-            let highlightedContent = divContent.replace(new RegExp(searchTerm,'gi'), '<span class="highlight">$&</span>');
+            //let highlightedContent = divContent.replace(new RegExp(searchTerm,'gi'), '<span class="highlight">$&</span>'); // artanat method
+	    // next avoids highlighting within tags
+	    let highlightedContent = replaceText_highlight(divContent, searchTerm);
+	    //console.log('divContent=',divContent);
+	    //console.log('highlightedContent=',highlightedContent);
             elt.innerHTML = highlightedContent;
 	    init_highlight_globals();
 	},
@@ -196,6 +202,9 @@ function gather1 (keys,hword) {
     });
     jQuery("#data").html("<p>gathering data...");
 
+}
+function replaceText_highlight(str, old) {
+  return str.replace(new RegExp(`(?!<[^>]*)(${old})(?![^<]*>)`, 'g'), match => `<span class="highlight">${match}</span>`);
 }
 
 function cookieUpdate(flag) {
