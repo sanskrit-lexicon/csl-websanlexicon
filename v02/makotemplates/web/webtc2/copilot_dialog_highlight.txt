@@ -1,0 +1,61 @@
+Dialog with copilot to solve the highlighting problem
+========================================================================
+Jim's prompt # 1
+I have a question regarding javascript.  Suppose I have a text string containing html (or xml). . For instance '<fad>this movie is fad</fad>`.  I want a function that willl rereplace this with '<fad>this movie is bad</fad>` .  In other words, I want to change 'fad' to 'bad', but not within the tags.
+
+Copilot response:
+
+You can use the replace() method in JavaScript to replace a string with another string. To replace all occurrences of a string, you can use a regular expression with the g modifier set. Here’s an example of how you can replace all occurrences of ‘fad’ with ‘bad’ in a string containing HTML:
+function replaceText(str) {
+  return str.replace(/(?!<[^>]*)(fad)(?![^<]*>)/g, 'bad');
+}
+
+const htmlString = '<fad>this movie is fad</fad>';
+const newHtmlString = replaceText(htmlString);
+console.log(newHtmlString); // <fad>this movie is bad</fad>
+
+In the replaceText() function, the regular expression / (?!<[^>]*)(fad)(?![^<]*>)/g matches all occurrences of ‘fad’ that are not within HTML tags. The ?! and ?! are negative lookaheads that ensure that the matched text is not within HTML tags. The g modifier ensures that all occurrences of ‘fad’ are replaced.
+
+
+========================================================================
+Jim's prompt # 2
+
+How do I write replaceText function with signature `replaceText(str,old,new)` ?
+
+Copilot response:
+You can modify the replaceText() function to accept two additional parameters old and new as follows:
+
+function replaceText(str, old, newStr) {
+  return str.replace(new RegExp(`(?!<[^>]*)(${old})(?![^<]*>)`, 'g'), newStr);
+}
+
+const htmlString = '<fad>this movie is fad</fad>';
+const newHtmlString = replaceText(htmlString, 'fad', 'bad');
+console.log(newHtmlString); // <fad>this movie is bad</fad>
+
+In the modified replaceText() function, the first parameter str is the string containing HTML, the second parameter old is the string to be replaced, and the third parameter newStr is the string to replace old. The regular expression used in the replace() method is constructed using the RegExp constructor to allow the use of a variable for the search string. The g modifier ensures that all occurrences of old are replaced.
+
+
+========================================================================
+Jim's prompt # 3
+
+Almost there!  Now suppose I want newStr to be a function of old. E.g. `<span style="color:yellow;">old</span>`  So the replaceText function will have signature replaceText(str,old).
+
+Copilot response:
+You can modify the replaceText() function to accept only two parameters str and old as follows:
+
+function replaceText(str, old) {
+  return str.replace(new RegExp(`(?!<[^>]*)(${old})(?![^<]*>)`, 'g'), match => `<span style="color:yellow;">${match}</span>`);
+}
+
+const htmlString = '<fad>this movie is fad</fad>';
+const newHtmlString = replaceText(htmlString, 'fad');
+console.log(newHtmlString); // <fad><span style="color:yellow;">fad</span></fad>
+
+In the modified replaceText() function, the first parameter str is the string containing HTML, and the second parameter old is the string to be replaced. The regular expression used in the replace() method is constructed using the RegExp constructor to allow the use of a variable for the search string. The g modifier ensures that all occurrences of old are replaced. The second parameter of the replace() method is a function that returns the replacement string for each match. In this case, the replacement string is <span style="color:yellow;">${match}</span>, where match is the matched string.
+
+========================================================================
+The function used in webtc2/
+function replaceText_highlight(str, old) {
+  return str.replace(new RegExp(`(?!<[^>]*)(${old})(?![^<]*>)`, 'g'), match => `<span class="highlight">${match}</span>`);
+}
