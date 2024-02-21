@@ -73,8 +73,8 @@ Sanskrit word:
      <option value="hk" selected="selected">Kyoto-Harvard</option>
      <option value="slp1">SLP1</option>
      <option value="itrans">ITRANS</option>
-     <option value="roman">Roman Unicode</option>
-     <option value="deva">Devanagari Unicode</option>
+     <option value="roman">Roman</option>
+     <option value="deva">Devanagari</option>
     </select>
 
 </td>
@@ -122,8 +122,8 @@ Text Word:
 </select> 
     &nbsp;output:
     <select name="filter" id="filter">
-     <option value="deva" selected="selected">Devanagari Unicode</option>
-     <option value="roman">Roman Unicode</option>
+     <option value="deva" selected="selected">Devanagari</option>
+     <option value="roman">Roman</option>
      <option value="hk">HK</option>
      <option value="slp1">SLP1</option>
      <option value="itrans">ITRANS</option>
@@ -133,6 +133,12 @@ Text Word:
     <select name="accent" id="accent">
     <option value="yes">Show Accents</option>
     <option value="no" selected="selected">Ignore Accents</option>
+    </select>
+    <!-- 02-21-2024. Highlighting optional. maintained by cookie -->
+    &nbsp; &nbsp; 
+    <select name="as_highlight" id="as_highlight">
+    <option value="yes" selected="selected">Highlight On</option>
+    <option value="no">Highlight Off</option>
    </select>
 %endif
 
