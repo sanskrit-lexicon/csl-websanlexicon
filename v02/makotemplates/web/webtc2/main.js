@@ -204,7 +204,12 @@ function gather1 (keys,hword) {
 
 }
 function replaceText_highlight(str, old) {
-  return str.replace(new RegExp(`(?!<[^>]*)(${old})(?![^<]*>)`, 'g'), match => `<span class="highlight">${match}</span>`);
+    const flag = document.getElementById("as_highlight").value;
+    if (flag === 'yes') {
+	return str.replace(new RegExp(`(?!<[^>]*)(${old})(?![^<]*>)`, 'g'), match => `<span class="highlight">${match}</span>`);
+    }else {
+	return str;
+    }
 }
 
 function cookieUpdate(flag) {
@@ -221,7 +226,7 @@ function cookieUpdate(flag) {
  // namely, when 'flag' is false and 'indexcaller' DOM element has value='YES',
  // then the cookie value is set as in 2, from the 'transLit' and 'filter' DOM
  // elements.
-
+ // 02-21-2024. 
  var cookieName = 'mwiobasic';
  var cookieOptions = {expires: 365, path:'/'}; // 365 days
  var cookieValue = $.cookie(cookieName);
@@ -243,6 +248,7 @@ function cookieUpdate(flag) {
  document.getElementById("input_input").value = values[0];
  document.getElementById("input_output").value = values[1];
  //alert('cookie check2: ' + cookieValue);
+ as_highlight_changeF();
 };
 $(document).ready(function() {
  // initialize handlers
@@ -256,7 +262,8 @@ $(document).ready(function() {
   cookieUpdate(true);   
   });
   // other initializations
-  cookieUpdate(false);  // for initializing cookie
+    cookieUpdate(false);  // for initializing cookie
+    as_highlight_changeF();
   lastLnum=0; // initialize several globals
   outopt="";
   jQuery("#disp").html=""; // blank the right display panel
@@ -316,3 +323,26 @@ $(document).ready(function() {
         highlightElements[currentIndex].scrollIntoView({ behavior: "smooth" });
       }
     }
+function unused_unhighlight() {
+    const highlightElements = document.querySelectorAll(".highlight");
+    // Loop through the collection and remove the class
+    highlightElements.forEach(element => {
+	element.classList.remove('highlight')
+    });
+}
+function as_highlight_changeF() {
+    let hlval = document.getElementById("as_highlight").value;
+    let buttondiv = document.getElementById("button-container");
+    let dispdiv = document.getElementById("disp"); // left list
+    let datadiv = document.getElementById("data"); // right list
+    
+    //console.log('as_highlight_changeF: hlval=',hlval);
+    dispdiv.innerHTML = "";
+    if (hlval == 'yes') {
+	datadiv.innerHTML = "Next search will use highlighting ";
+	buttondiv.style.display = "block";
+    } else {
+        datadiv.innerHTML = "Next search will not use highlighting ";
+	buttondiv.style.display = "none";
+    }
+}
