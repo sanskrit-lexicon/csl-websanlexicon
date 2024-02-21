@@ -248,7 +248,6 @@ function cookieUpdate(flag) {
  document.getElementById("input_input").value = values[0];
  document.getElementById("input_output").value = values[1];
  //alert('cookie check2: ' + cookieValue);
- as_highlight_changeF();
 };
 $(document).ready(function() {
  // initialize handlers
