@@ -204,12 +204,7 @@ function gather1 (keys,hword) {
 
 }
 function replaceText_highlight(str, old) {
-    const flag = document.getElementById("as_highlight").value;
-    if (flag === 'yes') {
-	return str.replace(new RegExp(`(?!<[^>]*)(${old})(?![^<]*>)`, 'g'), match => `<span class="highlight">${match}</span>`);
-    }else {
-	return str;
-    }
+  return str.replace(new RegExp(`(?!<[^>]*)(${old})(?![^<]*>)`, 'g'), match => `<span class="highlight">${match}</span>`);
 }
 
 function cookieUpdate(flag) {
@@ -226,13 +221,12 @@ function cookieUpdate(flag) {
  // namely, when 'flag' is false and 'indexcaller' DOM element has value='YES',
  // then the cookie value is set as in 2, from the 'transLit' and 'filter' DOM
  // elements.
- // 02-21-2024. 
+
  var cookieName = 'mwiobasic';
  var cookieOptions = {expires: 365, path:'/'}; // 365 days
  var cookieValue = $.cookie(cookieName);
  var cookieValue_DOM = document.getElementById("transLit").value + "," + 
-    document.getElementById("filter").value + "," + 
-    document.getElementById("as_highlight").value;
+    document.getElementById("filter").value;
 
  if ((! flag) && (jQuery("#indexcaller").val() == "YES")) {
    // override cookie value
@@ -248,11 +242,6 @@ function cookieUpdate(flag) {
  document.getElementById("filter").value = values[1];
  document.getElementById("input_input").value = values[0];
  document.getElementById("input_output").value = values[1];
- let as_highlight_value = values[2];
- if (! ['yes','no'].includes(as_highlight_value)) {
-    as_highlight_value = 'yes';
- }
- document.getElementById("as_highlight").value = as_highlight_value;
  //alert('cookie check2: ' + cookieValue);
 };
 $(document).ready(function() {
@@ -263,7 +252,7 @@ $(document).ready(function() {
     getWord();
    }
    });
-  $('#transLit,#filter,#as_highlight').change(function(event) {
+  $('#transLit,#filter').change(function(event) {
   cookieUpdate(true);   
   });
   // other initializations
@@ -327,11 +316,3 @@ $(document).ready(function() {
         highlightElements[currentIndex].scrollIntoView({ behavior: "smooth" });
       }
     }
-function unhighlight() {
-    const highlightElements = document.querySelectorAll(".highlight");
-    // Loop through the collection and remove the class
-    highlightElements.forEach(element => {
-	element.classList.remove('highlight')
-    });
-}
-
