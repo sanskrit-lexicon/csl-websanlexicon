@@ -262,7 +262,7 @@ $(document).ready(function() {
   });
   // other initializations
     cookieUpdate(false);  // for initializing cookie
-    as_highlight_changeF();
+   // as_highlight_changeF();
   lastLnum=0; // initialize several globals
   outopt="";
   jQuery("#disp").html=""; // blank the right display panel

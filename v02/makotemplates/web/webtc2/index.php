@@ -8,7 +8,6 @@
    <link rel="stylesheet" href="../webtc/font.css" type="text/css">
   <script type="text/javascript" src="../js/jquery.min.js"></script>
   <script type="text/javascript" src="../js/jquery.cookie.js"></script>
-  <script type="text/javascript" src="main.js"> </script>
 <style>
 #dictid {
  /*position:absolute;*/
@@ -134,13 +133,13 @@ Text Word:
     <option value="yes">Show Accents</option>
     <option value="no" selected="selected">Ignore Accents</option>
     </select>
+%endif
     <!-- 02-21-2024. Highlighting optional. maintained by cookie -->
     &nbsp; &nbsp; 
     <select name="as_highlight" id="as_highlight" onchange="as_highlight_changeF();">
     <option value="yes" selected="selected">Highlight On</option>
     <option value="no">Highlight Off</option>
    </select>
-%endif
 
 </td>
 </tr>
@@ -182,6 +181,7 @@ Text Word:
 
   <div id="data">
   </div>
+  <script type="text/javascript" src="main.js"> </script>
 
 </body>
 </html>
