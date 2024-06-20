@@ -17,15 +17,14 @@ class Getword_data {
    - lnum (cologne id)
    - computed html string
  */
- public $matches;  
- public function __construct() {
+ public $matches, $basicOption;
+ public function __construct($basicOption = true) {
  $dbg=false;
  $getParms = new Parm();
+ $this->basicOption = $basicOption;
  $dict = $getParms->dict;
- dbgprint($dbg,"getword_data.php #1 getword_data_html\n");
  $dal = new Dal($dict);
  $key = $getParms->key;
- dbgprint($dbg,"getword_data.php #2: key=$key, dict=$dict \n");
   // xmlmatches is array of records rec, where
   // rec is array with 3 items:
   //  0: key0  the headword of the record (usu. but not always same as key)
@@ -128,7 +127,9 @@ public function getword_data_html_adapter($key,$lnum,$adjxml,$dict,$getParms,$xm
  if ($dict == 'mw') {
   list($hcode,$key2,$hom) = $this->adjust_info_mw($xmldata); 
   # construct return value as colon-separated values
-  if ($getParms->basicOption) {
+  
+  if ($this->basicOption) {
+   dbgprint(true,"getword_data: changing hom to blank; $key2,$hom\n");
    $hom="";
   }
   $infoval = "$pageref:$hcode:$key2:$hom";

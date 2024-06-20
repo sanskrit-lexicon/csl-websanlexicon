@@ -18,7 +18,9 @@ $meta = '<meta charset="UTF-8">';
 echo $meta;  // Why?
 require_once('../webtc/getwordClass.php');
 //$vm = new GetwordViewModel($getParms);
-$vm = new GetwordClass(); // 11-02-2020
+//$vm = new GetwordClass(); // 11-02-2020
+$basicOption = false;
+$vm = new GetwordClass($basicOption); // 06-19-2024
 $table1 = $vm->table1;
 
 echo $table1;

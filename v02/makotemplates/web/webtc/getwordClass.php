@@ -12,10 +12,11 @@ require_once('dispitem.php');
 class GetwordClass {
  public $getParms,$matches,$table1,$status,$basicOption;
  public $xmlmatches;
- public function __construct() {
+ public function __construct($basicOption = true) {
   $this->getParms = new Parm();
-  $this->basicOption = $this->getParms->basicOption;
-  $temp = new Getword_data();
+  // $this->basicOption = $this->getParms->basicOption;
+  $this->basicOption = $basicOption; // 06-19-2024 Refer webtc1/
+  $temp = new Getword_data($basicOption);
   $this->matches = $temp->matches; 
   $this->table1 = $this->getword_html();
   $nmatches = count($this->matches);
@@ -74,6 +75,9 @@ class GetwordClass {
  /* 
     Sep 2, 2018. output link to basic.css depending on $parms->dispcss.
     Aug 4, 2020.  For webtc, never put out basic.css
+    Jun 19, 2024. Always $lincss = "": Not sure what this is for!
+       Reason: "css/basic.css" is not available and generates error
+        message in console.
  */
  $dictinfo = $parms->dictinfo;
  $webpath =  $dictinfo->get_webPath();
@@ -86,6 +90,7 @@ class GetwordClass {
  if ($this->basicOption) {
   $linkcss = "";
  }
+ $linkcss = ""; // 06-19-2024
 if ($options == '3') {
  $output = '';
 }else {
@@ -106,7 +111,8 @@ EOT;
 */
  if (($options == '1')||($options == '2')) {
   $table = "<div id='CologneBasic'>\n";
-  if ($this->basicOption) {
+  //if ($this->basicOption) {
+  if (true) {  // 06-19-2024
    if ($english) {
     $table = "<div id='CologneBasic'>\n<h1>&nbsp;$key</h1>\n";
    } else {
@@ -122,7 +128,8 @@ EOT;
  }else if ($options == '3') {
   $table = "<div id='CologneBasic'>\n";  
  }else {
-  $table = "<div id='CologneBasic'>\n";  
+  $table = "<div id='CologneBasic'>\n"; 
+
  }
 
  $table .= "<table class='display'>\n";
@@ -186,6 +193,7 @@ EOT;
  $dispItemPrev=null;
  for($i=0;$i<$ntot;$i++) {
   $dispItem = $dispItems[$i];
+  
   if ($options == '1') {
    $table .= $dispItem->basicDisplayRecord1($dispItemPrev);
   }else if ($options == '2') {

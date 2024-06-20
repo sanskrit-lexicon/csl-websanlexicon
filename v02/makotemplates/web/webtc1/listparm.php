@@ -40,8 +40,27 @@ class ListParm extends Parm {
   $direction = $this->init_request(array('UP', 'DOWN', 'CENTER'),'CENTER');
   // Two 'styles' are supported, as determined by presence (or absence) of
   //  'keyboard'
-  $this->keyboard = $_REQUEST['keyboard'];
-  list($this->filter ,$this->filterin) =$this->getParameters_keyboard();
+  //$this->keyboard = $_REQUEST['keyboard']; // not used 06-19-2024.
+
+  $this->filter = null;
+  $this->filterin = null;
+  $flag = true;
+  if (isset($_REQUEST['filter'])) {
+   $this->filter = $_REQUEST['filter'] ;
+  } else {
+   $flag = false;
+  }
+  
+  if (isset($_REQUEST['filterin'])) {
+   $this->filterin = $_REQUEST['filterin'] ;
+  } else {
+   $flag = false;
+  }
+
+  if ($flag) {
+   return;
+  }
+  list($this->filter ,$this->filterin) = $this->getParameters_keyboard();
   if (in_array($dict,array('ae','mwe','bor'))) {
    // force filterin to be 'slp1' for dictionaries with english headwords
    $this->filterin = 'slp1';
@@ -61,6 +80,7 @@ class ListParm extends Parm {
 public function getParameters_keyboard() {
 //inputType = $_REQUEST['inputType'];
 //unicodeInput = $_REQUEST['unicodeInput'];
+
  $phoneticInput = $_REQUEST['phoneticInput'];
  $serverOptions = $_REQUEST['serverOptions'];
  $viewAs = $_REQUEST['viewAs'];
@@ -99,6 +119,7 @@ public function init_request($keys,$default) {
  }
  return $ans;
 }
+
 
 }
 

@@ -27,8 +27,7 @@ class DispItem { // info to construct a row of the display table
   $this->err = False;
   list($this->key,$this->lnum,$rec) = $dbrec;
   $dbg=false;
-  $reclen=strlen($rec);dbgprint($dbg,"  DispItem reclen = $reclen\n");
-  //dbgprint($dbg,"dispitem: rec=\n$rec\n");
+  $reclen=strlen($rec);
   /* $rec is a string. It can be large. php has a parameter that
    controls whether the preg_match will work for the string. The default
    for the parameter is 1000000 (one million).
@@ -40,7 +39,6 @@ class DispItem { // info to construct a row of the display table
    // increase the PHP parameter. Not sure if  is always big enough!
    $newlim = 1500000;
    $oldlim = ini_get('pcre.backtrack_limit');
-   //dbgprint(true,"dispitem: oldlim=$oldlim\n");
    ini_set('pcre.backtrack_limit',$newlim);
    if (preg_match('|<info>(.*?)</info><body>(.*?)</body>|',$rec,$matchrec)) {
     $ok = true;
@@ -266,6 +264,7 @@ dbgprint($dbg,"dispitem. key2=$key2\n");
    $pageshow = $this->get_pageshow($hrefdata); 
    $pre="<span style='font-weight:bold'>$keyshow $pageshow</span>";
   }
+  //dbgprint(true,"lnumshow=$lnumshow, dictup=" . $this->dictup . ", hom=" . $this->hom . "\n");
   if (($this->dictup == 'MW') and ($this->hom)) {
    // make a link to change list view to be centered at this lnum
    $symbol = "&#8592;";  // unicode left arrow
@@ -308,7 +307,7 @@ include('dictinfowhich.php');
  }else {
   $serve = "../webtc/$serve";
  }
- #dbgprint(true,"dispitem.getHrefPage: serve=$serve\n");
+ //dbgprint(true,"dispitem.getHrefPage: serve=$serve\n");
  foreach($lnums as $lnum) {
   if ($ans == "") {
    $args = "dict=$dict&page=$lnum"; #"page=$page";

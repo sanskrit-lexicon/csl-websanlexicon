@@ -123,7 +123,6 @@ function getWord_keyboard(listFlag,keyserver) {
     }
 }
 function getWord_main(url) {
-     //console.log('getWord_main:',url);
     try {
   requests[0].open("GET", url, true);
     requests[0].onreadystatechange = updateDisp;
@@ -239,3 +238,48 @@ function winls(url,anchor) {
     "winls", "width=520,height=210,scrollbars=yes");
  win_ls.focus();
 }
+/* 06-19-2024 */
+function listhier_lnum(lnum,link) {  
+    var word,input,output,accent,dict;
+     //input = readCookie("input");  
+     // By listhier logic, this use of input is always slp1
+     input = 'slp1';
+     output = readCookie("output");
+     accent = readCookie("accent");
+     dict = readCookie("dict");
+    var urlbase= "listhier.php";
+    
+   var accent = readCookie("accent");
+   var url = 
+   urlbase + 
+   "?lnum=" +escape(lnum)+ 
+   "&filterin=" + escape(input) +
+   "&filter=" + escape(output) +
+   "&accent=" + escape(accent) +
+   "&dict=" + escape(dict);
+    //var $this =$(this);  // the link in 'disp' that was clicked
+    //console.log('listhier_lnum: url=\n',url);
+    getWordlist_link(url,link);
+}
+function getWordlist_link(url,$link) {  
+    jQuery.ajax({
+	url:url,
+	type:"GET",
+        success: function(data,textStatus,jqXHR) {
+            jQuery("#displist").html(data);
+
+            
+            adjust_main_links($link); // 
+	},
+	error:function(jqXHR, textStatus, errorThrown) {
+	    alert("Error: " + textStatus);
+	}
+    });
+}
+function adjust_main_links($link) {
+    jQuery('.listlink').removeClass('listlinkCurrent');
+    jQuery($link).addClass('listlinkCurrent');
+}
+/*
+Warning: Undefined array key "keyboard" in C:\xampp\htdocs\cologne\mw\web\webtc1\listparm.php on line 43
+*/

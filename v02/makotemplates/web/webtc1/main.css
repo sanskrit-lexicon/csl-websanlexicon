@@ -121,3 +121,22 @@ text-decoration: none
 font-family: verdana,arial,helvetica,sansserif;
 font-size: 14pt;
 }
+/* 06-19-2024 */
+.listlink {
+ font-size:12pt;
+ line-height: 100%;
+ color:black;
+ background-color:yellow;
+}
+.listlinkCurrent {
+ background-color:#00ffff; /*teal is #008080*/
+}
+a.listlink:link{
+text-decoration: none
+}
+
+a.listlink:hover {
+background-color:#A9C1CB;
+cursor: pointer;
+text-decoration: none
+}

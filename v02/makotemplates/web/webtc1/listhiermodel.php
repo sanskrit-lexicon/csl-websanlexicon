@@ -1,5 +1,6 @@
 <?php //listhiermodel.php
 require_once("../webtc/dal.php");
+require_once("../webtc/dbgprint.php");
 class ListHierModel{
  // Gathers a collection of dictionary records 
  public $listmatches; // primary result of constructor
@@ -41,6 +42,16 @@ class ListHierModel{
     $nmatches = count($matches);
     if ($nmatches == 0) {$n1--;}
    } 
+  }
+  // try with '$key' an Lnum. 06-19-2024
+  if ($nmatches == 0) {
+   if(isset($_REQUEST['lnum'])) {
+    $key = $_REQUEST['lnum'];
+    if (preg_match('/^[0-9]/',$key)) {
+     $matches = $this->dal->get2($key,$key);
+     $nmatches = count($matches);
+    }
+   }
   }
   if ($nmatches == 0) {
    $key = "a"; // sure to match
