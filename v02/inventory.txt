@@ -23,6 +23,8 @@
 pwg:web/utilities/transcoder/slp1_deva1.xml:C
 pw:web/utilities/transcoder/slp1_deva1.xml:C
 pwkvn:web/utilities/transcoder/slp1_deva1.xml:C
+; mw:web/utilities/transcoder/slp1_deva1.xml:C 07-02-2024
+mw:web/utilities/transcoder/slp1_deva2.xml:C
 *:web/utilities/transcoder/slp1_hk.xml:C
 *:web/utilities/transcoder/slp1_itrans.xml:C
 *:web/utilities/transcoder/slp1_roman.xml:C
