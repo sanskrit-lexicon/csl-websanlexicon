@@ -38,11 +38,13 @@ class GetwordClass {
    $table1 = '';
    $table1 .= "<h2>not found: '$keyin' (slp1 = $key)</h2>\n";
   }else {
+   //$dbg = true;
    $table = $this->getwordDisplay($getParms,$matches);
-   dbgprint($dbg,"getword\n$table\n\n");
+   dbgprint($dbg,"getword table\n$table\n\n");
    $filter = $getParms->filter;
    $dict = strtoupper($getParms->dict);
    $accent = $getParms->accent;
+   //dbgprint(true,"getwordClass before: dict=$dict, accent=$accent, filter=$filter\n");
    if (in_array($dict,array('PWG','PW','PWKVN')) &&
                ($filter == 'deva') && ($accent == 'yes')) {
     // Causes display of udatta accent to be superscript Devanagari 'u'
@@ -55,6 +57,8 @@ class GetwordClass {
     $filter = 'deva2';
    }
    $table1 = transcoder_processElements($table,"slp1",$filter,"SA");
+   dbgprint($dbg,"getword table1\n$table1\n\n");
+
   }
   return $table1;
  }

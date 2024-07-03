@@ -1,9 +1,5 @@
 <fsm start='INIT'>
-<!-- 07-02-2024.  Used only by MW dictionary.
-   The udAtta accent is 'unrendered' (= invisible)
-   Note: this destroys 'invertibility'
-   this 'slp1_deva2.xml' is activated for MW in
-   webtc/getwordClass.php (search for 'deva2')
+<!-- accents follow vowels
 -->
 <e> <s>INIT</s> <in>a</in> <out>\u0905</out> <next>INIT</next></e>
 <e> <s>INIT</s> <in>A</in> <out>\u0906</out> <next>INIT</next></e>
@@ -141,13 +137,12 @@ Experiment 08-06-2021. Ref https://github.com/sanskrit-lexicon/pwg/issues/5
 <e> <s>INIT,SKT</s> <in>-</in> <out>-</out> <next>INIT</next></e>
 <!-- anudAtta accent: 0952 -->
 <e n='122'> <s>INIT,SKT</s> <in>\</in> <out>\u0952</out> <next>INIT</next> </e>
-<!-- udAtta accent : ua8eb
+<!-- udAtta accent : ua8eb 
 <e n='123'> <s>INIT,SKT</s> <in>/</in> <out>\ua8eb</out>  <next>INIT</next> </e>
+ svarita accent (per pwg)
+<e n='124'> <s>INIT,SKT</s> <in>^</in> <out>\u0951</out> <next>INIT</next> </e>
 -->
-<!-- no representation of udAtta in mw -->
 <e n='123'> <s>INIT,SKT</s> <in>/</in> <out></out>  <next>INIT</next> </e>
-
-<!--  svarita accent (per pwg)-->
 <e n='124'> <s>INIT,SKT</s> <in>^</in> <out>\u0951</out> <next>INIT</next> </e>
 
 <!-- candrabindu, anunasika -->

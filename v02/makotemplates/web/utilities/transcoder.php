@@ -61,7 +61,8 @@ function transcoder_fsm($from,$to) {
    //    [^aAiIuUfFxXeEoO^/\\].
    //    Note that the last 3 elements '^', '/', and '\' are present only
    //    because of accents. 
-   if ( ($fromto != 'slp1_deva') && ($fromto != 'slp1_deva1')&& 
+   if ( ($fromto != 'slp1_deva') && ($fromto != 'slp1_deva1') &&
+        ($fromto != 'slp1_deva2')&& 
         ($fromto != 'hkt_tamil')&&
         ($fromto != 'deva_slp1')) {continue;}
    $inval = $matches[1];
@@ -160,6 +161,7 @@ function transcoder_unicode_parse_alt($val) {
    return $newinval;
 }
 function transcoder_unicode_parse($val){
+  if ($val == '') {return $val;}  //07-02/2024
   $utf="";
   $vals=array();
   $u1 = $val;
@@ -328,7 +330,8 @@ function transcoder_processString_match($line,$n,$m,$fsmentry) {
   if ($n1 == $m) {return $match;} 
   $d = $line[$n1];
   if (($fsmentry['regex'] == 'slp1_deva') || 
-     ($fsmentry['regex'] == 'slp1_deva1')) {
+     ($fsmentry['regex'] == 'slp1_deva1') || 
+     ($fsmentry['regex'] == 'slp1_deva2')) {
    if (preg_match('/[^aAiIuUfFxXeEoO^\/\\\\]/',$d)) {return $match;}
    return "";
   }
@@ -337,7 +340,8 @@ function transcoder_processString_match($line,$n,$m,$fsmentry) {
    return "";
   }
   if (($fsmentry['regex'] == 'deva_slp1') || 
-     ($fsmentry['regex'] == 'slp1_deva1')) {
+     ($fsmentry['regex'] == 'slp1_deva1') || 
+     ($fsmentry['regex'] == 'slp1_deva2')) {
    // u094d is virama, the rest are vowel signs
    $vowel_signs = array('\u094d','\u093e','\u093f','\u0940','\u0941','\u0942','\u0943','\u0944','\u0962','\u0963','\u0947','\u0948','\u094b','\u094c');
    foreach ($vowel_signs as $vowel_sign) {
