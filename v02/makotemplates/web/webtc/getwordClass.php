@@ -19,6 +19,7 @@ class GetwordClass {
   $temp = new Getword_data($basicOption);
   $this->matches = $temp->matches; 
   $this->table1 = $this->getword_html();
+  $this->xmlmatches = $temp->xmlmatches;
   $nmatches = count($this->matches);
   if ($nmatches == 0) {
    $this->status = false;

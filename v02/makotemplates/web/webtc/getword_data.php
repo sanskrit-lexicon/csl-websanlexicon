@@ -18,6 +18,7 @@ class Getword_data {
    - computed html string
  */
  public $matches, $basicOption;
+ public $xmlmatches;
  //public $basicdisplaydbg;
  public function __construct($basicOption = true) {
  $dbg=false;
@@ -32,6 +33,7 @@ class Getword_data {
   //  1: lnum0 The Cologne id
   //  2: data:  xml string from xxx.xml
  $xmlmatches = $dal->get1_mwalt($key); 
+ $this->xmlmatches = $xmlmatches;
  $dal->close();
 
   $xmldata = [];
