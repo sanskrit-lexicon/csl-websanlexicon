@@ -22,6 +22,7 @@ class ListHierView {
   $i++;
   if ($code == 0) {$c="color:teal";}
   else {$c="color:black";}
+  /* 
   // Apr 7, 2013.  Color Supplement records. 
   // Jun 29, 2018 This relevant for MW onlyu
   if (preg_match('/<L supL="/',$data2,$matches)) {
@@ -30,6 +31,17 @@ class ListHierView {
   if (preg_match('/<L revL="/',$data2,$matches)) {
    $c = "color:green";
   }
+  */
+  /*
+  //07-07-2024 identify rev/sup in the hist.
+  if (preg_match('|<info n="sup"/>|',$data2,$matches)) {
+   $c = "color:red";
+  } 
+  if (preg_match('|<info n="rev">|',$data2,$matches)) {
+   // note for rev, the incoming form is <info n="rev" pc="PAGE,COL"/>
+   $c = "color:green";
+  }
+  */ 
   if (preg_match('/^<H([2])/',$data2,$matches)) {
    $spc="$spcchar";
   }else if(preg_match('/^<H([3])/',$data2,$matches)) {
@@ -72,7 +84,17 @@ class ListHierView {
   }else {
    $class = " class='$sdata'";
   }
-  $out1 = "$spc<a  onclick='getWordAlt_keyboard(\"<SA>$key2</SA>\");'><span style='$c'$class><SA>$key2show</SA></span>$hom2</a>$xtraskip<br/>\n";
+  // 07-07-2024  revsup   
+  $revsup = "";
+  if (in_array($getParms->dict,array('mw'))) {
+   if (preg_match('|<info n="sup"/>|',$data2,$matches)) {
+    $revsup = "&nbsp;<span title='supplement' style='font-size:11px; color:red;'>Ⓢ</span>";
+   }
+   else if (preg_match('|<info n="rev"|',$data2,$matches)) {
+    $revsup = "&nbsp;<span title='revision' style='font-size:11px; color:red;'>Ⓡ</span>";
+   }
+  }
+  $out1 = "$spc<a  onclick='getWordAlt_keyboard(\"<SA>$key2</SA>\");'><span style='$c'$class><SA>$key2show</SA></span>$hom2</a>$xtraskip $revsup<br/>\n";
 
   $table .= $out1;
   if ($i == count($listmatches)) {

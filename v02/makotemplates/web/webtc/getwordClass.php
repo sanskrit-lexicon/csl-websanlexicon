@@ -148,9 +148,12 @@ EOT;
  $dbg=false;
  for($i=0;$i<$ntot;$i++) {
   $dbrec = $matches[$i];
-  dbgprint($dbg,"disp.php. matches[$i] = \n");
-  for ($j=0;$j<count($dbrec);$j++) {
-   dbgprint($dbg,"  [$j] = {$dbrec[$j]}\n");
+  if ($dbg) {
+   dbgprint($dbg,"getwordClass dbrec[$i] = \n");
+   for ($j=0;$j<count($dbrec);$j++) {
+    dbgprint($dbg,"  [$j] = {$dbrec[$j]}\n");
+   }
+   dbgprint($dbg,"GETWORDCLASS: dbrec = " . $dbrec[2] . "\n\n");
   }
   $dispItem = new DispItem($dict,$dbrec);
   if ($dispItem->err) {
@@ -203,14 +206,15 @@ EOT;
  $dispItemPrev=null;
  for($i=0;$i<$ntot;$i++) {
   $dispItem = $dispItems[$i];
-  
+  $dispItem1 = "";
   if ($options == '1') {
-   $table .= $dispItem->basicDisplayRecord1($dispItemPrev);
+   $dispItem1 = $dispItem->basicDisplayRecord1($dispItemPrev);
   }else if ($options == '2') {
-   $table .= $dispItem->basicDisplayRecord2($dispItemPrev);
+   $dispItem1 = $dispItem->basicDisplayRecord2($dispItemPrev);
   }else{
-   $table .= $dispItem->basicDisplayRecordDefault($dispItemPrev);
+   $dispItem1 = $dispItem->basicDisplayRecordDefault($dispItemPrev);
   }
+  $table .= $dispItem1;
   $dispItemPrev=$dispItem;
  }
  $table .= "</table>\n";

@@ -32,6 +32,7 @@ class DispItem { // info to construct a row of the display table
    controls whether the preg_match will work for the string. The default
    for the parameter is 1000000 (one million).
   */
+  dbgprint(false,"dispitem: rec=\n  $rec\n\n");
   $ok = false;
   if (preg_match('|<info>(.*?)</info><body>(.*?)</body>|',$rec,$matchrec)) {
    $ok = true;
@@ -54,7 +55,8 @@ class DispItem { // info to construct a row of the display table
   }
   $this->info = $matchrec[1];
   $this->html = $matchrec[2];
-  dbgprint($dbg,"this->info starts as {$this->info}\n");
+  dbgprint(false,"dispItem: this->info starts as\n {$this->info}\n");
+  dbgprint(false,"dispItem: this->html starts as\n {$this->html}\n");
   //Some derived fields
   if($this->dictup == 'MW') {
    list($this->pginfo,$this->hcode,$this->key2,$this->hom) = preg_split('/:/',$this->info);
@@ -197,7 +199,7 @@ dbgprint($dbg,"dispitem. key2=$key2\n");
   if ($hrefdata == $hrefdata_prev) {
    $pageshow="";
   }
-  // dbgprint(true,"dispitem: keyshow=$keyshow\n    lnumshow=$lnumshow\n\n    pageshow=$pageshow\n");
+  // dbgprint(false,"dispitem: keyshow=$keyshow\n    lnumshow=$lnumshow\n\n    pageshow=$pageshow\n");
   return array($keyshow,$lnumshow,$pageshow);
  }
  public function get_pageshow($hrefdata) {
@@ -206,15 +208,31 @@ dbgprint($dbg,"dispitem. key2=$key2\n");
   $ans = "<span class='hrefdata'><span style='$style'> [Printed book page $hrefdata]</span></span>";
   return $ans;
  }
- public function get_lnumshow_id($lnum) {
+ public function get_lnumshow_id($lnum0) {
   // 08-04-2020
-  $style = "font-size:normal; color:rgb(160,160,160);";
-  $ans = "[<span title='Cologne record ID' style='$style'>ID=$lnum</span>]";
+  // 07-08-2024
+  // dbgprint(true,"dispitem:get_lnumshow_id: html= \n{$this->html}\n");
+  //if (preg_match("|<L1>(.*?)</L1>|",$this->html,$matches)) {
+  //if (preg_match("|<L1>([0-9.]+)(.*?)</L1>|",$this->html,$matches)) {
+  if (preg_match("|^([0-9.]+)(.*?)$|",$lnum0,$matches)) {
+   $lnum = $matches[1];
+   $revsup = $matches[2];
+   dbgprint(false," NO match for revsup\n");
+  } else {
+   $lnum = $lnum0;
+   $revsup = "";
+  }
+  dbgprint(false,"lnum0='$lnum0', lnum='$lnum', revsup='$revsup'\n");
+  //$style1 = "font-size:normal; color:rgb(160,160,160);";
+  //$ans = "[<span title='Cologne record ID' style='$style'>ID=$lnum</span>]";
+  $ans = "[" .
+         "<span title='Cologne record ID' style='font-size:normal; color:rgb(160,160,160);'>ID=$lnum</span>" .
+         "<span style='font-size:normal; color:red;'>$revsup</span>" . "]";
   if (in_array($this->dictlo, array("abch", "acph", "acsj"))) {
    // 10-30-2023
    $ans .= "<hr style='height:3px;border-width:0;color:gray;background-color:gray'>";
   }
-  //dbgprint(true,"get_lnumshow_id. dict={$this->dict}, ans=\n$ans\n\n");
+  //dbgprint(false,"get_lnumshow_id. dict={$this->dict}, ans=\n$ans\n\n");
   return $ans;   
  }
  public function basicRow1Default($prev) {
@@ -264,7 +282,7 @@ dbgprint($dbg,"dispitem. key2=$key2\n");
    $pageshow = $this->get_pageshow($hrefdata); 
    $pre="<span style='font-weight:bold'>$keyshow $pageshow</span>";
   }
-  //dbgprint(true,"lnumshow=$lnumshow, dictup=" . $this->dictup . ", hom=" . $this->hom . "\n");
+  //dbgprint(false,"lnumshow=$lnumshow, dictup=" . $this->dictup . ", hom=" . $this->hom . "\n");
   if (($this->dictup == 'MW') and ($this->hom)) {
    // make a link to change list view to be centered at this lnum
    $symbol = "&#8592;";  // unicode left arrow
@@ -307,7 +325,7 @@ include('dictinfowhich.php');
  }else {
   $serve = "../webtc/$serve";
  }
- //dbgprint(true,"dispitem.getHrefPage: serve=$serve\n");
+ //dbgprint(false,"dispitem.getHrefPage: serve=$serve\n");
  foreach($lnums as $lnum) {
   if ($ans == "") {
    $args = "dict=$dict&page=$lnum"; #"page=$page";
