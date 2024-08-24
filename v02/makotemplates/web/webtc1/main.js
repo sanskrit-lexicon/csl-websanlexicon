@@ -192,7 +192,8 @@ function keyboard_parms(keyserver,listurlFlag) {
    "&serverOptions=" + serverOptions +
    "&accent=" +  accent +
    "&viewAs=" +  viewAs;
- let ans1 = encodeURI(ans);
+    let ans1 = encodeURI(ans);
+    //console.log('webtc1/main.js',url);
     return ans1;
 }
 
@@ -238,13 +239,44 @@ function winls(url,anchor) {
     "winls", "width=520,height=210,scrollbars=yes");
  win_ls.focus();
 }
-/* 06-19-2024 */
-function listhier_lnum(lnum,link) {  
+/* 06-19-2024 
+ functions listhier_lnum_output and listhier_lnum_output1 are modeled after
+ php functions getParameters_keyboard() and getParameters_keyboard_helper
+ in listparm.php.
+ This allows us to get the 'output' parm required by listhier.php.
+*/
+function listhier_lnum_output1(serverOptions,phoneticInput) {
+ if (serverOptions == 'deva') {return serverOptions;}
+ if (serverOptions == 'roman') {return serverOptions;}
+ if (serverOptions == 'phonetic') {
+  if (phoneticInput == 'slp1') {return phoneticInput;}
+  if (phoneticInput == 'hk') {return phoneticInput;}
+  //if (phoneticInput == 'it') {return phoneticInput;}
+  if (phoneticInput == 'it') {return 'itrans';}
+  if (phoneticInput == 'wx') {return phoneticInput;}
+ }
+ // default: 
+ return "slp1";
+}
+function listhier_lnum_output() {
+    // Use keyboard.js readCookie
+    let phoneticInput = readCookie('phoneticInput');
+    //console.log('phoneticInput=',phoneticInput);
+    let serverOptions = readCookie('serverOptions');
+    //console.log('serverOptions=',serverOptions);
+    let output = readCookie('output');
+    let output1 = listhier_lnum_output1(serverOptions,phoneticInput);
+    //console.log(' output1 = ',output1);
+    return output1;
+}
+function listhier_lnum(lnum,link) {
+    //console.log('webtc1/main.js. listhier_lnum. lnum=',lnum);
     var word,input,output,accent,dict;
      //input = readCookie("input");  
      // By listhier logic, this use of input is always slp1
      input = 'slp1';
-     output = readCookie("output");
+     //output = readCookie("output");
+    output = listhier_lnum_output();
      accent = readCookie("accent");
      dict = readCookie("dict");
     var urlbase= "listhier.php";
@@ -261,7 +293,9 @@ function listhier_lnum(lnum,link) {
     //console.log('listhier_lnum: url=\n',url);
     getWordlist_link(url,link);
 }
-function getWordlist_link(url,$link) {  
+function getWordlist_link(url,$link) {
+    //console.log('webtc1/main.js. url=',url);
+    //console.log(' ... $link=',$link);
     jQuery.ajax({
 	url:url,
 	type:"GET",

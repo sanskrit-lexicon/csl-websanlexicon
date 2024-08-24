@@ -13,12 +13,13 @@ require_once('dbgprint.php');
 require_once('parm.php');
 class DispItem { // info to construct a row of the display table
  public $dict,$dictup,$key,$lnum,$info,$html,$dictlo;
- public $pginfo,$hcode,$key2,$hom;
+ public $pginfo,$hcode,$key2,$hom,$hui;
  public $hrefdata_prev,$hrefdata;
  public $err; // Boolean
  public $keyshow;
  public $cssshade; // July 20, 2015. See basicDisplayRecord2 for use.
  public $firstHom; // Aug 15, 2015
+ public $firstHui; // Aug 17, 2024
  public function __construct($dict,$dbrec) {
   $this -> cssshade=False;
   $this->dict = $dict;
@@ -59,7 +60,8 @@ class DispItem { // info to construct a row of the display table
   dbgprint(false,"dispItem: this->html starts as\n {$this->html}\n");
   //Some derived fields
   if($this->dictup == 'MW') {
-   list($this->pginfo,$this->hcode,$this->key2,$this->hom) = preg_split('/:/',$this->info);
+   // 08-15-2024 $this->hui
+   list($this->pginfo,$this->hcode,$this->key2,$this->hom,$this->hui) = preg_split('/:/',$this->info);
   }else {
    $this->pginfo = $this->info;
   }
@@ -283,12 +285,14 @@ dbgprint($dbg,"dispitem. key2=$key2\n");
    $pre="<span style='font-weight:bold'>$keyshow $pageshow</span>";
   }
   //dbgprint(false,"lnumshow=$lnumshow, dictup=" . $this->dictup . ", hom=" . $this->hom . "\n");
-  if (($this->dictup == 'MW') and ($this->hom)) {
+  // if (($this->dictup == 'MW') and ($this->hom)) {
+  if (($this->dictup == 'MW') and ($this->hui)) {
    // make a link to change list view to be centered at this lnum
    $symbol = "&#8592;";  // unicode left arrow
    $lnum = $this->lnum;
    $class='listlink';
-   if ($this->firstHom)  { 
+   // if ($this->firstHom)  { 
+   if ($this->firstHui)  { 
     $class='listlink listlinkCurrent';
    }
    /* for use of 'this', refer

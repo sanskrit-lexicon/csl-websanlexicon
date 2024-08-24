@@ -47,8 +47,10 @@ class ListHierModel{
   if ($nmatches == 0) {
    if(isset($_REQUEST['lnum'])) {
     $key = $_REQUEST['lnum'];
-    if (preg_match('/^[0-9]/',$key)) {
-     $matches = $this->dal->get2($key,$key);
+    // 08-17-2024
+    if (preg_match('/^([0-9.]+)/',$key,$matches1)) {
+     $key1 = $matches1[1];
+     $matches = $this->dal->get2($key1,$key1);
      $nmatches = count($matches);
     }
    }

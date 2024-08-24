@@ -112,7 +112,9 @@ class ListHierView {
  }
  public function get_hom($data) {
   $hom="";
-  if (preg_match('|<hom>(.*?)</hom>.*?</h>|',$data,$matches)) {
+  // 08-17-2024
+  //if (preg_match('|<hom>(.*?)</hom>.*?</h>|',$data,$matches)) {
+  if (preg_match('|<info hui="(.*?)"/>|',$data,$matches)) {
    $hom = $matches[1];
   }
   return $hom;

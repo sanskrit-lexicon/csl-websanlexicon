@@ -22,10 +22,11 @@
 */
 require_once('../webtc/dictinfo.php');
 require_once('../webtc/parm.php');
+require_once('../webtc/dbgprint.php');
 class ListParm extends Parm {
  # from Parm
   #public $filter0,$filterin0,$keyin,$dict,$accent;
-  #public $filter,$filerin;
+  #public $filter,$filterin;
   #public $dictinfo,$english;
   #public $keyin1,$key;
  # new for ListParm
@@ -90,6 +91,13 @@ public function getParameters_keyboard() {
  // deduce filter  and filterin  from the above
  $filterin = $this->getParameters_keyboard_helper($viewAs,$phoneticInput);
  $filter = $this->getParameters_keyboard_helper($serverOptions,$phoneticInput);
+ $dbg = false;
+ if ($dbg) {
+  dbgprint($dbg,"listparm.php:\n");
+  dbgprint($dbg,"viewAs=$viewAs, phoneticInput=$phoneticInput\n");
+  dbgprint($dbg,"serverOptions=$serverOptions\n");
+  dbgprint($dbg,"filterin=$filterin, filter=$filter\n");  
+ }
  return array($filter ,$filterin );
  
 }

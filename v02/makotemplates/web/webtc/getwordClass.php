@@ -70,6 +70,7 @@ class GetwordClass {
  // June 14, 2015 for MW, info = pg:Hcode:key2a:hom
  // July 11, 2015  Use 'Parm' object for calling sequence
  // Aug 17, 2015 Remove use of _GET['options']. Always use $options='2'
+ // Aug 17, 2024 for MW, info = pg:Hcode:key2a:hom:hui
  $key = $parms->key;
  $dict = strtoupper($parms->dict);
  if(isset($_REQUEST['dispopt'])) {
@@ -190,15 +191,25 @@ EOT;
  // Aug 15, 2015. Set firstHom instance variable to True where needed
  $found=False;
  // First, set firstHom always false
+ // Also, set firstHui always false
  for($i=0;$i<$ntot;$i++) {
   $dispItem=$dispItems[$i];
   $dispItem->firstHom=False;
+  $dispItem->firstHui=False;
  }
- // Next, set it True on first record with hom
+ // Next, set firstHom True on first record with hom 
  for($i=0;$i<$ntot;$i++) {
   $dispItem=$dispItems[$i];
   if ($dispItem->hom ) {
     $dispItem->firstHom=true;
+    break;
+  }
+ } 
+// Next, set firstHui True on first record with hui 
+ for($i=0;$i<$ntot;$i++) {
+  $dispItem=$dispItems[$i];
+  if ($dispItem->hui ) {
+    $dispItem->firstHui=true;
     break;
   }
  } 
