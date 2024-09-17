@@ -138,4 +138,5 @@ stc:web/webtc/help_fr.html:T
 *:web/webtc/pdffiles.txt:CD
 ben:web/images/vatsa.png:CD
 *:web/readme.txt:T
-pwg:web/images/rajatamudra.png:CD
+; next image not needed
+;pwg:web/images/rajatamudra.png:D
