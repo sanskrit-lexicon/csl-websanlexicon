@@ -569,6 +569,9 @@
 1-1137:pwg1-1137.pdf:OpasTAnika
 1-1139:pwg1-1139.pdf:OrDvadEhika
 1-1141:pwg1-1141.pdf:OzaDi
+1-1143:pwg1-1143.pdf:VN
+1-1145:pwg1-1145.pdf:VN
+1-1147:pwg1-1147.pdf:VN
 2-0001:pwg2-0001.pdf:ka
 2-0003:pwg2-0003.pdf:kaMsa
 2-0005:pwg2-0005.pdf:kaMsa
@@ -1119,6 +1122,8 @@
 2-1095:pwg2-1095.pdf:Cidura
 2-1097:pwg2-1097.pdf:Cup
 2-1099:pwg2-1099.pdf:CedanIya
+2-1101:pwg2-1101.pdf:VN
+2-1103:pwg2-1103.pdf:VN
 3-0001:pwg3-0001.pdf:ja
 3-0003:pwg3-0003.pdf:jakz
 3-0005:pwg3-0005.pdf:jagadantaka
@@ -1625,6 +1630,8 @@
 3-1007:pwg3-1007.pdf:DvaMsakalA
 3-1009:pwg3-1009.pdf:DvajAhfta
 3-1011:pwg3-1011.pdf:Dvaras
+3-1013:pwg3-1013.pdf:VN
+3-1015:pwg3-1015.pdf:VN
 4-0001:pwg4-0001.pdf:na
 4-0003:pwg4-0003.pdf:nakis
 4-0005:pwg4-0005.pdf:nakIm
@@ -2232,6 +2239,8 @@
 4-1209:pwg4-1209.pdf:PazAjima
 4-1211:pwg4-1211.pdf:PAlgunAnuja
 4-1213:pwg4-1213.pdf:PetkAra
+4-1217:pwg4-1217.pdf:VN
+4-1219:pwg4-1219.pdf:VN
 5-0001:pwg5-0001.pdf:ba
 5-0003:pwg5-0003.pdf:bata
 5-0005:pwg5-0005.pdf:badDaPala
@@ -3070,7 +3079,7 @@
 5-1671:pwg5-1671.pdf:mahIDara
 5-1673:pwg5-1673.pdf:mArin
 5-1675:pwg5-1675.pdf:mud
-5-1677:pwg5-1677.pdf:mokzay
+5-1677:pwg5-1677.pdf:mokzay-VN
 6-0001:pwg6-0001.pdf:ya
 6-0003:pwg6-0003.pdf:yakza
 6-0005:pwg6-0005.pdf:yakza
@@ -3824,6 +3833,7 @@
 6-1501:pwg6-1501.pdf:vraSc
 6-1503:pwg6-1503.pdf:vrAtyatA
 6-1505:pwg6-1505.pdf:vrEha
+6-1511:pwg6-1511.pdf:VN
 7-0001:pwg7-0001.pdf:Sa
 7-0003:pwg7-0003.pdf:SaMsa
 7-0005:pwg7-0005.pdf:SaMsa
