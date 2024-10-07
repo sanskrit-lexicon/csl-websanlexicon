@@ -84,7 +84,8 @@ class ListHierView {
   }else {
    $class = " class='$sdata'";
   }
-  // 07-07-2024  revsup   
+  // 07-07-2024  revsup for mw.
+  // 10-05-2024 pwg not useful for rev
   $revsup = "";
   if (in_array($getParms->dict,array('mw'))) {
    if (preg_match('|<info n="sup"/>|',$data2,$matches)) {
