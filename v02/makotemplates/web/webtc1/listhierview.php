@@ -94,6 +94,12 @@ class ListHierView {
    else if (preg_match('|<info n="rev"|',$data2,$matches)) {
     $revsup = "&nbsp;<span title='revision' style='font-size:11px; color:red;'>Ⓡ</span>";
    }
+   else if (preg_match('|<listinfo n="sup"/>|',$data2,$matches)) {
+    $revsup = "&nbsp;<span title='supplement' style='font-size:11px; color:red;'>Ⓢ</span>";
+   }
+   else if (preg_match('|<listinfo n="rev"|',$data2,$matches)) {
+    $revsup = "&nbsp;<span title='revision' style='font-size:11px; color:red;'>Ⓡ</span>";
+   }
   }
   $out1 = "$spc<a  onclick='getWordAlt_keyboard(\"<SA>$key2</SA>\");'><span style='$c'$class><SA>$key2show</SA></span>$hom2</a>$xtraskip $revsup<br/>\n";
 
