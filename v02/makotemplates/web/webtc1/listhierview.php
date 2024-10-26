@@ -87,19 +87,21 @@ class ListHierView {
   // 07-07-2024  revsup for mw.
   // 10-05-2024 pwg not useful for rev
   $revsup = "";
+  $revsups = array();
   if (in_array($getParms->dict,array('mw'))) {
    if (preg_match('|<info n="sup"/>|',$data2,$matches)) {
-    $revsup = "&nbsp;<span title='supplement' style='font-size:11px; color:red;'>Ⓢ</span>";
+    $revsups[] = "&nbsp;<span title='supplement' style='font-size:11px; color:red;'>Ⓢ</span>";
    }
    else if (preg_match('|<info n="rev"|',$data2,$matches)) {
-    $revsup = "&nbsp;<span title='revision' style='font-size:11px; color:red;'>Ⓡ</span>";
+    $revsups[] = "&nbsp;<span title='revision' style='font-size:11px; color:red;'>Ⓡ</span>";
    }
-   else if (preg_match('|<listinfo n="sup"/>|',$data2,$matches)) {
-    $revsup = "&nbsp;<span title='supplement' style='font-size:11px; color:red;'>Ⓢ</span>";
+   if (preg_match('|<listinfo n="sup"/>|',$data2,$matches)) {
+    $revsups[] = "&nbsp;<span title='supplement' style='font-size:11px; color:red;'>Ⓢ</span>";
    }
    else if (preg_match('|<listinfo n="rev"|',$data2,$matches)) {
-    $revsup = "&nbsp;<span title='revision' style='font-size:11px; color:red;'>Ⓡ</span>";
+    $revsups[] = "&nbsp;<span title='revision' style='font-size:11px; color:red;'>Ⓡ</span>";
    }
+   $revsup = join(" ",$revsups);
   }
   $out1 = "$spc<a  onclick='getWordAlt_keyboard(\"<SA>$key2</SA>\");'><span style='$c'$class><SA>$key2show</SA></span>$hom2</a>$xtraskip $revsup<br/>\n";
 
