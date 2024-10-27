@@ -51,6 +51,11 @@ class ListHierView {
   }else {
    $spc="";
   }
+  // 10-27-2024 Don't show 'artificial' homonyms
+  if (in_array($hom2,array('1','2','3','4'))) {
+  }else {
+   $hom2 = "";
+  }
   if ($hom2 != "") {
    $hom2=" <span style=\"color:red; font-size:smaller\">$hom2</span>";
   }
