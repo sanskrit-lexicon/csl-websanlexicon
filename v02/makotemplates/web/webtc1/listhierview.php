@@ -106,6 +106,12 @@ class ListHierView {
    else if (preg_match('|<listinfo n="rev"|',$data2,$matches)) {
     $revsups[] = "&nbsp;<span title='revision' style='font-size:11px; color:red;'>Ⓡ</span>";
    }
+   if (count($revsups) == 2) {
+    # S S -> S, and R R -> R
+    if ($revsups[0] == $revsups[1]) {
+     $revsups = array($revsups[0]);
+    }
+   }
    $revsup = join(" ",$revsups);
   }
   $out1 = "$spc<a  onclick='getWordAlt_keyboard(\"<SA>$key2</SA>\");'><span style='$c'$class><SA>$key2show</SA></span>$hom2</a>$xtraskip $revsup<br/>\n";
