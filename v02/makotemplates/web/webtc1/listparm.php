@@ -38,7 +38,9 @@ class ListParm extends Parm {
   parent::__construct();  // Parm's constructor
   $dict = $this->dict;  // from Parm constructor
   // direction: either 'UP', 'DOWN', or 'CENTER' (default)
-  $direction = $this->init_request(array('UP', 'DOWN', 'CENTER'),'CENTER');
+  // 11-07-2024. Correct erroneous coding 
+  $direction = $this->init_request_listparm('direction',array('UP', 'DOWN', 'CENTER'),'CENTER');
+  
   // Two 'styles' are supported, as determined by presence (or absence) of
   //  'keyboard'
   //$this->keyboard = $_REQUEST['keyboard']; // not used 06-19-2024.
@@ -101,7 +103,19 @@ public function getParameters_keyboard() {
  return array($filter ,$filterin );
  
 }
-function getParameters_keyboard_helper($type,$phoneticInput) {
+ public function init_request_listparm($key,$values,$default) {
+  //11-07-2024 replace faulty init_request($keys,$default)
+  $ans = $default;
+  if (isset($_REQUEST[$key])) {
+   $val = $_REQUEST[$key];
+   if (in_array($val,$values)) {
+    $ans = $val;
+   }
+  }
+  return $ans;
+ }
+
+public function getParameters_keyboard_helper($type,$phoneticInput) {
  if ($type == 'deva') {return $type;}
  if ($type == 'roman') {return $type;}
  if ($type == 'phonetic') {
@@ -114,20 +128,6 @@ function getParameters_keyboard_helper($type,$phoneticInput) {
  // default: 
  return "slp1";
 }
-
-public function init_request($keys,$default) {
- $ans = $default;
- $dbg=false;
- foreach($keys as $key) {
-  if (isset($_REQUEST[$key])) {
-   $ans = $_REQUEST[$key];
-   if($dbg) {echo "init_request: using REQUEST[$key] = $ans<br>\n";}
-   break;
-  }
- }
- return $ans;
-}
-
 
 }
 
