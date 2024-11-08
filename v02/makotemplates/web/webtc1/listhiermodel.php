@@ -203,6 +203,20 @@ class ListHierModel{
    $listmatches[]=array(1,$key2,$lnum2,$data2);
    $i++;
   }
+  $dbg = false;
+  if ($dbg) {
+   dbgprint($dbg,"\n");
+   dbgprint($dbg,"webtc1. listhiermodel, list_center\n");
+   dbgprint($dbg,"key1=$key1, lnum1=$lnum1, nprev=$nprev, nnext=$nnext\n");
+   $i = 0;
+   $n = count($listmatches);
+   while($i < $n) {
+    list($dir,$key,$lnum,$data) = $listmatches[$i];
+    dbgprint($dbg,"lsthiermodel: i=$i, dir=$dir, key=$key, lnum=$lnum\n");
+    $i = $i + 1;
+   }
+  }
+
   return $listmatches;
  }
  
