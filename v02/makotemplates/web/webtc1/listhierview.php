@@ -112,11 +112,22 @@ class ListHierView {
      $revsups = array($revsups[0]);
     }
    }
-   $revsup = join(" ",$revsups);
+   $revsup0 = join(" ",$revsups);
+   // 11-07-2024. 'shadow' rev, $revsup1
+   $revsups1 = array();
+   if (preg_match('|<listinfo n="sup1"/>|',$data2,$matches)) {
+    $revsups1[] = "&nbsp;<span title='supplement' style='font-size:11px; color:gray;'>Ⓢ</span>";
+   }
+   else if (preg_match('|<listinfo n="rev1"|',$data2,$matches)) {
+    $revsups1[] = "&nbsp;<span title='revision' style='font-size:11px; color:gray;'>Ⓡ</span>";
+   }
+   $revsup1 = join(" ",$revsups1);
+   $revsup = join(" ", array($revsup0,$revsup1));
   }
   $out1 = "$spc<a  onclick='getWordAlt_keyboard(\"<SA>$key2</SA>\");'><span style='$c'$class><SA>$key2show</SA></span>$hom2</a>$xtraskip $revsup<br/>\n";
 
   $table .= $out1;
+
   if ($i == count($listmatches)) {
    //  put 'downward button'
    $spc="&nbsp;&nbsp;";
