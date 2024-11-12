@@ -222,6 +222,9 @@ dbgprint($dbg,"dispitem. key2=$key2\n");
   }
   $page = $matches[1];
   $col = $matches[2];
+  if (false) {
+   // 11-11-2024 very tricky to get $serve properly for both Cologne and local.
+   // This was the previous way.
   // $getParms = new Parm();
   // $basicOption = $this->getParms->basicOption;
   $basicOption = true;
@@ -230,10 +233,12 @@ dbgprint($dbg,"dispitem. key2=$key2\n");
   } else {
    $serve = "servepdf.php";
   }
+  } else {
+   $serve = $this->getHrefPage_serve();
+  }
   $dict = $this->dict;
   $args = "dict=$dict&page=$page,$col";
   $dictup = strtoupper($dict);
-  
   $ans = "<span style='$style'>rev </span><a href='$serve?$args' target='_$dictup'><span style='$style'>($page</span></a><span style='$style'>,$col)</span>";
 
   return $ans;
@@ -347,6 +352,35 @@ dbgprint($dbg,"dispitem. key2=$key2\n");
   dbgprint($dbg,"basicDisplayRecord2: pre = $pre\n");
    return $ans;
 } // basicDisplayRecord2
+public function getHrefPage_serve() {
+ include('dictinfowhich.php');  
+ $serve = "servepdf.php";
+ if ($dictinfowhich == "cologne") {
+  #$serve = "//www.sanskrit-lexicon.uni-koeln.de/scans/awork/apidev/$serve";
+  $serve = "//www.sanskrit-lexicon.uni-koeln.de/scans/csl-apidev/$serve";
+ }else {
+  $serve = "//localhost/cologne/csl-apidev/$serve";
+ }
+ //dbgprint(false,"dispitem.getHrefPage: serve=$serve\n");
+ return $serve;
+}
+public function getHrefPage() {
+ $ans="";
+ $data = $this->pginfo;
+ $dict = $this->dict;
+ $lnums = preg_split('/[,]/',$data);
+ $serve = $this->getHrefPage_serve();
+ foreach($lnums as $lnum) {
+  if ($ans == "") {
+   $args = "dict=$dict&page=$lnum"; #"page=$page";
+   $ans = "<a href='$serve?$args' target='_$dict'>$lnum</a>";
+  }else {
+   $ans .= ",$lnum";
+  }
+ }
+ return $ans;
+}
+/* 
 public function getHrefPage() {
 include('dictinfowhich.php');  
 
@@ -372,6 +406,7 @@ include('dictinfowhich.php');
  }
  return $ans;
 }
+*/
 
 
 } // class dispItem
