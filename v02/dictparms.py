@@ -522,6 +522,19 @@ alldictparms = {
   "dictbe":u"Abhidhānacintāmaṇiśiloñcha of Jinadeva",
   "dicttitle":u"Abhidhānacintāmaṇiśiloñcha of Jinadeva",
  },
-
+ "fri":{
+  "dictup":"FRI",
+  "dictlo":"fri",
+  "dictname":u"Frisch Sanskrit Reader Vocabulary, 1956",
+  "dictversion":"02",
+  "dictyear":"2025",
+  "dictaccent":False,
+  "webtc2devatextoption":False,
+  #"dictwc":"https://www.worldcat.org/title/halayudhas-abhidhanaratnamala-a-sanskrit-vocabulary/oclc/320893849",
+  # "dictbe":u"HALĀYUDHA & JOSHĪ JAYAŚAṄKARA , Halāyudhakśa (Abhidhānaratnamālā) of Halāyudha",
+  "dictwc":"TODO ", # **
+  "dictbe":u"TODO ", # **
+  "dicttitle":u"Frisch Sanskrit Reader Vocabulary, 1956",
+ }
 
 }

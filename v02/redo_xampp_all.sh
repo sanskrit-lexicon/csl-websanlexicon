@@ -39,4 +39,4 @@ sh generate_web.sh lrv  ../../lrv
 sh generate_web.sh abch  ../../abch
 sh generate_web.sh acph  ../../acph
 sh generate_web.sh acsj  ../../acsj
-
+sh generate_web.sh fri  ../../fri

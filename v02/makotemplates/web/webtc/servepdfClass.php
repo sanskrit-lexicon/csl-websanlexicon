@@ -34,6 +34,7 @@ $imageParms = array(
  'CCS' => "width ='1400' height='2000'",
  'MD'  => "width ='1000' height='1370'",
  'PWKVN'  => "width ='1600' height='2300'",
+ 'FRI' => "width ='1000' height='1300'",
 );
 $imageParm = $imageParms[$dictinfo->dictupper];
 if ($imageParm) {
