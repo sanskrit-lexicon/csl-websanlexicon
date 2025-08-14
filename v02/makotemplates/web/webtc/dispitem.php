@@ -39,8 +39,8 @@ class DispItem { // info to construct a row of the display table
    $ok = true;
   }else {
    // increase the PHP parameter. Not sure if  is always big enough!
-   $newlim = 1500000;
-   $oldlim = ini_get('pcre.backtrack_limit');
+   $newlim = 1600000; // 1500000 not big enough for pwg-sTA
+   $oldlim = ini_get('pcre.backtrack_limit'); // 1000000 
    ini_set('pcre.backtrack_limit',$newlim);
    if (preg_match('|<info>(.*?)</info><body>(.*?)</body>|',$rec,$matchrec)) {
     $ok = true;
@@ -51,8 +51,8 @@ class DispItem { // info to construct a row of the display table
    $this->err = True; // rare, if ever
    dbgprint($dbg,"DispItem: Error 1\n");
    $reclen=strlen($rec);
-   dbgprint($dbg,"  DispItem reclen = $reclen\n");
-   return;
+   dbgprint($dbg,"  DispItem reclen = $reclen, oldlim=$oldlim, newlim=$newlim\n");
+  return;
   }
   $this->info = $matchrec[1];
   $this->html = $matchrec[2];
