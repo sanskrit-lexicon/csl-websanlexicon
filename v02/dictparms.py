@@ -39,7 +39,7 @@ alldictparms = {
   "dictaccent":False,
   "webtc2devatextoption":True,
   "dictwc":"https://www.worldcat.org/title/prin-vs-aptes-the-practical-sanskrit-english-dictionary/oclc/716419540&referer=brief_results",
-  "dictbe":u"V. S. Apte’s The practical Sanskrit-English dictionary (1957-<1979>) / ed. in chief P. K. Gode and C. G. Karve; K. V. Abhyankar. – Poona: Prasad Prakashan.",
+  "dictbe":u"V. S. Apte’s The practical Sanskrit-English dictionary (1957-1959) <br/>ed. in chief P. K. Gode and C. G. Karve; K. V. Abhyankar. – Poona: Prasad Prakashan.",
   "dicttitle":u"Apte Sanskrit Dictionary 1957",
  },
  "ap90": {
