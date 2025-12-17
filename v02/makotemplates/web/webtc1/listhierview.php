@@ -52,7 +52,7 @@ class ListHierView {
    $spc="";
   }
   // 10-27-2024 Don't show 'artificial' homonyms
-  if (in_array($hom2,array('1','2','3','4'))) {
+  if (in_array($hom2,array('1','2','3','4','5','6'))) {
   }else {
    $hom2 = "";
   }
