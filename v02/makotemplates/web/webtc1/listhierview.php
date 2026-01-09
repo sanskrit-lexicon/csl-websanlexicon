@@ -113,6 +113,8 @@ class ListHierView {
     }
    }
    $revsup0 = join(" ",$revsups);
+   $revsup = $revsup0;
+   /* shadow-revsup commented out 2026-01-08
    // 11-07-2024. 'shadow' rev, $revsup1
    $revsups1 = array();
    if (preg_match('|<listinfo n="sup1"/>|',$data2,$matches)) {
@@ -123,6 +125,7 @@ class ListHierView {
    }
    $revsup1 = join(" ",$revsups1);
    $revsup = join(" ", array($revsup0,$revsup1));
+   */
   }
   $out1 = "$spc<a  onclick='getWordAlt_keyboard(\"<SA>$key2</SA>\");'><span style='$c'$class><SA>$key2show</SA></span>$hom2</a>$xtraskip $revsup<br/>\n";
 

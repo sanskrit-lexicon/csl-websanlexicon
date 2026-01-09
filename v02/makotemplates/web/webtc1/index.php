@@ -36,7 +36,7 @@
  function keyboard_HandleChar(event) {
  //console.log('keyboard_handleChar:',event.keyCode);
  if (event.keyCode != 13) return;
- getWord_keyboard(false,false); //chg1
+ // getWord_keyboard(false,false); removed 01-08-2025, see issues/issue53
  if (event.stopPropagation) 
   event.stopPropagation();
  else event.cancelBubble = true;

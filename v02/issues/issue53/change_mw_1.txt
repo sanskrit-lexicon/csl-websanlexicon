@@ -1,0 +1,45 @@
+; <L>8251<pc>44,1<k1>antariti<k2>anta/r-iti<e>2
+30005 old <s>anta/r-iti</s> ¦ <lex>f.</lex> exclusion, <ls>MaitrS.</ls><info lex="f"/><info hui="b"/><listinfo n="sup1"/>
+;
+30005 new <s>anta/r-iti</s> ¦ <lex>f.</lex> exclusion, <ls>MaitrS.</ls><info lex="f"/><info hui="b"/>
+;---------------------------------------------------
+; <L>9681<pc>52,1<k1>apavarga<k2>apa-varga<e>1
+35429 old <s>apa-varga</s> ¦ &c. See <s>apa-√ vfj</s>.<info hui="a"/><listinfo n="sup1"/>
+;
+35429 new <s>apa-varga</s> ¦ &c. See <s>apa-√ vfj</s>.<info hui="a"/>
+;---------------------------------------------------
+; <L>26009<pc>149,2<k1>Ara<k2>Ara<h>1<e>1
+92183 old <hom>1.</hom> <s>Ara</s> ¦ <lex>n.</lex> brass, <ls>BhP. x, 41, 20</ls><info lex="n"/><listinfo n="sup1"/>
+;
+92183 new <hom>1.</hom> <s>Ara</s> ¦ <lex>n.</lex> brass, <ls>BhP. x, 41, 20</ls><info lex="n"/>
+;---------------------------------------------------
+; <L>26019<pc>149,2<k1>ArA<k2>ArA<e>1B
+92213 old <s>ArA</s> ¦ <lex>f.</lex> a shoemaker's awl or knife<info lex="f"/><listinfo n="sup1"/>
+;
+92213 new <s>ArA</s> ¦ <lex>f.</lex> a shoemaker's awl or knife<info lex="f"/>
+;---------------------------------------------------
+; <L>26030<pc>149,3<k1>Ara<k2>Ara<h>2<e>1
+92249 old <hom>2.</hom> <s>Ara</s> ¦ <lex>n.</lex> <ab>v.l.</ab> for <s>ara</s>, <ab>q.v.</ab>, a spoke, <ls>MBh. i, 1498</ls> (<ab>ed.</ab> <ab>Bomb.</ab> <ls n="MBh. (ed. Bomb.)">i, 33, 4</ls> reads <s>ara</s>). <info lex="n"/> <listinfo n="sup1"/>
+;
+92249 new <hom>2.</hom> <s>Ara</s> ¦ <lex>n.</lex> <ab>v.l.</ab> for <s>ara</s>, <ab>q.v.</ab>, a spoke, <ls>MBh. i, 1498</ls> (<ab>ed.</ab> <ab>Bomb.</ab> <ls n="MBh. (ed. Bomb.)">i, 33, 4</ls> reads <s>ara</s>). <info lex="n"/> 
+;---------------------------------------------------
+; <L>26199<pc>150,2<k1>ArAva<k2>A-rAva<e>1
+92842 old <s>A-rAva</s> ¦ See <hom>1.</hom> <s>A-</s> √ <hom>1.</hom> <s>ru</s>.<info hui="a"/><listinfo n="sup1"/>
+;
+92842 new <s>A-rAva</s> ¦ See <hom>1.</hom> <s>A-</s> √ <hom>1.</hom> <s>ru</s>.<info hui="a"/>
+;---------------------------------------------------
+; <L>59135<pc>327,1<k1>kzaya<k2>kza/ya<e>1
+202028 old <s>kza/ya</s> ¦ See √ <hom>1.</hom> <hom>2.</hom> and <hom>4.</hom> <s>kzi</s>.<info hui="a"/><listinfo n="rev1"/>
+;
+202028 new <s>kza/ya</s> ¦ See √ <hom>1.</hom> <hom>2.</hom> and <hom>4.</hom> <s>kzi</s>.<info hui="a"/>
+;---------------------------------------------------
+; <L>59273<pc>327,3<k1>kzaya<k2>kza/ya<h>2<e>2
+202472 old <hom>2.</hom> <s>kza/ya</s> ¦ <lex>mfn.</lex> dwelling, residing, <ls>RV. iii, 2, 13</ls>; <ls n="RV.">viii, 64, 4</ls><info lex="m:f:n"/><listinfo n="rev1"/>
+;
+202472 new <hom>2.</hom> <s>kza/ya</s> ¦ <lex>mfn.</lex> dwelling, residing, <ls>RV. iii, 2, 13</ls>; <ls n="RV.">viii, 64, 4</ls><info lex="m:f:n"/>
+;---------------------------------------------------
+; <L>100924.1<pc>515,1<k1>DvAnta<k2>DvAnta<e>1
+338278 old <s>DAnta</s> (or <s>DvAnta</s>?), ¦ mystical <ab>N.</ab> of the letter <s>n</s>, <ls>Up.</ls><info lex="n"/><listinfo n="sup1"/>
+;
+338278 new <s>DAnta</s> (or <s>DvAnta</s>?), ¦ mystical <ab>N.</ab> of the letter <s>n</s>, <ls>Up.</ls><info lex="n"/><info hui="a"/>
+;---------------------------------------------------
