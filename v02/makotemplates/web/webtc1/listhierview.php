@@ -127,6 +127,16 @@ class ListHierView {
    $revsup = join(" ", array($revsup0,$revsup1));
    */
   }
+  // experiment: show accents (and other markup) in list pane  2026
+  // by using the original 'key2' of xxx.xml  Do this only 
+  // for mw and when accent is 'yes'
+  if ($getParms->accent == 'yes') {
+   if (in_array($getParms->dict,array('mw'))) { 
+    if  (preg_match('|<key2>(.*?)</key2>|',$data2,$matches)) {
+     $key2show = $matches[1];
+    }
+   }
+  }
   $out1 = "$spc<a  onclick='getWordAlt_keyboard(\"<SA>$key2</SA>\");'><span style='$c'$class><SA>$key2show</SA></span>$hom2</a>$xtraskip $revsup<br/>\n";
 
   $table .= $out1;
