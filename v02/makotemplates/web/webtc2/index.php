@@ -182,6 +182,33 @@ Text Word:
   <div id="data">
   </div>
   <script type="text/javascript" src="main.js"> </script>
+<script type="text/javascript" src="../js/orphus.customized.js"></script>
+<script type="text/javascript">
+  $(window).on("load",function() {
+  var correctionsUrl = 'https://www.sanskrit-lexicon.uni-koeln.de/scans/csl-corrections/app/correction_form_response.php';
+  <?php 
+   require_once("../webtc/parm.php");
+   $getParms = new Parm();
+   $dict = $getParms->dict;
+   $key = $getParms->key;
+  ?>
+  var key = <?php echo "'$key'";?>;
+  var dict = <?php echo "'$dict'";?>;
+  //console.log('listview.php script: key=',key,'dict=',dict);
+  orphus.init({
+    correctionsUrl: correctionsUrl,
+    params: {
+      entry_hw: key,
+      entry_new: '',
+      entry_old: '',
+      entry_email: '',
+      entry_L: '',
+      entry_dict: dict,
+      entry_comment: '',
+    }
+  });
+ });
+</script>
 
 </body>
 </html>

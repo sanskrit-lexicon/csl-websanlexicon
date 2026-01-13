@@ -5,6 +5,7 @@
 *:web/images/encoding.gif:C
 *:web/js/jquery.cookie.js:C
 *:web/js/jquery.min.js:C
+*:web/js/orphus.customized.js:C
 *:web/mobile1/index.php:T
 *:web/mobile1/main.css:C
 ; Next so that web/sqlite directory will be created. We put in an empty file
