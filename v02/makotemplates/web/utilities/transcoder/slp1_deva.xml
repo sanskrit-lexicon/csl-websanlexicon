@@ -160,4 +160,8 @@
 <!-- DEVANAGARI SIGN SPACING CANDRABINDU -->
 <e> <s>INIT,SKT</s> <in>£</in> <out>\ua8f2</out> <cl>atom</cl> </e> 
 
+<!-- "˚" (U+02DA, Ring Above) [slp1] 
+to   “॰” (U+0970 Devanagari Abbreviation Sign) [Devanagari] & vice versa 
+-->
+<e> <s>INIT,SKT</s> <in>˚</in> <out>\u0970</out> <cl>atom</cl> </e> 
 </fsm>

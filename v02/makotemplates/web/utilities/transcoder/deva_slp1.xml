@@ -198,5 +198,9 @@
 <e> <s>INIT</s> <in>\u0901</in> <out>~</out></e>
 <!-- OM -->
 <e> <s>INIT</s> <in>\u0950</in> <out>o~</out></e>
+<!-- "˚" (U+02DA, Ring Above) [slp1] 
+to   “॰” (U+0970 Devanagari Abbreviation Sign) [Devanagari] & vice versa 
+-->
+<e> <s>INIT</s> <in>\u0970</in> <out>˚</out> </e> 
 
 </fsm>
