@@ -530,10 +530,8 @@ alldictparms = {
   "dictyear":"2025",
   "dictaccent":False,
   "webtc2devatextoption":False,
-  #"dictwc":"https://www.worldcat.org/title/halayudhas-abhidhanaratnamala-a-sanskrit-vocabulary/oclc/320893849",
-  # "dictbe":u"HALĀYUDHA & JOSHĪ JAYAŚAṄKARA , Halāyudhakśa (Abhidhānaratnamālā) of Halāyudha",
-  "dictwc":"TODO ", # **
-  "dictbe":u"TODO ", # **
+  "dictwc":"https://search.worldcat.org/title/255638305",
+  "dictbe":u"FRISH, O. (1956) Sanskrtská čítanka = Sanskritskaya khrestomatiya = Sanskrit Reader. In 2 vols. Vol. 2: Dictionary / ed. V. Porzhizka. Prague, Publishing House of the Czechoslovak Academy of Sciences.",
   "dicttitle":u"Frisch Sanskrit Reader Vocabulary, 1956",
  }
 
