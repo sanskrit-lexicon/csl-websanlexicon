@@ -3,8 +3,7 @@
   Identify and then delete these.
   python delete_empty_sqlite.py > delete_empty_sqlite.txt
 """
-import sys,re
-import codecs
+import sys, re
 import os
 # dictyear has all dictionary codes, with the 'year'.
 # This 'year' is required to locate the files
@@ -31,7 +30,7 @@ class wslRec(object):
  
 def init_wslRecs(filename):
  recs = []
- with codecs.open(filename,"r","utf-8") as f:
+  with open(filename,"r",encoding="utf-8") as f:
   for line in f:
    if line.startswith(';'):
     continue # comment
@@ -102,7 +101,7 @@ if __name__=="__main__":
    print('removing empty sqlite file',rec)
    os.remove(rec)
  exit(0)  # no output to fileout 
- with codecs.open(fileout,"w","utf-8") as f:
+  with open(fileout,"w",encoding="utf-8") as f:
   for code in outdir:
    for rec in outdir[code]:
     print('empty sqlite file',rec)

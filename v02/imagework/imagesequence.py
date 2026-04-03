@@ -1,6 +1,6 @@
 """ imagesequence.py
 """
-import sys,re,codecs
+import sys, re
 imagetypes = ['pdf','png','jpg']
 class Image(object):
  def __init__(self,line,dictlo):
@@ -242,7 +242,7 @@ def sequences(dobj):
  
 def one_dict(dictlo):
  pdffiles_filename = "../distinctfiles/%s/web/webtc/pdffiles.txt"%dictlo
- with codecs.open(pdffiles_filename,"r","utf-8") as f:
+  with open(pdffiles_filename,"r",encoding="utf-8") as f:
   recs = [Image(x,dictlo) for x in f]
  dobj = Dict(recs,dictlo)
  

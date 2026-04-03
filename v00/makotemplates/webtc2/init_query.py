@@ -9,11 +9,11 @@
   
 """
 from __future__ import print_function
-import sys, re,codecs
+import sys, re
 
 def make(filein,fileout):
- fp = codecs.open(filein,"r","utf-8")
- fpout = codecs.open(fileout,"w","utf-8")
+  fp = open(filein,"r",encoding="utf-8")
+  fpout = open(fileout,"w",encoding="utf-8")
 
  n=0;
  prevkey='';
