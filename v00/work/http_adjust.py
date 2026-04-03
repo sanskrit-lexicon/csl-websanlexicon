@@ -8,17 +8,17 @@
   This reference says protocol relative links not good:
   Ref2: https://www.paulirish.com/2010/the-protocol-relative-url/
 """
-import sys
+import codecs,sys
 
 def adjust_file(filename):
  ## change http:// to protocol-relative '//'
  old = 'http://'
  new = '//'
  changes = [] # list of changed line (old,new)
-  with open(filename,"r",encoding="utf-8") as f:
+ with codecs.open(filename,"r","utf-8") as f:
   lines = [x.rstrip('\r\n') for x in f]
  # overwrite filein
-  with open(filename,"w",encoding="utf-8") as f:
+ with codecs.open(filename,"w","utf-8") as f:
   for line in lines:
    line1 = line.replace(old,new)
    if line1 != line:
@@ -30,11 +30,11 @@ def adjust_file(filename):
 if __name__ == "__main__":
  filein = sys.argv[1]
  fileout = sys.argv[2]
-  with open(filein,"r",encoding="utf-8") as f:
+ with codecs.open(filein,"r","utf-8") as f:
   # read uncommented lines 
   lines = [x.rstrip('\r\n') for x in f if not x.startswith(';')]
  outarr=[]
-  with open(fileout,"w",encoding="utf-8") as flog:
+ flog = codecs.open(fileout,"w","utf-8")
  for filename in lines:
   changes = adjust_file(filename) 
   print(len(changes),filename)

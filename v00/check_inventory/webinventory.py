@@ -3,7 +3,8 @@
   Compare with the csl-websanlexicon inventory.
   python webinventory.py webinventory.txt
 """
-import sys, re
+import sys,re
+import codecs
 import os
 # dictyear has all dictionary codes, with the 'year'.
 # This 'year' is required to locate the files
@@ -32,7 +33,7 @@ class wslRec(object):
  
 def init_wslRecs(filename):
  recs = []
-  with open(filename,"r",encoding="utf-8") as f:
+ with codecs.open(filename,"r","utf-8") as f:
   for line in f:
    if line.startswith(';'):
     continue # comment
@@ -148,7 +149,7 @@ if __name__=="__main__":
   #if code != 'ACC':
   # continue #debug
   outdir[code] = getinfo(code,wslrecs)
-  with open(fileout,"w",encoding="utf-8") as f:
+ with codecs.open(fileout,"w","utf-8") as f:
   outline = 'STANDARD FONTS=' + standard_fonts
   f.write(outline + '\n')
   outline = '-'*60

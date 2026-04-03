@@ -5,9 +5,10 @@
    This avoids problems in webtc2/query_gather.php
 """
 import re,sys
+import codecs
 def make(filein,fileout):
-  f = open(filein,encoding='utf-8',mode='r')
-  fout = open(fileout,'w',encoding='utf-8')
+ f = codecs.open(filein,encoding='utf-8',mode='r')
+ fout = codecs.open(fileout,'w','utf-8')
  n = 0
  for line in f:
   line = line.rstrip()

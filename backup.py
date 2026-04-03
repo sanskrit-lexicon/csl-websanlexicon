@@ -5,6 +5,7 @@
 """
 from __future__ import print_function
 import sys,re
+import codecs
 import os.path,time
 from shutil import copyfile
 
@@ -35,7 +36,7 @@ if __name__=="__main__":
  # make newweb directory, and needed subdirectories
  makedirs(newweb)
  # read inventory. all paths assumed relative
-  with open(filein,"r",encoding="utf-8") as f:
+ with codecs.open(filein,"r","utf-8") as f:
   filenames = [x.rstrip('\r\n') for x in f if not x.startswith(';')]
  # copy
  copyfiles(filenames,oldweb,newweb)

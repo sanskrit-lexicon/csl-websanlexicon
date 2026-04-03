@@ -9,6 +9,7 @@
 """
 from __future__ import print_function
 import sys,re
+import codecs
 import os.path,time
 from shutil import copyfile
 from dictparms import alldictparms,microversion
@@ -62,7 +63,7 @@ def copyfiles(filenames,olddir,newdir):
 def previous_init_inventory(filein):
  # read inventory. all paths assumed relative
  ans = []
-  with open(filein,"r",encoding="utf-8") as f:
+ with codecs.open(filein,"r","utf-8") as f:
   for x in f:
    if x.startswith(';'): # comment
     continue 
@@ -90,7 +91,7 @@ def init_inventory_distinct(filein,dictcode):
         codes xxx.
  """
  ans = []
-  with open(filein,"r",encoding="utf-8") as f:
+ with codecs.open(filein,"r","utf-8") as f:
   for x in f:
    if x.startswith(';'): # comment
     continue 
@@ -161,7 +162,7 @@ if __name__=="__main__":
    newfile = "%s/%s" %(newdir,filename)
    template = Template(filename=filename1,input_encoding='utf-8',)
    renderedtext = template.render_unicode(**dictparms)
-    with open(newfile,"w",encoding="utf-8") as f:
+   with codecs.open(newfile,"w","utf-8") as f:
     f.write(renderedtext)
   elif category == 'D':
    filename1 = "%s/%s" %(olddir,filename)

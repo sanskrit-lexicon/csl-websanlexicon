@@ -1,6 +1,6 @@
 """ removedup.py
 """
-import sys, re
+import sys,re,codecs
 imagetypes = ['pdf','png','jpg']
 class Image(object):
  def __init__(self,line,dictlo):
@@ -77,7 +77,7 @@ def sequences(dobj):
  
 def one_dict(dictlo):
  pdffiles_filename = "../distinctfiles/%s/web/webtc/pdffiles.txt"%dictlo
-  with open(pdffiles_filename,"r",encoding="utf-8") as f:
+ with codecs.open(pdffiles_filename,"r","utf-8") as f:
   recs = [Image(x,dictlo) for x in f]
  dobj = Dict(recs,dictlo)
  
@@ -123,16 +123,16 @@ def remove_dups(dictlo):
   return
  print(dictlo,len(recs),'#dups=',len(dups),len(newrecs))
  pdffiles_filename = "../distinctfiles/%s/web/webtc/pdffiles.txt"%dictlo
-  with open(pdffiles_filename,"w",encoding="utf-8") as f:
+ with codecs.open(pdffiles_filename,"w","utf-8") as f:
   for rec in newrecs:
    line = rec.line
    f.write(line + '\n')
  print(len(newrecs),"records without dups written to",pdffiles_filename)
  fileout = '%s_dups.txt' %dictlo
-  with open(fileout,"w",encoding="utf-8") as f:
-   for rec in dups:
-    line = rec.line
-    f.write(line + '\n')
+ with codecs.open(fileout,"w","utf-8") as f:
+  for rec in dups:
+   line = rec.line
+   f.write(line + '\n')
  print(len(dups),"dups written to",fileout)
 
 def listdups():

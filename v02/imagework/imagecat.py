@@ -1,6 +1,6 @@
 """ imagecat.py
 """
-import sys, re
+import sys,re,codecs
 imagetypes = ['pdf','png','jpg']
 class Image(object):
  def __init__(self,line,dictlo):
@@ -46,7 +46,7 @@ class Dict(object):
 
 def one_dict(dictlo):
  pdffiles_filename = "../distinctfiles/%s/web/webtc/pdffiles.txt"%dictlo
-  with open(pdffiles_filename,"r",encoding="utf-8") as f:
+ with codecs.open(pdffiles_filename,"r","utf-8") as f:
   recs = [Image(x,dictlo) for x in f]
  dobj = Dict(recs,dictlo)
  
