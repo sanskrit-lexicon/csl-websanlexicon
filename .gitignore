@@ -4,3 +4,4 @@ temp*
 v00/mako/*
 v00/*.pyc
 v01/*
+*.DS_Store
