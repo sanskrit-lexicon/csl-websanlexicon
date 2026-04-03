@@ -9,7 +9,7 @@
   
 """
 from __future__ import print_function
-import sys, re,codecs
+import sys, re
 
 def make(filein,fileout):
  fp = open(filein,"r",encoding="utf-8")
@@ -74,10 +74,9 @@ def query_line(x):
  x = re.sub('<.*?>',' ',x)
  #x = preg_replace('|\{#.*?#\}|','',x) # A few sanskrit letters coded as HK
  
-
  # (d) Remove punctuation
- x = re.sub('\[Page.*?\]','',x)
- x = re.sub('[~_;., ?()\[\]]+',' ',x)
+ x = re.sub(r'\[Page.*?\]','',x)
+ x = re.sub(r'[~_;., ?()\[\]]+',' ',x)
  # (e) downcase
  x = x.lower()
  
