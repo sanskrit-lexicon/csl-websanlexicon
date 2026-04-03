@@ -16,7 +16,7 @@ from __future__ import print_function
 import sys, re,codecs
 
 def read_lines(filein):
- with codecs.open(filein,encoding='utf-8',mode='r') as f:
+ with open(filein,encoding='utf-8',mode='r') as f:
   lines = [x.rstrip('\r\n') for x in f]
  return lines
 
@@ -40,7 +40,7 @@ def write_changes(fileout,changes):
  for change in changes:
   for x in change.changeout:
    outarr.append(x)
- with codecs.open(fileout,"w","utf-8") as f:
+ with open(fileout,"w",encoding="utf-8") as f:
   for out in outarr:
    f.write(out+'\n')
  print(len(changes),"changes written to",fileout)

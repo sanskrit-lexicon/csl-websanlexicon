@@ -6,11 +6,10 @@ Creates query_dump.txt from xml file
 
 """
 import re,sys
-import codecs
 sanwords = [] # global
 def query_construct(filein,fileout):
- f = codecs.open(filein,encoding='utf-8',mode='r')
- fout = codecs.open(fileout,'w','utf-8')
+ f = open(filein,encoding='utf-8',mode='r')
+ fout = open(fileout,'w',encoding='utf-8')
  n=0
  prevkey=''
  lnum1=0

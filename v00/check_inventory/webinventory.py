@@ -4,7 +4,6 @@
   python webinventory.py webinventory.txt
 """
 import sys,re
-import codecs
 import os
 # dictyear has all dictionary codes, with the 'year'.
 # This 'year' is required to locate the files
@@ -33,7 +32,7 @@ class wslRec(object):
  
 def init_wslRecs(filename):
  recs = []
- with codecs.open(filename,"r","utf-8") as f:
+ with open(filename,"r",encoding="utf-8") as f:
   for line in f:
    if line.startswith(';'):
     continue # comment
@@ -125,21 +124,21 @@ def diff_details(recs):
    dirs[d].append(p)
   elif rec.path.find('pdfpages') != -1:
    print("debug diff_details: pdfpages",rec.path,rec.flag)
- dirnames = sorted(dirs.keys(),key = lambda(x): x.lower())
- for d in dirnames:
-  paths = dirs[d]
-  if d == 'web/pdfpages':
-   nd = len(dirs[d])
-   #nd = dirs[d][0]
-   fnames = '...'
-  else:
-   nd = len(dirs[d])
-   fnames = ', '.join(sorted(dirs[d],key = lambda(x): x.lower()))
-  if (d == 'web/fonts') and (fnames == standard_fonts):
-   fnames = '<STANDARD FONTS>'
-  outline = '%s:%s:%s' %(d,nd,fnames)
-  outlines.append(outline)
- return outlines
+  dirnames = sorted(dirs.keys(),key = lambda x: x.lower())
+  for d in dirnames:
+   paths = dirs[d]
+   if d == 'web/pdfpages':
+    nd = len(dirs[d])
+    #nd = dirs[d][0]
+    fnames = '...'
+   else:
+    nd = len(dirs[d])
+    fnames = ', '.join(sorted(dirs[d],key = lambda x: x.lower()))
+   if (d == 'web/fonts') and (fnames == standard_fonts):
+    fnames = '<STANDARD FONTS>'
+   outline = '%s:%s:%s' %(d,nd,fnames)
+   outlines.append(outline)
+  return outlines
 if __name__=="__main__":
  fileout = sys.argv[1] # output path
  wslrecs = init_wslRecs('../../../csl-websanlexicon/v00/inventory.txt')
@@ -149,7 +148,7 @@ if __name__=="__main__":
   #if code != 'ACC':
   # continue #debug
   outdir[code] = getinfo(code,wslrecs)
- with codecs.open(fileout,"w","utf-8") as f:
+ with open(fileout,"w",encoding="utf-8") as f:
   outline = 'STANDARD FONTS=' + standard_fonts
   f.write(outline + '\n')
   outline = '-'*60
