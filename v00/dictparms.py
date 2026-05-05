@@ -27,7 +27,7 @@ alldictparms = {
   "dictaccent":False,
   "webtc2devatextoption":True,
  },
-"cae": {
+ "cae": {
   "dictup":"CAE",
   "dictlo":"cae",
   "dictname":u"Cappeller Sanskrit-English Dictionary",
@@ -45,7 +45,7 @@ alldictparms = {
   "dictaccent":False,
   "webtc2devatextoption":False,
  },
-"pwg": {
+ "pwg": {
   "dictup":"PWG",
   "dictlo":"pwg",
   "dictname":u"Böhtlingk and Roth Grosses Petersburger Wörterbuch",
@@ -81,7 +81,7 @@ alldictparms = {
   "dictaccent":False,
   "webtc2devatextoption":False,
  },
-"pw": {
+ "pw": {
   "dictup":"PW",
   "dictlo":"pw",
   "dictname":u"Böhtlingk Sanskrit-Wörterbuch in kürzerer Fassung",
@@ -90,7 +90,7 @@ alldictparms = {
   "dictaccent":True,
   "webtc2devatextoption":True,
  },
-"ap90": {
+ "ap90": {
   "dictup":"AP90",
   "dictlo":"ap90",
   "dictname":u"Apte Practical Sanskrit-English Dictionary, 1890",
@@ -99,7 +99,7 @@ alldictparms = {
   "dictaccent":False,
   "webtc2devatextoption":True,
  },
-"ap": {
+ "ap": {
   "dictup":"AP",
   "dictlo":"ap",
   "dictname":u"Apte Practical Sanskrit-English Dictionary, revised edition, 1957",
@@ -108,7 +108,7 @@ alldictparms = {
   "dictaccent":False,
   "webtc2devatextoption":True,
  },
-"pd": {
+ "pd": {
   "dictup":"PD",
   "dictlo":"pd",
   "dictname":u"An Encyclopedic Dictionary of Sanskrit on Historical Principles",
@@ -117,7 +117,7 @@ alldictparms = {
   "dictaccent":True,
   "webtc2devatextoption":True,
  },
-"bhs": {
+ "bhs": {
   "dictup":"BHS",
   "dictlo":"bhs",
   "dictname":u"Edgerton Buddhist Hybrid Sanskrit Dictionary",
@@ -126,7 +126,7 @@ alldictparms = {
   "dictaccent":False,
   "webtc2devatextoption":False,
  },
-"wil": {
+ "wil": {
   "dictup":"WIL",
   "dictlo":"wil",
   "dictname":u"Wilson Sanskrit-English Dictionary",
@@ -135,7 +135,7 @@ alldictparms = {
   "dictaccent":False,
   "webtc2devatextoption":True,
  },
-"yat": {
+ "yat": {
   "dictup":"YAT",
   "dictlo":"yat",
   "dictname":u"Yates Sanskrit-English Dictionary",
@@ -144,7 +144,7 @@ alldictparms = {
   "dictaccent":False,
   "webtc2devatextoption":True,
  },
-"shs": {
+ "shs": {
   "dictup":"SHS",
   "dictlo":"shs",
   "dictname":u"Shabda-Sagara Sanskrit-English Dictionary",
@@ -153,7 +153,7 @@ alldictparms = {
   "dictaccent":False,
   "webtc2devatextoption":True,
  },
-"gst": {
+ "gst": {
   "dictup":"GST",
   "dictlo":"gst",
   "dictname":u"Goldstücker Sanskrit-English Dictionary",
@@ -162,7 +162,7 @@ alldictparms = {
   "dictaccent":False,
   "webtc2devatextoption":True,
  },
-"vcp": {
+ "vcp": {
   "dictup":"VCP",
   "dictlo":"vcp",
   "dictname":u"Vacaspatyam",
@@ -171,7 +171,7 @@ alldictparms = {
   "dictaccent":False,
   "webtc2devatextoption":True,
  },
-"ben": {
+ "ben": {
   "dictup":"BEN",
   "dictlo":"ben",
   "dictname":u"Benfey Sanskrit-English Dictionary",
@@ -180,7 +180,7 @@ alldictparms = {
   "dictaccent":False,
   "webtc2devatextoption":True,
  },
-"bop": {
+ "bop": {
   "dictup":"BOP",
   "dictlo":"bop",
   "dictname":u"Bopp Glossarium Sanscritum",
@@ -189,7 +189,7 @@ alldictparms = {
   "dictaccent":False,
   "webtc2devatextoption":True,
  },
-"bor": {
+ "bor": {
   "dictup":"BOR",
   "dictlo":"bor",
   "dictname":u"Borooah English-Sanskrit Dictionary",
@@ -198,7 +198,7 @@ alldictparms = {
   "dictaccent":False,
   "webtc2devatextoption":False,
  },
-"ccs": {
+ "ccs": {
   "dictup":"CCS",
   "dictlo":"ccs",
   "dictname":u"Cappeller Sanskrit Wörterbuch",
@@ -207,7 +207,7 @@ alldictparms = {
   "dictaccent":True,
   "webtc2devatextoption":True,
  },
-"md": {
+ "md": {
   "dictup":"MD",
   "dictlo":"md",
   "dictname":u"Macdonell Sanskrit-English Dictionary",
@@ -216,7 +216,7 @@ alldictparms = {
   "dictaccent":False,
   "webtc2devatextoption":False,
  },
-"mwe": {
+ "mwe": {
   "dictup":"MWE",
   "dictlo":"mwe",
   "dictname":u"Monier-Williams English-Sanskrit Dictionary",
@@ -225,7 +225,7 @@ alldictparms = {
   "dictaccent":False,
   "webtc2devatextoption":False,
  },
-"mw72": {
+ "mw72": {
   "dictup":"MW72",
   "dictlo":"mw72",
   "dictname":u"Monier-Williams Sanskrit-English Dictionary, 1872",
@@ -234,7 +234,7 @@ alldictparms = {
   "dictaccent":False,
   "webtc2devatextoption":False,
  },
-"ieg": {
+ "ieg": {
   "dictup":"IEG",
   "dictlo":"ieg",
   "dictname":u"Indian Epigraphical Glossary",
@@ -243,7 +243,7 @@ alldictparms = {
   "dictaccent":False,
   "webtc2devatextoption":False,
  },
-"inm": {
+ "inm": {
   "dictup":"INM",
   "dictlo":"inm",
   "dictname":u"Index to the Names in the Mahabharata",
@@ -252,7 +252,7 @@ alldictparms = {
   "dictaccent":False,
   "webtc2devatextoption":False,
  },
-"krm": {
+ "krm": {
   "dictup":"KRM",
   "dictlo":"krm",
   "dictname":u"Kṛdantarūpamālā",
@@ -261,7 +261,7 @@ alldictparms = {
   "dictaccent":False,
   "webtc2devatextoption":True,
  },
-"mci": {
+ "mci": {
   "dictup":"MCI",
   "dictlo":"mci",
   "dictname":u"Mehendale Mahabharata Cultural Index",
@@ -270,7 +270,7 @@ alldictparms = {
   "dictaccent":False,
   "webtc2devatextoption":False,
  },
-"pe": {
+ "pe": {
   "dictup":"PE",
   "dictlo":"pe",
   "dictname":u"Puranic Encyclopedia",
@@ -279,7 +279,7 @@ alldictparms = {
   "dictaccent":False,
   "webtc2devatextoption":False,
  },
-"pgn": {
+ "pgn": {
   "dictup":"PGN",
   "dictlo":"pgn",
   "dictname":u"Personal and Geographical Names in the Gupta Inscriptions",
@@ -288,7 +288,7 @@ alldictparms = {
   "dictaccent":False,
   "webtc2devatextoption":False,
  },
-"pui": {
+ "pui": {
   "dictup":"PUI",
   "dictlo":"pui",
   "dictname":u"The Purana Index",
@@ -297,7 +297,7 @@ alldictparms = {
   "dictaccent":False,
   "webtc2devatextoption":False,
  },
-"sch": {
+ "sch": {
   "dictup":"SCH",
   "dictlo":"sch",
   "dictname":u"Schmidt Nachträge zum Sanskrit-Wörterbuch",
@@ -306,7 +306,7 @@ alldictparms = {
   "dictaccent":False,
   "webtc2devatextoption":False,
  },
-"snp": {
+ "snp": {
   "dictup":"SNP",
   "dictlo":"snp",
   "dictname":u"Meulenbeld Sanskrit Names of Plants",
@@ -315,7 +315,7 @@ alldictparms = {
   "dictaccent":False,
   "webtc2devatextoption":False,
  },
-"vei": {
+ "vei": {
   "dictup":"VEI",
   "dictlo":"vei",
   "dictname":u"The Vedic Index of Names and Subjects",
@@ -324,7 +324,7 @@ alldictparms = {
   "dictaccent":False,
   "webtc2devatextoption":False,
  },
-"acc": {
+ "acc": {
   "dictup":"ACC",
   "dictlo":"acc",
   "dictname":u"Aufrecht Catalogus Catalogorum",
