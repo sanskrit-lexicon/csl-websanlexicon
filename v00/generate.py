@@ -20,17 +20,13 @@ def current_mmddyyyy():
  return sfx
 
 def makedirs(webdirname):
- if not os.path.exists(webdirname):
-  os.makedirs(webdirname)
- else:
-  print('makedirs WARNING: target directory already exists:',webdirname)
-  return
+ os.makedirs(webdirname, exist_ok=True)
  subdirs = ['images','js','sqlite',
   'utilities','utilities/transcoder',
   'mobile1','webtc','webtc2',
   'webtc1','webtc1/help','webtc1/help/images','webtc1/transcoderjs']
  for subdir in subdirs:
-  os.makedirs('%s/%s' %(webdirname,subdir))
+  os.makedirs('%s/%s' %(webdirname,subdir), exist_ok=True)
 
 def copyfiles(filenames,olddir,newdir):
  for filename in filenames:
