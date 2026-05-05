@@ -47,7 +47,7 @@ def makedirs(dirname,inventory):
    os.makedirs(dirname)
   #except FileExistsError:  # requires Python 3.3+
   # ref: https://stackoverflow.com/questions/273192/how-can-i-safely-create-a-nested-directory
-  except:  #IOError:
+  except OSError:
    # directory already exists
    #print(dirname,'already exists')
    pass
