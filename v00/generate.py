@@ -28,13 +28,6 @@ def makedirs(webdirname):
  for subdir in subdirs:
   os.makedirs('%s/%s' %(webdirname,subdir), exist_ok=True)
 
-def copyfiles(filenames,olddir,newdir):
- for filename in filenames:
-  src = '%s/%s' %(olddir,filename)
-  dst = '%s/%s' %(newdir,filename)
-  copyfile(src,dst)
- print(len(filenames),'copied from',olddir,'to',newdir)
-
 def init_inventory(filein):
  # read inventory. all paths assumed relative
  ans = []
