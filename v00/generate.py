@@ -3,8 +3,7 @@
  07-18-2018
   
 """
-from __future__ import print_function
-import sys,re
+import sys
 import os.path,time
 from shutil import copyfile
 from dictparms import alldictparms,microversion
