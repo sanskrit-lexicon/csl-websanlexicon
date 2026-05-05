@@ -10,7 +10,7 @@ class Image(object):
   self.name = parts[1]
   try:
    self.title = parts[2]
-  except:
+  except IndexError:
    # pw, stc, wil, gra
    assert dictlo in ['gra','pw','stc','wil']
    self.title = 'NONE'
