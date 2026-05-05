@@ -123,7 +123,10 @@ def expand_template(x,dictparms):
   print('expand_template. x=',x,'y=',y)
  return y
 
-if __name__=="__main__": 
+if __name__=="__main__":
+ if len(sys.argv) != 6:
+  print("usage: python generate.py <dictcode> <inventory> <makotemplates> <distinctfiles-dir> <output-dir>")
+  sys.exit(1)
  dictcode = sys.argv[1]
  filein = sys.argv[2]  # inventory.txt
  olddir_template = sys.argv[3]  # makotemplates
