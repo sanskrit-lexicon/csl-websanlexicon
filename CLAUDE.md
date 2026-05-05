@@ -94,8 +94,5 @@ cd <webdir>/webtc2
 sh init_query.sh
 ```
 
-## Notes on `install.py`
-`v00/install.py` is a **Python 2** script (uses `print` statements without parentheses) used for the original install-and-swap workflow on the Cologne server. It is **not used** in the v02 workflow. Do not update it to Python 3 without verifying it is still needed.
-
 ## Dependency
 Templates use the **Mako** templating library (`pip install mako`). The `v00/` directory historically included a local copy of Mako 1.0.7 to work around an old Python 2.6 installation on the Cologne server; this is no longer needed with Python 3.
