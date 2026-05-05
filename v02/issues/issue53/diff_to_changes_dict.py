@@ -12,8 +12,7 @@
   python updateByLine.py old.txt changes.txt new1.txt
   then new1.txt is same as new.txt.
 """
-from __future__ import print_function
-import sys, re,codecs
+import sys, re
 
 def read_lines(filein):
  with open(filein,encoding='utf-8',mode='r') as f:
