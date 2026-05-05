@@ -1,6 +1,6 @@
 """ imagecat.py
 """
-import sys,re,codecs
+import sys,re
 imagetypes = ['pdf','png','jpg']
 class Image(object):
  def __init__(self,line,dictlo):
