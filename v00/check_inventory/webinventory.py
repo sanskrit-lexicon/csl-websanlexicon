@@ -124,21 +124,21 @@ def diff_details(recs):
    dirs[d].append(p)
   elif rec.path.find('pdfpages') != -1:
    print("debug diff_details: pdfpages",rec.path,rec.flag)
-  dirnames = sorted(dirs.keys(),key = lambda x: x.lower())
-  for d in dirnames:
-   paths = dirs[d]
-   if d == 'web/pdfpages':
-    nd = len(dirs[d])
-    #nd = dirs[d][0]
-    fnames = '...'
-   else:
-    nd = len(dirs[d])
-    fnames = ', '.join(sorted(dirs[d],key = lambda x: x.lower()))
-   if (d == 'web/fonts') and (fnames == standard_fonts):
-    fnames = '<STANDARD FONTS>'
-   outline = '%s:%s:%s' %(d,nd,fnames)
-   outlines.append(outline)
-  return outlines
+ dirnames = sorted(dirs.keys(),key = lambda x: x.lower())
+ for d in dirnames:
+  paths = dirs[d]
+  if d == 'web/pdfpages':
+   nd = len(dirs[d])
+   #nd = dirs[d][0]
+   fnames = '...'
+  else:
+   nd = len(dirs[d])
+   fnames = ', '.join(sorted(dirs[d],key = lambda x: x.lower()))
+  if (d == 'web/fonts') and (fnames == standard_fonts):
+   fnames = '<STANDARD FONTS>'
+  outline = '%s:%s:%s' %(d,nd,fnames)
+  outlines.append(outline)
+ return outlines
 if __name__=="__main__":
  fileout = sys.argv[1] # output path
  wslrecs = init_wslRecs('../../../csl-websanlexicon/v00/inventory.txt')
