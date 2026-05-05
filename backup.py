@@ -4,7 +4,7 @@
   
 """
 from __future__ import print_function
-import sys,re
+import sys
 import os.path,time
 from shutil import copyfile
 

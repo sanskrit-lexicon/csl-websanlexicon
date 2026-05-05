@@ -31,7 +31,6 @@ class Image(object):
    exit(1)
 
 def get_imagetype(recs):
- t0 = recs[0].imagetype
  types = list(set([r.imagetype for r in recs]))
  if len(types) == 1:
   return types[0]
@@ -56,7 +55,6 @@ def refs_p_sequence(dictlo,refs,n1,n2,ninc,missing):
   elif refcalc != ref:
    print(dictlo,"problem at line %s: %s != %s" %(i+1,ref,refcalc))
    exit(1)
-  i = i + 1
  j = n + len(missing)-1
  refcalc = (n1 + (j*ninc))
  if refcalc != n2:
