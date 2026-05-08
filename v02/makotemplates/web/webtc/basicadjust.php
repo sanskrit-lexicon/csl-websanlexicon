@@ -3997,20 +3997,25 @@ public function htmlspecial($text) {
     $label = ($type == 'add') ? "Addition" : "Correction";
     
     if ($is_inside_s) {
-     $old_s = "<s>$old</s>";
-     $new_s = "<s>$new</s>";
+     $old_adj = ($this->accent != "yes") ? $this->remove_slp1_accent($old) : $old;
+     $new_adj = ($this->accent != "yes") ? $this->remove_slp1_accent($new) : $new;
+     $old_content = "<SA>$old_adj</SA>";
+     $new_content = "<SA>$new_adj</SA>";
+     $class = "sdata_siddhanta";
     } else {
-     $old_s = $old;
-     $new_s = $new;
+     $old_content = $old;
+     $new_content = $new;
+     $class = "";
     }
+    $cattr = ($class != "") ? " class='$class'" : "";
 
-    $ansold = "<span style='text-decoration:line-through;'><span class='sdata_siddhanta'>$old_s</span></span>";
+    $ansold = "<span style='text-decoration:line-through;'><span$cattr>$old_content</span></span>";
     
-    $ansnew = "<span class='sdata_siddhanta'></span> " .
+    $ansnew = "<span></span> " .
               "<abbr title='source=$src' style='color:red; display:inline; text-decoration:underline red dotted;'>" .
-              "<span class='sdata_siddhanta' style='color:red;'>[$label: </span></abbr> " .
-              "<span style='color:green;'><span class='sdata_siddhanta'>$new_s</span></span> " .
-              "<span style='color:red;'><span class='sdata_siddhanta' style='color:red;'>]</span></span>";
+              "<span style='color:red;'>[$label: </span></abbr> " .
+              "<span$cattr style='color:green;'>$new_content</span> " .
+              "<span style='color:red;'>]</span>";
     
     if ($is_inside_s) {
      $ans = "</s>$ansold $ansnew<s>";
@@ -4027,16 +4032,19 @@ public function htmlspecial($text) {
     $label = "Deletion";
     
     if ($is_inside_s) {
-     $old_s = "<s>$old</s>";
+     $old_adj = ($this->accent != "yes") ? $this->remove_slp1_accent($old) : $old;
+     $old_content = "<SA>$old_adj</SA>";
+     $class = "sdata_siddhanta";
     } else {
-     $old_s = $old;
+     $old_content = $old;
+     $class = "";
     }
+    $cattr = ($class != "") ? " class='$class'" : "";
 
     $ansold = "<abbr title='source=$src' style='color:red; display:inline;'>" .
-              "<span class='sdata_siddhanta' style='color:red;'>[$label: </span></abbr> " .
-              "<span style='text-decoration:line-through;'>" .
-              "<span class='sdata_siddhanta'>$old_s</span></span> " .
-              "<span style='color:red;'><span class='sdata_siddhanta' style='color:red;'>]</span></span>";
+              "<span style='color:red;'>[$label: </span></abbr> " .
+              "<span style='text-decoration:line-through;'><span$cattr>$old_content</span></span> " .
+              "<span style='color:red;'>]</span>";
     
     if ($is_inside_s) {
      $ans = "</s>$ansold<s>";
