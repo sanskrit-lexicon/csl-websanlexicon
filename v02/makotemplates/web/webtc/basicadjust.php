@@ -3720,17 +3720,17 @@ public function key2_callback($matches) {
  return $x;
 }
 public function remove_slp1_accent($y) {
-  #$y = preg_replace('|[\/\^\\\]|','',$y);
-  # udatta accent is '/'.  But '/' also used in xml tags (empty or closing)
-  # preadjust $y to replace these instances of '/' with '_'
-  #  assumes no tag name starts with '_', a safe assumption in this xml
-  $y = preg_replace('|</|','<_',$y);  
-  $y = preg_replace('|/>|','_>',$y);
-  $y = preg_replace('|[\/\^\\\]|','',$y);
-  # restore the '/' used in xml tags
-  $y = preg_replace('|<_|','</',$y);
-  $y = preg_replace('|_>|','/>',$y);
-  return $y;
+  $parts = preg_split('|(<.*?>)|', $y, -1, PREG_SPLIT_DELIM_CAPTURE);
+  $ans = "";
+  foreach ($parts as $part) {
+   if ($part === "") continue;
+   if ($part[0] == '<') {
+    $ans .= $part;
+   } else {
+    $ans .= preg_replace('|[\/\^\\\]|','',$part);
+   }
+  }
+  return $ans;
 }
  public function rgveda_verse_modern($gra) {
  /*Github user SergeA
@@ -3962,11 +3962,12 @@ public function htmlspecial($text) {
  
  public function s_chg_callback($matches) {
   $content = $matches[1];
+  if ($this->accent != "yes") {
+   $content = $this->remove_slp1_accent($content);
+  }
   // Handle <chg> tags inside this <s> block
   $content = preg_replace_callback('|<chg (.*?)>(.*?)</chg>|',array($this,"chg_markup_inside"),$content);
-  // Then do the normal s_callback processing
-  $m = array($matches[0], $content);
-  return $this->s_callback($m);
+  return "<s>$content</s>";
  }
 
  public function chg_markup_inside($matches) {
@@ -4012,7 +4013,7 @@ public function htmlspecial($text) {
     } else {
      $tooltip = "source=$src";
     }
-    $tooltip = htmlspecialchars($tooltip, ENT_QUOTES);
+    $tooltip = $this->htmlspecial($tooltip);
 
     if ($is_inside_s) {
      $old_adj = ($this->accent != "yes") ? $this->remove_slp1_accent($old) : $old;
@@ -4074,7 +4075,7 @@ public function htmlspecial($text) {
     } else {
      $tooltip = "source=$src";
     }
-    $tooltip = htmlspecialchars($tooltip, ENT_QUOTES);
+    $tooltip = $this->htmlspecial($tooltip);
 
     $ansold = "<abbr title='$tooltip' style='color:red; display:inline;'>" .
               "<span style='color:red;'>[$label: </span></abbr> " .
