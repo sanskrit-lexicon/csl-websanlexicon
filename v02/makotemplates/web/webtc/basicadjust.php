@@ -84,7 +84,7 @@ class BasicAdjust {
   // Pass 1: Handle <chg> tags inside <s> blocks
   $line = preg_replace_callback('|<s>(.*?)</s>|',array($this,"s_chg_callback"),$line);
   // Pass 2: Handle <chg> tags outside <s> blocks
-  $line = preg_replace_callback('|<chg +type="(.*?)" *(?:n="(.*?)")? *src="(.*?)">(.*?)</chg>|',array($this,"chg_markup_outside"),$line);
+  $line = preg_replace_callback('|<chg (.*?)>(.*?)</chg>|',array($this,"chg_markup_outside"),$line);
   $line = preg_replace_callback('|<info vn="(.*?)"/>|',"BasicAdjust::infovn_markup",$line);
             
   // $line = preg_replace_callback('|<s>(.*?)</s>|','BasicAdjust::s_callback',$line);
@@ -3963,7 +3963,7 @@ public function htmlspecial($text) {
  public function s_chg_callback($matches) {
   $content = $matches[1];
   // Handle <chg> tags inside this <s> block
-  $content = preg_replace_callback('|<chg +type="(.*?)" *(?:n="(.*?)")? *src="(.*?)">(.*?)</chg>|',array($this,"chg_markup_inside"),$content);
+  $content = preg_replace_callback('|<chg (.*?)>(.*?)</chg>|',array($this,"chg_markup_inside"),$content);
   // Then do the normal s_callback processing
   $m = array($matches[0], $content);
   return $this->s_callback($m);
@@ -3978,16 +3978,17 @@ public function htmlspecial($text) {
  }
 
  public function chg_markup_helper($matches, $is_inside_s) {
-  /* <chg type="TYPE" n="CHGID" src="SRC">{chgdata}</chg>
-    attrib:  ' type="TYPE" n="CHGID" src="SRC"
-    The n attribute is optional (May 2026)
-  */
-  $dbg = false;
-  $x = $matches[0]; // full <chg>Z</chg> string
-  $type = $matches[1];
-  $chgid = $matches[2];
-  $src = $matches[3];
-  $chgdata = $matches[4];
+  $attribs_str = $matches[1];
+  $chgdata = $matches[2];
+
+  $type = ""; if (preg_match('/type="(.*?)"/', $attribs_str, $m)) { $type = $m[1]; }
+  $chgid = ""; if (preg_match('/n="(.*?)"/', $attribs_str, $m)) { $chgid = $m[1]; }
+  $src = ""; if (preg_match('/src="(.*?)"/', $attribs_str, $m)) { $src = $m[1]; }
+  $date = ""; if (preg_match('/date="(.*?)"/', $attribs_str, $m)) { $date = $m[1]; }
+  $user = ""; if (preg_match('/user="(.*?)"/', $attribs_str, $m)) { $user = $m[1]; }
+  $href = ""; if (preg_match('/href="(.*?)"/', $attribs_str, $m)) { $href = $m[1]; }
+  $note = ""; if (preg_match('/note="(.*?)"/', $attribs_str, $m)) { $note = $m[1]; }
+
   dbgprint($dbg,"chg_markup_helper: type=$type, chgid=$chgid, src=$src\n  chgdata=$chgdata\n");
   
   if (($type == 'chg') || ($type == 'add')) {
@@ -3996,6 +3997,23 @@ public function htmlspecial($text) {
     $new = $matches1[2];
     $label = ($type == 'add') ? "Addition" : "Correction";
     
+    if ($date != "") {
+     if ($user != "") {
+      $tooltip = "$label submitted by $user on $date.";
+     } else {
+      $tooltip = "$label submitted on $date.";
+     }
+     if ($href != "") {
+      $tooltip .= " Reference : $href.";
+     }
+     if ($note != "") {
+      $tooltip .= " Note : $note.";
+     }
+    } else {
+     $tooltip = "source=$src";
+    }
+    $tooltip = htmlspecialchars($tooltip, ENT_QUOTES);
+
     if ($is_inside_s) {
      $old_adj = ($this->accent != "yes") ? $this->remove_slp1_accent($old) : $old;
      $new_adj = ($this->accent != "yes") ? $this->remove_slp1_accent($new) : $new;
@@ -4012,7 +4030,7 @@ public function htmlspecial($text) {
     $ansold = "<span style='text-decoration:line-through;'><span$cattr>$old_content</span></span>";
     
     $ansnew = "<span></span> " .
-              "<abbr title='source=$src' style='color:red; display:inline; text-decoration:underline red dotted;'>" .
+              "<abbr title='$tooltip' style='color:red; display:inline; text-decoration:underline red dotted;'>" .
               "<span style='color:red;'>[$label: </span></abbr> " .
               "<span$cattr style='color:green;'>$new_content</span> " .
               "<span style='color:red;'>]</span>";
@@ -4041,7 +4059,24 @@ public function htmlspecial($text) {
     }
     $cattr = ($class != "") ? " class='$class'" : "";
 
-    $ansold = "<abbr title='source=$src' style='color:red; display:inline;'>" .
+    if ($date != "") {
+     if ($user != "") {
+      $tooltip = "$label submitted by $user on $date.";
+     } else {
+      $tooltip = "$label submitted on $date.";
+     }
+     if ($href != "") {
+      $tooltip .= " Reference : $href.";
+     }
+     if ($note != "") {
+      $tooltip .= " Note : $note.";
+     }
+    } else {
+     $tooltip = "source=$src";
+    }
+    $tooltip = htmlspecialchars($tooltip, ENT_QUOTES);
+
+    $ansold = "<abbr title='$tooltip' style='color:red; display:inline;'>" .
               "<span style='color:red;'>[$label: </span></abbr> " .
               "<span style='text-decoration:line-through;'><span$cattr>$old_content</span></span> " .
               "<span style='color:red;'>]</span>";
