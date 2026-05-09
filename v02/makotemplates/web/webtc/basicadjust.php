@@ -4030,9 +4030,14 @@ public function htmlspecial($text) {
 
     $ansold = "<span style='text-decoration:line-through;'><span$cattr>$old_content</span></span>";
     
+    $label_html = "[$label: ";
+    if ($href != "") {
+     $label_html = "<a href='$href' target='_blank' style='color:red; text-decoration:none;'>$label_html</a>";
+    }
+
     $ansnew = "<span></span> " .
               "<abbr title='$tooltip' style='color:red; display:inline; text-decoration:underline red dotted;'>" .
-              "<span style='color:red;'>[$label: </span></abbr> " .
+              "<span style='color:red;'>$label_html</span></abbr> " .
               "<span$cattr style='color:green;'>$new_content</span> " .
               "<span style='color:red;'>]</span>";
     
@@ -4077,8 +4082,13 @@ public function htmlspecial($text) {
     }
     $tooltip = $this->htmlspecial($tooltip);
 
-    $ansold = "<abbr title='$tooltip' style='color:red; display:inline;'>" .
-              "<span style='color:red;'>[$label: </span></abbr> " .
+    $label_html = "[$label: ";
+    if ($href != "") {
+     $label_html = "<a href='$href' target='_blank' style='color:red; text-decoration:none;'>$label_html</a>";
+    }
+
+    $ansold = "<abbr title='$tooltip' style='color:red; display:inline; text-decoration:underline red dotted;'>" .
+              "<span style='color:red;'>$label_html</span></abbr> " .
               "<span style='text-decoration:line-through;'><span$cattr>$old_content</span></span> " .
               "<span style='color:red;'>]</span>";
     
