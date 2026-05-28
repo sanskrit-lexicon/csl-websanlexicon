@@ -5,3 +5,7 @@ v00/mako/*
 v00/*.pyc
 v01/*
 *.DS_Store
+
+# audit sidecars
+.contributing_old.md
+.contributing_audit.txt
