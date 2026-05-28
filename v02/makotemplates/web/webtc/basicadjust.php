@@ -34,7 +34,7 @@ class BasicAdjust {
   if (in_array($dict,array('pwg','pw','pwkvn'))) {
    $this->dal_auth = new Dal($dict,"bib");  # pwgbib
    dbgprint(false,"basicadjust: bib file open? " . $this->dal_auth->status ."\n");
-  }else if (in_array($dict,array('mw','ap90','ben','sch','gra','bhs','ap'))){
+  }else if (in_array($dict,array('mw','ap90','ben','sch','gra','bhs','ap','lrv','ae'))){
    $this->dal_auth = new Dal($dict,"authtooltips");
   }else {
    $this->dal_auth = null;
@@ -77,13 +77,23 @@ class BasicAdjust {
  } else {
  // All other dictionaries
  $line = preg_replace('/¦/',' ',$line);
- // chg_markup currently only applies to gra dictionary
- // Nov. 2024. Also used in mw dictionary
- $line = preg_replace_callback('|<chg +type="(.*?)" +n="(.*?)" src="(.*?)">(.*?)</chg>|',"BasicAdjust::chg_markup",$line);
- $line = preg_replace_callback('|<info vn="(.*?)"/>|',"BasicAdjust::infovn_markup",$line);
-           
- $line = preg_replace_callback('|<s>(.*?)</s>|','BasicAdjust::s_callback',$line);
- $line = preg_replace_callback('|<key2>(.*?)</key2>|','BasicAdjust::key2_callback',$line);
+ if ($this->getParms->dict == "wil") {
+  $line = preg_replace('~<lex.*?</lex>(?:(?!<lex|<div|</body>).)*~s', '<div n="1">$0</div>', $line);
+ }
+  // chg_markup currently only applies to gra dictionary
+  // Nov. 2024. Also used in mw dictionary
+  // May 2026. Also used in lrv dictionary
+  // Use a two-pass approach to handle <chg> inside and outside <s>
+  // Pass 1: Handle <chg> tags inside <s> blocks
+  $line = preg_replace_callback('|<s>(.*?)</s>|',array($this,"s_chg_callback"),$line);
+  // Pass 2: Handle <chg> tags outside <s> blocks
+  $line = preg_replace_callback('|<chg (.*?)>(.*?)</chg>|',array($this,"chg_markup_outside"),$line);
+  $line = preg_replace_callback('|<info vn="(.*?)"/>|',"BasicAdjust::infovn_markup",$line);
+            
+  // $line = preg_replace_callback('|<s>(.*?)</s>|','BasicAdjust::s_callback',$line);
+  // s_callback is now handled via s_chg_callback in Pass 1 above for LRV
+  $line = preg_replace_callback('|<key2>(.*?)</key2>|','BasicAdjust::key2_callback',$line);
+
  //$line = preg_replace("|\[Page.*?\]|",  "<pb>$0</pb>",$line);
  $line = preg_replace("|\[(Page.*?)\]|",  "<pb>$1</pb>",$line);
 
@@ -110,7 +120,7 @@ class BasicAdjust {
   
       
  }else if (in_array($this->getParms->dict,
-           array('mw','ap90','ben','sch','gra','bhs','ap'))){
+           array('mw','ap90','ben','sch','gra','bhs','ap','lrv','ae'))){
   //dbgprint(true,"before ls_callback_mw: $line\n");
   $line = preg_replace_callback('|<ls(.*?)>(.*?)</ls>|',
       "BasicAdjust::ls_callback_mw",$line);
@@ -216,7 +226,7 @@ class BasicAdjust {
   $dicts_with_h = array("ap90", "bhs", "bop", "cae", "ccs",
                         "gra", "gst", "inm", "mci", "md",
 			"mw", "mw72", "pe", "pui", "pwg","pw","pwkvn",
-			"stc", "vei", "lan","ap");
+			"stc", "vei", "lan","ap","lrv");
   if (in_array($this->getParms->dict, $dicts_with_h)) {
    $line = preg_replace("|<key2>(.*?)<hom>.*?</hom>(.*?<body>)|","<key2>$1$2",$line);
   }
@@ -311,6 +321,10 @@ class BasicAdjust {
    # also, remove breaks.  This is a display choice, maybe not for acc.txt,xml
    $line = preg_replace('|- <br/>|','',$line);
    $line = preg_replace('|<br/>|',' ',$line);
+  } else if ($this->getParms->dict == "wil") {
+   $line = preg_replace('|\.²([0-9]+)|', '\1', $line);
+   $line = preg_replace('| *\.²([a-z]+)|', '</div><div n="2">\1', $line);
+   $line = preg_replace('| *<ab( n=[\x27\x22][^\x27\x22]*[\x27\x22])?>E\.</ab>|', '</div><div n="1"><ab\1>E.</ab>', $line);
   }
   if ($this->getParms->dict == "mw")  {
    // 11-13-2018 make bold abbreviations following <div n="vp">
@@ -1453,7 +1467,7 @@ public function ls_callback_mw($matches) {
    list($cid,$code,$title,$type) = $rec;
    $text = "$title ($type)";
    dbgprint($dbg,"ls_matchabbr returns: cid=$cid, code=$code, title=$title, type=$type\n");
-  } else if (in_array($this->dict,array('ap90','ben','sch','gra','bhs','ap'))) {
+  } else if (in_array($this->dict,array('ap90','ben','sch','gra','bhs','ap','lrv','ae'))) {
    list($code,$text) = $rec;
   }
   // be sure there is no xml in the text
@@ -1491,7 +1505,9 @@ public function ls_callback_mw($matches) {
   //dbgprint(true,"before ls_callback_mw_href, dict=" . $this->dict . "\n");
   if ($this->dict == 'mw') {
    $href = $this->ls_callback_mw_href($code,$n,$data);
-  }else if (in_array($this->dict,array('ap','ap90'))) {
+  }else if (in_array($this->dict,array('ap'))) {
+   $href = $this->ls_callback_ap_href($code,$n,$data);
+  }else if (in_array($this->dict,array('ap90'))) {
    $href = $this->ls_callback_ap90_href($code,$n,$data);
   }else if ($this->dict == 'gra') {
    $href = $this->ls_callback_mw_href($code,$n,$data);
@@ -3308,21 +3324,17 @@ public function romanToInt($s0) {
  }
  return $result;
 }
-
-public function ls_callback_ap90_href($code,$n,$data) {
- // for both ap90 and ap
+public function ls_callback_ap_href($code,$n,$data) {
+ // for ap.  Uses ap90_
+ // uses ls_callback_ap90_href_helper
  $href = null; // default if no success
- if ($this->dict == 'ap90') {
-  return $href;  // 05-01-2026  ap90 links have not been checked
- }
  $dbg = false;
- dbgprint($dbg,"ls_callback_ap90_href. code='$code', n='$n', data='$data'\n");
+ dbgprint($dbg,"ls_callback_ap_href. code='$code', n='$n', data='$data'\n");
  if ($n == '') {
   $data1 = $data;
  }else {
   $data1 = "$n $data";
  }
-
  if ($code == 'R.') {
   // Raghuvaṃśa 2 parameters 
   if (!preg_match('|^(.*?)[.] *([0-9]+)[.] +([0-9]+)(.*)$|',$data1,$matches)) {
@@ -3534,6 +3546,138 @@ public function ls_callback_ap90_href($code,$n,$data) {
 
  return $href; 
 }
+public function ls_callback_ap90_href($code,$n,$data) {
+ // for ap90
+ $href = null; // default if no success
+ $dbg = false;
+ dbgprint($dbg,"ls_callback_ap90_href. code='$code', n='$n', data='$data'\n");
+ if ($n == '') {
+  $data1 = $data;
+ }else {
+  $data1 = "$n $data";
+ }
+
+ if ($code == 'R.') {
+  // Raghuvaṃśa 2 parameters 
+  if (!preg_match('|^(.*?)[.] *([0-9]+)[.] +([0-9]+)(.*)$|',$data1,$matches)) {
+   return $href;
+  }
+  $a1 = (int)$matches[2];
+  $a2 = (int)$matches[3];
+  $dir = "https://sanskrit-lexicon-scans.github.io/raghuvamsa/app1?";
+  $href = "$dir" . "$a1,$a2";
+  return $href;
+ }
+
+ if ($code == 'Ms.') {
+  // Manusmrti 2 parameters .
+  if (!preg_match('|^(.*?)[.] +([0-9]+)[.] +([0-9]+)(.*)$|',$data1,$matches)) {
+   return $href;
+  }
+  $a1 = (int)$matches[2];
+  $a2 = (int)$matches[3];
+  $dir = "https://sanskrit-lexicon-scans.github.io/manu/index.html?";
+  $href = "$dir" . "$a1,$a2";
+  return $href;
+ }
+
+ if ($code == 'Ku.') { // Kumārasambhava 2 parameters 
+  $dir = "https://sanskrit-lexicon-scans.github.io/kumaras/app1?";
+  $href = $this->ls_callback_ap90_href_helper(2,$data1,$dir);
+  return $href;
+ }
+ if ($code == 'Bk.') { // Bhaṭṭikāvya, 2 parameters 
+  $dir = "https://sanskrit-lexicon-scans.github.io/bhattikavya/app1?";
+  $href = $this->ls_callback_ap90_href_helper(2,$data1,$dir);
+  return $href;
+ }
+ if ($code == 'Bg.') { // Bhagavadgītā, 2 parameters 
+  $dir = "https://sanskrit-lexicon-scans.github.io/bhagavadgita/app1?";
+  $href = $this->ls_callback_ap90_href_helper(2,$data1,$dir);
+  return $href;
+ }
+
+ if (in_array($code,array('Rv.'))) {
+  // #. #. #  (three numbers, or 2 numbers )
+  if (!preg_match('|^(.*?)[.] *([0-9]+)[.] +([0-9]+)[.] +([0-9]+)(.*)$|',$data1,$matches)) {
+   if (!preg_match('|^(.*?)[.] *([0-9]+)[.] +([0-9]+)(.*)$|',$data1,$matches)) {
+    dbgprint($dbg,"NO MATCH: '$data1'\n");
+    return $href;
+   } else {
+    $matches[4] = '1';
+   }
+  }
+  $code0 = $matches[1];
+  $imandala = (int)$matches[2];
+  $ihymn = (int)$matches[3];
+  $iverse = (int)$matches[4];
+  $pfx = '??';
+  if ($code == 'Rv.') {$pfx = 'rv'; }
+  dbgprint($dbg,"ls_callback_ap90_href. $code0, $mandala, $ihymn, $iverse\n");
+  $hymnfilepfx = sprintf("%s%02d.%03d",$pfx,$imandala,$ihymn);
+  $hymnfile = "$hymnfilepfx.html";
+  $versesfx = sprintf("%02d",$iverse);
+  $anchor = "$hymnfilepfx.$versesfx";
+  $versesfx = sprintf("%02d",$iverse);
+  $anchor = "$hymnfilepfx.$versesfx";
+  $dir = sprintf("https://sanskrit-lexicon.github.io/%slinks/%shymns",$pfx,$pfx);
+  $href = "$dir/$hymnfile#$anchor";
+  return $href;
+ } // end for rv
+ 
+ if ($code == 'P.') { // Pāṇiniʼs Aṣṭādhyāyī, 3 parms, 1st parm Roman
+  if(!preg_match('|^(.*?)[.] *([IV]+)[.] +([0-9]+)[.] +([0-9]+)(.*)$|',$data1,$matches)) {
+    return $href;
+   }
+   $code0 = $matches[1];
+   $roman = $matches[2];  // upper-case
+   $romanlo = strtolower($roman);
+   $ic = $this->roman_int($romanlo);
+   $is = (int)$matches[3];
+   $iv = (int)$matches[4];
+   $dir = "https://ashtadhyayi.com/sutraani";
+   $href = "$dir/$ic/$is/$iv";
+   return $href;
+ }
+
+ if ($code == 'Y.') { // Yājñavalkya Smṛti, 2 parameters 
+  $dir = "https://sanskrit-lexicon-scans.github.io/yajnavalkya/app1?";
+  $href = $this->ls_callback_ap90_href_helper(2,$data1,$dir);
+  return $href;
+ }
+
+ if ($code == 'S. D.') { // Sāhityadarpaṇa 1 parameter 
+  $dir = "https://sanskrit-lexicon-scans.github.io/sahityadarpana/app1?";
+  $href = $this->ls_callback_ap90_href_helper(1,$data1,$dir);
+  return $href;
+ }
+ 
+ if ($code == 'Rāj. T.') { // Rāj. T. 2 parameters 
+  $dir = "https://sanskrit-lexicon-scans.github.io/rajatar/app1?";
+  $href = $this->ls_callback_ap90_href_helper(2,$data1,$dir);
+  return $href;
+ }
+
+ if ($code == 'Ks.') { // Kathāsaritsāgara, 2 parameters
+  $dir = "https://sanskrit-lexicon-scans.github.io/kss/index.html?";
+  $href = $this->ls_callback_ap90_href_helper(2,$data1,$dir);
+  return $href;
+ }
+
+ if ($code == 'Bṛ. S.') { // Varāhamihiraʼs Bṛhatsamhitā, 2 parameters
+  $dir = "https://sanskrit-lexicon-scans.github.io/brihatsam/app1?";
+  $href = $this->ls_callback_ap90_href_helper(2,$data1,$dir);
+  return $href;
+ }
+
+ if ($code == 'Nala.') { // Nalopākhyāna, 2 parameters
+  $dir = "https://sanskrit-lexicon-scans.github.io/bchrest1/app1?";
+  $href = $this->ls_callback_ap90_href_helper(2,$data1,$dir);
+  return $href;
+ }
+
+ return $href; 
+}
  public function ls_callback_ap90_href_helper($nparm,$data1,$dir) {
   $href = null;
   if ($nparm == 1) {
@@ -3713,17 +3857,17 @@ public function key2_callback($matches) {
  return $x;
 }
 public function remove_slp1_accent($y) {
-  #$y = preg_replace('|[\/\^\\\]|','',$y);
-  # udatta accent is '/'.  But '/' also used in xml tags (empty or closing)
-  # preadjust $y to replace these instances of '/' with '_'
-  #  assumes no tag name starts with '_', a safe assumption in this xml
-  $y = preg_replace('|</|','<_',$y);  
-  $y = preg_replace('|/>|','_>',$y);
-  $y = preg_replace('|[\/\^\\\]|','',$y);
-  # restore the '/' used in xml tags
-  $y = preg_replace('|<_|','</',$y);
-  $y = preg_replace('|_>|','/>',$y);
-  return $y;
+  $parts = preg_split('|(<.*?>)|', $y, -1, PREG_SPLIT_DELIM_CAPTURE);
+  $ans = "";
+  foreach ($parts as $part) {
+   if ($part === "") continue;
+   if ($part[0] == '<') {
+    $ans .= $part;
+   } else {
+    $ans .= preg_replace('|[\/\^\\\]|','',$part);
+   }
+  }
+  return $ans;
 }
  public function rgveda_verse_modern($gra) {
  /*Github user SergeA
@@ -3953,53 +4097,154 @@ public function htmlspecial($text) {
   return $ans;
  }
  
- public function chg_markup($matches) {
- /* <chg type="TYPE" n="CHGID" src="SRC">{chgdata}</chg>
-   attrib:  ' type="TYPE" n="CHGID" src="SRC"
- */
- $dbg = false;
- $x = $matches[0]; // full <chg>Z</chg> string
- $type = $matches[1];
- $chgid = $matches[2];
- $src = $matches[3];
- $chgdata = $matches[4];
- dbgprint($dbg,"chg_markup: type=$type, chgid=$chgid, src=$src\n  chgdata=$chgdata\n");
- if ($type == 'chg') {
-  // $anshead = "CHG type=$type, chgid=$chgid, src=$src";
-  $anshead = '';
-  if (preg_match('|<old>(.*?)</old> *<new>(.*?)</new>|',$chgdata,$matches1)) {
-   $old = $matches1[1];
-   $new = $matches1[2];
-   $styleold = 'text-decoration:line-through;';
-   $ansold = "<span style='$styleold'>$old</span>";
-   $stylenew = 'color:green;';
-   $msgstyle = "color:red; display:inline; text-decoration:underline red dotted;";
-   $ansnew = "<abbr title='source=$src' style='$msgstyle'>[Correction: </abbr><span style='$stylenew'>$new</span><span style='color:red;'>]</span>";
-   $ans = "$anshead : $ansold $ansnew";
-   dbgprint($dbg,"ansold=$ansold\nansnew=$ansnew\n");
-   return $ans;
-  }else {
-   return $x; // form not recognized
+ public function s_chg_callback($matches) {
+  $content = $matches[1];
+  if ($this->accent != "yes") {
+   $content = $this->remove_slp1_accent($content);
   }
- }else  if ($type == 'del') {
-  // $anshead = "CHG type=$type, chgid=$chgid, src=$src";
-  $anshead = '';
-  if (preg_match('|<old>(.*?)</old>|',$chgdata,$matches1)) {
-   $old = $matches1[1];
-   $styleold = 'text-decoration:line-through;';
-
-   $msgstyle = "color:red; display:inline;";
-   $ansold = "<abbr title='source=$src' style='$msgstyle'>Deletion: </abbr><span style='$styleold'>$old</span><span style='color:red;'>]</span>";
-   $ans = "$ansold";
-   dbgprint($dbg,"Deletion: ansold=$ansold\n");
-   return $ans;
-  }else {
-   return $x; // form not recognized
-  }
- }else { // unknown type
-  return $x; 
+  // Handle <chg> tags inside this <s> block
+  $content = preg_replace_callback('|<chg (.*?)>(.*?)</chg>|',array($this,"chg_markup_inside"),$content);
+  return "<s>$content</s>";
  }
- $dbg=false;
+
+ public function chg_markup_inside($matches) {
+  return $this->chg_markup_helper($matches, true);
+ }
+
+ public function chg_markup_outside($matches) {
+  return $this->chg_markup_helper($matches, false);
+ }
+
+ public function chg_markup_helper($matches, $is_inside_s) {
+  $attribs_str = $matches[1];
+  $chgdata = $matches[2];
+
+  $type = ""; if (preg_match('/type="(.*?)"/', $attribs_str, $m)) { $type = $m[1]; }
+  $chgid = ""; if (preg_match('/n="(.*?)"/', $attribs_str, $m)) { $chgid = $m[1]; }
+  $src = ""; if (preg_match('/src="(.*?)"/', $attribs_str, $m)) { $src = $m[1]; }
+  $date = ""; if (preg_match('/date="(.*?)"/', $attribs_str, $m)) { $date = $m[1]; }
+  $user = ""; if (preg_match('/user="(.*?)"/', $attribs_str, $m)) { $user = $m[1]; }
+  $href = ""; if (preg_match('/href="(.*?)"/', $attribs_str, $m)) { $href = $m[1]; }
+  $note = ""; if (preg_match('/note="(.*?)"/', $attribs_str, $m)) { $note = $m[1]; }
+
+  dbgprint($dbg,"chg_markup_helper: type=$type, chgid=$chgid, src=$src\n  chgdata=$chgdata\n");
+  
+  if (($type == 'chg') || ($type == 'add')) {
+   if (preg_match('|<old>(.*?)</old> *<new>(.*?)</new>|',$chgdata,$matches1)) {
+    $old = $matches1[1];
+    $new = $matches1[2];
+    $label = ($type == 'add') ? "Addition" : "Correction";
+    
+    if ($date != "") {
+     if ($user != "") {
+      $tooltip = "$label submitted by $user on $date.";
+     } else {
+      $tooltip = "$label submitted on $date.";
+     }
+     if ($href != "") {
+      $tooltip .= " Reference : $href.";
+     }
+     if ($note != "") {
+      $tooltip .= " Note : $note.";
+     }
+    } else {
+     $tooltip = "source=$src";
+    }
+    $tooltip = $this->htmlspecial($tooltip);
+
+    if ($is_inside_s) {
+     $old_adj = ($this->accent != "yes") ? $this->remove_slp1_accent($old) : $old;
+     $new_adj = ($this->accent != "yes") ? $this->remove_slp1_accent($new) : $new;
+     $old_content = "<SA>$old_adj</SA>";
+     $new_content = "<SA>$new_adj</SA>";
+     $class = "sdata_siddhanta";
+    } else {
+     $old_content = $old;
+     $new_content = $new;
+     $class = "";
+    }
+    $cattr = ($class != "") ? " class='$class'" : "";
+
+    $ansold = "<span style='text-decoration:line-through;'><span$cattr>$old_content</span></span>";
+    
+    $label_html = "[$label: ";
+    if ($href != "") {
+     $label_html = "<a href='$href' target='_blank' style='color:red; text-decoration:none;'>$label_html</a>";
+    }
+
+    $ansnew = "<span></span> " .
+              "<abbr title='$tooltip' style='color:red; display:inline; text-decoration:underline red dotted;'>" .
+              "<span style='color:red;'>$label_html</span></abbr> " .
+              "<span$cattr style='color:green;'>$new_content</span> " .
+              "<span style='color:red;'>]</span>";
+    
+    if ($is_inside_s) {
+     $ans = "</s>$ansold $ansnew<s>";
+    } else {
+     $ans = "$ansold $ansnew";
+    }
+    return $ans;
+   }else {
+    return $x; // form not recognized
+   }
+  }else  if ($type == 'del') {
+   if (preg_match('|<old>(.*?)</old>|',$chgdata,$matches1)) {
+    $old = $matches1[1];
+    $label = "Deletion";
+    
+    if ($is_inside_s) {
+     $old_adj = ($this->accent != "yes") ? $this->remove_slp1_accent($old) : $old;
+     $old_content = "<SA>$old_adj</SA>";
+     $class = "sdata_siddhanta";
+    } else {
+     $old_content = $old;
+     $class = "";
+    }
+    $cattr = ($class != "") ? " class='$class'" : "";
+
+    if ($date != "") {
+     if ($user != "") {
+      $tooltip = "$label submitted by $user on $date.";
+     } else {
+      $tooltip = "$label submitted on $date.";
+     }
+     if ($href != "") {
+      $tooltip .= " Reference : $href.";
+     }
+     if ($note != "") {
+      $tooltip .= " Note : $note.";
+     }
+    } else {
+     $tooltip = "source=$src";
+    }
+    $tooltip = $this->htmlspecial($tooltip);
+
+    $label_html = "[$label: ";
+    if ($href != "") {
+     $label_html = "<a href='$href' target='_blank' style='color:red; text-decoration:none;'>$label_html</a>";
+    }
+
+    $ansold = "<abbr title='$tooltip' style='color:red; display:inline; text-decoration:underline red dotted;'>" .
+              "<span style='color:red;'>$label_html</span></abbr> " .
+              "<span style='text-decoration:line-through;'><span$cattr>$old_content</span></span> " .
+              "<span style='color:red;'>]</span>";
+    
+    if ($is_inside_s) {
+     $ans = "</s>$ansold<s>";
+    } else {
+     $ans = $ansold;
+    }
+    return $ans;
+   }else {
+    return $x; // form not recognized
+   }
+  }else { // unknown type
+   return $x; 
+  }
+ }
+
+ public function chg_markup($matches) {
+  return $this->chg_markup_helper($matches, false);
  }
 
 public function slp_cmp($a,$b) {
