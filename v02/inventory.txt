@@ -221,6 +221,7 @@ vcp:web/images/2986-a.png:CD
 vcp:web/images/2986-b.png:CD
 vcp:web/images/2986-c.png:CD
 vcp:web/images/2987-a.png:CD
+wil:web/images/shreevatsa.png:CD
 *:web/readme.txt:T
 ; next image not needed
 ;pwg:web/images/rajatamudra.png:D
