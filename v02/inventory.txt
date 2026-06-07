@@ -144,6 +144,11 @@ skd:web/images/fRiDanicakram.png:CD
 skd:web/images/kulAkulacakram.png:CD
 skd:web/images/nakzatracakram.png:CD
 skd:web/images/rASicakram.png:CD
+skd:web/images/saptanAqIcakram.png:CD
+skd:web/images/sarvatoBadracakram.png:CD
+skd:web/images/sarvatoBadrodAharaRam.png:CD
+skd:web/images/sarvatoBadramaRqala.png:CD
+skd:web/images/lANgalacakram.png:CD
 *:web/readme.txt:T
 ; next image not needed
 ;pwg:web/images/rajatamudra.png:D
