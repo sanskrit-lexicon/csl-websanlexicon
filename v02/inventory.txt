@@ -222,6 +222,7 @@ vcp:web/images/2986-b.png:CD
 vcp:web/images/2986-c.png:CD
 vcp:web/images/2987-a.png:CD
 wil:web/images/shreevatsa.png:CD
+pgn:web/images/rivers_of_junagarh.png:CD
 *:web/readme.txt:T
 ; next image not needed
 ;pwg:web/images/rajatamudra.png:D
