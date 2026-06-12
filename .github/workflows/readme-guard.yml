@@ -1,0 +1,31 @@
+name: README manual overview guard
+
+on:
+  pull_request:
+    paths:
+      - README.md
+      - readme.md
+  push:
+    branches: [master, main]
+    paths:
+      - README.md
+      - readme.md
+  workflow_dispatch:
+
+jobs:
+  guard:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify manual overview block
+        run: |
+          for file in README.md readme.md; do
+            if [ ! -f "$file" ]; then
+              continue
+            fi
+            grep -qF '<!-- BEGIN MANUAL: overview' "$file"
+            grep -qF '<!-- END MANUAL: overview -->' "$file"
+            for heading in '## Runtime surfaces' '## Architecture map' '## Known legacy zones'; do
+              grep -qF "$heading" "$file"
+            done
+          done
