@@ -1,7 +1,14 @@
 name: CI
 
-# Baseline CI for Laravel/PHP repos (e.g., Systema-Sanscriticum, csl-websanlexicon).
-# composer install + pint (Laravel Pint) + phpunit + npm build.
+# csl-websanlexicon is a Python + Mako generator (v02/generate.py) that renders
+# per-dictionary PHP from the templates under v02/makotemplates/, backed by
+# per-dict SQLite databases. There is NO Composer/Laravel/npm project here, so
+# CI lints what actually exists:
+#   - PHP syntax (php -l) on the verbatim-copied templates
+#   - Mako compile-check on every template (covers the rendered files too)
+#   - Python lint (ruff, warn-only) + parse-check of the generator
+#   - YAML lint
+# Legacy v00/ and generated per-dict copies are intentionally out of scope.
 
 on:
   push:
@@ -14,68 +21,71 @@ permissions:
   contents: read
 
 jobs:
-  php-tests:
-    name: PHP tests
+  php-lint:
+    name: PHP syntax lint (templates)
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: shivammathur/setup-php@v2
         with:
           php-version: "8.2"
-          extensions: mbstring, xml, pdo, sqlite, pdo_sqlite
           coverage: none
-      - name: Composer install
-        run: composer install --no-interaction --prefer-dist --no-progress
-        if: hashFiles('composer.json') != ''
-      - name: Laravel Pint (format check, warn-only)
+      - name: php -l on verbatim PHP templates
+        # Files containing Mako directives (<%, ${, % line-directives) are NOT
+        # standalone PHP — they are rendered by generate.py. We skip those here
+        # (they are syntax-checked by the Mako compile step) and lint the rest.
         run: |
-          if [ -f vendor/bin/pint ]; then
-            ./vendor/bin/pint --test || echo "::warning::Pint formatting drift"
-          fi
-      - name: Copy .env
-        run: cp .env.example .env 2>/dev/null || true
-      - name: Generate key
-        run: php artisan key:generate 2>/dev/null || true
-      - name: Stub Vite manifest for tests
-        # @vite() in Blade views throws ManifestNotFoundException (→ 500) if
-        # public/build/manifest.json is absent or missing required entry keys.
-        run: |
-          mkdir -p public/build/assets
-          cat > public/build/manifest.json << 'JSON'
-          {
-            "resources/css/app.css": { "file": "assets/app.css", "src": "resources/css/app.css", "isEntry": true },
-            "resources/js/app.js":  { "file": "assets/app.js",  "src": "resources/js/app.js",  "isEntry": true }
-          }
-          JSON
-          touch public/build/assets/app.css public/build/assets/app.js
+          fail=0; linted=0; skipped=0
+          while IFS= read -r f; do
+            if grep -qE '<%|\$\{|^[[:space:]]*%[[:space:]]' "$f"; then
+              echo "skip (mako template): $f"; skipped=$((skipped+1)); continue
+            fi
+            if ! php -l "$f" >/dev/null 2>lint.err; then
+              echo "::error file=$f::$(tr '\n' ' ' < lint.err)"; fail=1
+            fi
+            linted=$((linted+1))
+          done < <(find v02/makotemplates -name '*.php')
+          echo "php -l: linted=$linted skipped(mako)=$skipped"
+          exit $fail
 
-      - name: Run tests
-        # PHPUnit 10 does not accept --no-interaction (that flag is artisan-only)
-        run: |
-          if [ -d tests ]; then
-            php artisan test 2>/dev/null || ./vendor/bin/phpunit 2>/dev/null || echo "::warning::No working test runner"
-          fi
-        env:
-          DB_CONNECTION: sqlite
-          DB_DATABASE: ":memory:"
-
-  frontend-build:
-    name: Frontend build (if package.json present)
+  python-lint:
+    name: Python lint + Mako compile
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - id: check
-        run: |
-          if [ -f package.json ]; then echo "has_pkg=true" >> $GITHUB_OUTPUT; fi
-      - if: steps.check.outputs.has_pkg == 'true'
-        uses: actions/setup-node@v4
+      - uses: actions/setup-python@v5
         with:
-          node-version: "20"
-          cache: npm
-      - if: steps.check.outputs.has_pkg == 'true'
-        run: npm ci
-      - if: steps.check.outputs.has_pkg == 'true'
-        run: npm run build --if-present
+          python-version: "3.12"
+      - run: pip install ruff mako
+      - name: Ruff (warn-only)
+        run: ruff check . || echo "::warning::ruff reported findings"
+      - name: Parse-check generator scripts
+        run: |
+          python - <<'PY'
+          import ast, glob, sys
+          bad = 0
+          for f in glob.glob('v02/*.py'):
+              try:
+                  ast.parse(open(f, encoding='utf-8').read())
+              except SyntaxError as e:
+                  print(f'::error file={f}::{e}'); bad = 1
+          print('v02 generator scripts parse OK' if not bad else 'parse errors')
+          sys.exit(bad)
+          PY
+      - name: Mako compile-check templates
+        run: |
+          python - <<'PY'
+          import glob, sys
+          from mako.template import Template
+          bad = 0; ok = 0
+          for f in glob.glob('v02/makotemplates/**/*.php', recursive=True):
+              try:
+                  Template(filename=f, input_encoding='utf-8'); ok += 1
+              except Exception as e:
+                  print(f'::error file={f}::mako compile: {type(e).__name__}: {e}'); bad = 1
+          print(f'mako compile: ok={ok} bad={bad}')
+          sys.exit(bad)
+          PY
 
   yaml-lint:
     name: YAML lint
@@ -85,14 +95,16 @@ jobs:
       - uses: actions/setup-python@v5
       - run: pip install pyyaml
       - run: |
-          python -c "
+          python - <<'PY'
           import sys, glob, yaml
-          fail=0
+          fail = 0
           for f in glob.glob('**/*.yml', recursive=True) + glob.glob('**/*.yaml', recursive=True):
-              if '.git' in f or 'vendor/' in f or 'node_modules/' in f: continue
+              if '.git' in f:
+                  continue
               try:
-                  with open(f, encoding='utf-8') as fh: yaml.safe_load(fh)
+                  with open(f, encoding='utf-8') as fh:
+                      yaml.safe_load(fh)
               except yaml.YAMLError as e:
-                  print(f'::error file={f}::{e}'); fail=1
+                  print(f'::error file={f}::{e}'); fail = 1
           sys.exit(fail)
-          "
+          PY
