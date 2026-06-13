@@ -25,7 +25,6 @@ jobs:
       matrix:
         language:
           - 'python'
-          - 'php'
 
     steps:
       - name: Checkout repository
