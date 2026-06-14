@@ -10,3 +10,6 @@ v01/*
 .contributing_old.md
 .contributing_audit.txt
 scratch/*
+
+# runtime debug log written by webtc/dbgprint.php — never commit it
+dbg_apidev.txt
