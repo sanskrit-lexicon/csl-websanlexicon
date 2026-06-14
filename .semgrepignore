@@ -1,0 +1,5 @@
+# Archived backups of old per-dictionary PHP web interfaces. These files are
+# not served and not maintained; SAST-scanning them produced ~680 reflected-
+# XSS findings that are pure noise on the Security tab. Live code under v00/
+# and v02/ is still scanned.
+webbackup/
