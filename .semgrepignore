@@ -3,3 +3,11 @@
 # XSS findings that are pure noise on the Security tab. Live code under v00/
 # and v02/ is still scanned.
 webbackup/
+
+# query_gather.php is dead across every version: "Not used as of August 2020.
+# Replaced by query_gather1.php" (see the makotemplates header comment). It is
+# never served, so its reflected-XSS findings are won't-fix noise. The live
+# replacement, query_gather1.php, is NOT ignored and is still scanned.
+v00/grav00/webtc2/query_gather.php
+v00/makotemplates/webtc2/query_gather.php
+v02/makotemplates/web/webtc2/query_gather.php

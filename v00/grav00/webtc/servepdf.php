@@ -7,6 +7,14 @@ error_reporting( error_reporting() & ~E_NOTICE );
 
 $page = $_GET['page'] ;
 if (!$page) {$page = $argv[1];}
+// Defensive hardening (issue #27): $page is used ONLY as a pdffiles.txt lookup
+// key and via intval() inside getfiles(); the echoed values ($filename,
+// $pageprev, $pagenext) come from pdffiles.txt, never from $page, so the raw
+// value is not reflected (the Semgrep finding here is a taint false positive).
+// We still constrain $page to the characters legitimate page identifiers use
+// (digits and the vol-page separators '-' / ','); anything else is cleared and
+// simply falls through to getfiles()'s existing "default to first page" path.
+if (!preg_match('/^[0-9,\-]*$/', (string)$page)) { $page = ''; }
 list($filename,$pageprev,$pagenext)=getfiles($page);
 
 $HEADER='<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
