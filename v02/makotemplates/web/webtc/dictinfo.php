@@ -167,8 +167,9 @@ class DictInfo {
   "LRV"=>"//www.sanskrit-lexicon.uni-koeln.de/scans/LRVScan/LRVScanpdf" ,
   "ABCH"=>"//www.sanskrit-lexicon.uni-koeln.de/scans/ABCHScan/pdfpages" ,
   "ACPH"=>"//www.sanskrit-lexicon.uni-koeln.de/scans/ACPHScan/pdfpages" ,
-  "ACSJ"=>"//www.sanskrit-lexicon.uni-koeln.de/scans/ACSJScan/pdfpages" ,
-  "FRI"=>"//www.sanskrit-lexicon.uni-koeln.de/scans/FRIScan/2025/web/pdfpages"
+   "ACSJ"=>"//www.sanskrit-lexicon.uni-koeln.de/scans/ACSJScan/pdfpages" ,
+   "NMMB"=>"//www.sanskrit-lexicon.uni-koeln.de/scans/NMMBScan/pdfpages" ,
+   "FRI"=>"//www.sanskrit-lexicon.uni-koeln.de/scans/FRIScan/2025/web/pdfpages"
  );
  $url = $cologne_pdfpages_urls[$this->dictupper];
  return $url;
