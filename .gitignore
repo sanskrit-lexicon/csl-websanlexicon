@@ -13,3 +13,6 @@ scratch/*
 
 # runtime debug log written by webtc/dbgprint.php — never commit it
 dbg_apidev.txt
+
+# session journal — local only, never commit
+.ai_state.md
