@@ -42,4 +42,5 @@ sh generate_web.sh abch  ../../ABCHScan/2023/
 sh generate_web.sh acph  ../../ACPHScan/2023/
 sh generate_web.sh acsj  ../../ACSJScan/2023/
 sh generate_web.sh fri  ../../FRIScan/2025/
+sh generate_web.sh nmmb ../../NMMBScan/2026/
 

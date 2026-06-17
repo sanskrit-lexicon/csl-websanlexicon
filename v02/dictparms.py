@@ -533,6 +533,17 @@ alldictparms = {
   "dictwc":"https://search.worldcat.org/title/255638305",
   "dictbe":u"FRISH, O. (1956) Sanskrtská čítanka = Sanskritskaya khrestomatiya = Sanskrit Reader. In 2 vols. Vol. 2: Dictionary / ed. V. Porzhizka. Prague, Publishing House of the Czechoslovak Academy of Sciences.",
   "dicttitle":u"Frisch Sanskrit Reader Vocabulary, 1956",
- }
-
+ },
+ "nmmb":{
+  "dictup":"NMMB",
+  "dictlo":"nmmb",
+  "dictname":u"Nāmamālikā of Bhoja, 1955",
+  "dictversion":"03",
+  "dictyear":"2026",
+  "dictaccent":False,
+  "webtc2devatextoption":True,
+  "dictwc":u"https://search.worldcat.org/title/12413832",
+  "dictbe":u"Nāmamālikā of Bhoja",
+  "dicttitle":u"Nāmamālikā of Bhoja",
+ },
 }
