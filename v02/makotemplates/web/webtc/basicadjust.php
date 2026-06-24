@@ -3759,6 +3759,9 @@ public function ls_callback_ap90_href($code,$n,$data) {
   |<ab(.*?)>(.*?)</ab>|
  */
  $x = $matches[0]; // full string
+ if (str_starts_with($x, '<abot')) { // 06-22-2026
+  return $x;
+ }
  $a = $matches[1];
  $data = $matches[2];
  $dbg=false;
