@@ -60,7 +60,7 @@ Sanskrit word:
 %endif
 </td>
 <td>
-<input type="text" name="sword" id="sword" size="30" />
+<input type="text" name="sword" id="sword" size="30" enterkeyhint="search" />
 <select name="sregexp" id="sregexp">
      <option value="exact" selected="selected">exact</option>
      <option value="prefix">prefix</option>
