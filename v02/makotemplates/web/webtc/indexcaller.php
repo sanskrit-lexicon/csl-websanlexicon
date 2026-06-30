@@ -40,7 +40,7 @@ font-size: 14pt;
 <?php
 global $inithash;
  $init=$inithash['word'];
- echo '<input type="text" name="key" size="20" id="key" ';
+ echo '<input type="text" name="key" size="20" id="key" enterkeyhint="search" ';
  echo "value=\"$init\" />\n";
 ?>
    </td>
