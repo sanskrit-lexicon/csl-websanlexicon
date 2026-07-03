@@ -5,6 +5,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Changed
+- Semgrep is now a blocking gate: a `semgrep-ci-gate` job runs `semgrep ci`, which is diff-aware on pull requests and fails only on findings introduced by the PR. The existing SARIF-upload `semgrep` job stays advisory. Grandfathers the clean `main` baseline (v0.2.0) with no separate baseline file (Wave 2, D3 in `docs/ROADMAP_2026_2027.md`, PR #77).
+
 ## [0.2.0] - 2026-07-03
 
 ### Added
