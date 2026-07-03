@@ -2,8 +2,16 @@ name: Semgrep
 
 # CodeQL has no PHP analyzer, so the ~800-file PHP web-frontend gets no SAST
 # from it. Semgrep DOES support PHP: this fills that gap. It scans PHP (and
-# Python) with the community security rulesets and uploads results to the
-# repo's Security tab. Non-blocking, like the CodeQL workflow.
+# Python) with the community security rulesets.
+#
+# Two jobs:
+# - `semgrep` (SAST) uploads full-repo SARIF to the Security tab. Advisory —
+#   never fails the check, mirrors the CodeQL workflow.
+# - `semgrep-ci-gate` runs `semgrep ci`, which is diff-aware on pull_request
+#   events: it fails only on findings introduced by the PR relative to the
+#   merge-base, so the clean main baseline (Wave 1, PR #76) is grandfathered
+#   without a separate baseline file. This job is allowed to fail the check
+#   (Wave 2, D3 in docs/ROADMAP_2026_2027.md).
 
 on:
   push:
@@ -43,3 +51,22 @@ jobs:
         if: always()
         with:
           sarif_file: semgrep.sarif
+
+  semgrep-ci-gate:
+    name: Semgrep CI gate (new findings)
+    runs-on: ubuntu-latest
+    container:
+      image: semgrep/semgrep
+    if: github.event_name == 'pull_request' && github.actor != 'dependabot[bot]'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: semgrep ci (diff-aware, blocks on new findings only)
+        run: |
+          semgrep ci \
+            --config p/php \
+            --config p/security-audit \
+            --exclude v00 \
+            --metrics off
