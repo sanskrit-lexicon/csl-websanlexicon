@@ -52,6 +52,10 @@ class QueryModel{
    $wordin = $this->word;
    $word = $this->word; // for simplicity in following string expressions
    $word = mb_strtolower($word);
+   // $word is interpolated raw into several preg_match() patterns below and
+   // in matchkey(); quote it so a crafted ?word= cannot inject regex syntax
+   // (catastrophic backtracking / ReDoS, or a pattern-compile error).
+   $word = preg_quote($word, '/');
    if ($this->queryParms->opt_regexp == "exact"){
     $search_regexp = "[\t].*$non_word($word)$non_word";
    }else if ($this->queryParms->opt_regexp == "prefix") {

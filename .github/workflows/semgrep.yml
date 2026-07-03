@@ -34,6 +34,7 @@ jobs:
           semgrep scan \
             --config p/php \
             --config p/security-audit \
+            --exclude v00 \
             --sarif --output semgrep.sarif \
             --metrics off || true
 

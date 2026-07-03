@@ -39,7 +39,15 @@ class Queryparm extends Parm {
   #$this->opt_stransLit = $_REQUEST['transLit'];
   $this->opt_stransLit = $this->filterin; # rename filterin to opt_stransLit
   if (isset($_REQUEST['dictionary'])) {
-   $this->filename = $_REQUEST['dictionary'];
+   // The dictionary dump file lives in the app directory; strip any path
+   // component (basename) and allowlist the name so ?dictionary= cannot
+   // fopen() an arbitrary file (path traversal / LFI).
+   $dictfile = basename($_REQUEST['dictionary']);
+   if (preg_match('/^[A-Za-z0-9_.-]+$/', $dictfile)) {
+    $this->filename = $dictfile;
+   }else {
+    $this->filename = "query_dump.txt";
+   }
   }else {
    $this->filename = "query_dump.txt";
   }

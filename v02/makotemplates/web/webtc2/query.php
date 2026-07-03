@@ -14,7 +14,8 @@ $getParms = new QueryParm($dictcode);
 
 $model = new QueryModel($getParms);
 if ($model->status == false) {
- echo $model->errmsg;
+ // errmsg can contain the reflected ?dictionary= value; escape before echo
+ echo htmlspecialchars($model->errmsg, ENT_QUOTES);
  exit;
 }
 $qmatches = $model->querymatches;
