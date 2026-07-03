@@ -6,8 +6,8 @@
    <link rel="stylesheet" type="text/css" href="../webtc/main.css" media="screen" />
    <link rel="stylesheet" type="text/css" href="main.css" media="screen" />
    <link rel="stylesheet" href="../webtc/font.css" type="text/css">
-  <script type="text/javascript" src="../js/jquery.min.js"></script>
-  <script type="text/javascript" src="../js/jquery.cookie.js"></script>
+  <script type="text/javascript" src="../js/jquery.min.js" defer></script>
+  <script type="text/javascript" src="../js/jquery.cookie.js" defer></script>
 <style>
 #dictid {
  /*position:absolute;*/
@@ -181,8 +181,8 @@ Text Word:
 
   <div id="data">
   </div>
-  <script type="text/javascript" src="main.js"> </script>
-<script type="text/javascript" src="../js/orphus.customized.js"></script>
+  <script type="text/javascript" src="main.js" defer> </script>
+<script type="text/javascript" src="../js/orphus.customized.js" defer></script>
 <script type="text/javascript">
   $(window).on("load",function() {
   var correctionsUrl = 'https://www.sanskrit-lexicon.uni-koeln.de/scans/csl-corrections/app/correction_form_response.php';

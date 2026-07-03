@@ -1,0 +1,29 @@
+# Cache static assets (JS/CSS/images/fonts) for repeat pageviews.
+# Placed at the web/ root of each generated dictionary directory so it
+# also governs js/, webtc/, webtc1/, webtc2/, images/, fonts/ (Apache
+# merges .htaccess files from every directory level under DocumentRoot).
+#
+# NOTE: requires "AllowOverride All" (or at least "AllowOverride
+# FileInfo Indexes") for this path in the server's main config —
+# .htaccess has no effect if AllowOverride is off. If the live server
+# has AllowOverride disabled, move this block into the equivalent
+# <Directory> stanza of httpd.conf/apache2.conf instead.
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType application/javascript "access plus 1 week"
+  ExpiresByType text/javascript "access plus 1 week"
+  ExpiresByType text/css "access plus 1 week"
+  ExpiresByType image/gif "access plus 1 week"
+  ExpiresByType image/png "access plus 1 week"
+  ExpiresByType image/jpeg "access plus 1 week"
+  ExpiresByType font/woff "access plus 1 week"
+  ExpiresByType font/woff2 "access plus 1 week"
+  ExpiresByType application/font-woff "access plus 1 week"
+</IfModule>
+
+<IfModule mod_headers.c>
+  <FilesMatch "\.(js|css|gif|png|jpe?g|woff2?|otf)$">
+    Header set Cache-Control "max-age=604800, public"
+  </FilesMatch>
+</IfModule>
