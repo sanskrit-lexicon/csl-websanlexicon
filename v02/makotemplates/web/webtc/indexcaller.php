@@ -41,7 +41,7 @@ font-size: 14pt;
 global $inithash;
  $init=$inithash['word'];
  echo '<input type="text" name="key" size="20" id="key" ';
- echo "value=\"$init\" />\n";
+ echo 'value="' . htmlspecialchars($init, ENT_QUOTES) . "\" />\n";
 ?>
    </td>
    <td>input:&nbsp;
@@ -131,8 +131,8 @@ output_option("deva","Devanagari Unicode",$init);
    $dict = $getParms->dict;
    $key = $getParms->key;
   ?>
-  var key = <?php echo "'$key'";?>;
-  var dict = <?php echo "'$dict'";?>;
+  var key = <?php echo json_encode($key, JSON_HEX_TAG|JSON_HEX_AMP|JSON_HEX_APOS|JSON_HEX_QUOT);?>;
+  var dict = <?php echo json_encode($dict, JSON_HEX_TAG|JSON_HEX_AMP|JSON_HEX_APOS|JSON_HEX_QUOT);?>;
   //console.log('listview.php script: key=',key,'dict=',dict);
   orphus.init({
     correctionsUrl: correctionsUrl,

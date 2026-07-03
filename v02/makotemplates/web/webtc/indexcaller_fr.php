@@ -42,7 +42,9 @@ font-size: 14pt;
 global $inithash;
  $init=$inithash['word'];
  echo '<input type="text" name="key" size="20" id="key" ';
- echo "value=\"$init\" />\n";
+ // $init is the raw ?word= GET param (unlike webtc/indexcaller.php this
+ // interface applies no char-strip), so escape it for the HTML attribute.
+ echo 'value="' . htmlspecialchars($init, ENT_QUOTES) . "\" />\n";
 ?>
    </td>
    <td>entrée:&nbsp;

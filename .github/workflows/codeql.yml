@@ -36,6 +36,11 @@ jobs:
           languages: ${{ matrix.language }}
           # python is interpreted: no compilation, so skip autobuild
           build-mode: none
+          # v00/ is the dead 2020 legacy tree (reference only, not deployed);
+          # keep it in-repo but out of scanning so it stops raising alerts.
+          config: |
+            paths-ignore:
+              - v00
 
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v4

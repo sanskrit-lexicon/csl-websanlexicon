@@ -213,7 +213,8 @@ FORM;
 }
 function init_citation_pref() {
 global $inithash;
- $init=$inithash['word'];
+ // escape for the value="$init" attribute inside the heredoc below
+ $init=htmlspecialchars($inithash['word'], ENT_QUOTES);
 $ans = <<<FORM
 <table>
  <tr>
