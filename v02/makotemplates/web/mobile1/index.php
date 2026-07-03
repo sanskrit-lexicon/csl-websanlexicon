@@ -225,7 +225,7 @@ $ans = <<<FORM
   <td> <a onclick="getWord();" data-role="button" data-icon="search"
    data-iconpos="notext">Search</a>
   </td>
-  <td><input type="text" name="key" size="20" id="key" value="$init" />
+  <td><input type="text" name="key" size="20" id="key" enterkeyhint="search" value="$init" />
   </td>
   <td><a href="#two" data-role="button" data-rel="dialog" 
    data-transition="pop" data-icon="info" data-iconpos="notext">Preferences</a>
