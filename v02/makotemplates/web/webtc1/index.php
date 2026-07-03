@@ -8,13 +8,13 @@
    <link rel="stylesheet" href="../webtc/font.css" type="text/css">
   <link rel="stylesheet" type="text/css" href="keyboard.css"/>
 
-  <script type="text/javascript" src="../js/jquery.min.js"></script>
-  <script type="text/javascript" src="transcoderjs/transcoder3.js"> </script>
-  <script type="text/javascript" src="transcoderjs/transcoderJson.js"> </script>
+  <script type="text/javascript" src="../js/jquery.min.js" defer></script>
+  <script type="text/javascript" src="transcoderjs/transcoder3.js" defer> </script>
+  <script type="text/javascript" src="transcoderjs/transcoderJson.js" defer> </script>
 
-  <script type="text/javascript" src="transcoderfield_VKI.js"> </script>
-  <script type="text/javascript" src="keyboard.js"></script>
-  <script type="text/javascript" src="main.js"> </script>
+  <script type="text/javascript" src="transcoderfield_VKI.js" defer> </script>
+  <script type="text/javascript" src="keyboard.js" defer></script>
+  <script type="text/javascript" src="main.js" defer> </script>
 
  </head>
  <body>
@@ -65,7 +65,7 @@
 </div>
 <div id="displist" class="displist">
 </div>
-<script type="text/javascript" src="../js/orphus.customized.js"></script>
+<script type="text/javascript" src="../js/orphus.customized.js" defer></script>
 <script type="text/javascript">
   $(window).on("load",function() {
   var correctionsUrl = 'https://www.sanskrit-lexicon.uni-koeln.de/scans/csl-corrections/app/correction_form_response.php';

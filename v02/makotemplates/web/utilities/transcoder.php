@@ -28,6 +28,9 @@ function transcoder_fsm($from,$to) {
 // is saved in the global hash variable $transcoder_fsmarr under name
 // from_to; transcoder_fsmarr[from_to] already exists, its value is
 // returned, so the xml file does not have to be re-parsed.
+// H087 03-07-2026: also cache the parsed $fsm across requests (APCu,
+// with a serialized-file fallback), so xml parsing happens at most
+// once per deploy per language pair instead of once per PHP request.
  global $transcoder_dir,$transcoder_fsmarr;
  $fromto = $from . "_" . $to;
  if (isset($transcoder_fsmarr[$fromto])) {
@@ -35,6 +38,12 @@ function transcoder_fsm($from,$to) {
  }
  $filein = $transcoder_dir . "/" . $fromto . ".xml";
  if (!file_exists($filein)) {return;}
+ $mtime = filemtime($filein);
+ $fsm = transcoder_fsm_cache_get($fromto,$mtime);
+ if ($fsm !== false) {
+  $transcoder_fsmarr[$fromto]=$fsm;
+  return;
+ }
  // The php routine simplexml_load_file  parses the xml file.
  // It was discovered that unicode values expressed as html entities
  // '&#xHHHH;' are converted to unicode!
@@ -123,7 +132,53 @@ function transcoder_fsm($from,$to) {
  }
  $fsm['states']=$states;
  $transcoder_fsmarr[$fromto]=$fsm;
-} 
+ transcoder_fsm_cache_set($fromto,$mtime,$fsm);
+}
+function transcoder_fsm_cache_key($fromto) {
+ // $fromto is always one of the small fixed set of language-pair codes
+ // produced by transcoder_standardize_filter(); sanitize anyway before
+ // it's used to build a cache filename.
+ $safe = preg_replace('/[^A-Za-z0-9_]/','',$fromto);
+ return "csl_transcoder_fsm_" . $safe;
+}
+function transcoder_fsm_cache_get($fromto,$mtime) {
+// Returns the cached $fsm array if a fresh (mtime-matching) entry is
+// found in APCu or the serialized-file fallback; FALSE on a miss.
+ global $transcoder_dir;
+ $key = transcoder_fsm_cache_key($fromto);
+ if (function_exists('apcu_fetch')) {
+  $ok = false;
+  $entry = apcu_fetch($key,$ok);
+  if ($ok && is_array($entry) && isset($entry['mtime']) && $entry['mtime'] == $mtime) {
+   return $entry['fsm'];
+  }
+ }
+ $cachefile = $transcoder_dir . "/" . $key . ".ser";
+ if (file_exists($cachefile)) {
+  $data = @file_get_contents($cachefile);
+  $entry = ($data !== false) ? @unserialize($data) : false;
+  if (is_array($entry) && isset($entry['mtime']) && $entry['mtime'] == $mtime) {
+   if (function_exists('apcu_store')) {
+    apcu_store($key,$entry);
+   }
+   return $entry['fsm'];
+  }
+ }
+ return false;
+}
+function transcoder_fsm_cache_set($fromto,$mtime,$fsm) {
+// Populates APCu (if available) and always writes the serialized-file
+// fallback, so a deploy without APCu still avoids re-parsing xml on
+// every request once the cache file exists.
+ global $transcoder_dir;
+ $key = transcoder_fsm_cache_key($fromto);
+ $entry = array('mtime'=>$mtime,'fsm'=>$fsm);
+ if (function_exists('apcu_store')) {
+  apcu_store($key,$entry);
+ }
+ $cachefile = $transcoder_dir . "/" . $key . ".ser";
+ @file_put_contents($cachefile,serialize($entry));
+}
 function unichr($dec) {
   if ($dec < 128) {
     $utf = chr($dec);

@@ -8,9 +8,9 @@ error_reporting( error_reporting() & ~E_NOTICE & ~E_WARNING);
  <title>${dicttitle} Basic</title>
    <link rel="stylesheet" href="main.css" type="text/css">
    <link rel="stylesheet" href="font.css" type="text/css">
-  <script type="text/javascript" src="../js/jquery.min.js"></script>
-  <script type="text/javascript" src="../js/jquery.cookie.js"></script>
-  <script type="text/javascript" src="main_webtc.js"> </script>
+  <script type="text/javascript" src="../js/jquery.min.js" defer></script>
+  <script type="text/javascript" src="../js/jquery.cookie.js" defer></script>
+  <script type="text/javascript" src="main_webtc.js" defer> </script>
 <style>
 #title {
 font-family: verdana,arial,helvetica,sansserif;
@@ -121,7 +121,7 @@ output_option("deva","Devanagari Unicode",$init);
  $id = "indexcaller";
  echo "<input name=\"$id\"  id=\"$id\" value=\"$val\"  style=\"visibility:hidden\" />";
  ?>
-<script type="text/javascript" src="../js/orphus.customized.js"></script>
+<script type="text/javascript" src="../js/orphus.customized.js" defer></script>
 <script type="text/javascript">
   $(window).on("load",function() {
   var correctionsUrl = 'https://www.sanskrit-lexicon.uni-koeln.de/scans/csl-corrections/app/correction_form_response.php';

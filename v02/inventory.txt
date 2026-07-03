@@ -129,6 +129,10 @@ stc:web/index_fr.php:CD
 stc:web/webtc/download_fr.html:T
 stc:web/webtc/help_fr.html:T
 *:web/index.php:T
+; H087 03-07-2026: static-asset cache headers (page-speed quick win).
+; Single .htaccess at web/ root; Apache merges it into js/, webtc/,
+; webtc1/, webtc2/, images/, fonts/ automatically.
+*:web/.htaccess:C
 ; -----------------------------------------------------
 ; distinct files
 ; -----------------------------------------------------
