@@ -1454,8 +1454,9 @@ public function ls_callback_ben_href($code,$n,$data) {
   'Hit.' => 'HIT.', 'Rājat.' => 'RĀJA-TAR.',
   'Vikr.' => 'VIKR.', 'Śāk.' => 'ŚĀK.',
   'Ragh.' => 'RAGH.', 'Rigv.' => 'ṚV.',
-  'Bhartṛ.' => 'BHARTṚ.', 'Utt. Rāmac.' => 'UTT. RĀMAC.',
-  'Kathās.' => 'KATHĀS.', 'Hariv.' => 'HARIV.',
+   'Bhartṛ.' => 'BHARTṚ.', 'Utt. Rāmac.' => 'UTT. RĀMAC.',
+   'Varāh. Bṛh. S.' => 'VARĀH. BṚH. S.',
+   'Kathās.' => 'KATHĀS.', 'Hariv.' => 'HARIV.',
   'Yājñ.' => 'YĀJÑ.', 'Megh.' => 'MEGH.',
    // 'Nal.' => 'N.',  // Bopp's Nala ≠ Böhtlingk's Chrestomathy (wrong ed.)
    'Śiś.' => 'ŚIŚ.',
@@ -1463,10 +1464,12 @@ public function ls_callback_ben_href($code,$n,$data) {
   'Mālat.' => 'MĀLAT.', 'Bhāṣāp.' => 'BHĀṢĀP.',
   'Mṛcch.' => 'MṚCCH.', 'Ṛt.' => 'ṚT.',
   'Prab.' => 'PRAB.', 'Mālav.' => 'MĀLAV.',
-  'Mārk. P.' => 'MĀRK. P.', 'Cāṇ.' => 'CĀṆ.',
-    // 'Amar.' => 'AMAR.',  // Amaruçataka ≠ Amarakośa (wrong work)
-    'Nalod.' => 'NALOD.',
-  'Sāh.' => 'SĀH. D.', 'Gīt.' => 'GĪT.',
+  'Mārk. P.' => 'MĀRK. P.',    'Cāṇ.' => 'CĀṆ.',
+   'Caurap.' => 'CAURAP.',
+   // 'Amar.' => 'AMAR.',  // Amaruçataka ≠ Amarakośa (wrong work)
+   'Nalod.' => 'NALOD.',
+   'Pāṇ.' => 'P.',
+   'Sāh.' => 'SĀH. D.', 'Gīt.' => 'GĪT.',
   'Kumāras.' => 'KUMĀRAS.', 'Bhaṭṭ.' => 'BHAṬṬ.',
   'Vedāntas.' => 'VEDĀNTAS.', 'Daśak.' => 'DAŚAK.',
   // Pure lookup (pwgbib)
