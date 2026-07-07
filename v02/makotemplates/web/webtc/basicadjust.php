@@ -607,24 +607,24 @@ public function ls_callback_pwg_href($code,$data) {
   }
   }
  /******* link to Ṛgveda Prātiśākhya  ***********/
-  $temparr = array("ṚV. PRĀT.");
-  foreach($temparr as $temp) {
-   if (preg_match("|^($temp) *([0-9]+), *([0-9]+)|",$data,$matches)) {
-    $t = $matches[2]; // patala
-    $s = $matches[3]; // sutra
-    $href = "https://sanskrit-lexicon-scans.github.io/rvps/app1?$t,$s";
+   $temparr = array("ṚV. PRĀT.", "ṚV. PRĀTIŚ.");
+   foreach($temparr as $temp) {
+    if (preg_match("|^($temp) *([0-9]+), *([0-9]+)|",$data,$matches)) {
+     $t = $matches[2]; // patala
+     $s = $matches[3]; // sutra
+     $href = "https://sanskrit-lexicon-scans.github.io/rvps/app1?$t,$s";
+     dbgprint($dbg,"$pfx: href=$href\n");
+     return $href;
+    }
+   }
+   // ṚV. PRĀT./ṚV. PRĀTIŚ. Roman numeral → app2 by ipage
+   if (preg_match("|^ṚV\. PRĀ(TIŚ|T)\. ([IVXLCDM]+)|",$data,$matches)) {
+    $roman = $matches[2];
+    $ipage = $this->romanToInt($roman);
+    $href = "https://sanskrit-lexicon-scans.github.io/rvps/app2/?$ipage";
     dbgprint($dbg,"$pfx: href=$href\n");
     return $href;
    }
-  }
-  // ṚV. PRĀT. Roman numeral → app2 by ipage
-  if (preg_match("|^ṚV\. PRĀT\. ([IVXLCDM]+)|",$data,$matches)) {
-   $roman = $matches[1];
-   $ipage = $this->romanToInt($roman);
-   $href = "https://sanskrit-lexicon-scans.github.io/rvps/app2/?$ipage";
-   dbgprint($dbg,"$pfx: href=$href\n");
-   return $href;
-  }
  /******* link to YĀJÑAVALKYA'S Gesetzbuch  ***********/
   // pwg,pw,pwkvn  YĀJÑ. N,N;  
  $temparr = array("YĀJÑ.");
