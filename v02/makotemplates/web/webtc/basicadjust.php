@@ -462,15 +462,15 @@ public function ls_callback_pwg_href($code,$data) {
  $href = null; // default if no success
  $dbg = false;
  dbgprint($dbg,"ls_callback_pwg_href. data=$data\n");
- if (preg_match('|^(Spr[.]) ([0-9]+)|',$data,$matches)) {
-  if (in_array($this->dict,array('pw','pwkvn'))) {
-   // link to Spruche 2nd edition in pw
-   $pfx = $matches[1];
-   $verse = $matches[2];
-   $href = "https://sanskrit-lexicon-scans.github.io/boesp2/web1/boesp.html?$verse";
-   dbgprint($dbg,"Spr: href=$href\n");
-   return $href;
-  }
+  if (preg_match('|^(Spr[.]) ([0-9]+)|',$data,$matches)) {
+   if (in_array($this->dict,array('pw','pwkvn','ben'))) {
+    // link to Spruche 2nd edition in pw
+    $pfx = $matches[1];
+    $verse = $matches[2];
+    $href = "https://sanskrit-lexicon-scans.github.io/boesp2/web1/boesp.html?$verse";
+    dbgprint($dbg,"Spr: href=$href\n");
+    return $href;
+   }
   if ($this->dict == 'pwg') {
    // link to Spruche 1st edition in pw
    $pfx = $matches[1];
@@ -1444,6 +1444,121 @@ public function ls_callback_pwg_href($code,$data) {
  return $href; 
 }
 
+/******* ls_callback_ben_href: normalize BEN abbrev then delegate to PWG *******/
+public function ls_callback_ben_href($code,$n,$data) {
+ static $ben_to_pwg = array(
+  // Work-level (hardcoded patterns)
+  'MBh.' => 'MBH.', 'Man.' => 'M.', 'Pañc.' => 'PAÑCAT.',
+  'Rām.' => 'R.', 'Bhāg. P.' => 'BHĀG. P.',
+  'Chr.' => 'BENF. Chr.',
+  'Hit.' => 'HIT.', 'Rājat.' => 'RĀJA-TAR.',
+  'Vikr.' => 'VIKR.', 'Śāk.' => 'ŚĀK.',
+  'Ragh.' => 'RAGH.', 'Rigv.' => 'ṚV.',
+  'Bhartṛ.' => 'BHARTṚ.', 'Utt. Rāmac.' => 'UTT. RĀMAC.',
+  'Kathās.' => 'KATHĀS.', 'Hariv.' => 'HARIV.',
+  'Yājñ.' => 'YĀJÑ.', 'Megh.' => 'MEGH.',
+   // 'Nal.' => 'N.',  // Bopp's Nala ≠ Böhtlingk's Chrestomathy (wrong ed.)
+   'Śiś.' => 'ŚIŚ.',
+  'Kir.' => 'KIR.', 'Bhag.' => 'BHAG.',
+  'Mālat.' => 'MĀLAT.', 'Bhāṣāp.' => 'BHĀṢĀP.',
+  'Mṛcch.' => 'MṚCCH.', 'Ṛt.' => 'ṚT.',
+  'Prab.' => 'PRAB.', 'Mālav.' => 'MĀLAV.',
+  'Mārk. P.' => 'MĀRK. P.', 'Cāṇ.' => 'CĀṆ.',
+    // 'Amar.' => 'AMAR.',  // Amaruçataka ≠ Amarakośa (wrong work)
+    'Nalod.' => 'NALOD.',
+  'Sāh.' => 'SĀH. D.', 'Gīt.' => 'GĪT.',
+  'Kumāras.' => 'KUMĀRAS.', 'Bhaṭṭ.' => 'BHAṬṬ.',
+  'Vedāntas.' => 'VEDĀNTAS.', 'Daśak.' => 'DAŚAK.',
+  // Pure lookup (pwgbib)
+  'Suśr.' => 'SUŚR.', 'Böhtl.' => 'BÖHTL.',
+  'Johns. Sel.' => 'JOHNS. Sel.',
+  'Lass.' => 'LASS.', 'Sāv.' => 'SĀV.',
+  'Indr.' => 'INDR.', 'Arj.' => 'ARJ.',
+  'Draup.' => 'DRAUP.', 'Hiḍ.' => 'HID.',
+  'Kām. Nītis.' => 'KĀM. NĪTIS.',
+  'Śṛṅgārat.' => 'ŚRṄGĀRAT.',
+  'Dev.' => 'DEV.', 'Sund.' => 'SUND.',
+  'Ghaṭ.' => 'GHAṬ.',
+ );
+ static $ben_composite_map = array(
+  'Böhtl. Ind. Spr.' => 'Böhtl.',
+  'Vedāntas. in Chr.' => 'Vedāntas.',
+  'Daśak. in Chr.' => 'Daśak.',
+  'Lass. 2. ed.' => 'Lass.',
+  'Lass. Anth.' => 'Lass.',
+  'Lass. Pentap.' => 'Lass.',
+  'Lass. Pentap. p.' => 'Lass.',
+  'Lass. ed.' => 'Lass.',
+  'Lass. p.' => 'Lass.',
+ );
+ $href = null;
+ $dbg = false;
+ dbgprint($dbg,"ls_callback_ben_href. code=$code, n=$n, data=$data\n");
+ $data1 = ($n == '') ? $data : "$n $data";
+ // Check for Gorresio edition marker
+ $has_gorr = (bool)preg_match('|<ab>Gorr[.\]]|',$data1);
+ // Strip <ab> tags from data1 for clean matching
+ $data1_clean = preg_replace('/<[^>]*>/','',$data1);
+ // Try composite source stripping first
+ $found_composite = false;
+ foreach ($ben_composite_map as $ben_comp => $core_abbr) {
+  if (strpos($data1_clean, $ben_comp) === 0) {
+   $rest = substr($data1_clean, strlen($ben_comp));
+   $data1_clean = $core_abbr . $rest;
+   $found_composite = true;
+   break;
+  }
+ }
+   // Map BEN abbreviation -> PWG abbreviation
+   // Find longest matching key in mapping (handles multi-word abbreviations)
+   $pwg_code = $code; // default: pass original code through
+   $best_key = null;
+   foreach ($ben_to_pwg as $ben_key => $pwg_val) {
+    if (strpos($data1_clean, $ben_key) === 0) {
+     if ($best_key === null || strlen($ben_key) > strlen($best_key)) {
+      $best_key = $ben_key;
+     }
+    }
+   }
+   if ($best_key !== null) {
+    $ben_abbr = $best_key;
+    $pwg_abbr = $ben_to_pwg[$best_key];
+    $pwg_code = $pwg_abbr;
+    dbgprint($dbg,"ls_callback_ben_href: mapped $ben_abbr -> $pwg_abbr\n");
+    // Handle Rāmāyaṇa edition distinction
+    if ($pwg_abbr == 'R.' && $has_gorr) {
+     $pwg_abbr = 'R. GORR.';
+     $pwg_code = 'R. GORR.';
+    }
+    $rest = substr($data1_clean, strlen($ben_abbr));
+    $data_pwg = $pwg_abbr . $rest;
+   } else {
+    $data_pwg = $data1_clean;
+   }
+   // Normalize ref format for PWG:
+   // - Remove distich marker <ab>d.</ab> (already stripped to 'd.')
+   // - For sources with native PWG Roman handlers (Pañc., Hit.):
+   //   uppercase lowercase Roman numerals and normalize 'pr.' -> 'Pr.'
+   // - For all other sources: convert Roman numerals to decimal digits
+   $data_pwg = preg_replace('/\bd\.\s*/', '', $data_pwg);
+   if (in_array($pwg_code, array('PAÑCAT.', 'HIT.'))) {
+    $data_pwg = preg_replace_callback(
+     '/\b([ivx]+)[.,]\s*/',
+     function($m) { return strtoupper($m[1]) . ', '; },
+     $data_pwg
+    );
+    $data_pwg = preg_replace('/\bpr\./', 'Pr.', $data_pwg);
+   } else {
+    $data_pwg = preg_replace_callback(
+     '/\b([ivx]+)[.,]\s*/',
+     function($m) { return $this->romanToInt(strtoupper($m[1])) . ', '; },
+     $data_pwg
+    );
+   }
+  dbgprint($dbg,"ls_callback_ben_href: data_pwg=$data_pwg\n");
+  return $this->ls_callback_pwg_href($pwg_code,$data_pwg);
+}
+
 public function ls_callback_mw($matches) {
  // Try to also handle ap90, ben, sch
  // Two situations envisioned:
@@ -1537,9 +1652,11 @@ public function ls_callback_mw($matches) {
    $href = $this->ls_callback_mw_href($code,$n,$data);
   }else if ($this->dict == 'bhs') {
    $href = $this->ls_callback_mw_href($code,$n,$data);
-  }else if ($this->dict == 'sch') {
-   $href = $this->ls_callback_sch_href($code,$n,$data);
-  }
+   }else if ($this->dict == 'sch') {
+    $href = $this->ls_callback_sch_href($code,$n,$data);
+   }else if ($this->dict == 'ben') {
+    $href = $this->ls_callback_ben_href($code,$n,$data);
+   }
   if ($href != null) {
    $this->lsrecs[] = array($ls_string,$href);
   }
