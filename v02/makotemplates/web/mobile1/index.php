@@ -1,4 +1,5 @@
 <?php
+require_once(__DIR__ . '/../security_headers.php');
 error_reporting( error_reporting() & ~E_NOTICE & ~E_WARNING);
 ?>
 <!DOCTYPE html>
