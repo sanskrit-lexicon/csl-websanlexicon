@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- `v02/makotemplates/web/security_headers.php` — shared defensive HTTP headers, `require_once`'d
+  at the top of every HTML/JSON-emitting entry point (`webtc/indexcaller.php`,
+  `webtc/indexcaller_fr.php`, `webtc/getword.php`, `webtc/servepdf.php`, `webtc1/index.php`,
+  `webtc1/disphier.php`, `webtc1/listhier.php`, `webtc2/query.php`, `mobile1/index.php`):
+  `X-Content-Type-Options: nosniff`, `Referrer-Policy: strict-origin-when-cross-origin`,
+  `X-Frame-Options: SAMEORIGIN`, and a `Content-Security-Policy-Report-Only` measurement-pass
+  policy (Wave 3 stage 1+2, `docs/ROADMAP_2026_2027.md` D4). Because headers live in the
+  template, they travel with every `generate.py` regeneration regardless of the Cologne
+  server config. Wave 3 stage 3 (tighten + enforce) is deliberately deferred — it needs real
+  Report-Only telemetry from a live deployment first.
+
 ## [0.2.1] - 2026-07-03
 
 ### Changed
