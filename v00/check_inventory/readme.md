@@ -19,10 +19,10 @@ In preparation for this increase in functionality,  we need to know exactly whic
 ```
 
 The webinventory program compares two collections of files:
-* The current [inventory.txt](https://github.com/sanskrit-lexicon/csl-websanlexicon/blob/master/v00/inventory.txt) of template files managed by csl-websanlexicon (via generate.py -- see [redo_cologne_all.sh](https://github.com/sanskrit-lexicon/csl-websanlexicon/blob/master/v00/redo_cologne_all.sh) and two similar redo bash scripts.)
+* The current [inventory.txt](https://github.com/sanskrit-lexicon/csl-websanlexicon/blob/main/v00/inventory.txt) of template files managed by csl-websanlexicon (via generate.py -- see [redo_cologne_all.sh](https://github.com/sanskrit-lexicon/csl-websanlexicon/blob/main/v00/redo_cologne_all.sh) and two similar redo bash scripts.)
 * For each dictionary managed by csl-websanlexicon, the *actual* inventory of files in the *web* directory for that dictionary.
 
-The comparison appears in [webinventory.txt](https://github.com/sanskrit-lexicon/csl-websanlexicon/blob/master/v00/check_inventory/webinventory.txt)
+The comparison appears in [webinventory.txt](https://github.com/sanskrit-lexicon/csl-websanlexicon/blob/main/v00/check_inventory/webinventory.txt)
 
 See the issues of this repository for further discussion of *webinventory.txt*.
 
