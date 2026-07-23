@@ -19,6 +19,10 @@
 
  </head>
  <body>
+ <!-- H1523 / csl-websanlexicon#73: English-headword dicts must not load phonetic input -->
+ <script type="text/javascript">
+  var dictIsEnglish = ${'true' if dictlo in ['ae','mwe','bor'] else 'false'};
+ </script>
  <div id="dictid"> 
      <a href="//www.sanskrit-lexicon.uni-koeln.de/"
 	style="background-color:#DBE4ED">

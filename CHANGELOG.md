@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+- **webtc1 Kyoto-Harvard keyboard L/LL** ([#75](https://github.com/sanskrit-lexicon/csl-websanlexicon/issues/75), H1523): virtual keys showed vocalic ऌ/ॡ; CDSL `hk_slp1.xml` (since 2013-11-15) maps `L`→retroflex ळ (SLP1 `L`) and `Lh`→ळ्ह (SLP1 `|`), with vocalic ḷ as `lR`/`lRR`. `KyotoHarvard` KeyMap + `getLayout` aligned; empty long-vocalic attached encoding fixed.
+- **webtc1 list view English-headword input** ([#73](https://github.com/sanskrit-lexicon/csl-websanlexicon/issues/73) / [csl-apidev#34](https://github.com/sanskrit-lexicon/csl-apidev/issues/34), H1523): AE/MWE/BOR no longer load phonetic `VKI.transcoderInit()`; Preferences hidden; label "English, lower-case" (matches basic `webtc` view). Typing `window` stays `window`.
+
 ### Added
 - `v02/makotemplates/web/security_headers.php` — shared defensive HTTP headers, `require_once`'d
   at the top of every HTML/JSON-emitting entry point (`webtc/indexcaller.php`,
