@@ -44,7 +44,8 @@ class QueryModel{
  }
  public function match_nonSanskrit() {
    $non_word = "[^a-zA-Z0-9]";
-   $wordreg = "[a-zA-Z0-9-]";
+   // After soft-hyphen strip (COLOGNE#75), word chars no longer need '-'
+   $wordreg = "[a-zA-Z0-9]";
    /*
    $wordchrs = preg_split ('/[^a-zA-Z.*?+]/',$this->word);
    $this->word = join('',$wordchrs);
@@ -52,6 +53,10 @@ class QueryModel{
    $wordin = $this->word;
    $word = $this->word; // for simplicity in following string expressions
    $word = mb_strtolower($word);
+   // COLOGNE#75: digitization soft-hyphens (dia-mond) block exact English
+   // matches for 'diamond'. Strip '-' from the query word; matchkey also
+   // strips '-' from each dump line before regex matching.
+   $word = str_replace('-', '', $word);
    // $word is interpolated raw into several preg_match() patterns below and
    // in matchkey(); quote it so a crafted ?word= cannot inject regex syntax
    // (catastrophic backtracking / ReDoS, or a pattern-compile error).
@@ -150,7 +155,8 @@ class QueryModel{
  while ($line) {
   $nline++;
   $linex="";
-  $liney=$line;
+  // COLOGNE#75: match against hyphen-stripped body so 'diamond' finds 'dia-mond'
+  $liney = str_replace('-', '', $line);
   if (!preg_match("/$word/",$liney)) {
   //nothing to do
    $nothing++;
@@ -173,7 +179,9 @@ class QueryModel{
     $keypart = $matches[1];
     list($key,$sanskrit) = preg_split('|:|',$keypart);
     $key = trim($key);  // the headword
-    if (!preg_match("/$regexp/",$linex,$matches)){
+    // extract matchword from hyphen-stripped line (same text used for match)
+    $liney_match = str_replace('-', '', $linex);
+    if (!preg_match("/$regexp/",$liney_match,$matches)){
      $matchword=""; // should not happen
     }else {
      $matchword = $matches[1];
