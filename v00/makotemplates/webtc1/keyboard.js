@@ -2337,10 +2337,10 @@ function KyotoHarvard() // extends PhoneticMapper
  new KeyMap("\u0943", null, "R", true), // vocalic r attached
  new KeyMap("\u0960", "\u1E5D", "RR"), // long vocalic r
  new KeyMap("\u0944", null, "RR", true), // long vocalic r attached
- new KeyMap("\u090C", "\u1E37", "L"), // vocalic l
- new KeyMap("\u0962", null, "L", true), // vocalic l attached
- new KeyMap("\u0961", "\u1E39", "LL"), // long vocalic l
- new KeyMap("\u0963", null, "", true), // long vocalic l attached
+ new KeyMap("\u090C", "\u1E37", "lR"), // vocalic l (CDSL HK: lR, not L)
+ new KeyMap("\u0962", null, "lR", true), // vocalic l attached
+ new KeyMap("\u0961", "\u1E39", "lRR"), // long vocalic l (CDSL HK: lRR)
+ new KeyMap("\u0963", null, "lRR", true), // long vocalic l attached
  new KeyMap("\u090F", "e", "e"), // e
  new KeyMap("\u0947", null, "e", true), // e attached
  new KeyMap("\u0910", "ai", "ai"), // ai
@@ -2417,7 +2417,8 @@ function KyotoHarvard() // extends PhoneticMapper
  new KeyMap("\u0954", null, "\\"), // acute accent
 
  // miscellaneous
- new KeyMap("\u0933\u094D", "\u1E37", "L"), // retroflex l
+ new KeyMap("\u0933\u094D", "\u1E37", "L"), // retroflex l (CDSL HK L -> SLP1 L)
+ new KeyMap("\u0933\u094D\u0939\u094D", "\u1E37h", "Lh"), // retroflex lh (CDSL HK Lh -> SLP1 |)
  new KeyMap("\u093D", "'", "'"), // avagraha
  new KeyMap("\u0950", null, "om"), // om
  new KeyMap("\u0964", ".", ".") // single danda
@@ -2516,13 +2517,13 @@ KyotoHarvard.prototype.getLayout = function()
  var cells =
  [
  'a', 'A', 'i', 'I', 'u', 'U', // first row
- 'R', 'RR', 'L', 'LL',
+ 'R', 'RR', 'lR', 'lRR',
  'e', 'ai', 'o', 'au',
  'M', 'H',
  'k', 'kh', 'g', 'gh', 'G', // velar
  'c', 'ch', 'j', 'jh', 'J', // palatal
  'T', 'Th', 'D', 'Dh', 'N', // retroflex
- 'L', 'LL', // special retroflex
+ 'L', 'Lh', // special retroflex (CDSL HK: ळ / ळ्ह)
  't', 'th', 'd', 'dh', 'n', // dental
  'p', 'ph', 'b', 'bh', 'm', // labial
  'y', 'r', 'l', 'v', // semivowel

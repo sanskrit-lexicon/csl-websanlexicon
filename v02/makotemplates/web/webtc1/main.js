@@ -7,7 +7,21 @@
 jQuery(document).ready(function(){ 
  theTranscoderField = new TranscoderField('key1',keydown_return);
  win_ls=null;
- VKI.transcoderInit();
+ // H1523 / #73 + #34: AE/MWE/BOR are English-headword dicts. Basic view already
+ // labels input "English, lower-case" and skips phonetic transcoding; list view
+ // must do the same so "window" is not rewritten as "ṭindoṭ".
+ if (typeof dictIsEnglish !== 'undefined' && dictIsEnglish) {
+  jQuery('#preferenceBtn').hide().after(' <em id="englishInputLabel">English, lower-case</em>');
+  // Enter still searches (v02 keyboard_HandleChar no longer calls getWord_keyboard).
+  jQuery('#key1').on('keydown', function (e) {
+   if (e.keyCode !== 13) return;
+   keydown_return();
+   if (e.stopPropagation) e.stopPropagation(); else e.cancelBubble = true;
+   if (e.preventDefault) e.preventDefault(); else e.returnValue = false;
+  });
+ } else {
+  VKI.transcoderInit();
+ }
  jQuery('#disp').html("");
 });
 VKI.transcoderInit = function() {
