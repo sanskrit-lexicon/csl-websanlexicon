@@ -10,7 +10,7 @@ error_reporting( error_reporting() & ~E_NOTICE & ~E_WARNING);
    <link rel="stylesheet" href="main.css" type="text/css">
    <link rel="stylesheet" href="font.css" type="text/css">
   <script type="text/javascript" src="../js/jquery.min.js" defer></script>
-  <script type="text/javascript" src="../js/jquery.cookie.js" defer></script>
+  <script type="text/javascript" src="../js/js.cookie.min.js" defer></script>
   <script type="text/javascript" src="main_webtc.js" defer> </script>
 <style>
 #title {
