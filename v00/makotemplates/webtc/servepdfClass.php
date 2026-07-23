@@ -37,11 +37,12 @@ $imageParm = $imageParms[$dictinfo->dictupper];
 if ($imageParm) {
  $imageElt = "<img src='$pdf' $imageParm />";
 } else {
- // Fallback when the browser cannot embed PDF (e.g. some Firefox/Android).
- // Wording: "open" not "load" — users expected in-page load (COLOGNE#300).
- $android = " <a href='$pdf' style='position:relative; left:100px;'>Click to open PDF</a>" ;
- $imageElt = "<object id='servepdf' type='application/pdf' data='$pdf'" . 
-             "style='width: 98%; height:98%'>" . $android . "</object>" ;
+ // Always-visible open link + object fallback (COLOGNE#153 / MWS#61 / #300).
+ $openPdf = "<a href='$pdf' target='_blank' rel='noopener'>Click to open PDF</a>";
+ $imageElt =
+  "<div id='pdfopen' style='margin:6px 0 4px 100px;'>$openPdf</div>" .
+  "<object id='servepdf' type='application/pdf' data='$pdf' " .
+  "style='width:98%;height:calc(100vh - 90px);'>$openPdf</object>";
 }
 // Use PHP 'heredoc' syntax to generate html
 $html = <<<HTML
