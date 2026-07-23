@@ -5,7 +5,7 @@
   <title>GRA Advanced</title>
     <link rel="stylesheet" type="text/css" href="main.css" media="screen" />
   <script type="text/javascript" src="../js/jquery.min.js"></script>
-  <script type="text/javascript" src="../js/jquery.cookie.js"></script>
+  <script type="text/javascript" src="../js/js.cookie.min.js"></script>
   <script type="text/javascript" src="main.js"> </script>
 <style>
 #dictid {
