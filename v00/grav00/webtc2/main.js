@@ -257,7 +257,7 @@ function cookieUpdate(flag) {
 
  var cookieName = 'mwiobasic';
  var cookieOptions = {expires: 365, path:'/'}; // 365 days
- var cookieValue = $.cookie(cookieName);
+ var cookieValue = Cookies.get(cookieName);
  var cookieValue_DOM = document.getElementById("transLit").value + "," + 
     document.getElementById("filter").value;
 
@@ -267,9 +267,9 @@ function cookieUpdate(flag) {
  }else if ((! cookieValue) || flag) {
      cookieValue =  cookieValue_DOM;
  }
- $.cookie(cookieName,cookieValue,cookieOptions);
+ Cookies.set(cookieName, cookieValue, cookieOptions);
  // Now, make DOM elements consistent with cookieValue
- cookieValue = $.cookie(cookieName);
+ cookieValue = Cookies.get(cookieName);
  //alert('cookie check1: ' + cookieValue);
  // set transLit and filter from cookieValue
  var values = cookieValue.split(",");

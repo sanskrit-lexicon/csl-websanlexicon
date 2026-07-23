@@ -15,7 +15,7 @@ error_reporting( error_reporting() & ~E_NOTICE );
    <!-- used only by PW mobile1
    <link rel="stylesheet" href="../webtc/font.css" type="text/css">
    -->
-  <script type="text/javascript" src="../js/jquery.cookie.js"></script>
+  <script type="text/javascript" src="../js/js.cookie.min.js"></script>
 
   <!-- <script type="text/javascript" src="main_mobile.js"> </script> -->
   <script type="text/javascript" src="../webtc/main_webtc.js"></script>

@@ -1,6 +1,7 @@
 images/cologne_univ_seal.gif:C
 images/encoding.gif:C
-js/jquery.cookie.js:C
+; H1523: ship js-cookie (parity with v02; templates load js.cookie.min.js)
+js/js.cookie.min.js:C
 js/jquery.min.js:C
 mobile1/index.php:T
 mobile1/main.css:C
