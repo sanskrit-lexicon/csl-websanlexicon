@@ -9,6 +9,8 @@
 //   Ref: https://github.com/sanskrit-lexicon/COLOGNE/issues/5#issuecomment-1884373054
 // Jan 26, 2024  Revised highlighting per problem noted in
 // https://github.com/sanskrit-lexicon/MWS/issues/160
+// Jul 23, 2026  H1523 / csl-websanlexicon#35: escape metachars, NFC, split tags
+//   so Devanagari (and other Unicode) highlight more reliably.
 var nextButton,prevButton,nearestButton,currentIndex;  // globals for highlight
 function init_highlight_globals() {
     currentIndex = -1;
@@ -205,11 +207,30 @@ function gather1 (keys,hword) {
 }
 function replaceText_highlight(str, old) {
     const flag = document.getElementById("as_highlight").value;
-    if (flag === 'yes') {
-	return str.replace(new RegExp(`(?!<[^>]*)(${old})(?![^<]*>)`, 'g'), match => `<span class="highlight">${match}</span>`);
-    }else {
-	return str;
+    if (flag !== 'yes' || !old) {
+        return str;
     }
+    // NFC: Devanagari (and other scripts) may differ in composed vs decomposed form
+    // between the search box and the rendered entry HTML (csl-websanlexicon#35).
+    const nfc = function (s) { return (s && s.normalize) ? s.normalize('NFC') : s; };
+    const term = nfc(String(old));
+    // Escape regex metacharacters so user input is matched literally.
+    const esc = term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    var re;
+    try {
+        re = new RegExp(esc, 'gu');
+    } catch (e) {
+        return str;
+    }
+    // Only replace outside HTML tags (split keeps tags as separate parts).
+    return nfc(str).split(/(<[^>]+>)/).map(function (part) {
+        if (part.charAt(0) === '<') {
+            return part;
+        }
+        return part.replace(re, function (match) {
+            return '<span class="highlight">' + match + '</span>';
+        });
+    }).join('');
 }
 
 function cookieUpdate(flag) {
