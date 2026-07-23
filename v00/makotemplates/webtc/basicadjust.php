@@ -418,9 +418,16 @@ public function rgveda_link($gra1,$gra2) {
  */ 
  $dbg=false;
  dbgprint($dbg,"rgveda_link: gra1=$gra1, gra2=$gra2\n");
- list($mandala,$hymn) = explode(".",$gra1);
+ // COLOGNE#370: never emit rv00.* when mandala conversion failed
+ if ($gra1 === '?' || $gra1 === '' || strpos((string)$gra1, '.') === false) {
+  return array('', '');
+ }
+ list($mandala,$hymn) = explode(".",$gra1, 2);
  $imandala = (int)$mandala;
  $ihymn = (int)$hymn;
+ if ($imandala <= 0 || $ihymn <= 0) {
+  return array('', '');
+ }
  $hymnfilepfx = sprintf("rv%02d.%03d",$imandala,$ihymn);
  $hymnfile = "$hymnfilepfx.html";
  $iverse = (int)$gra2;
@@ -443,6 +450,10 @@ public function rgveda_link($gra1,$gra2) {
  #$x = "<ab n='=$modern (mandala,hymn)'>$gra1</ab>,<graverse>$gra2</graverse>";
  # This version provides a link
  list($rvfile,$rvanchor) = $this->rgveda_link($modern,$gra2);
+ if ($rvfile === '' || $rvanchor === '') {
+  // COLOGNE#370: leave unlinked rather than rv00.*
+  return $x0;
+ }
  #$dir = "../sqlite/rvhymns";
  # 2018-08-30  use github location
  $dir = "https://sanskrit-lexicon.github.io/rvlinks/rvhymns";
