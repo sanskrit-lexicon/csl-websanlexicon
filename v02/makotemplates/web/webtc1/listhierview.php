@@ -127,14 +127,14 @@ class ListHierView {
    $revsup = join(" ", array($revsup0,$revsup1));
    */
   }
-  // experiment: show accents (and other markup) in list pane  2026
-  // by using the original 'key2' of xxx.xml  Do this only 
-  // for mw and when accent is 'yes'
-  if ($getParms->accent == 'yes') {
-   if (in_array($getParms->dict,array('mw'))) { 
-    if  (preg_match('|<key2>(.*?)</key2>|',$data2,$matches)) {
-     $key2show = $matches[1];
-    }
+  // Show accents/hyphenation/markup from original key2 of xxx.xml for MW
+  // so homographic k1 entries (e.g. anarman vs a-narman) are distinguishable
+  // in the list pane (csl-websanlexicon#46 / H1523).
+  // Earlier experiment limited this to accent=='yes'; always apply for MW so
+  // accent=no still shows hyphenation and other key2 markup differences.
+  if (in_array($getParms->dict,array('mw'))) {
+   if (preg_match('|<key2>(.*?)</key2>|',$data2,$matches)) {
+    $key2show = $matches[1];
    }
   }
   $out1 = "$spc<a  onclick='getWordAlt_keyboard(\"<SA>$key2</SA>\");'><span style='$c'$class><SA>$key2show</SA></span>$hom2</a>$xtraskip $revsup<br/>\n";
