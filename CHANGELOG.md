@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Fixed
+- **webtc1 help keyboard image** (H1523 thin): `help/keyboard.html` used a dead Brown University host for the keyboard icon; point at local `../keyboard.png` shipped with webtc1 (v00 + v02 templates).
 - **MW bare `&c.` tooltip** ([MWS#86](https://github.com/sanskrit-lexicon/MWS/issues/86), H1523): display-layer wrap of ~21k bare `&c.` occurrences so hover shows "et cetera; and so on" (same sense as already-marked `etc.`). Optional bulk `<ab>&c.</ab>` in csl-orig remains a separate monthly-batch path (Dhaval 2026-06-28).
 - **RV/AV links never emit `rv00.*`** ([COLOGNE#370](https://github.com/sanskrit-lexicon/COLOGNE/issues/370)): `parse_rv_mandala()` accepts arabic + roman mandala tokens (and strips display parentheses); failed parses no longer produce `rv00.147.html`. `rgveda_link()` returns empty on `?`/zero mandala; GRA brace-callback leaves text unlinked instead of a 404. Applied in v02 + v00 `basicadjust.php` (apidev twin same change).
 - **webtc1 Kyoto-Harvard keyboard L/LL** ([#75](https://github.com/sanskrit-lexicon/csl-websanlexicon/issues/75), H1523): virtual keys showed vocalic ऌ/ॡ; CDSL `hk_slp1.xml` (since 2013-11-15) maps `L`→retroflex ळ (SLP1 `L`) and `Lh`→ळ्ह (SLP1 `|`), with vocalic ḷ as `lR`/`lRR`. `KyotoHarvard` KeyMap + `getLayout` aligned; empty long-vocalic attached encoding fixed.
@@ -65,6 +66,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Removed
 
 ### Fixed
+- **webtc1 help keyboard image** (H1523 thin): `help/keyboard.html` used a dead Brown University host for the keyboard icon; point at local `../keyboard.png` shipped with webtc1 (v00 + v02 templates).
 - XSS and SQL injection vulnerabilities across PHP endpoints
 - Stale master branch references in CI triggers (GitHub Actions)
 - Abot display code compatibility across PHP versions (PR #67)
