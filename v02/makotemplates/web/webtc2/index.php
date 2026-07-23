@@ -7,7 +7,7 @@
    <link rel="stylesheet" type="text/css" href="main.css" media="screen" />
    <link rel="stylesheet" href="../webtc/font.css" type="text/css">
   <script type="text/javascript" src="../js/jquery.min.js" defer></script>
-  <script type="text/javascript" src="../js/jquery.cookie.js" defer></script>
+  <script type="text/javascript" src="../js/js.cookie.min.js" defer></script>
 <style>
 #dictid {
  /*position:absolute;*/
