@@ -51,18 +51,23 @@ class ListParm extends Parm {
   $this->filterin = null;
   $flag = true;
   if (isset($_REQUEST['filter'])) {
-   $this->filter = $_REQUEST['filter'] ;
+   // H1523: always standardize — early return used to leave raw REQUEST values
+   $this->filter = transcoder_standardize_filter($_REQUEST['filter']);
   } else {
    $flag = false;
   }
   
   if (isset($_REQUEST['filterin'])) {
-   $this->filterin = $_REQUEST['filterin'] ;
+   $this->filterin = transcoder_standardize_filter($_REQUEST['filterin']);
   } else {
    $flag = false;
   }
 
   if ($flag) {
+   // English headword dicts still force SLP1 input on this short path
+   if (in_array($dict,array('ae','mwe','bor'))) {
+    $this->filterin = 'slp1';
+   }
    return;
   }
   list($this->filter ,$this->filterin) = $this->getParameters_keyboard();
