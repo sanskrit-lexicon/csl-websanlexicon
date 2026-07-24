@@ -38,8 +38,13 @@ class Parm {
   }else {
    $this->filterin0 = $_REQUEST['input']; 
   }
-  $this->keyin = $_REQUEST['key'];
+  $this->keyin = isset($_REQUEST['key']) ? $_REQUEST['key'] : '';
+  if (!is_string($this->keyin)) { $this->keyin = ''; }
   $this->keyin = trim($this->keyin); // remove leading and trailing whitespace
+  // H1523: bound headword key length (display/DB lookup cost)
+  if (mb_strlen($this->keyin) > 200) {
+   $this->keyin = mb_substr($this->keyin, 0, 200);
+  }
   #$this->dict = $_REQUEST['dict'];
   $this->accent = $_REQUEST['accent']; 
 
