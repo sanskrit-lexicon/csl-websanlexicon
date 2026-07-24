@@ -1,4 +1,5 @@
 <?php
+require_once(__DIR__ . '/../security_headers.php');
 // web/webtc2/query_gather.php
 // Revised 06-29-2018
 #include('../utilities/transcoder.php');

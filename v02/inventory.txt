@@ -5,6 +5,7 @@
 *:web/images/encoding.gif:C
 ; H1523: ship js-cookie (post-migration from jquery.cookie; templates load js.cookie.min.js)
 *:web/js/js.cookie.min.js:C
+*:web/security_headers.php:C
 *:web/js/jquery.min.js:C
 *:web/js/orphus.customized.js:C
 *:web/mobile1/index.php:T
