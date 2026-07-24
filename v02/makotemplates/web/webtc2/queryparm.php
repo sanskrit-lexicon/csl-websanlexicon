@@ -31,9 +31,12 @@ class Queryparm extends Parm {
  public $word, $opt_regexp, $sopt_case, $outopt;
  public $opt_swordhw; // both, hwonly, textonly
  public $accent;
- public function __construct($dict) {
-  // Part 1 of construction identical to Parm class
-  parent::__construct($dict);  // Parm's constructor
+ public function __construct($dict = null) {
+  // Part 1 of construction identical to Parm class.
+  // H1523: Parm::__construct() takes no args since Nov 2020 (dict from
+  // dictcode.php). Passing $dict here is a PHP 8 ArgumentCountError.
+  // Call sites may still pass $dictcode for historical API shape; ignored.
+  parent::__construct();
   #Use parms filter and filterin from Parm 
   #$this->filter = $_REQUEST['filter'];
   #$this->opt_stransLit = $_REQUEST['transLit'];
