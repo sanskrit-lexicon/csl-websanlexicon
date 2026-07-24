@@ -1,4 +1,5 @@
 <?php
+require_once(__DIR__ . '/../security_headers.php');
 // web/webtc2/query_gather1.php
 // 08-05-2020  Combines previous query_gather and query_multi
 // Revised 06-29-2018, 09-07-2018
