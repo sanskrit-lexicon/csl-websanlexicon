@@ -38,8 +38,19 @@ class Queryparm extends Parm {
   #$this->filter = $_REQUEST['filter'];
   #$this->opt_stransLit = $_REQUEST['transLit'];
   $this->opt_stransLit = $this->filterin; # rename filterin to opt_stransLit
- 
-  $this->filename = $_REQUEST['dictionary'];
+  if (isset($_REQUEST['dictionary'])) {
+   // The dictionary dump file lives in the app directory; strip any path
+   // component (basename) and allowlist the name so ?dictionary= cannot
+   // fopen() an arbitrary file (path traversal / LFI). Mirrors v02 fix.
+   $dictfile = basename($_REQUEST['dictionary']);
+   if (preg_match('/^[A-Za-z0-9_.-]+$/', $dictfile)) {
+    $this->filename = $dictfile;
+   }else {
+    $this->filename = "query_dump.txt";
+   }
+  }else {
+   $this->filename = "query_dump.txt";
+  }
   $this->lastLnum = $_REQUEST['lastLnum']; // file position, for seek&tell
   $this->max = $_REQUEST['max'];
   
@@ -48,8 +59,12 @@ class Queryparm extends Parm {
   $this->opt_sword = $_REQUEST['sword'];
   
   // parms for non-Sanskrit word
-  $this->word = $_REQUEST['word'];
-  $this->word = strtolower($this->word);
+  if (isset($_REQUEST['word'])){
+   $this->word = $_REQUEST['word'];
+   $this->word = strtolower($this->word);
+  }else {
+   $this->word="";
+  }
   $this->opt_regexp = $_REQUEST['regexp'];
   $this->sopt_case = $_REQUEST['scase'];
   $this->outopt = $_REQUEST['outopt'];
