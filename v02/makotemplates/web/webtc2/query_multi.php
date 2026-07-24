@@ -8,11 +8,14 @@ require_once(__DIR__ . '/../security_headers.php');
 //require_once("../webtc/dictcode.php");
 //$dict = $dictcode;
 require_once("../webtc/parm.php");
-$getParms = new Parm();  
-$dict = $getParms->$dict;
+$getParms = new Parm();
+// H1523: was $getParms->$dict (variable property on undefined $dict) since
+// the 2020 Parm() constructor change — always null dict into BasicDisplay.
+$dict = $getParms->dict;
 $filter = $getParms->filter;
 require_once('../webtc/basicdisplay.php'); // BasicDisplay
-$data = $_POST['data'];
+// Guard missing POST (avoids Notice + explode(null) under PHP 8+)
+$data = isset($_POST['data']) ? $_POST['data'] : '';
 if (isset($_GET['callback'])) {
  header('content-type: application/json; charset=utf-8');
  header("Access-Control-Allow-Origin: *");
@@ -22,7 +25,6 @@ echo $meta;  // Why?
 
 
 $nxmlnew=0;
-$key;
 $prevkey="";
 $n = -1;
 $matches = array();
