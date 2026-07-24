@@ -33,11 +33,13 @@ class ListParm extends Parm {
   // Part 1 of construction identical to Parm class
   parent::__construct($dict);  // Parm's constructor
   // direction: either 'UP', 'DOWN', or 'CENTER' (default)
-  $direction = $_REQUEST['direction'];
-  if(!$direction) {$direction = $argv[2];}
-  if (($direction != 'UP') && ($direction != 'DOWN')) {
+  // H1523: assign to $this->direction — prior code stored only a local var, so
+  // webtc1 list UP/DOWN navigation always fell through to CENTER (v02 parity).
+  $direction = isset($_REQUEST['direction']) ? $_REQUEST['direction'] : '';
+  if (($direction != 'UP') && ($direction != 'DOWN') && ($direction != 'CENTER')) {
    $direction = 'CENTER';
   }
+  $this->direction = $direction;
   // Two 'styles' are supported, as determined by presence (or absence) of
   //  'keyboard'
   $this->keyboard = $_REQUEST['keyboard'];
