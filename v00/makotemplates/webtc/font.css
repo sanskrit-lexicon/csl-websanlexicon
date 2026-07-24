@@ -1,6 +1,8 @@
 @font-face { 
  src: url(../../web/fonts/siddhanta.ttf);
  font-family: siddhanta_deva;
+ /* H1523 / COLOGNE#379: show fallback text while webfont loads */
+ font-display: swap;
 }
 .sdata_siddhanta {
  color:teal;
@@ -16,15 +18,18 @@
 @font-face { /* for normal text in pwg */
  src: url(../../web/fonts/oldstandard.otf);
  font-family: oldstandard;
+ font-display: swap;
 }
 @font-face { 
  src: url(../../web/fonts/oldstandarditalic.otf);
  font-family: oldstandard_i;
+ font-display: swap;
  
 }
 @font-face { /* for 'ls' text in pwg */
  src: url(../../web/fonts/CharterIndoCapital.otf);
  font-family: charterindocapital;
+ font-display: swap;
 }
 
 i {

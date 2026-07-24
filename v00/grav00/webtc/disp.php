@@ -158,8 +158,9 @@ public function __construct($key,$matches,$filterin,$dict) {
     dbgprint(false,"$n0 ... $code ... $text\n");
     # be sure there is no xml in the text
     $text = preg_replace('/<.*?>/',' ',$text);
-    $text = preg_replace('/&/','and',$text);
-    $text = preg_replace("|'|"," ",$text);  # apostrophe's in title cause problem
+    # H1523: proper attr escape (was ad-hoc '→space and &→and)
+    $text = htmlspecialchars($text, ENT_QUOTES);
+    $text = preg_replace('/&#039;/', '&#8217;', $text);
     $this->row .= "<span class='ls' title='$text'>";   
    }else {
     $this->row .= "&nbsp;<span class='ls'>";   
@@ -177,8 +178,9 @@ public function __construct($key,$matches,$filterin,$dict) {
   } else if ($el == "ab"){
     if (isset($attribs['n'])) {
      $tran = $attribs['n'];
-     #dbgprint(true," sthndl. ab. tran=$tran\n");
-     #$this->row .= "<span title='$tran' style='text-decoration:underline'>";
+     # H1523: escape for title='…' (parity with basicdisplay htmlspecial)
+     $tran = htmlspecialchars($tran, ENT_QUOTES);
+     $tran = preg_replace('/&#039;/', '&#8217;', $tran);
      # this style provides a 'dotted underline'
      $style = "border-bottom: 1px dotted #000; text-decoration: none;";
      $this->row .= "<span title='$tran' style='$style'>";
