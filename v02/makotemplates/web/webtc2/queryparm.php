@@ -66,8 +66,14 @@ class Queryparm extends Parm {
    $this->word="";
   }
   $this->opt_regexp = $_REQUEST['regexp'];
-  $this->sopt_case = $_REQUEST['scase'];
-  $this->outopt = $_REQUEST['outopt'];
+  // H1523: keep scase string semantics (querymodel matchkey: "false" => case-sensitive)
+  $this->sopt_case = isset($_REQUEST['scase']) ? $_REQUEST['scase'] : '';
+  if (!is_string($this->sopt_case)) { $this->sopt_case = ''; }
+  // only outopt4/outopt5 are known UI/API values
+  $this->outopt = isset($_REQUEST['outopt']) ? $_REQUEST['outopt'] : 'outopt4';
+  if (!in_array($this->outopt, array('outopt4','outopt5'), true)) {
+   $this->outopt = 'outopt4';
+  }
   $this->opt_swordhw = $_REQUEST['swordhw'];
   if (!in_array($this->opt_swordhw,array('both', 'hwonly', 'textonly'))) {
    $this->opt_swordhw = "hwonly";
