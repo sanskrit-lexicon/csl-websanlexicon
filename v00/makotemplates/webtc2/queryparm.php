@@ -66,14 +66,41 @@ class Queryparm extends Parm {
    $this->word="";
   }
   $this->opt_regexp = $_REQUEST['regexp'];
-  $this->sopt_case = $_REQUEST['scase'];
-  $this->outopt = $_REQUEST['outopt'];
+  // H1523: keep scase string semantics (querymodel matchkey: "false" => case-sensitive)
+  $this->sopt_case = isset($_REQUEST['scase']) ? $_REQUEST['scase'] : '';
+  if (!is_string($this->sopt_case)) { $this->sopt_case = ''; }
+  // only outopt4/outopt5 are known UI/API values
+  $this->outopt = isset($_REQUEST['outopt']) ? $_REQUEST['outopt'] : 'outopt4';
+  if (!in_array($this->outopt, array('outopt4','outopt5'), true)) {
+   $this->outopt = 'outopt4';
+  }
   $this->opt_swordhw = $_REQUEST['swordhw'];
   if (!in_array($this->opt_swordhw,array('both', 'hwonly', 'textonly'))) {
    $this->opt_swordhw = "hwonly";
   }
+  // H1523: bound search strings + whitelist match mode (ReDoS / dump-scan cost)
+  if (!is_string($this->opt_sword)) {$this->opt_sword = "";}
+  if (mb_strlen($this->opt_sword) > 200) {
+   $this->opt_sword = mb_substr($this->opt_sword, 0, 200);
+  }
+  if (!is_string($this->word)) {$this->word = "";}
+  if (mb_strlen($this->word) > 200) {
+   $this->word = mb_substr($this->word, 0, 200);
+  }
+  if (!in_array($this->opt_regexp, array('exact','prefix','suffix','instring','substring'), true)) {
+   $this->opt_regexp = "exact";
+  }
+  // H1523: same whitelist for Sanskrit match mode (invalid fell through to bare
+  // "$slpword.*[\\t]" in querymodel).
+  if (!in_array($this->opt_sregexp, array('exact','prefix','suffix','instring','substring'), true)) {
+   $this->opt_sregexp = "exact";
+  }
   if (!($this->filename)) {$this->filename = "query_dump.txt";}
-  if (!($this->max)) {$this->max = 5;}
+  // H1523: bound Advanced Search page size — untrusted ?max= is cast and
+  // clamped so a huge value cannot force multi-million-line scan loops.
+  $this->max = intval($this->max);
+  if ($this->max < 1) {$this->max = 5;}
+  if ($this->max > 100) {$this->max = 100;}
   if (!($this->lastLnum)) {$this->lastLnum = 0;}
   $this->lastLnum = intval($this->lastLnum);
   if ($this->lastLnum < 0) {
