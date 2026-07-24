@@ -36,7 +36,7 @@ class QueryListView {
    }
    if ($search_regexp_nonSanskrit != null) {
     if (preg_match("/$search_regexp_nonSanskrit/",$x,$matches)) {
-     $extra = $matches[1];
+     $extra = htmlspecialchars($matches[1], ENT_QUOTES);
      $xmlnew .= "  ($extra)<br/>\n";
     } else {
     $xmlnew .= "<br/>\n";

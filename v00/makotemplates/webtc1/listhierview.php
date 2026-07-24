@@ -11,11 +11,15 @@ class ListHierView {
  while($i < count($listmatches)) {
   // code governs a detail of format 
   list($code,$key2,$lnum2,$data2) = $listmatches[$i];
+  // H1523: escape key only for JS onclick attrs (English keys may contain ')
+  // Keep $key2 raw for <SA> display / transcoder.
+  if ($key2 === null) { $key2 = ""; }
+  $key2_js = htmlspecialchars((string)$key2, ENT_QUOTES);
   $hom2=$this->get_hom($data2);
   if ($i == 0) {
    //  put 'upward button'
    $spc="&nbsp;&nbsp;";
-   $out1 = "$spc<a  onclick='getWordlistUp_keyboard(\"<SA>$key2</SA>\");'><span style='$c'>&#x25B2;</span></a><br/>\n";  
+   $out1 = "$spc<a  onclick='getWordlistUp_keyboard(\"<SA>$key2_js</SA>\");'><span style='$c'>&#x25B2;</span></a><br/>\n";  
    $table .= $out1;
   }
   $i++;
@@ -71,13 +75,13 @@ class ListHierView {
   }else {
    $class = " class='$sdata'";
   }
-  $out1 = "$spc<a  onclick='getWordAlt_keyboard(\"<SA>$key2</SA>\");'><span style='$c'$class><SA>$key2show</SA></span>$hom2</a>$xtraskip<br/>\n";
+  $out1 = "$spc<a  onclick='getWordAlt_keyboard(\"<SA>$key2_js</SA>\");'><span style='$c'$class><SA>$key2show</SA></span>$hom2</a>$xtraskip<br/>\n";
 
   $table .= $out1;
   if ($i == count($listmatches)) {
    //  put 'downward button'
    $spc="&nbsp;&nbsp;";
-   $out1 = "$spc<a  onclick='getWordlistDown_keyboard(\"<SA>$key2</SA>\");'><span style='$c'>&#x25BC;</span></a><br/>\n";  
+   $out1 = "$spc<a  onclick='getWordlistDown_keyboard(\"<SA>$key2_js</SA>\");'><span style='$c'>&#x25BC;</span></a><br/>\n";  
    $table .= $out1;
   }
  }

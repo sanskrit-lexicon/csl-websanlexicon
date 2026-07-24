@@ -24,10 +24,12 @@ class QueryListView {
    list($key,$sanskrit) = preg_split('|:|',$keypart);
    $key = trim($key);
    $y = $matches[2];
-   $xmlnew .= "$nx <!-- $key --><a class='words' onclick='getWord4(\"$nx\");'><SA>$key</SA></a>";
+   // H1523: escape key for HTML text/comment (onclick uses numeric $nx only)
+   $key_html = htmlspecialchars($key, ENT_QUOTES);
+   $xmlnew .= "$nx <!-- $key_html --><a class='words' onclick='getWord4(\"$nx\");'><SA>$key</SA></a>";
    if ($search_regexp_nonSanskrit != null) {
     if (preg_match("/$search_regexp_nonSanskrit/",$x,$matches)) {
-     $extra = $matches[1];
+     $extra = htmlspecialchars($matches[1], ENT_QUOTES);
      $xmlnew .= "  ($extra)<br/>\n";
     } else {
     $xmlnew .= "<br/>\n";
