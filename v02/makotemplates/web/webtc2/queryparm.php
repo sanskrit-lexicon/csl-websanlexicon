@@ -73,7 +73,11 @@ class Queryparm extends Parm {
    $this->opt_swordhw = "hwonly";
   }
   if (!($this->filename)) {$this->filename = "query_dump.txt";}
-  if (!($this->max)) {$this->max = 5;}
+  // H1523: bound Advanced Search page size — untrusted ?max= is cast and
+  // clamped so a huge value cannot force multi-million-line scan loops.
+  $this->max = intval($this->max);
+  if ($this->max < 1) {$this->max = 5;}
+  if ($this->max > 100) {$this->max = 100;}
   if (!($this->lastLnum)) {$this->lastLnum = 0;}
   $this->lastLnum = intval($this->lastLnum);
   if ($this->lastLnum < 0) {
