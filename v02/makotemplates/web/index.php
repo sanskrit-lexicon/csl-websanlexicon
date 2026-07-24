@@ -1,3 +1,4 @@
+<?php require_once(__DIR__ . '/security_headers.php'); ?>
 <!DOCTYPE html>
 <html>
 <head>
