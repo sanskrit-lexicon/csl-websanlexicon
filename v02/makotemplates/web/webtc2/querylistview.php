@@ -26,11 +26,13 @@ class QueryListView {
    list($key,$sanskrit) = preg_split('|:|',$keypart);
    $key = trim($key);
    $y = $matches[2];
+   // H1523: escape key for HTML text/comment (onclick uses numeric $nx only)
+   $key_html = htmlspecialchars($key, ENT_QUOTES);
    if (in_array($this->dict,array('ae','mwe','bor'))) {
     // for English headword, no need to transcode key.
-    $xmlnew .= "$nx <!-- $key --><a class='words' onclick='getWord4(\"$nx\");'>$key</a>";
+    $xmlnew .= "$nx <!-- $key_html --><a class='words' onclick='getWord4(\"$nx\");'>$key_html</a>";
    }else {
-    $xmlnew .= "$nx <!-- $key --><a class='words' onclick='getWord4(\"$nx\");'><SA>$key</SA></a>";
+    $xmlnew .= "$nx <!-- $key_html --><a class='words' onclick='getWord4(\"$nx\");'><SA>$key</SA></a>";
    }
    if ($search_regexp_nonSanskrit != null) {
     if (preg_match("/$search_regexp_nonSanskrit/",$x,$matches)) {
