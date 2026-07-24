@@ -360,7 +360,7 @@ public function __construct($key,$matches,$filterin,$dict) {
    $this->row .= "<span style='font-size:smaller; font-weight:100'>";
   } else if ($el == "gralink") {
     $href = $attribs['href'];
-    $tooltip = $attribs['n'];
+    $tooltip = $this->htmlspecial($attribs['n']);
     $style = '';
     $this->row .= "<a href='$href' title='$tooltip' target='_rvlink'>";
   } else if ($el == "lex"){ // m. f., etc.
@@ -452,7 +452,7 @@ public function __construct($key,$matches,$filterin,$dict) {
     // no display
   } else if ($el == "ls") {
    if (isset($attribs['n'])) {
-    $tooltip = $attribs['n'];
+    $tooltip = $this->htmlspecial($attribs['n']);
     $this->row .= "<span class='ls' title='$tooltip'>";   
     #$this->row .= "<span class='ls' title=\"$tooltip\">";   
    }else {
@@ -474,7 +474,7 @@ public function __construct($key,$matches,$filterin,$dict) {
    // no rendering
   } else if ($el == "ab"){
     if (isset($attribs['n'])) {
-     $tran = $attribs['n'];
+     $tran = $this->htmlspecial($attribs['n']);
      #dbgprint(true," sthndl. ab. tran=$tran\n");
      #$this->row .= "<span title='$tran' style='text-decoration:underline'>";
      # this style provides a 'dotted underline'
@@ -645,6 +645,14 @@ public function __construct($key,$matches,$filterin,$dict) {
   } else { // Arbitrary other text
    $this->row .= $data;
   }
+}
+public function htmlspecial($text) {
+ /* H1523: escape dynamic attribute values for single-quoted HTML attrs.
+    Parity with v02 BasicDisplay::htmlspecial / BasicAdjust::htmlspecial.
+ */
+ $tooltip = htmlspecialchars((string)$text, ENT_QUOTES);
+ $tooltip = preg_replace('/&#039;/', '&#8217;', $tooltip);
+ return $tooltip;
 }
 public function getHrefPage($data) {
 /* getHrefPage generates markup for the link to a program which displays a pdf, as
