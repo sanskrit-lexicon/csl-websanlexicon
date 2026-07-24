@@ -42,7 +42,8 @@ font-size: 14pt;
 global $inithash;
  $init=$inithash['word'];
  echo '<input type="text" name="key" size="20" id="key" ';
- echo "value=\"$init\" />\n";
+ // word comes from ?word=/citation=/key=; escape so a quote cannot break out of the attr
+ echo 'value="' . htmlspecialchars($init, ENT_QUOTES) . "\" />\n";
 ?>
    </td>
    <td>input:&nbsp;
