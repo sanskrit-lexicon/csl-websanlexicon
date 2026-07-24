@@ -331,7 +331,9 @@ public function getHrefPage($data) {
   if ($ans == "") {
    //$args = "page=$lnumref";
    $args = "page=$page";
-   $ans = "<a href='$serve?$args' target='_Blank'>$lnum</a>";
+   // H1523: escape full href (page token from data can break single-quoted attrs)
+   $href = htmlspecialchars("$serve?$args", ENT_QUOTES);
+   $ans = "<a href='$href' target='_Blank'>$lnum</a>";
   }else {
    $ans .= ",$lnum";
   }

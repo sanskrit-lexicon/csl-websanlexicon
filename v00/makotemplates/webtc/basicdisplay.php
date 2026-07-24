@@ -681,7 +681,10 @@ public function getHrefPage($data) {
    #$ans = "<a href='$serve?$args' target='_Blank'>$lnum</a>";
    $dictup = strtoupper($this->dict);
    $style = "color:rgb(130,130,130);";
-   $ans = "<a href='$serve?$args' target='_$dictup' style='$style'>$lnum</a>";
+   // H1523: escape full href (page token from data can break single-quoted attrs)
+   $href = $this->htmlspecial("$serve?$args");
+   $dictup_attr = $this->htmlspecial($dictup);
+   $ans = "<a href='$href' target='_$dictup_attr' style='$style'>$lnum</a>";
   }else {
    $ans .= ",$lnum";
   }
@@ -701,7 +704,8 @@ public function mw_extra_line($line) {
   $elts=array();
   foreach ($results as $rec) {
    list($whitkey,$whitpage) = preg_split("|,|",$rec);
-   $href = "$href0" . "?page=$whitpage";
+   // H1523: escape Whitney page href (page token from <info whitneyroots>)
+   $href = $this->htmlspecial("$href0" . "?page=$whitpage");
    $whitkey1 = $whitkey; 
    $whitkey2 = "";
    if (preg_match('|^([^1-9]*)([1-9]*)$|',$whitkey,$matches)) {
@@ -727,7 +731,8 @@ public function mw_extra_line($line) {
    // westsutra is of form (section.rootnum)
    // our links require the section
    list($westsection,$westrootnum) = preg_split("|[.]|",$westsutra);
-   $href = "$href0" . "?section=$westsection";
+   // H1523: escape Westergaard section href
+   $href = $this->htmlspecial("$href0" . "?section=$westsection");
    $elt = "<a href='$href' target='_Westergaard'>$westsutra</a>";
    $elts[] = $elt;
   }
