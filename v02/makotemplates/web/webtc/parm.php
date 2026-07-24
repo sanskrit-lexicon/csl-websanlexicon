@@ -136,6 +136,10 @@ class Parm {
  //$invalid_characters = array("$", "%", "#", "<", ">", "=", "(", ")");
  $invalid_characters = array("$",  "#", "<", ">", "=", "(", ")");
  $ans = str_replace($invalid_characters, "", $x);
+ // H1523: bound headword key length (display/DB lookup cost)
+ if (is_string($ans) && mb_strlen($ans) > 200) {
+  $ans = mb_substr($ans, 0, 200);
+ }
  return $ans;
 }
 public function init_request($keys,$default) {

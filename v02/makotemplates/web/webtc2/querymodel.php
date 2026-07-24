@@ -93,6 +93,12 @@ class QueryModel{
    $slpword = $this->translate_string2SLP($this->queryParms->opt_stransLit,$this->queryParms->opt_sword);
    $wordchrs = preg_split ('/[^a-zA-Z.*?+|]/',$slpword); // 10-9-2021
    $slpword = join('',$wordchrs);
+   // H1523: in exact mode, treat sword as a literal (modes supply wildcards).
+   // Other modes still allow * ? . + | as intentional user wildcards (cap length
+   // already applied in QueryParm).
+   if ($this->queryParms->opt_sregexp == "exact") {
+    $slpword = preg_quote($slpword, '/');
+   }
    //dbgprint(true,"match_Sanskrit: slpword='$slpword'\n");
    if ($slpword == '') {
     $this->status = true;

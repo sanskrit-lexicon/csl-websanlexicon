@@ -84,6 +84,11 @@ class Queryparm extends Parm {
   if (!in_array($this->opt_regexp, array('exact','prefix','suffix','instring','substring'), true)) {
    $this->opt_regexp = "exact";
   }
+  // H1523: same whitelist for Sanskrit match mode (invalid fell through to bare
+  // "$slpword.*[\\t]" in querymodel).
+  if (!in_array($this->opt_sregexp, array('exact','prefix','suffix','instring','substring'), true)) {
+   $this->opt_sregexp = "exact";
+  }
   if (!($this->filename)) {$this->filename = "query_dump.txt";}
   // H1523: bound Advanced Search page size — untrusted ?max= is cast and
   // clamped so a huge value cannot force multi-million-line scan loops.
