@@ -24,7 +24,9 @@ function getwordCall() {
     return;
    }
    $json = json_encode($table1);
-   echo "{$callback}($json)";
+   // htmlspecialchars is a no-op on the whitelist, but defense-in-depth
+   // (parity with csl-apidev simple-search getword_list_1.0.php).
+   echo htmlspecialchars($callback) . "($json)";
   }else {
    echo $table1;
   }
