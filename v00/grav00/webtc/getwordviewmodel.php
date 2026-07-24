@@ -23,10 +23,13 @@ class GetwordViewModel {
   $nmatches = count($matches);
  
   if ($nmatches == 0) {
-   $out = "<h2>not found: $getParms->keyin</h2>\n";
+   // H1523: keyin is user-influenced; escape before HTML
+   $keyin_html = htmlspecialchars((string)$getParms->keyin, ENT_QUOTES, 'UTF-8');
+   $out = "<h2>not found: $keyin_html</h2>\n";
    $out1 = "<SA>$key</SA>";
    $out1 = transcoder_processElements($out1,"slp1",$filter,"SA");
-   $table1 = $out + "<p>$out1</p>\n";
+   // H1523: was PHP '+' (numeric) instead of string concat '.'
+   $table1 = $out . "<p>$out1</p>\n";
    $table = null;
    $this->status = false;
   }else {

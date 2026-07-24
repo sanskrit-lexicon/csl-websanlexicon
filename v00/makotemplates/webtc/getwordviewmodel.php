@@ -23,7 +23,9 @@ class GetwordViewModel {
   $nmatches = count($matches);
   $dbg=false;
   if ($nmatches == 0) {
-   $out = "<h2>not found: $getParms->keyin</h2>\n";
+   // H1523: keyin is user-influenced; escape before HTML
+   $keyin_html = htmlspecialchars((string)$getParms->keyin, ENT_QUOTES, 'UTF-8');
+   $out = "<h2>not found: $keyin_html</h2>\n";
    if (in_array($getParms->dict,array('ae','mwe','bor'))) {
     // for English headword, no need to transcode key.
     $table1 = $out;
