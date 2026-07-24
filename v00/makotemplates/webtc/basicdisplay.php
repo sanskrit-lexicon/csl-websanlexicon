@@ -48,9 +48,12 @@ public function __construct($key,$matches,$filterin,$dict) {
  $sdata = $this->sdata;
  if (in_array($this->dict,array('ae','mwe','bor'))) {
   // no transliteration of $key for English headword
-  $this->table = "<h1>&nbsp;$key</h1>\n";
+  // H1523: escape key for HTML
+  $key_html = $this->htmlspecial($key);
+  $this->table = "<h1>&nbsp;$key_html</h1>\n";
  }else {
-  $this->table = "<h1 class='$sdata'>&nbsp;<SA>$key</SA></h1>\n";
+  $key_html = $this->htmlspecial($key);
+  $this->table = "<h1 class='$sdata'>&nbsp;<SA>$key_html</SA></h1>\n";
  }
  $this->table .= "<table class='display'>\n";
  $ntot = count($matches);
@@ -359,7 +362,7 @@ public function __construct($key,$matches,$filterin,$dict) {
   } else if ($el == "graverse") {
    $this->row .= "<span style='font-size:smaller; font-weight:100'>";
   } else if ($el == "gralink") {
-    $href = $attribs['href'];
+    $href = $this->htmlspecial($attribs['href']); // H1523
     $tooltip = $this->htmlspecial($attribs['n']);
     $style = '';
     $this->row .= "<a href='$href' title='$tooltip' target='_rvlink'>";
