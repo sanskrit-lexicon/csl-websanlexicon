@@ -33,11 +33,11 @@ function getWord() {
   }
   */
   var url =  "../webtc/getword.php" +  
-   "?key=" +escape(word) + 
-   "&filter=" +escape(filter) +
-   //"&noLit=" + escape(noLit) +
-   "&accent=" + escape(accent) +
-   "&transLit=" + escape(transLit);
+   "?key=" +encodeURIComponent(word) + 
+   "&filter=" +encodeURIComponent(filter) +
+   //"&noLit=" + encodeURIComponent(noLit) +
+   "&accent=" + encodeURIComponent(accent) +
+   "&transLit=" + encodeURIComponent(transLit);
 
     jQuery.ajax({
 	url:url,

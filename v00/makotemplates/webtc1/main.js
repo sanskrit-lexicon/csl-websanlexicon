@@ -192,14 +192,14 @@ function keyboard_parms(keyserver,listurlFlag) {
     }
    var ans = 
    url + 
-   "?key=" +escape(word) + 
-   "&keyboard=" +escape("yes") +
-   "&inputType=" +escape(inputType) +
-   "&unicodeInput=" +escape(unicodeInput) +
-   "&phoneticInput=" +escape(phoneticInput) +
-   "&serverOptions=" +escape(serverOptions) +
-   "&accent=" + escape(accent) +
-   "&viewAs=" + escape(viewAs);
+   "?key=" +encodeURIComponent(word) + 
+   "&keyboard=" +encodeURIComponent("yes") +
+   "&inputType=" +encodeURIComponent(inputType) +
+   "&unicodeInput=" +encodeURIComponent(unicodeInput) +
+   "&phoneticInput=" +encodeURIComponent(phoneticInput) +
+   "&serverOptions=" +encodeURIComponent(serverOptions) +
+   "&accent=" + encodeURIComponent(accent) +
+   "&viewAs=" + encodeURIComponent(viewAs);
     return ans;
 }
 

@@ -22,10 +22,10 @@ function getWord() {
   }
   
   var url =  "../webtc/getword.php" +  
-   "?key=" +escape(word) + 
-   "&filter=" +escape(filter) +
-   "&noLit=" + escape(noLit) +
-   "&transLit=" + escape(transLit);
+   "?key=" +encodeURIComponent(word) + 
+   "&filter=" +encodeURIComponent(filter) +
+   "&noLit=" + encodeURIComponent(noLit) +
+   "&transLit=" + encodeURIComponent(transLit);
 
     jQuery.ajax({
 	url:url,
