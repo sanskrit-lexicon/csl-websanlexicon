@@ -298,11 +298,11 @@ function listhier_lnum(lnum,link) {
    var accent = readCookie("accent");
    var url = 
    urlbase + 
-   "?lnum=" +escape(lnum)+ 
-   "&filterin=" + escape(input) +
-   "&filter=" + escape(output) +
-   "&accent=" + escape(accent) +
-   "&dict=" + escape(dict);
+   "?lnum=" +encodeURIComponent(lnum)+ 
+   "&filterin=" + encodeURIComponent(input) +
+   "&filter=" + encodeURIComponent(output) +
+   "&accent=" + encodeURIComponent(accent) +
+   "&dict=" + encodeURIComponent(dict);
     //var $this =$(this);  // the link in 'disp' that was clicked
     //console.log('listhier_lnum: url=\n',url);
     getWordlist_link(url,link);
