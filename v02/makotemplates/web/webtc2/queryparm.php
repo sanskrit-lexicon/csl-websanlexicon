@@ -72,6 +72,18 @@ class Queryparm extends Parm {
   if (!in_array($this->opt_swordhw,array('both', 'hwonly', 'textonly'))) {
    $this->opt_swordhw = "hwonly";
   }
+  // H1523: bound search strings + whitelist match mode (ReDoS / dump-scan cost)
+  if (!is_string($this->opt_sword)) {$this->opt_sword = "";}
+  if (mb_strlen($this->opt_sword) > 200) {
+   $this->opt_sword = mb_substr($this->opt_sword, 0, 200);
+  }
+  if (!is_string($this->word)) {$this->word = "";}
+  if (mb_strlen($this->word) > 200) {
+   $this->word = mb_substr($this->word, 0, 200);
+  }
+  if (!in_array($this->opt_regexp, array('exact','prefix','suffix','instring','substring'), true)) {
+   $this->opt_regexp = "exact";
+  }
   if (!($this->filename)) {$this->filename = "query_dump.txt";}
   // H1523: bound Advanced Search page size — untrusted ?max= is cast and
   // clamped so a huge value cannot force multi-million-line scan loops.
