@@ -19,9 +19,14 @@ require_once('../webtc/getwordClass.php');
 
 //$filter = $getParms->filter;  unused variable
 echo "$meta\n";
+// H1523: json_decode can return null on invalid JSON; foreach(null) is a
+// TypeError under PHP 8+. Also reject non-array decodes (objects / scalars).
 if (isset($_POST['data'])) {
  $data = $_POST['data'];
  $keyar = json_decode($data);
+ if (!is_array($keyar)) {
+  $keyar = array();
+ }
 }else {
  $data = "";
  $keyar = array();
@@ -29,8 +34,12 @@ if (isset($_POST['data'])) {
 $nkey = 0;
 
 foreach($keyar as $key) {
+ // GetwordClass reads string keys from REQUEST; coerce scalars only
+ if (!is_string($key) && !is_numeric($key)) {
+  continue;
+ }
  $nkey++;
- $_REQUEST['key'] = $key;
+ $_REQUEST['key'] = (string)$key;
  $_REQUEST['input'] = 'slp1';
  $vm = new GetwordClass();
  $table1 = $vm->table1;
