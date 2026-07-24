@@ -1,4 +1,5 @@
 <?php
+require_once(__DIR__ . '/../security_headers.php');
 //sanskrit/mwquery/mwquery_monierMulti.php
 //ejf 2010-01-28
 //ejf Oct 1, 2012  Adapated for sanskrit1d

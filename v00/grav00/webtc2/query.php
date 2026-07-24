@@ -1,4 +1,5 @@
 <?php
+require_once(__DIR__ . '/../security_headers.php');
 // modified June 24, 2013 to allow search for sanskrit words in body of text
 // modified Nov 25,2013 for pwg.
 if (isset($_GET['callback'])) {

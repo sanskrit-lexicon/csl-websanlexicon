@@ -1,4 +1,5 @@
 <?php
+require_once(__DIR__ . '/../security_headers.php');
 // web/webtc1/listhier.php
 // Revised 06-28-2018 to work with revised webtc programs
 
