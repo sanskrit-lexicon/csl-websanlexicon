@@ -42,11 +42,18 @@ class QueryModel{
  }
  public function match_nonSanskrit() {
    $non_word = "[^a-zA-Z0-9]";
-   $wordreg = "[a-zA-Z0-9-]";
+   // After soft-hyphen strip (COLOGNE#75), word chars no longer need '-'
+   $wordreg = "[a-zA-Z0-9]";
    $wordchrs = preg_split ('/[^a-zA-Z.*?+]/',$this->word);
    $this->word = join('',$wordchrs);
    $wordin = $this->word;
    $word = $this->word; // for simplicity in following string expressions
+   $word = mb_strtolower($word);
+   // COLOGNE#75 / H1523: strip soft-hyphens; quote for regex safety
+   $word = str_replace('-', '', $word);
+   $word = preg_quote($word, '/');
+   // keep $this->word in sync for matchkey() filter
+   $this->word = $word;
    if ($this->queryParms->opt_regexp == "exact"){
     $search_regexp = "[\t].*$non_word($word)$non_word";
    }else if ($this->queryParms->opt_regexp == "prefix") {
@@ -73,8 +80,12 @@ class QueryModel{
   //we may need to modify from HK or ITRANS
   
    $slpword = $this->translate_string2SLP($this->queryParms->opt_stransLit,$this->queryParms->opt_sword);
-   $wordchrs = preg_split ('/[^a-zA-Z.*?+]/',$slpword);
+   $wordchrs = preg_split ('/[^a-zA-Z.*?+|]/',$slpword);
    $slpword = join('',$wordchrs);
+   // H1523: exact mode treats sword as a literal
+   if ($this->queryParms->opt_sregexp == "exact") {
+    $slpword = preg_quote($slpword, '/');
+   }
    $non_word = "[^a-zA-Z0-9]";
    $wordreg = "[a-zA-Z0-9-]";
    $wordin = $slpword;
@@ -83,10 +94,10 @@ class QueryModel{
     $search_regexp = "$non_word($slpword)$non_word.*[\t]";
    }else if ($this->queryParms->opt_sregexp == "prefix") {
     //$search_regexp = "^$slpword.+" . "[\t]";
-    $search_regexp = "$non_word($slpword$wordreg+)$non_word.*[\t]";
+    $search_regexp = "$non_word($slpword$wordreg*)$non_word.*[\t]";
    }else if ($this->queryParms->opt_sregexp == "suffix") {
     //$search_regexp = ".+$slpword" . "[\t]";
-    $search_regexp = "$non_word($wordreg+$slpword)$non_word.*[\t]";
+    $search_regexp = "$non_word($wordreg*$slpword)$non_word.*[\t]";
    }else if ($this->queryParms->opt_sregexp == "instring"){
     //$search_regexp = ".+$slpword.+" . "[\t]";
     $search_regexp = "$non_word($wordreg+$slpword$wordreg+)$non_word.*[\t]";
@@ -128,7 +139,8 @@ class QueryModel{
  while ($line) {
   $nline++;
   $linex="";
-  $liney=$line;
+  // COLOGNE#75 / H1523: match against hyphen-stripped body so 'diamond' finds 'dia-mond'
+  $liney = str_replace('-', '', $line);
   if (!preg_match("/$word/",$liney)) {
   //nothing to do
    $nothing++;
