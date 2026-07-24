@@ -117,6 +117,15 @@ function getNext() {
     jQuery("#disp").html("<p>working...</p>");
     jQuery("#data").html("");
 }
+// H1523: escape headwords/match snippets for Advanced Search result HTML
+function cslEscHtml(s) {
+ return String(s == null ? '' : s)
+  .replace(/&/g, '&amp;')
+  .replace(/</g, '&lt;')
+  .replace(/>/g, '&gt;')
+  .replace(/"/g, '&quot;')
+  .replace(/'/g, '&#39;');
+}
 function getNext_html(keydata,filter) {
  if (keydata.length == 0) {
   return "<p>No matches found</p>";
@@ -134,11 +143,15 @@ function getNext_html(keydata,filter) {
   let nx = i+1;
   let key = rec.key;
   let keyout = rec.keyout;
-  let matchword = rec.matchword
+  let matchword = rec.matchword;
+  // H1523: escape before injecting into result HTML
+  let key_e = cslEscHtml(key);
+  let keyout_e = cslEscHtml(keyout);
+  let matchword_e = '';
   if (matchword != ''){
-   matchword = ` (${matchword})`;
+   matchword_e = ` (${cslEscHtml(matchword)})`;
   }
-  let x = `${nx} <!-- ${key} --><a class='${c}' onclick='getWord4(\"${nx}\");'>${keyout}</a>${matchword}<br>`;
+  let x = `${nx} <!-- ${key_e} --><a class='${c}' onclick='getWord4(\"${nx}\");'>${keyout_e}</a>${matchword_e}<br>`;
   htmlarr.push(x);
  }
  htmlarr.push("</p>");
