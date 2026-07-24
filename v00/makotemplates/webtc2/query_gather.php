@@ -36,8 +36,11 @@ $nmatches=0;
 foreach($keyar as $key) {
  $results = $dal->get1_mwalt($key);
  if (count($results) == 0) {
-  $data1 = "key=$key," . "<Hx><h><key1>$key1</key1></h><body>" .
-		"no data for key1=$key1</body><tail></tail></Hx>";
+  // H1523: was undefined $key1 (only set after a successful dal hit).
+  // Use the loop $key; escape for HTML body text.
+  $key_html = htmlspecialchars((string)$key, ENT_QUOTES, 'UTF-8');
+  $data1 = "key=$key_html," . "<Hx><h><key1>$key_html</key1></h><body>" .
+  "no data for key1=$key_html</body><tail></tail></Hx>";
   $matches[$nmatches]=trim($data1);
   $nmatches++;
   continue;
