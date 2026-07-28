@@ -10,6 +10,8 @@ authors:
   - family-names: Patel
     given-names: Dhaval
 license: GPL-3.0
+version: 0.3.0
+date-released: "2026-07-28"
 repository-code: https://github.com/sanskrit-lexicon/csl-websanlexicon
 keywords:
   - sanskrit

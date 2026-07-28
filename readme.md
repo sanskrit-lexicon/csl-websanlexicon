@@ -1,6 +1,6 @@
 # csl-websanlexicon
 
-_Created: 15-05-2026 · Last updated: 11-07-2026_
+_Created: 15-05-2026 · Last updated: 28-07-2026_
 
 The **web-frontend** of the [Cologne Digital Sanskrit Dictionaries](https://www.sanskrit-lexicon.uni-koeln.de/) (CDSL). This repository is **not** a dictionary itself — it is the code that turns each Cologne dictionary into a browsable, searchable web application.
 
@@ -40,7 +40,9 @@ Requirements: Python 3 with `mako` (`pip install mako`). Batch regeneration of a
 
 ## Running locally
 
-Full step-by-step install guides (longer, authoritative):
+- **[docs/WEB_FRONTEND_MANUAL.md](https://github.com/sanskrit-lexicon/csl-websanlexicon/blob/main/docs/WEB_FRONTEND_MANUAL.md) — the operator manual** (current, v02): generate a dictionary web app, install the data files, serve under XAMPP, batch-regenerate, fork-sync with csl-apidev, symptom → cure table.
+
+Legacy step-by-step install guides (v00-era, kept for reference):
 
 - [readme_xampp.org](https://github.com/sanskrit-lexicon/csl-websanlexicon/blob/main/readme_xampp.org) — local install under XAMPP (Apache + PHP).
 - [readme_cologne.org](https://github.com/sanskrit-lexicon/csl-websanlexicon/blob/main/readme_cologne.org) — deployment on the Cologne server.
