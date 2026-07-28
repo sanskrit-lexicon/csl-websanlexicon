@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.3.0] - 2026-07-28
+
+### Added
+- `docs/WEB_FRONTEND_MANUAL.md` — the operator manual for the v02 generator + runtime (H1782):
+  verified generate walkthrough, inventory `C`/`CD`/`T`/`D` semantics, data-file provenance
+  (csl-pywork), the four display surfaces, the csl-apidev fork-sync contract, symptom → cure
+  table, maintainer appendix with observed doc-vs-code defects. Companion
+  `docs/WEB_FRONTEND_MANUAL.meta.md`; linked from the README.
+
 ### Fixed
 - **webtc1 help keyboard image** (H1523 thin): `help/keyboard.html` used a dead Brown University host for the keyboard icon; point at local `../keyboard.png` shipped with webtc1 (v00 + v02 templates).
 - **MW bare `&c.` tooltip** ([MWS#86](https://github.com/sanskrit-lexicon/MWS/issues/86), H1523): display-layer wrap of ~21k bare `&c.` occurrences so hover shows "et cetera; and so on" (same sense as already-marked `etc.`). Optional bulk `<ab>&c.</ab>` in csl-orig remains a separate monthly-batch path (Dhaval 2026-06-28).
