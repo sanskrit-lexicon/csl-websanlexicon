@@ -546,4 +546,16 @@ alldictparms = {
   "dictbe":u"Nāmamālikā of Bhoja",
   "dicttitle":u"Nāmamālikā of Bhoja",
  },
+ "nybj":{
+  "dictup":"NYBJ",
+  "dictlo":"nybj",
+   "dictname":u"Nyāyakośa of Bhīmācārya Jhaḻakīkara",
+  "dictversion":"03",
+  "dictyear":"2026",
+  "dictaccent":False,
+  "webtc2devatextoption":True,
+   "dictwc":u"https://search.worldcat.org/title/52008302",
+  "dictbe":u"Nyāyakośa of Bhīmācārya Jhaḻakīkara",
+  "dicttitle":u"Nyāyakośa of Bhīmācārya Jhaḻakīkara",
+ },
 }

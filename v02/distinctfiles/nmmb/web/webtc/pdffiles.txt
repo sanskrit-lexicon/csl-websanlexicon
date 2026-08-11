@@ -1,4 +1,4 @@
-]633;E;for i in $(seq -f "%04g" 1 40)\x3b do echo "$i:pg$i.pdf"\x3b done > /home/create/Documents/projects/sanskrit-lexicon/csl-websanlexicon/v02/distinctfiles/nmmb/web/webtc/pdffiles.txt;08901244-c678-4871-8ab5-438da9a89511]633;C0001:pg0001.pdf
+0001:pg0001.pdf
 0002:pg0002.pdf
 0003:pg0003.pdf
 0004:pg0004.pdf
