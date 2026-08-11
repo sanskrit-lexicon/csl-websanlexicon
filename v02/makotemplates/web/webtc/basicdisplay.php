@@ -379,6 +379,10 @@ public function __construct($key,$string_or_array,$filterin,$dict) {
      return "<div style='margin-top:0.3em;padding-left:2.5em;'>";
     }
     return "<div style='margin-top:0.6em;'></div>";
+   }else if ($this->dict == 'nybj') {
+    // n="1" = meaning division (from [ka], [Ka], ... markers in nybj.txt)
+    // show each meaning on its own line, slightly indented
+    return "<div style='margin-top:0.4em;padding-left:1.0em;'>";
    }else { // default
     // currently applies to:
     // cae with <div n="p"/>
