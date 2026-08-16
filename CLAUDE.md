@@ -1,46 +1,63 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+_Created: 06-05-2026 · Last updated: 16-08-2026_
 
-## Project Overview
+**csl-websanlexicon** is the shared CDSL **web frontend**. A Python + Mako
+generator under [`v02/`](https://github.com/sanskrit-lexicon/csl-websanlexicon/tree/main/v02)
+renders each dictionary into a PHP + SQLite app. It is not a dictionary and
+not the XML builder — content lives in
+[csl-orig](https://github.com/sanskrit-lexicon/csl-orig); databases are built
+by [csl-pywork](https://github.com/sanskrit-lexicon/csl-pywork).
 
-**csl-websanlexicon** is a Sanskrit Lexicon **web-frontend** repository — part of the Cologne Digital Sanskrit Lexicon (CDSL) infrastructure.
+Operator manual (read this, do not re-derive):
+[docs/WEB_FRONTEND_MANUAL.md](https://github.com/sanskrit-lexicon/csl-websanlexicon/blob/main/docs/WEB_FRONTEND_MANUAL.md).
 
-## Repo Category
+## What to run
 
-`web-frontend` — see the [tooling runbook](https://github.com/sanskrit-lexicon/csl-observatory/blob/main/runbook/cologne-tooling-runbook.md) for category-specific conventions.
+```sh
+cd v02
+sh generate_web.sh gra tempparent/gra
+```
 
-## GitHub Issue Conventions
+Windows trap: the wrapper calls `python3`. Run the equivalent directly if
+needed: `python generate.py gra inventory.txt makotemplates distinctfiles/gra tempparent/gra`.
 
-This repository uses the **Cologne tooling-repo taxonomy**. All issues must have:
-- **Exactly one type label** (9 options)
-- **Exactly one severity label** (4 levels)
-- **One milestone** (5 options)
+The generator ships **no data**. Copy `<dict>.sqlite` and
+`webtc2/query_dump.txt` from the csl-pywork build into the output `web/`
+tree, then serve under XAMPP / Apache.
 
-### Type Labels
-- `bug` — Code defect (wrong output, broken contract)
-- `feature` — Net-new capability
-- `enhancement` — Improvement to existing capability
-- `performance` — Speed, memory, throughput optimization
-- `tech-debt` — Refactoring, cleanup, dependency updates
-- `security` — CVE, auth issue, credential exposure
-- `documentation` — Prose docs, API docs, comments
-- `infrastructure` — CI/CD, deploy, data pipelines, build tooling
-- `question` — Research, proposals, open discussions
+### Fork-sync (`basicadjust.php` / `basicdisplay.php`)
 
-### Severity Labels
-- `trivial` — Cosmetic, < 1 hour
-- `minor` — Single function/component
-- `major` — Multiple files, design decision
-- `critical` — Blocks users, data loss/security CVE
+[`v02/makotemplates/web/webtc/basicadjust.php`](https://github.com/sanskrit-lexicon/csl-websanlexicon/blob/main/v02/makotemplates/web/webtc/basicadjust.php)
+and [`basicdisplay.php`](https://github.com/sanskrit-lexicon/csl-websanlexicon/blob/main/v02/makotemplates/web/webtc/basicdisplay.php)
+(plus `getword_data.php`) are **hand-synced forks** of the same files in
+[csl-apidev](https://github.com/sanskrit-lexicon/csl-apidev). Any edit here
+must be propagated the same cycle (`v02/apidev_copy.sh` — hardcoded
+`/c/xampp/htdocs/cologne/` paths; otherwise copy by hand). Before assuming
+either side is current, run
+[`/cologne-fork-sync-check`](https://github.com/gasyoun/claude-config/blob/main/commands/cologne-fork-sync-check.md)
+(`python Uprava/tools/cologne_fork_sync_check.py`).
 
-### Milestones
-- **API Stability** — performance, security, regressions
-- **User Experience** — bugs, features, enhancements
-- **Data Quality** — data-pipeline issues, integrity
-- **Developer Experience** — tech-debt, infrastructure, docs
-- **Community** — questions, proposals, discussions
+### XSS
 
-## Cross-Repo Coordination
+Use the existing escape playbook
+([`/cologne-php-xss-sweep`](https://github.com/gasyoun/claude-config/blob/main/commands/cologne-php-xss-sweep.md)):
+context-correct `htmlspecialchars(ENT_QUOTES)` / `json_encode(JSON_HEX_*)`.
+Do **not** add new `innerHTML` assignments. Display bug (wrong rendering of
+correct text) → this repo. Wrong text → csl-orig via the correction queue.
 
-The org-level project [Tooling Roadmap](https://github.com/orgs/sanskrit-lexicon/projects/9) tracks tool work across all repositories.
+## Do not
+
+- Commit or push [csl-orig](https://github.com/sanskrit-lexicon/csl-orig).
+- Edit `basicadjust.php` / `basicdisplay.php` here and leave csl-apidev
+  stale (or the reverse).
+- Treat `v00/` or the 2018 `.org` readmes as the current pipeline.
+
+## Primer
+
+[SANSKRIT_CONTEXT_PRIMER.md](https://github.com/gasyoun/github-spine/blob/main/SANSKRIT_CONTEXT_PRIMER.md).
+
+Issues use the Cologne taxonomy — see
+[`/cologne-issue-runbook`](https://github.com/gasyoun/claude-config/blob/main/commands/cologne-issue-runbook.md).
+
+_Dr. Mārcis Gasūns_
