@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-_Created: 06-05-2026 · Last updated: 16-08-2026_
+_Created: 06-05-2026 · Last updated: 20-08-2026_
 
 **csl-websanlexicon** is the shared CDSL **web frontend**. A Python + Mako
 generator under [`v02/`](https://github.com/sanskrit-lexicon/csl-websanlexicon/tree/main/v02)
@@ -12,7 +12,7 @@ by [csl-pywork](https://github.com/sanskrit-lexicon/csl-pywork).
 Operator manual (read this, do not re-derive):
 [docs/WEB_FRONTEND_MANUAL.md](https://github.com/sanskrit-lexicon/csl-websanlexicon/blob/main/docs/WEB_FRONTEND_MANUAL.md).
 
-## What to run
+## How to run
 
 ```sh
 cd v02
@@ -57,7 +57,9 @@ correct text) → this repo. Wrong text → csl-orig via the correction queue.
 
 [SANSKRIT_CONTEXT_PRIMER.md](https://github.com/gasyoun/github-spine/blob/main/SANSKRIT_CONTEXT_PRIMER.md).
 
-Issues use the Cologne taxonomy — see
-[`/cologne-issue-runbook`](https://github.com/gasyoun/claude-config/blob/main/commands/cologne-issue-runbook.md).
+Issues use the **Cologne tooling-repo taxonomy** (not the dictionary
+runbook) — see
+[`/cologne-tooling-runbook`](https://github.com/gasyoun/claude-config/blob/main/commands/cologne-tooling-runbook.md)
+and the [observatory tooling runbook](https://github.com/sanskrit-lexicon/csl-observatory/blob/main/runbook/cologne-tooling-runbook.md).
 
 _Dr. Mārcis Gasūns_
