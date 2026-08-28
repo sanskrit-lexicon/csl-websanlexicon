@@ -112,24 +112,28 @@ function transcoder_fsm($from,$to) {
 // and whose value at a key is an array of subscripts into $fsmentries.
 //  $i is a subscript for a key provided that the $fsmentries[$i]['in'] = 
 //  first character of $key
- $states=array();
- foreach($fsmentries as $i => $fsmentry) {
-  $in = $fsmentry['in'];
-  $c = $in[0];
-  if (isset($states[$c])) {
-   $state=$states[$c];
-  }else {
-   $state = null;
-  }
-  if ($state) {
+  $states=array();
+  foreach($fsmentries as $i => $fsmentry) {
+   if (isset($fsmentry['in'])) {
+    $in = $fsmentry['in'];
+    if (isset($in[0])) {
+     $c = $in[0];
+    } else {
+     $c = null;
+    }
+   } else {
+    $c = null;
+   }
+   if (isset($states[$c])) {
+    $state=$states[$c];
     $state[]=$i;
     $states[$c]=$state;
-  }else {
-   $state = array();
-   $state[]=$i;
-   $states[$c]=$state;
+   }else {
+    $state = array();
+    $state[]=$i;
+    $states[$c]=$state;
+   }
   }
- }
  $fsm['states']=$states;
  $transcoder_fsmarr[$fromto]=$fsm;
  transcoder_fsm_cache_set($fromto,$mtime,$fsm);
