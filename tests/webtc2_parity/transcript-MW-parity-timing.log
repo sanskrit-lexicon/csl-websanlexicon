@@ -1,0 +1,20 @@
+== phase A: legacy querymodel (current main scan; index ignored) ==
+== phase B: new querymodel + generation-time index ==
+== phase C: new querymodel, index hidden (flat-file fallback) ==
+== A vs B (old scan vs new index) ==
+DIFF ('sk-prefix-kr-star', 1) field=result
+  old-scan: ["ka", "kakAra", "kavat", "kavarga", "kaja", "kajAsana", "kada", "kaMya", "kaMvUla", "kaMSa", "kaMs", "kaMsa", "kaMsA", "kaMsakAra", "kaMsakfz", "kaMsakeSInizUdana", "kaMsajit", "kaMsaDvaMsana", "kaMsaniDana", "kaMsanizUdana", "kaMsaparimfj", "kaMsapAtra", "kaMsamardana", "kaMsamAkzika", "kaMsayajYa
+  new-index: ["kaYcukin", "kawakriyA", "kaWina", "kaRa", "kaTAkrama", "kanikrada", "kand", "kap", "kapotavakra", "kam", "kayAd", "karaBa", "kariRI", "karawa", "karamBA", "karikrata", "karuRaDvani", "karutTAma", "karUza", "karUzaja", "karRakroSa", "karRaparAkrama", "karRaSrut", "kartfsTakriyaka", "karmakriyAkARqa
+DIFF ('sk-prefix-kr-star', 1) field=lastLnum
+  old-scan: 3103769
+  new-index: 3910618
+DIFF ('sk-prefix-kr-star', 2) field=result
+  old-scan: ["kakkala", "kakkinda", "kakkula", "kakkola", "kakkolI", "kakkolaka", "kakkolikA", "kakK", "kakKawa", "kakKawI", "kakKawapattraka", "kakvala", "kakza", "kakzA", "kakzaDara", "kakzapa", "kakzapuwa", "kakzaruhA", "kakzaloman", "kakzaSAya", "kakzasena", "kakzasTa", "kakzAgni", "kakzADyAya", "kakzAntara
+  new-index: ["kUpacakra", "kUpajalodvAhana", "kUpayantra", "kUrma", "kUrmacakra", "kf", "kftakraya", "kftakriya", "kftakruDa", "kftadAra", "kftanityakriya", "kftabudDi", "kftayaSas", "kftavikrama", "kftavikriya", "kftAparADa", "kftABisaraRaveza", "kftin", "kftnu", "kriyamARa", "kfkaRa", "kfDu", "kfp", "kfmi", "
+DIFF ('sk-prefix-kr-star', 2) field=lastLnum
+  old-scan: 3114517
+  new-index: 4170031
+records: 53 (before) / 53 (after)
+result diffs: 4
+p50 ms page-1: 26.6 (old-scan) -> 26.5 (new-index)
+p95 ms page-1: 162.8 (old-scan) -> 45.5 (new-index)

@@ -1,0 +1,19 @@
+== phase A: legacy querymodel (current main scan; index ignored) ==
+== phase B: new querymodel + generation-time index ==
+== phase C: new querymodel, index hidden (flat-file fallback) ==
+== A vs B (old scan vs new index) ==
+records: 49 (before) / 49 (after)
+result diffs: 0
+p50 ms page-1: 35.1 (old-scan) -> 26.4 (new-index)
+p95 ms page-1: 156.4 (old-scan) -> 86.7 (new-index)
+== A vs C (old scan vs new fallback) ==
+records: 49 (before) / 49 (after)
+result diffs: 0
+p50 ms page-1: 35.1 (old-scan) -> 36.0 (new-fallback)
+p95 ms page-1: 156.4 (old-scan) -> 159.2 (new-fallback)
+== phase D: stale-index guard (user_version tampered) ==
+records: 49 (before) / 49 (after)
+result diffs: 0
+p50 ms page-1: 35.1 (old-scan) -> 36.4 (stale-index-guard)
+p95 ms page-1: 156.4 (old-scan) -> 164.5 (stale-index-guard)
+PARITY OK for /Users/mac/Documents/GitHub/h3633-g3-gen/pwg
