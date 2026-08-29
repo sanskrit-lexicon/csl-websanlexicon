@@ -6,6 +6,21 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added
+- **webtc2 generation-time search index consult (H3633, H3487 audit G3/W10, prior audit D4):**
+  `v02/makotemplates/web/webtc2/querymodel.php` now consults the SQLite line index
+  (`query_dump.sqlite3`, built by csl-pywork's webtc2 generation stage) instead of linearly
+  `fgets`-scanning `query_dump.txt` on every request. Candidate lines are re-matched with the
+  exact legacy regex logic, so keys, order, matchwords and `lastLnum` pagination are identical
+  to the scan; whenever the index is absent, unreadable, of unknown schema, or stale
+  (recorded dump size ≠ actual), the code falls back to the unchanged sequential scan.
+  Parity + timing harness with full MW/PWG transcripts: `tests/webtc2_parity/`
+  (53 + 49 records, 0 result diffs; p95 page-1 query time 162.8→46.2 ms on MW,
+  156.4→86.7 ms on PWG; every non-degenerate query faster, pure-wildcard queries
+  intentionally served by the legacy scan in both paths). Index anchoring treats
+  `*`/`?`-quantified characters as optional (`kr*` in prefix mode is the regex
+  `k` + zero-or-more `r`, which matches `ka`), keeping candidate selection a
+  strict superset of the legacy scan on wildcard queries.
 
 ## [0.3.0] - 2026-07-28
 
