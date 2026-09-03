@@ -51,7 +51,7 @@ text-align:left;
  
  <ol ><b>Related material</b>
   <li><a href="http://www.sanskrit-lexicon.uni-koeln.de/scans/csldoc/dictionaries/pwg.html">Front Matter</a></li>
-  <li><a href="http://www.sanskrit-lexicon.uni-koeln.de/scans/PWGScan/2013/downloads/pwgheader.xml">License of Digital Edition</a></li>
+  <li><a href="https://www.sanskrit-lexicon.uni-koeln.de/scans/PWGScan/2020/web/pwgheader.xml">License of Digital Edition</a></li>
   <li><a href="https://www.worldcat.org/title/sanskrit-worterbuch-herausgegeben-von-der-kaiserlichen-akademie-der-wissenschaften-bearbeitet-von-otto-bohtlingk-und-rudolph-roth/oclc/457088562">WorldCat reference</a></li>
   <li>Bibliographic entry: BÖHTLINGK, O. (1855). Sanskrit Wörterbuch, herausgegeben von der kaiserlichen Akademie der Wissenschaften, bearbeitet von Otto Böhtlingk und Rudolph Roth. St-Petersburg, Eggers.</li>
  </ol>

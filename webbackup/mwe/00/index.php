@@ -54,7 +54,7 @@ text-align:left;
  
  <ol ><b>Related material</b>
   <li><a href="http://www.sanskrit-lexicon.uni-koeln.de/scans/csldoc/dictionaries/mwe.html">Front Matter</a></li>
-  <li><a href="http://www.sanskrit-lexicon.uni-koeln.de/scans/MWEScan/2013/downloads/mweheader.xml">License of Digital Edition</a></li>
+  <li><a href="https://www.sanskrit-lexicon.uni-koeln.de/scans/MWEScan/2020/web/mweheader.xml">License of Digital Edition</a></li>
   <li><a href="https://www.worldcat.org/title/dictionary-english-and-sanscrit/oclc/5333096">WorldCat reference</a></li>
   <li>Bibliographic entry: MONIER-WILLIAMS, M. (1851). A dictionary, English and Sanscrit. London, W.H. Allen and Co.</li>
  </ol>

@@ -51,7 +51,7 @@ text-align:left;
  
  <ol ><b>Related material</b>
   <li><a href="http://www.sanskrit-lexicon.uni-koeln.de/scans/csldoc/dictionaries/cae.html">Front Matter</a></li>
-  <li><a href="http://www.sanskrit-lexicon.uni-koeln.de/scans/CAEScan/2014/downloads/caeheader.xml">License of Digital Edition</a></li>
+  <li><a href="https://www.sanskrit-lexicon.uni-koeln.de/scans/CAEScan/2020/web/caeheader.xml">License of Digital Edition</a></li>
   <li><a href="https://www.worldcat.org/title/sanskrit-english-dictionary-based-upon-the-st-petersburg-lexicons/oclc/786426334 ">WorldCat reference</a></li>
   <li>Bibliographic entry: CAPPELLER, C. (1891). A Sanskrit-English dictionary: based upon the St. Petersburg lexicons. Strassburg, Trübner.</li>
  </ol>

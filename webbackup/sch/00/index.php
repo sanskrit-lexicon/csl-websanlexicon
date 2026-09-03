@@ -51,7 +51,7 @@ text-align:left;
  
  <ol ><b>Related material</b>
   <li><a href="http://www.sanskrit-lexicon.uni-koeln.de/scans/csldoc/dictionaries/sch.html">Front Matter</a></li>
-  <li><a href="http://www.sanskrit-lexicon.uni-koeln.de/scans/SCHScan/2014/downloads/schheader.xml">License of Digital Edition</a></li>
+  <li><a href="https://www.sanskrit-lexicon.uni-koeln.de/scans/SCHScan/2020/web/schheader.xml">License of Digital Edition</a></li>
   <li><a href="https://www.worldcat.org/title/nachtrage-zum-sanskrit-worterbuch-in-kurzerer-fassung-von-otto-bohtlingk/oclc/5901453">WorldCat reference</a></li>
   <li>Bibliographic entry: SCHMIDT, R., & BÖHTLINGK, O. V. (1928). Nachträge zum Sanskrit-Wörterbuch in kürzerer Fassung von Otto Böhtlingk. Leipzig, O. Harrassowitz.</li>
  </ol>

@@ -51,7 +51,7 @@ text-align:left;
  
  <ol ><b>Related material</b>
   <li><a href="http://www.sanskrit-lexicon.uni-koeln.de/scans/csldoc/dictionaries/md.html">Front Matter</a></li>
-  <li><a href="http://www.sanskrit-lexicon.uni-koeln.de/scans/MDScan/2014/downloads/mdheader.xml">License of Digital Edition</a></li>
+  <li><a href="https://www.sanskrit-lexicon.uni-koeln.de/scans/MDScan/2020/web/mdheader.xml">License of Digital Edition</a></li>
   <li><a href="https://www.worldcat.org/title/sanskrit-english-dictionary-being-a-practical-handbook-with-transliteration-accentuation-and-etymological-analysis-throughout/oclc/5140323">WorldCat reference</a></li>
   <li>Bibliographic entry: MACDONELL, A. A. (1893). A Sanskrit-English dictionary: being a practical handbook with transliteration, accentuation, and etymological analysis throughout. London, Longmans, Green.</li>
  </ol>

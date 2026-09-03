@@ -51,7 +51,7 @@ text-align:left;
  
  <ol ><b>Related material</b>
   <li><a href="http://www.sanskrit-lexicon.uni-koeln.de/scans/csldoc/dictionaries/ccs.html">Front Matter</a></li>
-  <li><a href="http://www.sanskrit-lexicon.uni-koeln.de/scans/CCSScan/2014/downloads/ccsheader.xml">License of Digital Edition</a></li>
+  <li><a href="https://www.sanskrit-lexicon.uni-koeln.de/scans/CCSScan/2020/web/ccsheader.xml">License of Digital Edition</a></li>
   <li><a href="https://www.worldcat.org/title/sanskrit-worterbuch-nach-den-petersburger-worterbuchern/oclc/3192816">WorldCat reference</a></li>
   <li>Bibliographic entry: CAPPELLER, C. (1887). Sanskrit wörterbuch, nach den Petersburger wörterbüchern. Strassburg, K.J. Trübner.</li>
  </ol>

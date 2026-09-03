@@ -51,7 +51,7 @@ text-align:left;
  
  <ol ><b>Related material</b>
   <li><a href="http://www.sanskrit-lexicon.uni-koeln.de/scans/csldoc/dictionaries/bur.html">Front Matter</a></li>
-  <li><a href="http://www.sanskrit-lexicon.uni-koeln.de/scans/BURScan/2013/downloads/burheader.xml">License of Digital Edition</a></li>
+  <li><a href="https://www.sanskrit-lexicon.uni-koeln.de/scans/BURScan/2020/web/burheader.xml">License of Digital Edition</a></li>
   <li><a href="https://www.worldcat.org/title/dictionnaire-classique-sanscrit-francais-ou-sont-coordonnes-revises-et-completes-les-travaux-de-wilson-bopp-westergaard-johnson-etc-et-contenant-le-devanagari-sa-transcription-europeene-linterpretation-les-racines-et-de-nombreux-rapprochements-philologiques/oclc/3436551">WorldCat reference</a></li>
   <li>Bibliographic entry: BURNOUF, E., & LEUPOL, L. (1866). Dictionnaire classique sanscrit-français où sont coordonnés, revisés et complétés les travaux de Wilson, Bopp, Westergaard, Johnson, etc. et contenant le dêvanâgari, sa transcription européene, l'interprétation, les racines et de nombreux rapprochements philologiques. Paris, Maissonneuve.</li>
  </ol>

@@ -51,7 +51,7 @@ text-align:left;
  
  <ol ><b>Related material</b>
   <li><a href="http://www.sanskrit-lexicon.uni-koeln.de/scans/csldoc/dictionaries/vei.html">Front Matter</a></li>
-  <li><a href="http://www.sanskrit-lexicon.uni-koeln.de/scans/VEIScan/2014/downloads/veiheader.xml">License of Digital Edition</a></li>
+  <li><a href="https://www.sanskrit-lexicon.uni-koeln.de/scans/VEIScan/2020/web/veiheader.xml">License of Digital Edition</a></li>
   <li><a href="https://www.worldcat.org/title/vedic-index-of-names-and-subjects/oclc/600507768?referer=di&ht=edition">WorldCat reference</a></li>
   <li>Bibliographic entry: MACDONELL, A. A., & KEITH, A. B. (1912). Vedic index of names and subjects. London, J. Murray.</li>
  </ol>

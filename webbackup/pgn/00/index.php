@@ -51,7 +51,7 @@ text-align:left;
  
  <ol ><b>Related material</b>
   <li><a href="http://www.sanskrit-lexicon.uni-koeln.de/scans/csldoc/dictionaries/pgn.html">Front Matter</a></li>
-  <li><a href="http://www.sanskrit-lexicon.uni-koeln.de/scans/PGNScan/2014/downloads/pgnheader.xml">License of Digital Edition</a></li>
+  <li><a href="https://www.sanskrit-lexicon.uni-koeln.de/scans/PGNScan/2020/web/pgnheader.xml">License of Digital Edition</a></li>
   <li><a href="https://www.worldcat.org/title/personal-and-geographical-names-in-the-gupta-inscriptions/oclc/5413655">WorldCat reference</a></li>
   <li>Bibliographic entry: SHARMA, T. R. (1978). Personal and geographical names in the Gupta inscriptions. Delhi, Concept.</li>
  </ol>

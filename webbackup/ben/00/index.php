@@ -51,7 +51,7 @@ text-align:left;
  
  <ol ><b>Related material</b>
   <li><a href="http://www.sanskrit-lexicon.uni-koeln.de/scans/csldoc/dictionaries/ben.html">Front Matter</a></li>
-  <li><a href="http://www.sanskrit-lexicon.uni-koeln.de/scans/BENScan/2014/downloads/benheader.xml">License of Digital Edition</a></li>
+  <li><a href="https://www.sanskrit-lexicon.uni-koeln.de/scans/BENScan/2020/web/benheader.xml">License of Digital Edition</a></li>
   <li><a href="https://www.worldcat.org/title/sanskrit-english-dictionary-with-references-to-the-best-editions-of-sanskrit-authors-and-etymologies-and-comparisons-of-cognate-words-chiefly-in-greek-latin-gothic-and-anglo-saxon/oclc/3320706 ">WorldCat reference</a></li>
   <li>Bibliographic entry: BENFEY, T. (1866). A Sanskrit-English dictionary: with references to the best editions of Sanskrit authors and etymologies and comparisons of cognate words chiefly in Greek, Latin, Gothic, and Anglo-Saxon. London, Longmans, Green, and Co.</li>
  </ol>

@@ -51,7 +51,7 @@ text-align:left;
  
  <ol ><b>Related material</b>
   <li><a href="http://www.sanskrit-lexicon.uni-koeln.de/scans/csldoc/dictionaries/pe.html">Front Matter</a></li>
-  <li><a href="http://www.sanskrit-lexicon.uni-koeln.de/scans/PEScan/2014/downloads/peheader.xml">License of Digital Edition</a></li>
+  <li><a href="https://www.sanskrit-lexicon.uni-koeln.de/scans/PEScan/2020/web/peheader.xml">License of Digital Edition</a></li>
   <li><a href="https://www.worldcat.org/title/puranic-encyclopaedia-a-comprehensive-dictionary-with-special-reference-to-the-epic-and-puranic-literature/oclc/638562346?expanded=addlists">WorldCat reference</a></li>
   <li>Bibliographic entry: MANI, V. (1975). Puranic encyclopaedia: a comprehensive dictionary with special reference to the epic and Puranic literature. Delhi, Motilal Banarsidass.</li>
  </ol>

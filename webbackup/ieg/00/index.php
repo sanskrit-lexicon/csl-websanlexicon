@@ -51,7 +51,7 @@ text-align:left;
  
  <ol ><b>Related material</b>
   <li><a href="http://www.sanskrit-lexicon.uni-koeln.de/scans/csldoc/dictionaries/ieg.html">Front Matter</a></li>
-  <li><a href="http://www.sanskrit-lexicon.uni-koeln.de/scans/IEGScan/2014/downloads/iegheader.xml">License of Digital Edition</a></li>
+  <li><a href="https://www.sanskrit-lexicon.uni-koeln.de/scans/IEGScan/2020/web/iegheader.xml">License of Digital Edition</a></li>
   <li><a href="https://www.worldcat.org/title/indian-epigraphical-glossary/oclc/769741727">WorldCat reference</a></li>
   <li>Bibliographic entry: SIRCAR, D. C. (1966). Indian epigraphical glossary. Delhi, Motilal Banarsidass.</li>
  </ol>

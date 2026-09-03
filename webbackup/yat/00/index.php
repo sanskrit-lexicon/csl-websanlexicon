@@ -51,7 +51,7 @@ text-align:left;
  
  <ol ><b>Related material</b>
   <li><a href="http://www.sanskrit-lexicon.uni-koeln.de/scans/csldoc/dictionaries/yat.html">Front Matter</a></li>
-  <li><a href="http://www.sanskrit-lexicon.uni-koeln.de/scans/YATScan/2014/downloads/yatheader.xml">License of Digital Edition</a></li>
+  <li><a href="https://www.sanskrit-lexicon.uni-koeln.de/scans/YATScan/2020/web/yatheader.xml">License of Digital Edition</a></li>
   <li><a href=" https://www.worldcat.org/title/dictionary-in-sanscrit-and-english-designed-for-the-use-of-private-students-and-of-indian-colleges-and-schools/oclc/12413832">WorldCat reference</a></li>
   <li>Bibliographic entry: YATES, W. (1846). A dictionary in Sanscrit and English: designed for the use of private students and of Indian colleges and schools. Calcutta, Printed at the Baptist Mission Press.</li>
  </ol>

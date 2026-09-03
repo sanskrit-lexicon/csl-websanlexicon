@@ -51,7 +51,7 @@ text-align:left;
  
  <ol ><b>Related material</b>
   <li><a href="http://www.sanskrit-lexicon.uni-koeln.de/scans/csldoc/dictionaries/ae.html">Front Matter</a></li>
-  <li><a href="http://www.sanskrit-lexicon.uni-koeln.de/scans/AEScan/2014/downloads/aeheader.xml">License of Digital Edition</a></li>
+  <li><a href="https://www.sanskrit-lexicon.uni-koeln.de/scans/AEScan/2020/web/aeheader.xml">License of Digital Edition</a></li>
   <li><a href="https://www.worldcat.org/title/students-english-sanskrit-dictionary/oclc/43456219">WorldCat reference</a></li>
   <li>Bibliographic entry: APTE, V. S. (1884). The student's English-Sanskrit dictionary. Poona, [Printed at the "Arya bhushana" Press].</li>
  </ol>

@@ -51,7 +51,7 @@ text-align:left;
  
  <ol ><b>Related material</b>
   <li><a href="http://www.sanskrit-lexicon.uni-koeln.de/scans/csldoc/dictionaries/ap90.html">Front Matter</a></li>
-  <li><a href="http://www.sanskrit-lexicon.uni-koeln.de/scans/AP90Scan/2014/downloads/ap90header.xml">License of Digital Edition</a></li>
+  <li><a href="https://www.sanskrit-lexicon.uni-koeln.de/scans/AP90Scan/2020/web/ap90header.xml">License of Digital Edition</a></li>
   <li><a href="https://www.worldcat.org/title/practical-sanskrit-english-dictionary-containing-appendices-on-sanskrit-prosody-and-important-literary-geographical-names-in-the-ancient-history-of-india-for-the-use-of-schools-and-colleges/oclc/18293791">WorldCat reference</a></li>
   <li>Bibliographic entry: APTE, V. S. (1890). The practical Sanskrit-English dictionary, containing appendices on Sanskrit prosody and important literary & geographical names in the ancient history of India, for the use of schools and colleges. Poona, Shiralkar.</li>
  </ol>
