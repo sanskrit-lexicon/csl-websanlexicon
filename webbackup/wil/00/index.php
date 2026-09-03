@@ -51,7 +51,7 @@ text-align:left;
  
  <ol ><b>Related material</b>
   <li><a href="http://www.sanskrit-lexicon.uni-koeln.de/scans/csldoc/dictionaries/wil.html">Front Matter</a></li>
-  <li><a href="http://www.sanskrit-lexicon.uni-koeln.de/scans/WILScan/2014/downloads/wilheader.xml">License of Digital Edition</a></li>
+  <li><a href="https://www.sanskrit-lexicon.uni-koeln.de/scans/WILScan/2020/web/wilheader.xml">License of Digital Edition</a></li>
   <li><a href=" https://www.worldcat.org/title/dictionary-in-sanskrit-and-english-translated-amended-and-enlarged-from-an-original-compilation/oclc/473496524">WorldCat reference</a></li>
   <li>Bibliographic entry: WILSON, H. (1832). A dictionary in Sanskrit and English: Translated, amended, and enlarged from an original compilation. Calcutta, The Education Press.</li>
  </ol>

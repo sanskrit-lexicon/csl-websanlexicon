@@ -51,7 +51,7 @@ text-align:left;
  
  <ol ><b>Related material</b>
   <li><a href="http://www.sanskrit-lexicon.uni-koeln.de/scans/csldoc/dictionaries/skd.html">Front Matter</a></li>
-  <li><a href="http://www.sanskrit-lexicon.uni-koeln.de/scans/SKDScan/2013/downloads/skdheader.xml">License of Digital Edition</a></li>
+  <li><a href="https://www.sanskrit-lexicon.uni-koeln.de/scans/SKDScan/2020/web/skdheader.xml">License of Digital Edition</a></li>
   <li><a href="https://www.worldcat.org/title/sabdakalpadrumah-or-an-encyclopedic-dictionary-of-sanskrit-words-arranged-in-alphabetical-order-giving-the-etymological-origin-of-the-words-according-to-panini-their-gender-various-meanings-and-synonyms-and-illustrating-their-syntactical-usage-and-connotation-with-quotations-drawn-from-various-authoritative-sources-such-as-vedas-vedanta-nyaya-other-darshanas-puranithas-music-art-astronomy-tantra-rhetorics-and-prosody-and-medicine-etc/oclc/214968657">WorldCat reference</a></li>
   <li>Bibliographic entry: RĀDHĀKĀNTADEVA, VASU, V., & VASU, H. (1886).Śabdakalpadrumah or an encyclopedic dictionary of Sanskrit words arranged in alphabetical order giving the etymological origin of the words according to Panini, their gender, various meanings and synonyms, and illustrating their syntactical usage and connotation with quotations drawn from various authoritative sources such as Vedas, Vedanta, Nyaya, other Darshanas, Puranithas, music, art, astronomy tantra, rhetorics and prosody and medicine etc. Kalikātā, Barada Prasad Basu, and Hari Charan Basu.</li>
  <li><a href="http://www.jstor.org/stable/pdf/25207458.pdf"> Account of the Sabda Kalpa Druma</a>; A Sanskrit Encyclopædical Lexicon by R. Lenz

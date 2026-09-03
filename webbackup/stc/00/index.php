@@ -51,7 +51,7 @@ text-align:left;
  
  <ol ><b>Related material</b>
   <li><a href="http://www.sanskrit-lexicon.uni-koeln.de/scans/csldoc/dictionaries/stc.html">Front Matter</a></li>
-  <li><a href="http://www.sanskrit-lexicon.uni-koeln.de/scans/STCScan/2013/downloads/stcheader.xml">License of Digital Edition</a></li>
+  <li><a href="https://www.sanskrit-lexicon.uni-koeln.de/scans/STCScan/2020/web/stcheader.xml">License of Digital Edition</a></li>
   <li><a href="https://www.worldcat.org/title/dictionnaire-sanskrit-francais-par-n-stchoupak-l-nitti-et-l-renou-etc/oclc/504480084">WorldCat reference</a></li>
   <li>Bibliographic entry: STCHOUPAK, N., NITTI, A. D., LUIGIA, & RENOU, L. (1932). Dictionnaire sanskrit-français. Par N. Stchoupak, L. Nitti et L. Renou, etc.</li>
  </ol>

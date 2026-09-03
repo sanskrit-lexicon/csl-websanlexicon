@@ -50,7 +50,7 @@ text-align:left;
  </ol>
  
  <ol ><b>Related material</b>
-  <li><a href="http://www.sanskrit-lexicon.uni-koeln.de/scans/APScan/2014/downloads/apheader.xml">License of Digital Edition</a></li>
+  <li><a href="https://www.sanskrit-lexicon.uni-koeln.de/scans/APScan/2020/web/apheader.xml">License of Digital Edition</a></li>
   <li><a href="https://www.worldcat.org/title/prin-vs-aptes-the-practical-sanskrit-english-dictionary/oclc/716419540&referer=brief_results">WorldCat reference</a></li>
   <li>Bibliographic entry: V. S. Apte’s The practical Sanskrit-English dictionary (1957-<1979>) / ed. in chief P. K. Gode and C. G. Karve; K. V. Abhyankar. – Poona: Prasad Prakashan.</li>
 <!-- for dictionaries without this material

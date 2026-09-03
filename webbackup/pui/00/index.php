@@ -51,7 +51,7 @@ text-align:left;
  
  <ol ><b>Related material</b>
   <li><a href="http://www.sanskrit-lexicon.uni-koeln.de/scans/csldoc/dictionaries/pui.html">Front Matter</a></li>
-  <li><a href="http://www.sanskrit-lexicon.uni-koeln.de/scans/PUIScan/2014/downloads/puiheader.xml">License of Digital Edition</a></li>
+  <li><a href="https://www.sanskrit-lexicon.uni-koeln.de/scans/PUIScan/2020/web/puiheader.xml">License of Digital Edition</a></li>
   <li><a href="https://www.worldcat.org/title/purana-index-1-from-a-to-n/oclc/174625299">WorldCat reference</a></li>
   <li>Bibliographic entry: RAMACHANDRA DĪKSHITAR, V. R. (1951-55). The Purana index. Madras, Univ. of Madras.</li>
  </ol>

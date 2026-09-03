@@ -51,7 +51,7 @@ text-align:left;
  
  <ol ><b>Related material</b>
   <li><a href="http://www.sanskrit-lexicon.uni-koeln.de/scans/csldoc/dictionaries/gst.html">Front Matter</a></li>
-  <li><a href="http://www.sanskrit-lexicon.uni-koeln.de/scans/GSTScan/2014/downloads/gstheader.xml">License of Digital Edition</a></li>
+  <li><a href="https://www.sanskrit-lexicon.uni-koeln.de/scans/GSTScan/2020/web/gstheader.xml">License of Digital Edition</a></li>
   <li><a href=" https://www.worldcat.org/title/dictionary-sanskrit-and-english-extended-and-improved-from-the-second-edition-of-the-dictionary-of-prof-h-h-wilson-together-with-a-supplement-grammatical-appendices-and-an-index-serving-as-an-english-sanskrit-vocabulary/oclc/61965219">WorldCat reference</a></li>
   <li>Bibliographic entry: GOLDSTÜCKER, T., & WILSON, H. H. (1856). A Dictionary, Sanskrit and English: extended and improved from the second edition of the dictionary of Prof. H. H. Wilson ...; together with a supplement, grammatical appendices and an index, serving as an English-Sanskrit vocabulary. Berlin, Asher.</li>
  </ol>

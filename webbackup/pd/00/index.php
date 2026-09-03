@@ -50,7 +50,7 @@ text-align:left;
  </ol>
  
  <ol ><b>Related material</b>
-  <li><a href="http://www.sanskrit-lexicon.uni-koeln.de/scans/PDScan/2014/downloads/pdheader.xml">License of Digital Edition</a></li>
+  <li><a href="https://www.sanskrit-lexicon.uni-koeln.de/scans/PDScan/2020/web/pdheader.xml">License of Digital Edition</a></li>
   <li><a href="https://www.worldcat.org/title/encyclopaedic-dictionary-of-sanskrit-on-historical-principles/oclc/3932453&referer=brief_results">WorldCat reference</a></li>
   <li>Bibliographic entry: Ghatage, A. M., Joshi, S. D., Ranade, H. G., Bhatta, V. P., Gandhe, V. S. (1976–<2009>). An Encyclopaedic Dictionary of Sanskrit on Historical Principles. – Poona: Deccan College Post Graduate and Research Institute.</li>
 <!-- for dictionaries without this material

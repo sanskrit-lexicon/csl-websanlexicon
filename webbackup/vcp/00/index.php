@@ -51,7 +51,7 @@ text-align:left;
  
  <ol ><b>Related material</b>
   <li><a href="http://www.sanskrit-lexicon.uni-koeln.de/scans/csldoc/dictionaries/vcp.html">Front Matter</a></li>
-  <li><a href="http://www.sanskrit-lexicon.uni-koeln.de/scans/VCPScan/2013/downloads/vcpheader.xml">License of Digital Edition</a></li>
+  <li><a href="https://www.sanskrit-lexicon.uni-koeln.de/scans/VCPScan/2020/web/vcpheader.xml">License of Digital Edition</a></li>
   <li><a href="https://www.worldcat.org/title/vacaspatyam-brhat-samskrtabhidhanam-5/oclc/634904608">WorldCat reference</a></li>
   <li>Bibliographic entry: BHAṬṬĀCĀRYA, T. V. (1873). Vācaspatyam: bṛhat saṃskṛtābhidhānam. 5 5. Vārāṇasī, Caukhambā Saṃskṛta Sīrīja Āphisa.</li>
  </ol>

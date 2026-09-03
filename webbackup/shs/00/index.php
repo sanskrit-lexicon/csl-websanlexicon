@@ -51,7 +51,7 @@ text-align:left;
  
  <ol ><b>Related material</b>
   <li><a href="http://www.sanskrit-lexicon.uni-koeln.de/scans/csldoc/dictionaries/shs.html">Front Matter</a></li>
-  <li><a href="http://www.sanskrit-lexicon.uni-koeln.de/scans/SHSScan/2014/downloads/shsheader.xml">License of Digital Edition</a></li>
+  <li><a href="https://www.sanskrit-lexicon.uni-koeln.de/scans/SHSScan/2020/web/shsheader.xml">License of Digital Edition</a></li>
   <li><a href="https://www.worldcat.org/title/shabda-sagara-or-a-comprehensive-sanskrit-english-lexicon-chiefly-based-on-professor-horace-hayman-wilsons-sanskrit-english-dictionary-and-compiled-from-various-recent-authorities-for-the-use-of-schools-and-colleges-by-pandit-kulapati-jibananda-vidyasagara-1st-edition/oclc/457574734">WorldCat reference</a></li>
   <li>Bibliographic entry: BHAṬṬĀCĀRYA, J. V. (1900). A comprehensive Sanskrit-English lexicon: chiefly based on Professor Horace Hayman Wilson's Sanskrit-English Dictionary and compiled from various recent authorities for the use of schools and colleges. Calcutta, Calcutta Press.</li>
  </ol>

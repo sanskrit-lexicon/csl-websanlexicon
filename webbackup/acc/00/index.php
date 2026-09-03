@@ -51,7 +51,7 @@ text-align:left;
  
  <ol ><b>Related material</b>
   <li><a href="http://www.sanskrit-lexicon.uni-koeln.de/scans/csldoc/dictionaries/acc.html">Front Matter</a></li>
-  <li><a href="http://www.sanskrit-lexicon.uni-koeln.de/scans/ACCScan/2014/downloads/accheader.xml">License of Digital Edition</a></li>
+  <li><a href="https://www.sanskrit-lexicon.uni-koeln.de/scans/ACCScan/2020/web/accheader.xml">License of Digital Edition</a></li>
   <li><a href="https://www.worldcat.org/title/catalogus-catalogorum-an-alphabetical-register-of-sanskrit-works-and-authors/oclc/4478703">WorldCat reference</a></li>
   <li>Bibliographic entry: AUFRECHT, T. (1891). Catalogus catalogorum. An alphabetical register of Sanskrit works and authors. Leipzig, F.A. Brockhaus.</li>
  </ol>

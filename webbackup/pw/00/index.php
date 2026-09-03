@@ -51,7 +51,7 @@ text-align:left;
  
  <ol ><b>Related material</b>
   <li><a href="http://www.sanskrit-lexicon.uni-koeln.de/scans/csldoc/dictionaries/pw.html">Front Matter</a></li>
-  <li><a href="http://www.sanskrit-lexicon.uni-koeln.de/scans/PWScan/2014/downloads/pwheader.xml">License of Digital Edition</a></li>
+  <li><a href="https://www.sanskrit-lexicon.uni-koeln.de/scans/PWScan/2020/web/pwheader.xml">License of Digital Edition</a></li>
   <li><a href="https://www.worldcat.org/title/sanskrit-worterbuch-in-kurzerer-fassung/oclc/3028346">WorldCat reference</a></li>
   <li>Bibliographic entry: BÖHTLINGK, O. V. (1879). Sanskrit-wörterbuch in kürzerer fassung. St. Petersburg, Buchdr. der Kaiserlichen akademie der wissenschaften, zu beziehen durch Eggers & comp.</li>
  </ol>

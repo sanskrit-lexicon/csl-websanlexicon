@@ -51,7 +51,7 @@ text-align:left;
  
  <ol ><b>Related material</b>
   <li><a href="http://www.sanskrit-lexicon.uni-koeln.de/scans/csldoc/dictionaries/mci.html">Front Matter</a></li>
-  <li><a href="http://www.sanskrit-lexicon.uni-koeln.de/scans/MCIScan/2014/downloads/mciheader.xml">License of Digital Edition</a></li>
+  <li><a href="https://www.sanskrit-lexicon.uni-koeln.de/scans/MCIScan/2020/web/mciheader.xml">License of Digital Edition</a></li>
   <li><a href="https://www.worldcat.org/title/mahabharata-cultural-index/oclc/30512863">WorldCat reference</a></li>
   <li>Bibliographic entry: MEHENDALE, M. A. (1993-2007). Mahābhārata, cultural index. Pune, India, Bhandarkar Oriental Research Institute.</li>
  </ol>

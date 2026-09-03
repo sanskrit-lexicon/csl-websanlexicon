@@ -51,7 +51,7 @@ text-align:left;
  
  <ol ><b>Related material</b>
   <li><a href="http://www.sanskrit-lexicon.uni-koeln.de/scans/csldoc/dictionaries/inm.html">Front Matter</a></li>
-  <li><a href="http://www.sanskrit-lexicon.uni-koeln.de/scans/INMScan/2013/downloads/inmheader.xml">License of Digital Edition</a></li>
+  <li><a href="https://www.sanskrit-lexicon.uni-koeln.de/scans/INMScan/2020/web/inmheader.xml">License of Digital Edition</a></li>
   <li><a href="https://www.worldcat.org/title/index-to-the-names-in-the-mahabharata-with-short-explanations-and-a-concordance-to-the-bombay-and-calcutta-editions-and-pc-roys-translation/oclc/2302004">WorldCat reference</a></li>
   <li>Bibliographic entry: SØRENSEN, S., RĀYA, P., OLESEN, E., & ANDERSEN, D. (1904). An index to the names in the Mahābhārata, with short explanations and a concordance to the Bombay and Calcutta editions and P.C. Roy's translation. Delhi, Motilal Banarsidass.</li>
  </ol>

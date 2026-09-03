@@ -51,7 +51,7 @@ text-align:left;
  
  <ol ><b>Related material</b>
   <li><a href="http://www.sanskrit-lexicon.uni-koeln.de/scans/csldoc/dictionaries/gra.html">Front Matter</a></li>
-  <li><a href="http://www.sanskrit-lexicon.uni-koeln.de/scans/GRAScan/2014/downloads/graheader.xml">License of Digital Edition</a></li>
+  <li><a href="https://www.sanskrit-lexicon.uni-koeln.de/scans/GRAScan/2020/web/graheader.xml">License of Digital Edition</a></li>
   <li><a href="https://www.worldcat.org/title/worterbuch-zum-rig-veda/oclc/184798352">WorldCat reference</a></li>
   <li>Bibliographic entry: GRASSMAN, H. G. (1873). Worterbuch zum Rig-veda. Wiesbaden, O. Harrassowitz.</li>
  </ol>

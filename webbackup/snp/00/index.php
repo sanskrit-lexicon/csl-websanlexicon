@@ -51,7 +51,7 @@ text-align:left;
  
  <ol ><b>Related material</b>
   <li><a href="http://www.sanskrit-lexicon.uni-koeln.de/scans/csldoc/dictionaries/snp.html">Front Matter</a></li>
-  <li><a href="http://www.sanskrit-lexicon.uni-koeln.de/scans/SNPScan/2014/downloads/snpheader.xml">License of Digital Edition</a></li>
+  <li><a href="https://www.sanskrit-lexicon.uni-koeln.de/scans/SNPScan/2020/web/snpheader.xml">License of Digital Edition</a></li>
   <li><a href="https://www.worldcat.org/title/madhavanidana-and-its-chief-commentary-chapters-1-10-introduction-translation-and-notes/oclc/463543891">WorldCat reference</a></li>
   <li>Bibliographic entry: MEULENBELD, G. J. (1974). The Mādhavanidāna and its chief commentary. chapters 1-10, chapters 1-10. Leiden, E.J. Brill.</li>
  </ol>

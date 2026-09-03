@@ -54,7 +54,7 @@ text-align:left;
  
  <ol ><b>Related material</b>
   <li><a href="http://www.sanskrit-lexicon.uni-koeln.de/scans/csldoc/dictionaries/bor.html">Front Matter</a></li>
-  <li><a href="http://www.sanskrit-lexicon.uni-koeln.de/scans/BORScan/2014/downloads/borheader.xml">License of Digital Edition</a></li>
+  <li><a href="https://www.sanskrit-lexicon.uni-koeln.de/scans/BORScan/2020/web/borheader.xml">License of Digital Edition</a></li>
   <li><a href="https://www.worldcat.org/title/practical-english-sanskrit-dictionary-by-anundoram-borooah/oclc/457102878">WorldCat reference</a></li>
   <li>Bibliographic entry: BOROOAH, A. (1877). A Practical English-Sanskrit Dictionary, by Anundoram Borooah. Calcutta, Wyman.</li>
  </ol>

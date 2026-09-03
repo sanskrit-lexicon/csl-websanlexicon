@@ -51,7 +51,7 @@ text-align:left;
  
  <ol ><b>Related material</b>
   <li><a href="http://www.sanskrit-lexicon.uni-koeln.de/scans/csldoc/dictionaries/mw72.html">Front Matter</a></li>
-  <li><a href="http://www.sanskrit-lexicon.uni-koeln.de/scans/MW72Scan/2014/downloads/mw72header.xml">License of Digital Edition</a></li>
+  <li><a href="https://www.sanskrit-lexicon.uni-koeln.de/scans/MW72Scan/2020/web/mw72header.xml">License of Digital Edition</a></li>
   <li><a href="https://www.worldcat.org/title/sanskrit-english-dictionary-etymologically-and-philologically-arranged-with-special-reference-to-greek-latin-gothic-german-anglo-saxon-and-other-cognate-indo-european-languages/oclc/3592375">WorldCat reference</a></li>
   <li>Bibliographic entry: MONIER-WILLIAMS, M. (1872). A Sanskṛit-English dictionary etymologically and philologically arranged with special reference to Greek, Latin, Gothic, German, Anglo-Saxon, and other cognate Indo-European languages. Oxford, The Clarendon Press.</li>
  </ol>

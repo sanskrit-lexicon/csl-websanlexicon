@@ -51,7 +51,7 @@ text-align:left;
  
  <ol ><b>Related material</b>
   <li><a href="http://www.sanskrit-lexicon.uni-koeln.de/scans/csldoc/dictionaries/krm.html">Front Matter</a></li>
-  <li><a href="http://www.sanskrit-lexicon.uni-koeln.de/scans/KRMScan/2014/downloads/krmheader.xml">License of Digital Edition</a></li>
+  <li><a href="https://www.sanskrit-lexicon.uni-koeln.de/scans/KRMScan/2020/web/krmheader.xml">License of Digital Edition</a></li>
   <li><a href="https://www.worldcat.org/title/krdantarupamala/oclc/11091001">WorldCat reference</a></li>
   <li>Bibliographic entry: RAMASUBBA SASTRI, S., PRANATARTIHARAN, T. K., & ŚRĪVATSĀṄKĀCĀRYAR, V. (1965-71). Kr̥dantarūpamālā. Madrās, Madrapurīsaṃskr̥tavidyāsamitisacivaiḥ prakāśitā.</li>
  </ol>

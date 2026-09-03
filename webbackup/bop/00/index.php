@@ -51,7 +51,7 @@ text-align:left;
  
  <ol ><b>Related material</b>
   <li><a href="http://www.sanskrit-lexicon.uni-koeln.de/scans/csldoc/dictionaries/bop.html">Front Matter</a></li>
-  <li><a href="http://www.sanskrit-lexicon.uni-koeln.de/scans/BOPScan/2014/downloads/bopheader.xml">License of Digital Edition</a></li>
+  <li><a href="https://www.sanskrit-lexicon.uni-koeln.de/scans/BOPScan/2020/web/bopheader.xml">License of Digital Edition</a></li>
   <li><a href="https://www.worldcat.org/title/glossarium-sanscritum-in-quo-omnes-radices-et-vocabula-usitatissima-explicantur-et-cum-vocabulis-graecis-latinis-germanicis-lithuanicis-slavicis-celticis-comparantur/oclc/257696310">WorldCat reference</a></li>
   <li>Bibliographic entry: BOPP, F. (1847). Glossarium Sanscritum in quo omnes radices et vocabula usitatissima explicantur et cum vocabulis Graecis, Latinis, Germanicis, Lithuanicis, Slavicis, Celticis comparantur. Berolini, Dümmler.</li>
  </ol>

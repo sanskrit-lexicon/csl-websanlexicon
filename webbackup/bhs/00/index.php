@@ -51,7 +51,7 @@ text-align:left;
  
  <ol ><b>Related material</b>
   <li><a href="http://www.sanskrit-lexicon.uni-koeln.de/scans/csldoc/dictionaries/bhs.html">Front Matter</a></li>
-  <li><a href="http://www.sanskrit-lexicon.uni-koeln.de/scans/BHSScan/2014/downloads/bhsheader.xml">License of Digital Edition</a></li>
+  <li><a href="https://www.sanskrit-lexicon.uni-koeln.de/scans/BHSScan/2020/web/bhsheader.xml">License of Digital Edition</a></li>
   <li><a href="https://www.worldcat.org/title/buddhist-hybrid-sanskrit-grammar-and-dictionary-2-dictionary/oclc/174004867 ">WorldCat reference</a></li>
   <li>Bibliographic entry: EDGERTON, F. (1953). Buddhist hybrid sanskrit grammar and dictionary 2. 2. New Haven, Yale Univ. Press [u.a.].</li>
  </ol>
