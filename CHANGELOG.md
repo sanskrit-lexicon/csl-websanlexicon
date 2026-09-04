@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Added
+- **webtc2 200-query parity evidence for the search index (H3485, audit D4):**
+  `tests/webtc2_parity/` gains the deterministic 200-query sample
+  (`make_queries200.py` + `queries200.json`, H3633 31-query matrix seeded plus
+  stride-sampled sk/ns modes, wildcards, HK inputs, max clamps), the committed
+  parity memo + full MW transcript: 252/252 records (200 queries + 52 page-2
+  follow-ups) byte-equal indexed-vs-legacy with **0 result diffs** in all four
+  phases (fresh index, index absent → flat-file fallback, stale-index guard);
+  p50 page-1 94.4→39.3 ms indexed. Closes the ≥200-query acceptance bar of
+  H3485 on top of the mechanism shipped by #153 (H3633).
 - **webtc2 generation-time search index consult (H3633, H3487 audit G3/W10, prior audit D4):**
   `v02/makotemplates/web/webtc2/querymodel.php` now consults the SQLite line index
   (`query_dump.sqlite3`, built by csl-pywork's webtc2 generation stage) instead of linearly
