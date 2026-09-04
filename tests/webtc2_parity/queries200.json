@@ -1,0 +1,1276 @@
+[
+ {
+  "sword": "ama",
+  "sregexp": "exact",
+  "swordhw": "hwonly",
+  "transLit": "slp1",
+  "id": "h3633-ama-exact-hwonly"
+ },
+ {
+  "sword": "karma",
+  "sregexp": "exact",
+  "swordhw": "hwonly",
+  "transLit": "slp1",
+  "id": "h3633-karma-exact-hwonly"
+ },
+ {
+  "sword": "rAma",
+  "sregexp": "exact",
+  "swordhw": "hwonly",
+  "transLit": "slp1",
+  "id": "h3633-rAma-exact-hwonly"
+ },
+ {
+  "sword": "deva",
+  "sregexp": "prefix",
+  "swordhw": "hwonly",
+  "transLit": "slp1",
+  "id": "h3633-deva-prefix-hwonly"
+ },
+ {
+  "sword": "saM",
+  "sregexp": "prefix",
+  "swordhw": "hwonly",
+  "transLit": "slp1",
+  "id": "h3633-saM-prefix-hwonly"
+ },
+ {
+  "sword": "kR",
+  "sregexp": "prefix",
+  "swordhw": "hwonly",
+  "transLit": "slp1",
+  "id": "h3633-kR-prefix-hwonly"
+ },
+ {
+  "sword": "Ana",
+  "sregexp": "suffix",
+  "swordhw": "hwonly",
+  "transLit": "slp1",
+  "id": "h3633-Ana-suffix-hwonly"
+ },
+ {
+  "sword": "tA",
+  "sregexp": "suffix",
+  "swordhw": "hwonly",
+  "transLit": "slp1",
+  "id": "h3633-tA-suffix-hwonly"
+ },
+ {
+  "sword": "karma",
+  "sregexp": "instring",
+  "swordhw": "hwonly",
+  "transLit": "slp1",
+  "id": "h3633-karma-instring-hwonly"
+ },
+ {
+  "sword": "atva",
+  "sregexp": "substring",
+  "swordhw": "hwonly",
+  "transLit": "slp1",
+  "id": "h3633-atva-substring-hwonly"
+ },
+ {
+  "sword": "tva",
+  "sregexp": "substring",
+  "swordhw": "hwonly",
+  "transLit": "slp1",
+  "id": "h3633-tva-substring-hwonly"
+ },
+ {
+  "sword": "zzqqx",
+  "sregexp": "exact",
+  "swordhw": "hwonly",
+  "transLit": "slp1",
+  "id": "h3633-zzqqx-exact-hwonly"
+ },
+ {
+  "sword": "rAma",
+  "sregexp": "exact",
+  "swordhw": "both",
+  "transLit": "slp1",
+  "id": "h3633-rAma-exact-both"
+ },
+ {
+  "sword": "rAma",
+  "sregexp": "prefix",
+  "swordhw": "textonly",
+  "transLit": "slp1",
+  "id": "h3633-rAma-prefix-textonly"
+ },
+ {
+  "sword": "a",
+  "sregexp": "exact",
+  "swordhw": "both",
+  "transLit": "slp1",
+  "id": "h3633-a-exact-both"
+ },
+ {
+  "sword": "kr*",
+  "sregexp": "prefix",
+  "swordhw": "hwonly",
+  "transLit": "slp1",
+  "id": "h3633-kr*-prefix-hwonly"
+ },
+ {
+  "sword": "*",
+  "sregexp": "prefix",
+  "swordhw": "hwonly",
+  "transLit": "slp1",
+  "id": "h3633-*-prefix-hwonly"
+ },
+ {
+  "sword": "kRSNa",
+  "sregexp": "exact",
+  "swordhw": "hwonly",
+  "transLit": "hk",
+  "id": "h3633-kRSNa-exact-hwonly-hk"
+ },
+ {
+  "word": "fire",
+  "regexp": "exact",
+  "id": "h3633-fire-exact"
+ },
+ {
+  "word": "water",
+  "regexp": "exact",
+  "id": "h3633-water-exact"
+ },
+ {
+  "word": "ind",
+  "regexp": "prefix",
+  "id": "h3633-ind-prefix"
+ },
+ {
+  "word": "di",
+  "regexp": "prefix",
+  "id": "h3633-di-prefix"
+ },
+ {
+  "word": "ing",
+  "regexp": "suffix",
+  "id": "h3633-ing-suffix"
+ },
+ {
+  "word": "roun",
+  "regexp": "instring",
+  "id": "h3633-roun-instring"
+ },
+ {
+  "word": "ov",
+  "regexp": "substring",
+  "id": "h3633-ov-substring"
+ },
+ {
+  "word": "diamond",
+  "regexp": "exact",
+  "id": "h3633-diamond-exact"
+ },
+ {
+  "word": "FIRE",
+  "regexp": "exact",
+  "id": "h3633-FIRE-exact"
+ },
+ {
+  "word": "zzqqx",
+  "regexp": "exact",
+  "id": "h3633-zzqqx-exact"
+ },
+ {
+  "word": "the",
+  "regexp": "substring",
+  "id": "h3633-the-substring"
+ },
+ {
+  "sword": "deva",
+  "sregexp": "prefix",
+  "swordhw": "hwonly",
+  "transLit": "slp1",
+  "max": 5,
+  "id": "h3633-deva-prefix-hwonly-5"
+ },
+ {
+  "word": "fire",
+  "regexp": "exact",
+  "max": 5,
+  "id": "h3633-fire-exact-5"
+ },
+ {
+  "id": "gen200-sk-exact-a",
+  "sword": "a",
+  "sregexp": "exact",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-exact-atiTisatkAra",
+  "sword": "atiTisatkAra",
+  "sregexp": "exact",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-exact-anibadDapralApin",
+  "sword": "anibadDapralApin",
+  "sregexp": "exact",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-exact-anyajAta",
+  "sword": "anyajAta",
+  "sregexp": "exact",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-exact-aBiGrARa",
+  "sword": "aBiGrARa",
+  "sregexp": "exact",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-exact-amocana",
+  "sword": "amocana",
+  "sregexp": "exact",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-exact-avatAna",
+  "sword": "avatAna",
+  "sregexp": "exact",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-exact-azwAviMSatiDA",
+  "sword": "azwAviMSatiDA",
+  "sregexp": "exact",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-exact-AtapaSuzka",
+  "sword": "AtapaSuzka",
+  "sregexp": "exact",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-exact-AlokamArga",
+  "sword": "AlokamArga",
+  "sregexp": "exact",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-exact-uccEstva",
+  "sword": "uccEstva",
+  "sregexp": "exact",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-exact-upakAlikA",
+  "sword": "upakAlikA",
+  "sregexp": "exact",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-exact-ullAGatA",
+  "sword": "ullAGatA",
+  "sregexp": "exact",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-exact-oha",
+  "sword": "oha",
+  "sregexp": "exact",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-exact-karaRatva",
+  "sword": "karaRatva",
+  "sregexp": "exact",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-exact-kApivana",
+  "sword": "kApivana",
+  "sregexp": "exact",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-exact-kukkuworaga",
+  "sword": "kukkuworaga",
+  "sregexp": "exact",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-exact-kfmijA",
+  "sword": "kfmijA",
+  "sregexp": "exact",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-exact-krOlAyana",
+  "sword": "krOlAyana",
+  "sregexp": "exact",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-exact-Kuq",
+  "sword": "Kuq",
+  "sregexp": "exact",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-exact-guRatantra",
+  "sword": "guRatantra",
+  "sregexp": "exact",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-exact-grAmIRa",
+  "sword": "grAmIRa",
+  "sregexp": "exact",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-exact-carmaraNgA",
+  "sword": "carmaraNgA",
+  "sregexp": "exact",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-exact-Cardana",
+  "sword": "Cardana",
+  "sregexp": "exact",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-exact-jIvaSarman",
+  "sword": "jIvaSarman",
+  "sregexp": "exact",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-exact-tarumahiman",
+  "sword": "tarumahiman",
+  "sregexp": "exact",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-exact-tfmpaRa",
+  "sword": "tfmpaRa",
+  "sregexp": "exact",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-exact-dantajAta",
+  "sword": "dantajAta",
+  "sregexp": "exact",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-exact-duHsvapnapratiboDana",
+  "sword": "duHsvapnapratiboDana",
+  "sregexp": "exact",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-exact-deSakAlavid",
+  "sword": "deSakAlavid",
+  "sregexp": "exact",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-exact-DanurAkAra",
+  "sword": "DanurAkAra",
+  "sregexp": "exact",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-exact-nakzatranirRaya",
+  "sword": "nakzatranirRaya",
+  "sregexp": "exact",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-exact-nArAyaRAvalI",
+  "sword": "nArAyaRAvalI",
+  "sregexp": "exact",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-exact-nimezArDAt",
+  "sword": "nimezArDAt",
+  "sregexp": "exact",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-exact-nepAlajA",
+  "sword": "nepAlajA",
+  "sregexp": "exact",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-exact-padDatiratna",
+  "sword": "padDatiratna",
+  "sregexp": "exact",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-exact-parimfg",
+  "sword": "parimfg",
+  "sregexp": "exact",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-exact-pARqaradanta",
+  "sword": "pARqaradanta",
+  "sregexp": "exact",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-exact-puMveza",
+  "sword": "puMveza",
+  "sregexp": "exact",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-exact-pUrvaka",
+  "sword": "pUrvaka",
+  "sregexp": "exact",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-exact-pratipAdapam",
+  "sword": "pratipAdapam",
+  "sregexp": "exact",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-exact-praDarza",
+  "sword": "praDarza",
+  "sregexp": "exact",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-exact-prasmi",
+  "sword": "prasmi",
+  "sregexp": "exact",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-exact-PaRADara",
+  "sword": "PaRADara",
+  "sregexp": "exact",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-exact-bAhawIya",
+  "sword": "bAhawIya",
+  "sregexp": "exact",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-exact-BaginIBrAtf",
+  "sword": "BaginIBrAtf",
+  "sregexp": "exact",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-exact-BujAmUla",
+  "sword": "BujAmUla",
+  "sregexp": "exact",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-exact-maRirAma",
+  "sword": "maRirAma",
+  "sregexp": "exact",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-exact-mayivasu",
+  "sword": "mayivasu",
+  "sregexp": "exact",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-exact-mahotsavamaya",
+  "sword": "mahotsavamaya",
+  "sregexp": "exact",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-exact-mInANka",
+  "sword": "mInANka",
+  "sregexp": "exact",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-exact-meDasAti",
+  "sword": "meDasAti",
+  "sregexp": "exact",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-exact-yaSaHpawaha",
+  "sword": "yaSaHpawaha",
+  "sregexp": "exact",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-exact-ratnakzetrakUwasaMdarSana",
+  "sword": "ratnakzetrakUwasaMdarSana",
+  "sregexp": "exact",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-exact-rAmanavaratnasAra",
+  "sword": "rAmanavaratnasAra",
+  "sregexp": "exact",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-exact-laGuparikrama",
+  "sword": "laGuparikrama",
+  "sregexp": "exact",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-exact-vakraKaqga",
+  "sword": "vakraKaqga",
+  "sregexp": "exact",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-exact-varzapa",
+  "sword": "varzapa",
+  "sregexp": "exact",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-exact-vAyuBakza",
+  "sword": "vAyuBakza",
+  "sregexp": "exact",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-exact-vicayizWa",
+  "sword": "vicayizWa",
+  "sregexp": "exact",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-exact-viBaktyarTakArakaprakriyA",
+  "sword": "viBaktyarTakArakaprakriyA",
+  "sregexp": "exact",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-exact-vizanASana",
+  "sword": "vizanASana",
+  "sregexp": "exact",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-exact-vfzaBAkza",
+  "sword": "vfzaBAkza",
+  "sregexp": "exact",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-exact-vyatikara",
+  "sword": "vyatikara",
+  "sregexp": "exact",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-exact-Satagva",
+  "sword": "Satagva",
+  "sregexp": "exact",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-exact-SARqilIputra",
+  "sword": "SARqilIputra",
+  "sregexp": "exact",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-exact-SItImBAva",
+  "sword": "SItImBAva",
+  "sregexp": "exact",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-exact-SyAmagranTi",
+  "sword": "SyAmagranTi",
+  "sregexp": "exact",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-exact-zaqgayA",
+  "sword": "zaqgayA",
+  "sregexp": "exact",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-exact-saMgrAha",
+  "sword": "saMgrAha",
+  "sregexp": "exact",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-exact-saMnikarzatattvaviveka",
+  "sword": "saMnikarzatattvaviveka",
+  "sregexp": "exact",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-exact-samucCvas",
+  "sword": "samucCvas",
+  "sregexp": "exact",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-exact-sarvapAYcAlaka",
+  "sword": "sarvapAYcAlaka",
+  "sregexp": "exact",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-exact-sAcivyAkzepa",
+  "sword": "sAcivyAkzepa",
+  "sregexp": "exact",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-exact-sidDAntasidDAYjana",
+  "sword": "sidDAntasidDAYjana",
+  "sregexp": "exact",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-exact-sumatireRu",
+  "sword": "sumatireRu",
+  "sregexp": "exact",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-exact-sUryAruRaSataka",
+  "sword": "sUryAruRaSataka",
+  "sregexp": "exact",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-exact-strIsamBoga",
+  "sword": "strIsamBoga",
+  "sregexp": "exact",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-exact-svayaMvaravaDU",
+  "sword": "svayaMvaravaDU",
+  "sregexp": "exact",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-exact-hArzRi",
+  "sword": "hArzRi",
+  "sregexp": "exact",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-prefix-a",
+  "sword": "a",
+  "sregexp": "prefix",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-suffix-aBiGrARa",
+  "sword": "aBiGrARa",
+  "sregexp": "suffix",
+  "swordhw": "both",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-instring-AtapaSuzka",
+  "sword": "AtapaSuzka",
+  "sregexp": "instring",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-substring-ullAGatA",
+  "sword": "ullAGatA",
+  "sregexp": "substring",
+  "swordhw": "both",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-prefix-kukkuworaga",
+  "sword": "kukkuworaga",
+  "sregexp": "prefix",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-suffix-guRatantra",
+  "sword": "guRatantra",
+  "sregexp": "suffix",
+  "swordhw": "both",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-instring-jIvaSarman",
+  "sword": "jIvaSarman",
+  "sregexp": "instring",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-substring-duHsvapnapratiboDana",
+  "sword": "duHsvapnapratiboDana",
+  "sregexp": "substring",
+  "swordhw": "both",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-prefix-nArAyaRAvalI",
+  "sword": "nArAyaRAvalI",
+  "sregexp": "prefix",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-suffix-parimfg",
+  "sword": "parimfg",
+  "sregexp": "suffix",
+  "swordhw": "both",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-instring-pratipAdapam",
+  "sword": "pratipAdapam",
+  "sregexp": "instring",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-substring-bAhawIya",
+  "sword": "bAhawIya",
+  "sregexp": "substring",
+  "swordhw": "both",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-prefix-mayivasu",
+  "sword": "mayivasu",
+  "sregexp": "prefix",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-suffix-yaSaHpawaha",
+  "sword": "yaSaHpawaha",
+  "sregexp": "suffix",
+  "swordhw": "both",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-instring-vakraKaqga",
+  "sword": "vakraKaqga",
+  "sregexp": "instring",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-substring-viBaktyarTakArakaprakriyA",
+  "sword": "viBaktyarTakArakaprakriyA",
+  "sregexp": "substring",
+  "swordhw": "both",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-prefix-Satagva",
+  "sword": "Satagva",
+  "sregexp": "prefix",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-suffix-zaqgayA",
+  "sword": "zaqgayA",
+  "sregexp": "suffix",
+  "swordhw": "both",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-instring-sarvapAYcAlaka",
+  "sword": "sarvapAYcAlaka",
+  "sregexp": "instring",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-substring-sUryAruRaSataka",
+  "sword": "sUryAruRaSataka",
+  "sregexp": "substring",
+  "swordhw": "both",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-wild-prefix-krstar",
+  "sword": "kr*",
+  "sregexp": "prefix",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-wild-prefix-devastar",
+  "sword": "deva*",
+  "sregexp": "prefix",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-wild-substring-startva",
+  "sword": "*tva",
+  "sregexp": "substring",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-wild-substring-kstara",
+  "sword": "k*a",
+  "sregexp": "substring",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-wild-prefix-saMstar",
+  "sword": "saM*",
+  "sregexp": "prefix",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-wild-substring-starya",
+  "sword": "*ya",
+  "sregexp": "substring",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-wild-prefix-devqm",
+  "sword": "dev?",
+  "sregexp": "prefix",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-wild-prefix-kastar",
+  "sword": "ka*",
+  "sregexp": "prefix",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-wild-substring-starana",
+  "sword": "*ana",
+  "sregexp": "substring",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-wild-substring-amaoreva",
+  "sword": "ama|eva",
+  "sregexp": "substring",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-wild-substring-astara",
+  "sword": "a*a",
+  "sregexp": "substring",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-wild-prefix-qm",
+  "sword": "?",
+  "sregexp": "prefix",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-ns-exact-the",
+  "word": "the",
+  "regexp": "exact"
+ },
+ {
+  "id": "gen200-ns-exact-garment",
+  "word": "garment",
+  "regexp": "exact"
+ },
+ {
+  "id": "gen200-ns-exact-action",
+  "word": "action",
+  "regexp": "exact"
+ },
+ {
+  "id": "gen200-ns-exact-threatene",
+  "word": "threatene",
+  "regexp": "exact"
+ },
+ {
+  "id": "gen200-ns-exact-palm",
+  "word": "palm",
+  "regexp": "exact"
+ },
+ {
+  "id": "gen200-ns-exact-bcar",
+  "word": "bcar",
+  "regexp": "exact"
+ },
+ {
+  "id": "gen200-ns-exact-and",
+  "word": "and",
+  "regexp": "exact"
+ },
+ {
+  "id": "gen200-ns-exact-eyes",
+  "word": "eyes",
+  "regexp": "exact"
+ },
+ {
+  "id": "gen200-ns-exact-compelled",
+  "word": "compelled",
+  "regexp": "exact"
+ },
+ {
+  "id": "gen200-ns-exact-iii",
+  "word": "iii",
+  "regexp": "exact"
+ },
+ {
+  "id": "gen200-ns-exact-king",
+  "word": "king",
+  "regexp": "exact"
+ },
+ {
+  "id": "gen200-ns-exact-ely",
+  "word": "ely",
+  "regexp": "exact"
+ },
+ {
+  "id": "gen200-ns-exact-class",
+  "word": "class",
+  "regexp": "exact"
+ },
+ {
+  "id": "gen200-ns-exact-body",
+  "word": "body",
+  "regexp": "exact"
+ },
+ {
+  "id": "gen200-ns-exact-mark",
+  "word": "mark",
+  "regexp": "exact"
+ },
+ {
+  "id": "gen200-ns-exact-portable",
+  "word": "portable",
+  "regexp": "exact"
+ },
+ {
+  "id": "gen200-ns-exact-ring",
+  "word": "ring",
+  "regexp": "exact"
+ },
+ {
+  "id": "gen200-ns-exact-uishable",
+  "word": "uishable",
+  "regexp": "exact"
+ },
+ {
+  "id": "gen200-ns-exact-said",
+  "word": "said",
+  "regexp": "exact"
+ },
+ {
+  "id": "gen200-ns-exact-ding",
+  "word": "ding",
+  "regexp": "exact"
+ },
+ {
+  "id": "gen200-ns-exact-quick",
+  "word": "quick",
+  "regexp": "exact"
+ },
+ {
+  "id": "gen200-ns-exact-been",
+  "word": "been",
+  "regexp": "exact"
+ },
+ {
+  "id": "gen200-ns-exact-speak",
+  "word": "speak",
+  "regexp": "exact"
+ },
+ {
+  "id": "gen200-ns-exact-justicia",
+  "word": "justicia",
+  "regexp": "exact"
+ },
+ {
+  "id": "gen200-ns-prefix-compelled",
+  "word": "compelled",
+  "regexp": "prefix"
+ },
+ {
+  "id": "gen200-ns-suffix-body",
+  "word": "body",
+  "regexp": "suffix"
+ },
+ {
+  "id": "gen200-ns-instring-said",
+  "word": "said",
+  "regexp": "instring"
+ },
+ {
+  "id": "gen200-ns-substring-justicia",
+  "word": "justicia",
+  "regexp": "substring"
+ },
+ {
+  "id": "gen200-ns-prefix-mfn",
+  "word": "mfn",
+  "regexp": "prefix"
+ },
+ {
+  "id": "gen200-ns-suffix-grain",
+  "word": "grain",
+  "regexp": "suffix"
+ },
+ {
+  "id": "gen200-ns-instring-used",
+  "word": "used",
+  "regexp": "instring"
+ },
+ {
+  "id": "gen200-ns-substring-cart",
+  "word": "cart",
+  "regexp": "substring"
+ },
+ {
+  "id": "gen200-ns-prefix-holiday",
+  "word": "holiday",
+  "regexp": "prefix"
+ },
+ {
+  "id": "gen200-ns-suffix-jacquini",
+  "word": "jacquini",
+  "regexp": "suffix"
+ },
+ {
+  "id": "gen200-ns-instring-drag",
+  "word": "drag",
+  "regexp": "instring"
+ },
+ {
+  "id": "gen200-ns-substring-time",
+  "word": "time",
+  "regexp": "substring"
+ },
+ {
+  "id": "gen200-ns-prefix-four",
+  "word": "four",
+  "regexp": "prefix"
+ },
+ {
+  "id": "gen200-ns-suffix-further",
+  "word": "further",
+  "regexp": "suffix"
+ },
+ {
+  "id": "gen200-ns-instring-manifold",
+  "word": "manifold",
+  "regexp": "instring"
+ },
+ {
+  "id": "gen200-ns-substring-compariso",
+  "word": "compariso",
+  "regexp": "substring"
+ },
+ {
+  "id": "gen200-ns-prefix-with",
+  "word": "with",
+  "regexp": "prefix"
+ },
+ {
+  "id": "gen200-ns-suffix-parts",
+  "word": "parts",
+  "regexp": "suffix"
+ },
+ {
+  "id": "gen200-ns-instring-viam",
+  "word": "viam",
+  "regexp": "instring"
+ },
+ {
+  "id": "gen200-ns-substring-rendering",
+  "word": "rendering",
+  "regexp": "substring"
+ },
+ {
+  "id": "gen200-ns-upper-1",
+  "word": "THE",
+  "regexp": "exact"
+ },
+ {
+  "id": "gen200-ns-upper-2",
+  "word": "GARMENT",
+  "regexp": "prefix"
+ },
+ {
+  "id": "gen200-ns-zero-1",
+  "word": "qqxxzz",
+  "regexp": "exact"
+ },
+ {
+  "id": "gen200-ns-zero-2",
+  "word": "xyzzy",
+  "regexp": "substring"
+ },
+ {
+  "id": "gen200-sk-zero-1",
+  "sword": "zzzqqqxxx",
+  "sregexp": "exact",
+  "swordhw": "hwonly",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-sk-zero-2",
+  "sword": "wwww",
+  "sregexp": "prefix",
+  "swordhw": "both",
+  "transLit": "slp1"
+ },
+ {
+  "id": "gen200-ns-max5",
+  "word": "action",
+  "regexp": "exact",
+  "max": 5
+ },
+ {
+  "id": "gen200-ns-max100",
+  "word": "threatene",
+  "regexp": "substring"
+ },
+ {
+  "id": "gen200-sk-max5-1",
+  "sword": "atiTisatkAra",
+  "sregexp": "prefix",
+  "swordhw": "hwonly",
+  "transLit": "slp1",
+  "max": 5
+ },
+ {
+  "id": "gen200-sk-max5-2",
+  "sword": "anibadDapralApin",
+  "sregexp": "substring",
+  "swordhw": "both",
+  "transLit": "slp1",
+  "max": 5
+ },
+ {
+  "id": "gen200-sk-hk-1",
+  "sword": "kRSNa",
+  "sregexp": "prefix",
+  "swordhw": "hwonly",
+  "transLit": "hk"
+ },
+ {
+  "id": "gen200-sk-hk-2",
+  "sword": "rAma",
+  "sregexp": "exact",
+  "swordhw": "both",
+  "transLit": "hk"
+ }
+]

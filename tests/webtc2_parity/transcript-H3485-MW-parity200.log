@@ -1,0 +1,43 @@
+H3485 — 200-query parity + timing transcript, dictionary MW (fixture: mw-dev generated tree)
+date: 2026-09-04T08:47Z  host: Darwin 24.6.0 arm64  php: 8.5.9
+websanlexicon tip under test: origin/main ebd2f53 (querymodel.php from merge 5a491a8, PR #153)
+legacy baseline querymodel.php: csl-websanlexicon 3272e13 (pre-index, post-H1523)
+index built by: csl-pywork origin/main v02/makotemplates/pywork/webtc2/build_query_index.py
+dump: /Users/mac/Documents/GitHub/mw-dev/web/webtc2/query_dump.txt (  202923 lines, 18814655 bytes)
+index: /Users/mac/Documents/GitHub/mw-dev/web/webtc2/query_dump.sqlite3 (21454848 bytes, PRAGMA user_version=1, meta dumpsize match)
+sample: queries200.json — 200 deterministic queries (H3633 31-query matrix seeded + stride-sampled
+  sk exact/prefix/suffix/instring/substring x hwonly/both/textonly, wildcards incl. pure *, ?, |, HK inputs,
+  English exact/prefix/suffix/instring/substring incl. case + zero-match, max=5/100; page-2 follow-ups auto)
+
+== phase A: legacy querymodel (3272e13), flat-file scan ==
+records: 252
+== phase B: current main querymodel + query_dump.sqlite3 present ==
+records: 252
+== phase C: current main querymodel, index hidden (--hide-index: flat-file fallback) ==
+records: 252
+== phase D: current main querymodel, index STALE (PRAGMA user_version tampered 1->2, restored after) ==
+records: 252
+
+== A vs B (legacy scan vs indexed) ==
+records: 252 (before) / 252 (after)
+result diffs: 0
+p50 ms page-1: 94.4 (legacy-scan) -> 39.3 (indexed)
+p95 ms page-1: 113.7 (legacy-scan) -> 69.2 (indexed)
+exit=0
+
+== A vs C (legacy scan vs flat-file fallback) ==
+records: 252 (before) / 252 (after)
+result diffs: 0
+p50 ms page-1: 94.4 (legacy-scan) -> 93.6 (fallback)
+p95 ms page-1: 113.7 (legacy-scan) -> 108.7 (fallback)
+exit=0
+
+== A vs D (legacy scan vs stale-index guard) ==
+records: 252 (before) / 252 (after)
+result diffs: 0
+p50 ms page-1: 94.4 (legacy-scan) -> 92.5 (stale-guard)
+p95 ms page-1: 113.7 (legacy-scan) -> 108.3 (stale-guard)
+exit=0
+
+VERDICT: 252/252 records byte-equal (keys order, matchwords, lastLnum, status) in every phase; 0 diffs.
+Indexed path is the only accelerated one; fallback and stale-guard keep legacy timing (inert-safe).
