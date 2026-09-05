@@ -1,3 +1,5 @@
+_Created: 30-06-2026 · Last updated: 05-09-2026_
+
 # Changelog
 
 All notable changes to this project will be documented in this file.
@@ -112,3 +114,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 [0.2.0]: https://github.com/sanskrit-lexicon/csl-websanlexicon/releases/tag/v0.2.0
 [0.1.0]: https://github.com/sanskrit-lexicon/csl-websanlexicon/releases/tag/v0.1.0
+
+_Dr. Mārcis Gasūns_

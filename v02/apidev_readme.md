@@ -1,3 +1,5 @@
+_Created: 31-10-2019 · Last updated: 05-09-2026_
+
 ## apidev_readme.
 
 Several php modules are 'shared' between csl-websanlexicon/v02/ and
@@ -16,3 +18,5 @@ a local installation.
 ```
 sh apidev_copy.sh
 ```
+
+_Dr. Mārcis Gasūns_

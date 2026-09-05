@@ -1,3 +1,5 @@
+_Created: 06-04-2023 · Last updated: 05-09-2026_
+
 ## atharva veda
 * Sample URL: https://sanskrit-lexicon.github.io/avlinks/avhymns/av14.002.html#av14.002.71
 * gra {AV. X, Y, Z}  {AV. 14,2,71}
@@ -83,3 +85,4 @@ The link target has only kandas 1 and 2.
  CDSL dictionary displays do not generate links to Kale's Grammar.
 * Sample URL: https://sanskrit-lexicon.uni-koeln.de/scans/csl-kale/disp/index.php?pageua=100
 
+_Dr. Mārcis Gasūns_

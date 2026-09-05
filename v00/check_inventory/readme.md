@@ -1,3 +1,5 @@
+_Created: 29-07-2019 · Last updated: 05-09-2026_
+
 ## check_inventory
 
 
@@ -26,3 +28,4 @@ The comparison appears in [webinventory.txt](https://github.com/sanskrit-lexicon
 
 See the issues of this repository for further discussion of *webinventory.txt*.
 
+_Dr. Mārcis Gasūns_
