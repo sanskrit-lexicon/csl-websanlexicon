@@ -36,7 +36,7 @@ Close the worst code-to-docs gap measured in the 28-07-2026 org docs-debt scan (
 
 ## Related documents
 
-- [README.md](https://github.com/sanskrit-lexicon/csl-websanlexicon/blob/main/README.md) — repo overview, links here.
+- README.md — repo overview, links here.
 - [docs/ROADMAP_2026_2027.md](https://github.com/sanskrit-lexicon/csl-websanlexicon/blob/main/docs/ROADMAP_2026_2027.md) — security roadmap (drives the work queue).
 - [docs/JS_DEPENDENCY_AUDIT_2026.md](https://github.com/sanskrit-lexicon/csl-websanlexicon/blob/main/docs/JS_DEPENDENCY_AUDIT_2026.md) — vendored JS dependency audit.
 - Org-level: [csl-corrections correction workflow](https://github.com/sanskrit-lexicon/csl-corrections/blob/main/docs/correction-workflow.md), [Cologne tooling runbook](https://github.com/sanskrit-lexicon/csl-observatory/blob/main/runbook/cologne-tooling-runbook.md).
