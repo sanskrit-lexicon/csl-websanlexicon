@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-_Created: 06-05-2026 · Last updated: 05-09-2026_
+_Created: 06-05-2026 · Last updated: 20-09-2026 (H5176 SLA review: generator paths + fork-sync targets re-verified current)_
 
 **csl-websanlexicon** is the shared CDSL **web frontend**. A Python + Mako
 generator under [`v02/`](https://github.com/sanskrit-lexicon/csl-websanlexicon/tree/main/v02)
