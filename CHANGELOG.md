@@ -33,6 +33,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   `k` + zero-or-more `r`, which matches `ka`), keeping candidate selection a
   strict superset of the legacy scan on wildcard queries.
 
+- Added a root `AGENTS.md` agent-entrypoint stub (H4634): names itself the agent entrypoint, links [CLAUDE.md](CLAUDE.md), points at the [Uprava org standard](https://github.com/gasyoun/Uprava/blob/main/AGENTS.md).
 ## [0.3.0] - 2026-07-28
 
 ### Added
