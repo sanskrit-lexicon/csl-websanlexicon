@@ -1,6 +1,12 @@
 # CLAUDE.md
 
-_Created: 06-05-2026 · Last updated: 20-09-2026 (H5176 SLA review: generator paths + fork-sync targets re-verified current)_
+_Created: 06-05-2026 · Last updated: 09-10-2026 (H5885 truth refresh: G88 local gate landed, generator/fork-sync paths re-verified current)_
+
+Recent state (09-10-2026): `tests/local_gate.sh` (#161, H5778) runs the
+one-command local gate mirroring `ci.yml` (php -l with mako-skip + v02
+parse-check) — run it before pushing. The generator paths and the
+`basicadjust.php`/`basicdisplay.php` fork-sync targets above were
+re-verified against the live tree on this date.
 
 **csl-websanlexicon** is the shared CDSL **web frontend**. A Python + Mako
 generator under [`v02/`](https://github.com/sanskrit-lexicon/csl-websanlexicon/tree/main/v02)
