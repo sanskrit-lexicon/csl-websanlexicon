@@ -1,4 +1,4 @@
-_Created: 30-06-2026 · Last updated: 05-09-2026_
+_Created: 30-06-2026 · Last updated: 11-10-2026_
 
 # Changelog
 
@@ -9,6 +9,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Added
+- **`Getword_data::ogmeta_html()` — Open Graph meta builder for entry pages
+  (H6478, twin-first):** builds the canonical og: + twitter:card meta set from
+  the first matched record (og:title = headword Devanagari + IAST,
+  og:description = first sense line, 160-char cap) with **caller-supplied**
+  URL/image bases — kosha R1 host-independence: no host hardcoded here, both
+  bases empty → no og: block (byte-identical pages), internal failure → empty
+  string, never a broken display. og:image targets the kosha og card service
+  (`<base>/og/<token>.png`, `card_token` twin encoding). Paired consumer PR
+  in csl-apidev wires the Cologne-host + samskrtam.ru bases into
+  `getwordClass.php` (deliberately divergent file, edited apidev-side only);
+  wiring this twin into webtc templates is a separate later step.
+## [Unreleased] (prior)
 - **webtc2 200-query parity evidence for the search index (H3485, audit D4):**
   `tests/webtc2_parity/` gains the deterministic 200-query sample
   (`make_queries200.py` + `queries200.json`, H3633 31-query matrix seeded plus
