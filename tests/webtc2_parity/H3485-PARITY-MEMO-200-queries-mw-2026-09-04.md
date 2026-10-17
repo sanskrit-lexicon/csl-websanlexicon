@@ -3,7 +3,7 @@
 _Created: 04-09-2026 · Last updated: 05-09-2026_
 
 Closes the evidence bar of
-[H3485](https://github.com/gasyoun/Uprava/blob/main/handoffs/H3485-OxAlpha_csl-websanlexicon_websanlexicon-d4-ftsearch-pr_25.08.26.md)
+[H3485](https://github.com/gasyoun/Uprava/blob/main/handoffs/archive/H3485-OxAlpha_csl-websanlexicon_websanlexicon-d4-ftsearch-pr_25.08.26.md)
 (performance audit [D4](https://github.com/sanskrit-lexicon/csl-observatory/blob/main/docs/PERFORMANCE_AUDIT_2026-07.md))
 that the mechanism PR
 [#153](https://github.com/sanskrit-lexicon/csl-websanlexicon/pull/153)

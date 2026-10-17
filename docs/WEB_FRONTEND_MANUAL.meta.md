@@ -16,7 +16,7 @@ Close the worst code-to-docs gap measured in the 28-07-2026 org docs-debt scan (
 
 ## Provenance
 
-- Handoff: [H1782](https://github.com/gasyoun/Uprava/blob/main/handoffs/H1782-Fable_csl-websanlexicon_web-frontend-operator-manual_28.07.26.md) (minted 28-07-2026 by Grok 4.5 `grok-4.5` from the docs-debt ranking session).
+- Handoff: [H1782](https://github.com/gasyoun/Uprava/blob/main/handoffs/archive/H1782-Fable_csl-websanlexicon_web-frontend-operator-manual_28.07.26.md) (minted 28-07-2026 by Grok 4.5 `grok-4.5` from the docs-debt ranking session).
 - Authored 28-07-2026 by Fable 5 (`claude-fable-5`), modelled on the RussianRamayana Litpam-Indexator [MANUAL.md](https://github.com/gasyoun/RussianRamayana/blob/main/Litpam-Indexator/docs/indesign-pipeline/MANUAL.md) and the H501–H531 manual family.
 - Ground truth: the §4 walkthrough was executed live on 28-07-2026 (Windows 10, Git Bash, Python 3, Mako 1.3.12; `gra` generated to a scratch dir — 104 files, Mako substitution spot-checked in `dictcode.php` and `index.php`). Runtime facts (`dal.php` path resolution, `query_dump.txt` consumer, JSONP whitelist) read from the v02 sources at commit `7e2b942`.
 
