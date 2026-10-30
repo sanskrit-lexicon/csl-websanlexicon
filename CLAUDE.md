@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-_Created: 06-05-2026 · Last updated: 09-10-2026 (H5885 truth refresh: G88 local gate landed, generator/fork-sync paths re-verified current)_
+_Created: 06-05-2026 · Last updated: 30-10-2026 (H7474 verified-no-change truth refresh)_
 
 Recent state (09-10-2026): `tests/local_gate.sh` (#161, H5778) runs the
 one-command local gate mirroring `ci.yml` (php -l with mako-skip + v02
