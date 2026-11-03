@@ -42,7 +42,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   with a blank 500 instead of the H3636-A10 error envelope) is auto-fixed in
   the same run — chokepoint try/catch in `getwordClass` covering all three
   entry points (`getword.php`, `webtc1/disphier.php`, `webtc2/query_gather1.php`),
-  with a failing-before/pinned gate check in `tests/`. MEDIUM/LOW rows are
+  with a failing-before/pinned behavioral gate `tests/bughunt0311_crash_envelope_check.sh`
+  (stub-fixture harness running the real class: uncaught fatal rc=255 before,
+  error envelope + status=false after). MEDIUM/LOW rows are
   report-only per the night ruling; MED residues carry one GTD `@DO` row.
 
 ## [0.3.0] - 2026-07-28
