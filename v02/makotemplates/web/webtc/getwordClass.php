@@ -16,10 +16,28 @@ class GetwordClass {
   $this->getParms = new Parm();
   // $this->basicOption = $this->getParms->basicOption;
   $this->basicOption = $basicOption; // 06-19-2024 Refer webtc1/
-  $temp = new Getword_data($basicOption);
-  $this->matches = $temp->matches; 
-  $this->table1 = $this->getword_html();
-  $this->xmlmatches = $temp->xmlmatches;
+  // BUGHUNT-FINDINGS-03.11.2026 HIGH-1: getword_data.php throws
+  // RuntimeException (H3636 A10/A12) for malformed records, but nothing in
+  // the request path caught it — every entry point (webtc/getword.php,
+  // webtc1/disphier.php, webtc2/query_gather1.php) died with an uncaught
+  // fatal (blank HTTP 500, no error envelope). This constructor is the
+  // chokepoint all three share, so catch here: log the cause (H4227:
+  // never hide it), surface a visible error message, and keep the
+  // not-found status contract (matches empty => status=false).
+  try {
+   $temp = new Getword_data($basicOption);
+   $this->matches = $temp->matches;
+   $this->table1 = $this->getword_html();
+   $this->xmlmatches = $temp->xmlmatches;
+  }catch (RuntimeException $e) {
+   error_log("getwordClass: RuntimeException caught: " . $e->getMessage());
+   $this->matches = array();
+   $this->xmlmatches = array();
+   $this->status = false;
+   $key_html = htmlspecialchars((string)$this->getParms->key, ENT_QUOTES, 'UTF-8');
+   $this->table1 = "<p class='errmsg'>Dictionary record error: the record(s) for "
+    . "$key_html could not be displayed (malformed record data).</p>\n";
+  }
   $nmatches = count($this->matches);
   if ($nmatches == 0) {
    $this->status = false;
