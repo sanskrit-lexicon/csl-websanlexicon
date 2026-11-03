@@ -34,6 +34,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   strict superset of the legacy scan on wildcard queries.
 
 - Added a root `AGENTS.md` agent-entrypoint stub (H4634): names itself the agent entrypoint, links [CLAUDE.md](CLAUDE.md), points at the [Uprava org standard](https://github.com/gasyoun/Uprava/blob/main/AGENTS.md).
+
+### Fixed
+- Nightly bug hunt 03.11.2026 (report: [BUGHUNT-FINDINGS-csl-websanlexicon-03.11.2026.md](BUGHUNT-FINDINGS-csl-websanlexicon-03.11.2026.md)):
+  1 HIGH + 4 MEDIUM + 6 LOW across the active v02 surface. HIGH-1 (uncaught
+  `RuntimeException` from `getword_data.php` crash the word-display endpoint
+  with a blank 500 instead of the H3636-A10 error envelope) is auto-fixed in
+  the same run — chokepoint try/catch in `getwordClass` covering all three
+  entry points (`getword.php`, `webtc1/disphier.php`, `webtc2/query_gather1.php`),
+  with a failing-before/pinned gate check in `tests/`. MEDIUM/LOW rows are
+  report-only per the night ruling; MED residues carry one GTD `@DO` row.
+
 ## [0.3.0] - 2026-07-28
 
 ### Added
