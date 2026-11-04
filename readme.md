@@ -1,6 +1,6 @@
 # csl-websanlexicon
 
-_Created: 15-05-2026 · Last updated: 28-07-2026_
+_Created: 15-05-2026 · Last updated: 05-11-2026_
 
 The **web-frontend** of the [Cologne Digital Sanskrit Dictionaries](https://www.sanskrit-lexicon.uni-koeln.de/) (CDSL). This repository is **not** a dictionary itself — it is the code that turns each Cologne dictionary into a browsable, searchable web application.
 
@@ -10,7 +10,7 @@ For any dictionary code (`mw`, `ap90`, `pwg`, `gra`, …) the build renders a se
 
 ## Architecture
 
-It is a **Python + [Mako](https://www.makotemplates.org/) generator**, not a runtime framework — there is no Composer/Laravel/npm project here.
+It is a **Python + [Mako](https://docs.makotemplates.org/) generator**, not a runtime framework — there is no Composer/Laravel/npm project here.
 
 ```
 v02/makotemplates/web/   ← source templates (the actual frontend)
@@ -58,7 +58,7 @@ Legacy step-by-step install guides (v00-era, kept for reference):
 ## Contributing & issues
 
 - Corrections to dictionary **content** are made in [csl-orig](https://github.com/sanskrit-lexicon/csl-orig), not here — this repo is the display layer.
-- Issues follow the **Cologne tooling-repo taxonomy** (9 type labels · 4 severity levels · 5 milestones); see [CLAUDE.md](https://github.com/sanskrit-lexicon/csl-websanlexicon/blob/main/CLAUDE.md) and the [tooling runbook](https://github.com/sanskrit-lexicon/csl-observatory/blob/main/runbook/cologne-tooling-runbook.md). Cross-repo work is tracked on the [Tooling Roadmap](https://github.com/orgs/sanskrit-lexicon/projects/9) project.
+- Issues follow the **Cologne tooling-repo taxonomy** — this repo currently carries 6 type labels (`bug`, `documentation`, `enhancement`, `performance`, `tech-debt`, `infrastructure`), severity labels `trivial`/`minor` of the taxonomy's 4 levels, and the 5 taxonomy milestones (label set verified live 05-11-2026); see the [tooling runbook](https://github.com/sanskrit-lexicon/csl-observatory/blob/main/runbook/cologne-tooling-runbook.md). Cross-repo work is tracked on the [Tooling Roadmap](https://github.com/orgs/sanskrit-lexicon/projects/9) project.
 - See [CONTRIBUTING.md](https://github.com/sanskrit-lexicon/csl-websanlexicon/blob/main/CONTRIBUTING.md) and [CODE_OF_CONDUCT.md](https://github.com/sanskrit-lexicon/csl-websanlexicon/blob/main/CODE_OF_CONDUCT.md).
 
 ## License & citation
