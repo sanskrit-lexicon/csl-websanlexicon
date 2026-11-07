@@ -16,7 +16,7 @@
 # Usage: sh tests/local_gate.sh
 set -u
 HERE=$(cd "$(dirname "$0")/.." && pwd)
-cd "$HERE"
+cd "$HERE" || exit 1
 fail=0
 
 # python3 is the CI/POSIX interpreter name; fall back to 'python' where the
