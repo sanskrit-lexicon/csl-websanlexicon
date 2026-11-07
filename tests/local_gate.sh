@@ -19,6 +19,19 @@ HERE=$(cd "$(dirname "$0")/.." && pwd)
 cd "$HERE"
 fail=0
 
+# python3 is the CI/POSIX interpreter name; fall back to 'python' where the
+# python3 alias is a non-functional Store-shortcut stub (Windows dev boxes;
+# same shape as the H7569 python3->python fallback in csl-guides).
+PYBIN=python3
+if ! python3 -c 'import sys' >/dev/null 2>&1; then
+  if command -v python >/dev/null 2>&1 && python -c 'import sys' >/dev/null 2>&1; then
+    PYBIN=python
+  else
+    echo "LOCAL GATE FAIL: no usable python3/python interpreter found"
+    exit 1
+  fi
+fi
+
 echo "== lane 1: php -l on verbatim PHP templates (mako-skipped) =="
 linted=0; skipped=0
 TMP_LIST=$(mktemp)
@@ -36,7 +49,7 @@ rm -f "$TMP_LIST"
 echo "php -l: linted=$linted skipped(mako)=$skipped"
 
 echo "== lane 2: parse-check generator scripts =="
-python3 - <<'PY'
+"$PYBIN" - <<'PY'
 import ast, glob, sys
 bad = 0
 for f in glob.glob('v02/*.py'):
@@ -50,7 +63,15 @@ PY
 [ $? -eq 0 ] || fail=1
 
 echo "== lane 3: mako compile-check templates =="
-python3 - <<'PY'
+# BUGHUNT-FINDINGS-03.11.2026 LOW-2: lane 3 used to die on the raw mako
+# import traceback with an unnamed verdict when mako was not installed, so a
+# dev box could not tell what failed. Fail CLOSED with a named reason
+# instead — a skipped lane is not allowed.
+if ! "$PYBIN" -c 'import mako' >/dev/null 2>&1; then
+  echo "MAKO NOT INSTALLED — lane 3 cannot be skipped; run: pip install mako"
+  fail=1
+else
+"$PYBIN" - <<'PY'
 import glob, sys
 from mako.template import Template
 bad = 0; ok = 0
@@ -63,6 +84,7 @@ print(f'mako compile: ok={ok} bad={bad}')
 sys.exit(bad)
 PY
 [ $? -eq 0 ] || fail=1
+fi
 
 echo "== lane 4: ruff (warn-only, mirrors CI) =="
 if command -v ruff >/dev/null 2>&1; then

@@ -46,6 +46,66 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   (stub-fixture harness running the real class: uncaught fatal rc=255 before,
   error envelope + status=false after). MEDIUM/LOW rows are
   report-only per the night ruling; MED residues carry one GTD `@DO` row.
+- **Bug-hunt 03.11.2026 residue lane (GTD `@DO` row Y61) — MED-1..4 fixed, 4
+  of 6 LOW fixed, 2 LOW triaged as parked:**
+  - **MED-1 (swallowed DB error):** `webtc/dal.php` `Dal::get()`/`get_xml()`
+    turned any `PDOException` into the exact response a missing headword
+    produces, with no log record — the one place H4227's report-everything
+    policy still lost defects. Both catches now `error_log` the cause (with
+    the sqlite file and message) and `dbgprint` it, while keeping the
+    empty-result contract: callers outside the HIGH-1 chokepoint treat empty
+    as not-found, and rethrowing here would recreate the uncaught-fatal
+    blank-500 class HIGH-1 just fixed.
+  - **MED-2 (broken contract):** `webtc1/disphier.php` + `webtc1/listhier.php`
+    removed the dead JSONP branch that set `content-type: application/json`
+    whenever `?callback=` was passed while `$callback` was never read and the
+    echoed body was always the HTML table — an HTML payload mislabeled as
+    JSON. Both endpoints now serve plain HTML behind the same unconditional
+    `Access-Control-Allow-Origin: *` header `webtc/getword.php` sends; real
+    JSONP consumers keep using `getword.php`'s whitelisted callback path.
+  - **MED-3 (public prod toggle):** `webtc/dal.php` no longer lets a public
+    `?dev=yes` request reroute lookups to `keydoc.sqlite` on any deployed
+    tree shipping that file. The dev database is reachable only when the
+    deployment defines the build-time constant `WEBSAN_DEV_KEYDOC` (a
+    development tree adds `define('WEBSAN_DEV_KEYDOC', true);` to its
+    template copy); the URL parameter alone never changes lookup semantics.
+  - **MED-4 (test infra):** `tests/webtc2_parity/run_all.sh` phase D
+    permanently wrote `PRAGMA user_version=2` into the REAL
+    `query_dump.sqlite3` of the dictdir under test and never restored it,
+    silently disabling the fresh-index lane (`user_version != 1` fallback)
+    after one drill. The harness now captures the original value first and
+    restores it on every exit path (`trap ... EXIT`), leaving the fixture
+    exactly as found.
+  - **LOW-1:** `webtc/dbgprint.php` logged to the CWD-relative file
+    `dbg_apidev.txt` — a world-readable file in the web docroot the moment
+    any call site flipped `$dbg=true`. Now writes to `php://stderr` (server
+    error log; console under CLI), same call signature.
+  - **LOW-2:** `tests/local_gate.sh` lane 3 died on a raw mako import
+    traceback with an unnamed verdict on machines without mako. It now fails
+    CLOSED with a named reason (`MAKO NOT INSTALLED — lane 3 cannot be
+    skipped; run: pip install mako`) and falls back `python3`→`python` where
+    the python3 alias is a Store-shortcut stub (Windows dev boxes).
+  - **LOW-3:** `v02/generate.py` `makedirs()` swallowed every `OSError`;
+    now catches only `FileExistsError`, so permission failures surface at
+    the mkdir instead of resurfacing later as confusing copy errors.
+  - **LOW-4:** `v02/generate.py` mutated the module-level `alldictparms`
+    entry (`dictversion` accumulated microversion across runs); works on a
+    copy now.
+  - **Parked (triage, no code change):** **LOW-5** error-reporting header is
+    per-file drift (`servepdf.php`/`listhier.php` still suppress at
+    request start; `getword.php` L4 suppression is dead-in-effect but its
+    removal still widens the pre-require reporting window) — needs one
+    shared E_ALL bootstrap included by every entry file, a deploy-visible
+    policy decision, not a per-file residue patch; **LOW-6** ~230 ruff
+    advisory findings (UP025/UP031 in `v02/imagework/*` + `tests/*`) — CI
+    keeps ruff warn-only by design, no F/E-class findings in served
+    templates; accepted debt.
+  - **Pins:** `tests/bughunt0311_med_fixes_check.sh` — behavioral pins
+    A–D for MED-1..4 (each fails on the pre-fix tree; A runs the real `Dal`
+    constructor with and without the constant, C runs real `Dal::get`/
+    `get_xml` against a live sqlite fixture asserting both the logged
+    failure and the intact row contract, D replays the exact
+    capture/tamper/restore command shapes).
 
 ## [0.3.0] - 2026-07-28
 

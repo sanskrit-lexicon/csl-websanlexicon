@@ -45,10 +45,10 @@ def makedirs(dirname,inventory):
  for dirname in subdirs:
   try:
    os.makedirs(dirname)
-  #except FileExistsError:  # requires Python 3.3+
-  # ref: https://stackoverflow.com/questions/273192/how-can-i-safely-create-a-nested-directory
-  except OSError:
-   # directory already exists
+  # BUGHUNT-FINDINGS-03.11.2026 LOW-3: swallow only the benign
+  # already-exists race, not every OSError — a permission failure now
+  # surfaces here instead of resurfacing later as a confusing copy error.
+  except FileExistsError:
    #print(dirname,'already exists')
    pass
 
@@ -133,7 +133,10 @@ if __name__=="__main__":
  olddir1_template = sys.argv[4] # distinctfiles
  newdir_template = sys.argv[5]  # target directory
  dictcode = dictcode.lower() # Make case insensitive.
- dictparms = alldictparms[dictcode]
+ # BUGHUNT-FINDINGS-03.11.2026 LOW-4: work on a copy so the module-level
+ # alldictparms entries are not mutated — re-running this module in-process
+ # no longer accumulates microversion onto an already-extended dictversion.
+ dictparms = dict(alldictparms[dictcode])
  # add dictmmddyyyy string 
  dictparms['dictmmddyyyy'] = current_mmddyyyy()
  # revise dictversion to include microversion
