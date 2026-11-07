@@ -28,11 +28,26 @@ AB=$?
 echo "== A vs C (old scan vs new fallback) =="
 python3 "$HERE/compare_parity.py" parity_A_old.ndjson parity_C_new_fallback.ndjson old-scan new-fallback
 AC=$?
-echo "== phase D: stale-index guard (user_version tampered) =="
+echo "== phase D: stale-index guard (user_version tampered, then restored) =="
+# BUGHUNT-FINDINGS-03.11.2026 MED-4: phase D permanently wrote user_version=2
+# into the REAL query_dump.sqlite3 of the dictdir under test and never
+# restored it — after one drill the fresh-index lane stayed silently disabled
+# (querymodel falls back to the scan whenever user_version != 1). Capture the
+# original value first and restore it on every exit path, so the fixture is
+# left exactly as it was found.
+UV_ORIG=$(php -r '$db = new SQLite3("query_dump.sqlite3", SQLITE3_OPEN_READONLY); echo (int)$db->querySingle("PRAGMA user_version"); $db->close();' || true)
+restore_user_version() {
+  # No-op when the original value was never captured (e.g. no database yet).
+  [ -n "$UV_ORIG" ] || return 0
+  php -r '$db = new SQLite3("query_dump.sqlite3", SQLITE3_OPEN_READWRITE); $db->exec(sprintf("PRAGMA user_version=%d", (int)$argv[1])); $db->close();' "$UV_ORIG" >/dev/null 2>&1 || true
+}
+trap restore_user_version EXIT
 php -r '$db = new SQLite3("query_dump.sqlite3", SQLITE3_OPEN_READWRITE); $db->exec("PRAGMA user_version=2"); $db->close();'
 php run_parity.php "$DICTDIR" queries.json ./qm_new.php --maxrep=1 > parity_D_stale_guard.ndjson
 python3 "$HERE/compare_parity.py" parity_A_old.ndjson parity_D_stale_guard.ndjson old-scan stale-index-guard
 AD=$?
+restore_user_version
+trap - EXIT
 if [ $AB -eq 0 ] && [ $AC -eq 0 ] && [ $AD -eq 0 ]; then
   echo "PARITY OK for $DICTDIR"
 else

@@ -36,7 +36,15 @@ class Dal {
   $this->dbname = $dbname;
   $this->dictinfo = new DictInfo($dict);
   $sqlitedir = $this->dictinfo->sqlitedir;
-  if (isset($_REQUEST['dev']) && ($_REQUEST['dev'] == 'yes')) {
+  // BUGHUNT-FINDINGS-03.11.2026 MED-3: 'dev=yes' arrived via the public
+  // $_REQUEST and silently rerouted production lookups to keydoc.sqlite on
+  // any deployed tree that ships that file — an unauthenticated request
+  // parameter changing lookup semantics. The dev database is now reachable
+  // only when the deployment explicitly opts in with a build-time constant
+  // (a development tree may define('WEBSAN_DEV_KEYDOC', true); in its copy
+  // of the templates); the URL parameter alone never enables it.
+  $devRequest = isset($_REQUEST['dev']) && ($_REQUEST['dev'] == 'yes');
+  if ($devRequest && defined('WEBSAN_DEV_KEYDOC') && WEBSAN_DEV_KEYDOC) {
    $this->devFlag = True;
   }else {
    $this->devFlag = False;
@@ -129,6 +137,14 @@ class Dal {
    $stmt = $this->file_db->prepare($sql);
    $stmt->execute($params);
   } catch (PDOException $e) {
+   // BUGHUNT-FINDINGS-03.11.2026 MED-1: a DB failure used to be
+   // indistinguishable from "headword not found" — the exception was dropped
+   // with no log record, the one place H4227's report-everything policy
+   // still lost defects. Log the cause, keep the empty-result contract:
+   // callers outside the HIGH-1 chokepoint treat empty as not-found, and
+   // rethrowing here would recreate the uncaught-fatal blank-500 class.
+   error_log("Dal::get SQL failure on {$this->sqlitefile}: " . $e->getMessage());
+   dbgprint($this->dbg,"Dal::get SQL failure: " . $e->getMessage() . "\n");
    return $ansarr;
   }
   foreach($stmt as $m) {
@@ -147,6 +163,10 @@ class Dal {
    $stmt = $this->file_db_xml->prepare($sql);
    $stmt->execute($params);
   } catch (PDOException $e) {
+   // BUGHUNT-FINDINGS-03.11.2026 MED-1: same report-the-cause fix as
+   // Dal::get — never silently equate a DB failure with "not found".
+   error_log("Dal::get_xml SQL failure on {$this->sqlitefile}: " . $e->getMessage());
+   dbgprint($this->dbg,"Dal::get_xml SQL failure: " . $e->getMessage() . "\n");
    return $ansarr;
   }
   foreach($stmt as $m) {
