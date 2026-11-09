@@ -5,6 +5,7 @@ error_reporting(E_ALL & ~E_NOTICE & ~E_WARNING);
 require_once('dbgprint.php');
 require_once('parm.php');
 require_once('dictinfo.php');
+require_once(__DIR__ . '/../og_meta.php'); // H7901: og: meta for scan views
 class ServepdfClass {
  public $html;
  public function __construct() {
@@ -56,12 +57,14 @@ if ($imageParm) {
   "style='width:98%;height:calc(100vh - 90px);'>$openPdf</object>";
 }
 // Use PHP 'heredoc' syntax to generate html
+$og_meta = og_meta_page($dict); // H7901
 $html = <<<HTML
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8" />
 <title>$dictupper_attr Cologne Scan</title>
+{$og_meta}
 <link rel='stylesheet' type='text/css' href='serveimg.css' />
 </head>
 <body>
