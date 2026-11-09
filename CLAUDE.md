@@ -44,6 +44,14 @@ either side is current, run
 [`/cologne-fork-sync-check`](https://github.com/gasyoun/claude-config/blob/main/commands/cologne-fork-sync-check.md)
 (`python Uprava/tools/cologne_fork_sync_check.py`).
 
+**Sync rule (H7901):** [`v02/makotemplates/web/og_meta.php`](https://github.com/sanskrit-lexicon/csl-websanlexicon/blob/main/v02/makotemplates/web/og_meta.php)
+is the canonical Open Graph include whose `csl-apidev/og_meta.php` copy must stay
+**byte-identical** — edit THIS file, re-copy (or run `v02/apidev_copy.sh`), and let
+csl-apidev's `twin-drift.yml` prove parity on both PRs. Never patch the apidev copy
+alone. The scan-view repos (csl-westergaard, csl-whitroot, csl-kale) and csl-inflect
+vendor unguarded byte-identical copies beside the consuming page — same rule, no CI
+guard there, so the re-copy is on you.
+
 ### XSS
 
 Use the existing escape playbook

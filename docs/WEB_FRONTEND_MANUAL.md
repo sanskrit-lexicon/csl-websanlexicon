@@ -184,7 +184,15 @@ Four PHP modules exist as **hand-synced forked copies** in [csl-apidev](https://
 - Actively synced by [v02/apidev_copy.sh](https://github.com/sanskrit-lexicon/csl-websanlexicon/blob/main/v02/apidev_copy.sh): [basicadjust.php](https://github.com/sanskrit-lexicon/csl-websanlexicon/blob/main/v02/makotemplates/web/webtc/basicadjust.php), [basicdisplay.php](https://github.com/sanskrit-lexicon/csl-websanlexicon/blob/main/v02/makotemplates/web/webtc/basicdisplay.php), [getword_data.php](https://github.com/sanskrit-lexicon/csl-websanlexicon/blob/main/v02/makotemplates/web/webtc/getword_data.php).
 - Nominally shared, copy line commented out (rarely changes): [dal.php](https://github.com/sanskrit-lexicon/csl-websanlexicon/blob/main/v02/makotemplates/web/webtc/dal.php).
 
-The contract (see [v02/apidev_readme.md](https://github.com/sanskrit-lexicon/csl-websanlexicon/blob/main/v02/apidev_readme.md)): **any edit to a synced file here must be propagated to csl-apidev in the same work cycle**, and vice-versa an apidev-side fix must come back here. The Cologne update flow is: sync locally → push both repos → pull both on the Cologne server. Beware: [apidev_copy.sh](https://github.com/sanskrit-lexicon/csl-websanlexicon/blob/main/v02/apidev_copy.sh) hardcodes `/c/xampp/htdocs/cologne/` paths — on any other layout, copy the three files manually or run the org-level drift check, the [/cologne-fork-sync-check](https://github.com/gasyoun/claude-config/blob/main/commands/cologne-fork-sync-check.md) skill, which diffs both sides against the last-known-synced state.
+A fifth file joined the sync set with H7901 (09-11-2026), outside `webtc/`:
+[`v02/makotemplates/web/og_meta.php`](https://github.com/sanskrit-lexicon/csl-websanlexicon/blob/main/v02/makotemplates/web/og_meta.php)
+→ `csl-apidev/og_meta.php` — the Open Graph include shipped into every generated
+`web/` tree (inventory row `*:web/og_meta.php:C`). It must stay **byte-identical**;
+unlike the display-chain trio it is guarded mechanically by csl-apidev's
+`twin-drift.yml` (fifth pair), so a one-sided edit fails CI on the other repo's PR
+instead of drifting silently. Edit here, re-copy, open both PRs.
+
+The contract (see [v02/apidev_readme.md](https://github.com/sanskrit-lexicon/csl-websanlexicon/blob/main/v02/apidev_readme.md)): **any edit to a synced file here must be propagated to csl-apidev in the same work cycle**, and vice-versa an apidev-side fix must come back here. The Cologne update flow is: sync locally → push both repos → pull both on the Cologne server. Beware: [apidev_copy.sh](https://github.com/sanskrit-lexicon/csl-websanlexicon/blob/main/v02/apidev_copy.sh) hardcodes `/c/xampp/htdocs/cologne/` paths — on any other layout, copy the files manually or run the org-level drift check, the [/cologne-fork-sync-check](https://github.com/gasyoun/claude-config/blob/main/commands/cologne-fork-sync-check.md) skill, which diffs both sides against the last-known-synced state.
 
 ## 8. Symptom → cause → cure
 
