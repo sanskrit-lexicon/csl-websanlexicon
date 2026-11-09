@@ -5,3 +5,7 @@ cp /c/xampp/htdocs/cologne/csl-websanlexicon/v02/makotemplates/web/webtc/basicdi
 
 cp /c/xampp/htdocs/cologne/csl-websanlexicon/v02/makotemplates/web/webtc/getword_data.php /c/xampp/htdocs/cologne/csl-apidev/
 
+# H7901: the Open Graph include (canonical at makotemplates/web/, NOT webtc/)
+echo "copying og_meta.php csl-websanlexicon to csl-apidev"
+cp /c/xampp/htdocs/cologne/csl-websanlexicon/v02/makotemplates/web/og_meta.php /c/xampp/htdocs/cologne/csl-apidev/
+

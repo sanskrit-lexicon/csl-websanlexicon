@@ -10,6 +10,12 @@ so its copy line is left commented out in the script.
 
 These modules are in directory csl-websanlexicon/v02/makotemplates/web/webtc/.
 
+A fifth shared file (H7901, 09-11-2026) lives one level up, at
+csl-websanlexicon/v02/makotemplates/web/og_meta.php, and is copied by the
+same script to the csl-apidev root: the Open Graph include. It must stay
+byte-identical — csl-apidev's twin-drift.yml CI guards that pair mechanically,
+so a one-sided edit fails CI instead of drifting silently.
+
 When one of these modules is changed in csl-websanlexicon,
 then the changed version should be copied to csl-apidev.
 
