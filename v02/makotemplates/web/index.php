@@ -4,6 +4,7 @@
 <head>
  <meta charset="UTF-8" />
  <title>${dictup}</title>
+ <?php require_once(__DIR__ . '/og_meta.php'); echo og_meta_page('${dictlo}'); ?>
  <!--<link rel="stylesheet" href="webtc/main.css" type="text/css" />-->
  <style>
 body {

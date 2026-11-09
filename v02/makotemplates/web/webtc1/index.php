@@ -4,6 +4,7 @@
  <head>
  <meta charset="UTF-8" />
   <title>${dicttitle} List</title>
+  <?php require_once(__DIR__ . '/../og_meta.php'); echo og_meta_page('${dictlo}'); ?>
   <link rel="stylesheet" type="text/css" href="../webtc/main.css" />
   <link rel="stylesheet" type="text/css" href="main.css" />
    <link rel="stylesheet" href="../webtc/font.css" type="text/css">
