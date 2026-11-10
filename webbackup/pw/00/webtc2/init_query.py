@@ -43,7 +43,7 @@ def query_construct(filein,fileout):
      keydata = data1
      keysanskrit = data2
   if False and (n >= 1000):
-   print "debug stopping after n = ",n
+   print("debug stopping after n = ",n)
    break
 
  # print last one
@@ -51,13 +51,13 @@ def query_construct(filein,fileout):
  f.close()
  fout.close()
 
- print n,"record read from", filein
- print nfound1,"records created in",fileout
+ print(n,"record read from", filein)
+ print(nfound1,"records created in",fileout)
 
 def query_line(x):
  umlauts = [u"Ä",u"Ö",u"Ü",u"ß",u"ä",u"é",u"ê",u"ë",u"ö",u"ü"]
  nonumlauts = ["A","O","U","s","a","e","e","e","o","u"]
- for i in xrange(len(umlauts)):
+ for i in range(len(umlauts)):
   x = re.sub(umlauts[i],nonumlauts[i],x)
 
  # (a1) remove remaining extended ascii

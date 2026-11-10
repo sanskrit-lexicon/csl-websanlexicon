@@ -12,7 +12,9 @@
 #      (<%, ${, % line-directives) — those compile in lane 3;
 #   2. ast.parse over v02/*.py generator scripts (fatal);
 #   3. Mako Template() compile over the same template set (fatal);
-#   4. ruff check (WARN-only, exactly as CI keeps it advisory).
+#   4. ruff check (WARN-only, exactly as CI keeps it advisory);
+#   5. webbackup py3 smoke - compile + fixture behavior of the frozen
+#      webbackup scripts (tests/webbackup_py3_smoke.py; fatal).
 # Usage: sh tests/local_gate.sh
 set -u
 HERE=$(cd "$(dirname "$0")/.." && pwd)
@@ -48,16 +50,21 @@ done < "$TMP_LIST"
 rm -f "$TMP_LIST"
 echo "php -l: linted=$linted skipped(mako)=$skipped"
 
-echo "== lane 2: parse-check generator scripts =="
+echo "== lane 2: parse-check every tracked .py (H7958: was v02/*.py only) =="
 "$PYBIN" - <<'PY'
-import ast, glob, sys
+import ast, subprocess, sys
+try:
+    files = subprocess.run(['git', 'ls-files', '*.py'],
+                           capture_output=True, text=True, check=True).stdout.split()
+except Exception as e:
+    print(f'PARSE FAIL: cannot list tracked .py files: {e}'); sys.exit(1)
 bad = 0
-for f in glob.glob('v02/*.py'):
+for f in files:
     try:
         ast.parse(open(f, encoding='utf-8').read())
     except SyntaxError as e:
         print(f'PARSE FAIL {f}: {e}'); bad = 1
-print('v02 generator scripts parse OK' if not bad else 'parse errors')
+print(f'tracked .py files parse OK ({len(files)})' if not bad else 'parse errors')
 sys.exit(bad)
 PY
 [ $? -eq 0 ] || fail=1
@@ -92,6 +99,9 @@ if command -v ruff >/dev/null 2>&1; then
 else
   echo "WARN: ruff not installed — lane skipped (advisory lane)"
 fi
+
+echo "== lane 5: webbackup py3 smoke (H7958) =="
+"$PYBIN" tests/webbackup_py3_smoke.py || fail=1
 
 if [ $fail -eq 0 ]; then
   echo "LOCAL GATE OK"

@@ -16,11 +16,11 @@ def make(filein,fileout):
   n = n + 1
   m = re.search(r'<key1>(.*?)</key1>.*<L>(.*?)</L>',line)
   if not m:
-   print "ERROR: Could not find key1,lnum from line:",line
+   print("ERROR: Could not find key1,lnum from line:",line)
    exit(1)
   key1 = m.group(1)
   lnum = m.group(2)
-  data = line.encode('ascii','xmlcharrefreplace')  # &#nnnn
+  data = line.encode('ascii','xmlcharrefreplace').decode('ascii')  # &#nnnn
   out = "%s\t%s\t%s" % (key1,lnum,data)
   fout.write("%s\n" % out)
  f.close()
