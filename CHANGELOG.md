@@ -20,8 +20,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   harness gained expected-value rows (`roman_expected.tsv`, I–L) and an
   explicit intentional-divergence list (`intentional_divergences.tsv` — 38
   rows, the full review artifact) with a bijection gate
-  (`check_divergence.php`); every other named + fuzz case stays
-  byte-identical. URL-change review verified the app2 convention against the
+  (`check_divergence.php`); `run_golden.sh` gates on the declared divergences
+  (run it plus `tests/local_gate.sh` after touching the chain). Every other
+  named + fuzz case stays byte-identical. URL-change review verified the app2 convention against the
   live rvps scans (ipage N = roman-printed page N: I→?1, IV→?4, L→?50);
   blast radius over csl-orig citation data: exactly 1 roman-shaped citation
   (PWG `<ls>ṚV. PRĀT. XIII, N. 2</ls>` → `app2/?13`, the correct page);

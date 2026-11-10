@@ -56,6 +56,11 @@ Legacy step-by-step install guides (v00-era, kept for reference):
 | [codeql.yml](https://github.com/sanskrit-lexicon/csl-websanlexicon/blob/main/.github/workflows/codeql.yml) | CodeQL SAST (Python; CodeQL has no PHP analyzer) |
 | [semgrep.yml](https://github.com/sanskrit-lexicon/csl-websanlexicon/blob/main/.github/workflows/semgrep.yml) | Semgrep SAST for the PHP frontend — a blocking `semgrep ci` gate (diff-aware on PRs) plus an advisory full-scan upload |
 
+Local gates (run before pushing): `sh tests/local_gate.sh` (mirrors the ci.yml
+lanes) and `sh tests/golden_link_targets/run_golden.sh` (link-target golden
+gate — old-vs-new parity modulo the declared roman-rule divergences listed in
+`tests/golden_link_targets/intentional_divergences.tsv`; H7962).
+
 ## Contributing & issues
 
 - Corrections to dictionary **content** are made in [csl-orig](https://github.com/sanskrit-lexicon/csl-orig), not here — this repo is the display layer.
