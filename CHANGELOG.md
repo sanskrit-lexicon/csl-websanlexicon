@@ -8,6 +8,25 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Fixed
+- **ṚV. PRĀT./ṚV. PRĀTIŚ. roman-citation links render again (H7962):** in
+  `href_rvprat_roman` (basicadjust.php, both twins) the historic pattern
+  `"|^ṚV\. PRĀ(TIŚ|T)\. ([IVXLCDM]+)|"` was `|`-delimited while its
+  `(TIŚ|T)` alternation also used `|` — PHP reported `Unknown modifier 'T'`
+  and the rule never matched, so roman citations like `ṚV. PRĀT. IV` rendered
+  without links. Fixed by switching ONLY the delimiter to `~` (pattern body
+  and `(TIŚ|T)` capture semantics unchanged); `rvps/app2/?<ipage>`
+  (ipage = `romanToInt(roman)`) now resolves. Behavior change: the golden
+  harness gained expected-value rows (`roman_expected.tsv`, I–L) and an
+  explicit intentional-divergence list (`intentional_divergences.tsv` — 38
+  rows, the full review artifact) with a bijection gate
+  (`check_divergence.php`); every other named + fuzz case stays
+  byte-identical. URL-change review verified the app2 convention against the
+  live rvps scans (ipage N = roman-printed page N: I→?1, IV→?4, L→?50);
+  blast radius over csl-orig citation data: exactly 1 roman-shaped citation
+  (PWG `<ls>ṚV. PRĀT. XIII, N. 2</ls>` → `app2/?13`, the correct page);
+  1 039 PWG + 91 PW + 11 PWKVN numeric-shaped citations unchanged. Fork-synced
+  to the csl-apidev twin in the same PR cycle.
 ### Changed
 - **Link-target chain extracted to one data-driven table (H7948):**
   `basicadjust.php`'s `ls_callback_pwg_href` copy-pasted abbreviation→href

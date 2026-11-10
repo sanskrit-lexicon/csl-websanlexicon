@@ -1,0 +1,52 @@
+# intentional_divergences.tsv — H7962 explicit intentional-divergence list for
+# the ṚV. PRĀT./ṚV. PRĀTIŚ. roman-rule fix (href_rvprat_roman).
+#
+# This handoff CHANGES rendered URLs (roman-citation links appear where none
+# did): these ids, and ONLY these ids, may differ old-vs-new in the golden
+# parity run (run_golden.sh). Every other named + fuzz case must stay
+# byte-identical. check_divergence.php enforces a BIJECTION: an id may be
+# listed here iff its corpus data matches ^ṚV\. PRĀ(TIŚ|T)\. ([IVXLCDM]+).
+#
+# Old value is (null) for every row (the historic |^-delimited pattern never
+# matched — "Unknown modifier 'T'"); new value is rvps/app2/?<romanToInt(roman)>,
+# re-derived by the checker's independent oracle, and pinned in
+# roman_expected.tsv for the named rows.
+# Fields: id <TAB> old <TAB> new
+rvprat_roman	(null)	https://sanskrit-lexicon-scans.github.io/rvps/app2/?4
+rvpratis_roman	(null)	https://sanskrit-lexicon-scans.github.io/rvps/app2/?40
+fz1501	(null)	https://sanskrit-lexicon-scans.github.io/rvps/app2/?1
+fz1502	(null)	https://sanskrit-lexicon-scans.github.io/rvps/app2/?1
+fz1503	(null)	https://sanskrit-lexicon-scans.github.io/rvps/app2/?1
+fz1504	(null)	https://sanskrit-lexicon-scans.github.io/rvps/app2/?1
+fz1505	(null)	https://sanskrit-lexicon-scans.github.io/rvps/app2/?1
+fz1506	(null)	https://sanskrit-lexicon-scans.github.io/rvps/app2/?1
+fz1507	(null)	https://sanskrit-lexicon-scans.github.io/rvps/app2/?4
+fz1508	(null)	https://sanskrit-lexicon-scans.github.io/rvps/app2/?4
+fz1509	(null)	https://sanskrit-lexicon-scans.github.io/rvps/app2/?4
+fz1510	(null)	https://sanskrit-lexicon-scans.github.io/rvps/app2/?4
+fz1511	(null)	https://sanskrit-lexicon-scans.github.io/rvps/app2/?4
+fz1512	(null)	https://sanskrit-lexicon-scans.github.io/rvps/app2/?4
+fz1513	(null)	https://sanskrit-lexicon-scans.github.io/rvps/app2/?3
+fz1514	(null)	https://sanskrit-lexicon-scans.github.io/rvps/app2/?3
+fz1515	(null)	https://sanskrit-lexicon-scans.github.io/rvps/app2/?3
+fz1516	(null)	https://sanskrit-lexicon-scans.github.io/rvps/app2/?3
+fz1517	(null)	https://sanskrit-lexicon-scans.github.io/rvps/app2/?3
+fz1518	(null)	https://sanskrit-lexicon-scans.github.io/rvps/app2/?3
+fz1597	(null)	https://sanskrit-lexicon-scans.github.io/rvps/app2/?1
+fz1598	(null)	https://sanskrit-lexicon-scans.github.io/rvps/app2/?1
+fz1599	(null)	https://sanskrit-lexicon-scans.github.io/rvps/app2/?1
+fz1600	(null)	https://sanskrit-lexicon-scans.github.io/rvps/app2/?1
+fz1601	(null)	https://sanskrit-lexicon-scans.github.io/rvps/app2/?1
+fz1602	(null)	https://sanskrit-lexicon-scans.github.io/rvps/app2/?1
+fz1603	(null)	https://sanskrit-lexicon-scans.github.io/rvps/app2/?4
+fz1604	(null)	https://sanskrit-lexicon-scans.github.io/rvps/app2/?4
+fz1605	(null)	https://sanskrit-lexicon-scans.github.io/rvps/app2/?4
+fz1606	(null)	https://sanskrit-lexicon-scans.github.io/rvps/app2/?4
+fz1607	(null)	https://sanskrit-lexicon-scans.github.io/rvps/app2/?4
+fz1608	(null)	https://sanskrit-lexicon-scans.github.io/rvps/app2/?4
+fz1609	(null)	https://sanskrit-lexicon-scans.github.io/rvps/app2/?3
+fz1610	(null)	https://sanskrit-lexicon-scans.github.io/rvps/app2/?3
+fz1611	(null)	https://sanskrit-lexicon-scans.github.io/rvps/app2/?3
+fz1612	(null)	https://sanskrit-lexicon-scans.github.io/rvps/app2/?3
+fz1613	(null)	https://sanskrit-lexicon-scans.github.io/rvps/app2/?3
+fz1614	(null)	https://sanskrit-lexicon-scans.github.io/rvps/app2/?3

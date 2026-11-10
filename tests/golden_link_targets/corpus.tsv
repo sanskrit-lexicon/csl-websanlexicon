@@ -39,6 +39,8 @@ rajatar_78	pwg	-	RĀJA-TAR.	RĀJA-TAR. 78,1
 rajatar_calc_ed	pwg	-	RĀJA-TAR.	RĀJA-TAR. ed. Calc. 7,8
 rajat_calc_ed2	pwg	-	RĀJAT.	RĀJAT. ed. Calc. 1,2
 # --- rows + handler: ṚV. PRĀT. ---
+# rvprat_roman/rvpratis_roman diverge old-vs-new since H7962 (roman-rule fix);
+# declared in intentional_divergences.tsv, old=(null) — see README.
 rvprat_num	pwg	-	ṚV. PRĀT.	ṚV. PRĀT. 1,2
 rvpratis_num	pwg	-	ṚV. PRĀTIŚ.	ṚV. PRĀTIŚ. 3,4
 rvprat_roman	pwg	-	ṚV. PRĀT.	ṚV. PRĀT. IV
