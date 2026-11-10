@@ -8,6 +8,14 @@ parse-check) — run it before pushing. The generator paths and the
 `basicadjust.php`/`basicdisplay.php` fork-sync targets above were
 re-verified against the live tree on this date.
 
+Link-target table (10-11-2026, H7948): `basicadjust.php`'s
+abbreviation→href chain is one data-driven table
+(`v02/makotemplates/web/webtc/link_targets.php`, fork-synced beside
+`basicadjust.php` into csl-apidev) iterated by a single loop — **adding an
+abbreviation = one table row, no code**. After touching it run
+`sh tests/golden_link_targets/run_golden.sh` (byte-identical old-vs-new
+proof) in addition to `tests/local_gate.sh`.
+
 **csl-websanlexicon** is the shared CDSL **web frontend**. A Python + Mako
 generator under [`v02/`](https://github.com/sanskrit-lexicon/csl-websanlexicon/tree/main/v02)
 renders each dictionary into a PHP + SQLite app. It is not a dictionary and
