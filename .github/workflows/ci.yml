@@ -59,7 +59,9 @@ jobs:
       - run: pip install ruff mako
       - name: Ruff (warn-only)
         run: ruff check . || echo "::warning::ruff reported findings"
-      - name: Parse-check every tracked .py (H7958: was v02/*.py only)
+      # H7960: quoted — the unquoted ": " in this name broke the workflow YAML
+      # since the H7958 merge (every ci.yml run died in 0s, no jobs).
+      - name: "Parse-check every tracked .py (H7958: was v02/*.py only)"
         run: |
           python - <<'PY'
           import ast, subprocess, sys
@@ -76,6 +78,8 @@ jobs:
           PY
       - name: webbackup py3 smoke (H7958)
         run: python tests/webbackup_py3_smoke.py
+      - name: removedup smoke (H7960)
+        run: python tests/removedup_smoke.py
       - name: Mako compile-check templates
         run: |
           python - <<'PY'
@@ -102,8 +106,17 @@ jobs:
           python - <<'PY'
           import sys, glob, yaml
           fail = 0
-          for f in glob.glob('**/*.yml', recursive=True) + glob.glob('**/*.yaml', recursive=True):
-              if '.git' in f:
+          # H7960: two fixes so workflow files are actually linted —
+          # Python's ** does not traverse hidden dirs (so .github/** was
+          # never matched), and the old `'.git' in f` substring test also
+          # skipped .github/**. The H7958 YAML breakage slipped through
+          # this very lane.
+          files = set(glob.glob('**/*.yml', recursive=True)
+                      + glob.glob('**/*.yaml', recursive=True)
+                      + glob.glob('.github/**/*.yml', recursive=True)
+                      + glob.glob('.github/**/*.yaml', recursive=True))
+          for f in sorted(files):
+              if f.split('/')[0] == '.git':
                   continue
               try:
                   with open(f, encoding='utf-8') as fh:

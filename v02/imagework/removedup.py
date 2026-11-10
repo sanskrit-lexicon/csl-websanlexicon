@@ -1,6 +1,6 @@
 """ removedup.py
 """
-import sys,re,codecs
+import sys,re,codecs,os,tempfile
 imagetypes = ['pdf','png','jpg']
 class Image(object):
  def __init__(self,line,dictlo):
@@ -11,9 +11,12 @@ class Image(object):
   self.name = parts[1]
   try:
    self.title = parts[2]
-  except:
+  except IndexError:
    # pw, stc, wil, gra
-   assert dictlo in ['gra','pw','stc','wil']
+   if dictlo not in ['gra','pw','stc','wil']:
+    raise IndexError(
+     "%s: line has no title field (allowed only for gra/pw/stc/wil); offending line: %s"
+     % (dictlo,line))
    self.title = 'NONE'
 
   if re.search(r'^[1-9]-[0-9]+$',self.ref):
@@ -45,42 +48,22 @@ class Dict(object):
   self.dictlo = dictlo
   self.recs = recs
 
-def analyze_refs_p(dobj,refs):
- n = len(refs)
- irefs = [int(ref) for ref in refs]
- first = irefs[0]
- last = irefs[-1]
- if (first == 1) and (last == n):
-  status = 'SIMPLE'
- else:
-  status = 'COMPLEX'
- if status != 'SIMPLE':
-  #print('%6s'%status,dobj.dictlo,first,last,n)
-  pass
-
-def analyze_refs_vp(dobj,refs):
- n = len(refs)
- #print(dobj.dictlo,'vp not analyzed')
-
 def sequences(dobj):
- if dobj.catcount[0] == 0: 
-  # page
-  refs = [r.ref for r in dobj.recs if re.search(r'^[0-9]+$',r.ref)]
-  analyze_refs_p(dobj,refs)
- elif dobj.catcount[1] == 0:
-  refs = [r.ref for r in dobj.recs if re.search(r'^[1-9]-[0-9]+$',r.ref)]
-  analyze_refs_vp(dobj,refs)
- else:
+ # H7960: the old analyze_refs_p/analyze_refs_vp analysis stubs are gone
+ # (they computed SIMPLE/COMPLEX and discarded it / were empty). Only the
+ # observable guard stays: a dict whose scan refs mix vp and p classes is
+ # an error.
+ if (dobj.catcount[0] != 0) and (dobj.catcount[1] != 0):
   print('sequences error. ',dobj.dictlo)
   exit(1)
 
- 
+
 def one_dict(dictlo):
  pdffiles_filename = "../distinctfiles/%s/web/webtc/pdffiles.txt"%dictlo
  with open(pdffiles_filename,"r",encoding="utf-8") as f:
   recs = [Image(x,dictlo) for x in f]
  dobj = Dict(recs,dictlo)
- 
+
  catdata = []
  catcount = []
  for cat in cats:
@@ -116,6 +99,27 @@ def find_dups(dictlo):
    prevref = imagerec.ref
  return dups,newrecs,recs
 
+def atomic_write_lines(path,lines):
+ # H7960: crash-safe rewrite — write a temp file in the SAME directory,
+ # then os.replace() it over the target. A crash or failure mid-write can
+ # never leave a half-written (row-losing) pdffiles.txt behind.
+ directory = os.path.dirname(path) or '.'
+ fd,tmp = tempfile.mkstemp(dir=directory,prefix='.removedup-',suffix='.tmp')
+ try:
+  with os.fdopen(fd,'w',encoding='utf-8') as f:
+   for line in lines:
+    f.write(line + '\n')
+   f.flush()
+   os.fsync(f.fileno())
+  os.replace(tmp,path)
+  tmp = None
+ finally:
+  if tmp is not None:
+   try:
+    os.unlink(tmp)
+   except OSError:
+    pass
+
 def remove_dups(dictlo):
  dups,newrecs,recs = find_dups(dictlo)
  if len(dups) == 0:
@@ -123,16 +127,15 @@ def remove_dups(dictlo):
   return
  print(dictlo,len(recs),'#dups=',len(dups),len(newrecs))
  pdffiles_filename = "../distinctfiles/%s/web/webtc/pdffiles.txt"%dictlo
- with open(pdffiles_filename,"w",encoding="utf-8") as f:
-  for rec in newrecs:
-   line = rec.line
-   f.write(line + '\n')
- print(len(newrecs),"records without dups written to",pdffiles_filename)
  fileout = '%s_dups.txt' %dictlo
+ # H7960: the removed-duplicates file is written BEFORE the source is
+ # replaced, so no failure path can lose pdffiles.txt rows.
  with open(fileout,"w",encoding="utf-8") as f:
   for rec in dups:
    line = rec.line
    f.write(line + '\n')
+ atomic_write_lines(pdffiles_filename,[rec.line for rec in newrecs])
+ print(len(newrecs),"records without dups written to",pdffiles_filename)
  print(len(dups),"dups written to",fileout)
 
 def listdups():
@@ -144,10 +147,18 @@ def listdups():
   else:
    print(dictlo,len(recs),'#dups=',len(dups),len(newrecs))
  return
-if __name__ == "__main__":
- option = 2 #1
- if option == 1:
+
+USAGE = "usage: removedup.py list | removedup.py remove <dictlo>"
+
+def main(argv):
+ if len(argv) == 2 and argv[1] == 'list':
   listdups()
- elif option == 2:
-  dictlo = sys.argv[1]
-  remove_dups(dictlo)
+  return 0
+ if len(argv) == 3 and argv[1] == 'remove':
+  remove_dups(argv[2])
+  return 0
+ print(USAGE,file=sys.stderr)
+ return 2
+
+if __name__ == "__main__":
+ sys.exit(main(sys.argv))
