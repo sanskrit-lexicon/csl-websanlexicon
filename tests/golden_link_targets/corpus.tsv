@@ -1,0 +1,167 @@
+# H7948 golden parity corpus — preserved abbreviation cases for
+# BasicAdjust::ls_callback_pwg_href (old vs new must be byte-identical).
+# Fields: id <TAB> dict <TAB> key <TAB> code <TAB> data
+# Covers: every link-target table row x variant, every kept-in-code handler
+# (Stop-budget cases), cross-row precedence, multi-digit / separator /
+# case-insensitive regex quirks, and fall-through misses.
+# --- handlers: Spr. (dict-conditional) ---
+spr_pw	pw	-	Spr.	Spr. 5
+spr_pwg	pwg	-	Spr.	Spr. 5
+spr_pwkvn	pwkvn	-	Spr.	Spr. 5
+spr_ben	ben	-	Spr.	Spr. 5
+spr_other	pe	-	Spr.	Spr. 5
+spr_other_2num	pe	-	Spr.	Spr. 1,2
+# --- handlers: Spr. (II) / Spr. (I) ---
+spr_ii	pwg	-	Spr.	Spr. (II) 5
+spr_i_pwg	pwg	-	Spr.	Spr. (I) 5
+spr_i_pw	pw	-	Spr.	Spr. (I) 5
+# --- rows: MBH. family ---
+mbh_3	pwg	-	MBH.	MBH. 1,2,3
+mbh_3_spaces	pwg	-	MBH.	MBH. 1 , 2 , 3
+mbh_4nums	pwg	-	MBH.	MBH. 1,2,3,4
+mbh_bomb	pwg	-	MBH.	MBH. ed. Bomb. 1,2,3
+mbh_2	pwg	-	MBH.	MBH. 1,2
+mbh_calc	pwg	-	MBH.	MBH. ed. Calc. 1,2
+# --- rows: HARIV. ---
+hariv	pwg	-	HARIV.	HARIV. 12
+hariv_dot	pwg	-	HARIV.	HARIV. 12.
+# --- rows: Verz. Oxf. ---
+verz1	pwg	-	Verz. d. Oxf. H.	Verz. d. Oxf. H. 5
+verz2	pwg	-	Verz. der Oxf. H.	Verz. der Oxf. H. 6
+# --- rows: KATHĀS. / VS. ---
+kathas	pwg	-	KATHĀS.	KATHĀS. 12,3
+vs	pwg	-	VS.	VS. 3,4
+# --- handler: RĀJA-TAR. 7/8 branch + rows ---
+rajatar_7	pwg	-	RĀJA-TAR.	RĀJA-TAR. 7,12
+rajatar_8	pwg	-	RĀJAT.	RĀJAT. 8,3
+rajatar_3	pwg	-	RĀJA-TAR.	RĀJA-TAR. 3,4
+rajatar_78	pwg	-	RĀJA-TAR.	RĀJA-TAR. 78,1
+rajatar_calc_ed	pwg	-	RĀJA-TAR.	RĀJA-TAR. ed. Calc. 7,8
+rajat_calc_ed2	pwg	-	RĀJAT.	RĀJAT. ed. Calc. 1,2
+# --- rows + handler: ṚV. PRĀT. ---
+rvprat_num	pwg	-	ṚV. PRĀT.	ṚV. PRĀT. 1,2
+rvpratis_num	pwg	-	ṚV. PRĀTIŚ.	ṚV. PRĀTIŚ. 3,4
+rvprat_roman	pwg	-	ṚV. PRĀT.	ṚV. PRĀT. IV
+rvpratis_roman	pwg	-	ṚV. PRĀTIŚ.	ṚV. PRĀTIŚ. XL
+# --- rows: YĀJÑ. / RAGH. ---
+yajn	pwg	-	YĀJÑ.	YĀJÑ. 1,2
+ragh	pwg	-	RAGH.	RAGH. 1,2
+ragh_st	pwg	-	RAGH.	RAGH. ed. ST. 1,2
+ragh_calc	pwg	-	RAGH.	RAGH. ed. Calc. 1,2
+ragh_calc_paren	pwg	-	RAGH.	RAGH. (ed. Calc.) 1,2
+ragh_calc_short	pwg	-	RAGH.	RAGH. (Calc.) 1,2
+# --- rows: MĀRK. P. / BHAG. / H. an. / an. ---
+markp	pwg	-	MĀRK. P.	MĀRK. P. 1,2
+bhag	pwg	-	BHAG.	BHAG. 1,2
+han	pwg	-	H. an.	H. an. 1,2
+an	pwg	-	an.	an. 1,2
+# --- rows: ŚĀK. ---
+sak_2	pwg	-	ŚĀK.	ŚĀK. 1,2
+sak_1	pwg	-	ŚĀK.	ŚĀK. 1
+# --- rows: AIT. BR. ---
+aitbr_3	pwg	-	AIT. BR.	AIT. BR. 1,2,3
+aitbr_2	pwg	-	AIT. BR.	AIT. BR. 1,2
+# --- rows: MĀLAV. ---
+malav_2	pwg	-	MĀLAV.	MĀLAV. 1,2
+malav_1	pwg	-	MĀLAV.	MĀLAV. 1
+# --- rows: PAÑCAT. / PAÑCAT. ed. orn. ---
+pancat_2	pwg	-	PAÑCAT.	PAÑCAT. 1,2
+pancat_roman	pwg	-	PAÑCAT.	PAÑCAT. I,5
+pancat_roman2	pwg	-	PAÑCAT.	PAÑCAT. VI,3
+pancat_pr	pwg	-	PAÑCAT.	PAÑCAT. Pr. 5
+pancat_orn	pwg	-	PAÑCAT.	PAÑCAT. ed. orn. 1,2
+pancat_orn_bare	pwg	-	ed. orn.	ed. orn. 3,4
+pancat_orn_roman	pwg	-	PAÑCAT.	PAÑCAT. ed. orn. II,7
+# --- rows: HIT. ---
+hit_2	pwg	-	HIT.	HIT. 1,2
+hit_roman	pwg	-	HIT.	HIT. IV,5
+hit_pr	pwg	-	HIT.	HIT. Pr. 3
+# --- rows: AK. / COL. ---
+ak_4	pwg	-	AK.	AK. 1,2,3,4
+ak_3	pwg	-	AK.	AK. 1,2,3
+col_4	pwg	-	COL.	COL. 1,2,3,4
+colebr_3	pwg	-	COLEBR.	COLEBR. 1,2,3
+ak_colebr_3	pwg	-	AK.	AK. ed. COLEBR. 1,2,3
+ak_colebr_2	pwg	-	AK.	AK. ed. COLEBR. 1,2
+# --- rows: GĪT. / NIR. / NAIGH. ---
+git	pwg	-	GĪT.	GĪT. 1,2
+nir_2	pwg	-	NIR.	NIR. 1,2
+nir_roman	pwg	-	NIR.	NIR. III
+naigh	pwg	-	NAIGH.	NAIGH. 1,2
+# --- rows: VOP. / BHAṬṬ. / KUMĀRAS. ---
+vop	pwg	-	VOP.	VOP. 1,2
+bhatt	pwg	-	BHAṬṬ.	BHAṬṬ. 1,2
+kumaras	pwg	-	KUMĀRAS.	KUMĀRAS. 1,2
+# --- rows: ŚAT. BR. / TS. / TBR. / KĀTY. ŚR. ---
+satbr	pwg	-	ŚAT. BR.	ŚAT. BR. 1,2,3,4
+ts	pwg	-	TS.	TS. 1,2,3,4
+tbr	pwg	-	TBR.	TBR. 1,2,3,4
+katy_3	pwg	-	KĀTY. ŚR.	KĀTY. ŚR. 1,2,3
+katy_2	pwg	-	KĀTY. ŚR.	KĀTY. ŚR. 1,2
+# --- rows: PAÑCAR. / VIKR. ---
+pancar_3	pwg	-	PAÑCAR.	PAÑCAR. 1,2,3
+pancar_s	pwg	-	PAÑCAR.	PAÑCAR. S. 12
+vikr_2	pwg	-	VIKR.	VIKR. 1,2
+vikr_1	pwg	-	VIKR.	VIKR. 1
+vikram	pwg	-	VIKRAM.	VIKRAM. 1,2
+# --- rows: N. / DAŚ. / VID. / CAURAP. / VIŚV. ---
+n	pwg	-	N.	N. 1,2
+das	pwg	-	DAŚ.	DAŚ. 1,2
+vid	pwg	-	VID.	VID. 5
+caurap	pwg	-	CAURAP.	CAURAP. 5
+visv	pwg	-	VIŚV.	VIŚV. 1,2
+# --- rows: BHARTṚ. / MEGH. / ŚṚṄGĀRAT. ---
+bhartr	pwg	-	BHARTṚ.	BHARTṚ. 1,2
+bhartr_suppl	pwg	-	BHARTṚ.	BHARTṚ. Suppl. 5
+megh	pwg	-	MEGH.	MEGH. 5
+srng	pwg	-	ŚṚṄGĀRAT.	ŚṚṄGĀRAT. 5
+# --- handler: MED. ---
+med_k	pwg	-	MED.	MED. a. 1
+med_kh	pwg	-	MED.	MED. kh. 2
+med_bare_key	pwg	pAWIna	MED.	MED.
+med_bare_nokey	pwg		MED.	MED.
+med_upper_miss	pwg	-	MED.	MED. A. 1
+# --- rows: TRIK. / HĀR. / H. ś. / ś. / H. / HALĀY. / M. / VARĀH. ---
+trik	pwg	-	TRIK.	TRIK. 1,2,3
+har	pwg	-	HĀR.	HĀR. 5
+hs	pwg	-	H. ś.	H. ś. 5
+s_bare	pwg	-	ś.	ś. 5
+h	pwg	-	H.	H. 5
+halay	pwg	-	HALĀY.	HALĀY. 1,2
+m	pwg	-	M.	M. 1,2
+varah	pwg	-	VARĀH. BṚH. S.	VARĀH. BṚH. S. 1,2
+# --- rows: SĀH. D. ---
+sah_2	pwg	-	SĀH. D.	SĀH. D. 1,2
+sah_1	pwg	-	SĀH. D.	SĀH. D. 1
+# --- handler: Chr. / DHĀTUP. / BHĀG. P. ---
+chr_pw	pw	-	Chr.	Chr. 12
+chr_pwg	pwg	-	Chr.	Chr. 12
+dhatup_5	pwg	-	DHĀTUP.	DHĀTUP. 5
+dhatup_0	pwg	-	DHĀTUP.	DHĀTUP. 0
+bhagp_3	pwg	-	BHĀG. P.	BHĀG. P. 1,2,3
+bhagp_11	pwg	-	BHĀG. P.	BHĀG. P. 11,2,3
+bhagp_sp	pwg	-	BHĀG. P.	BHĀG. P. 1 2 3
+bhagp_bom_ed	pwg	-	BHĀG. P.	BHĀG. P. ed. Bomb. 3,4,5
+# --- rows: R. ed. Bomb. / R. 7 (|i flag, [ ,]+ separators) ---
+r_bomb_4	pwg	-	R. ed. Bomb.	R. ed. Bomb. 1,2,3,4
+r_bomb_3	pwg	-	R. ed. Bomb.	R. ed. Bomb. 1,2,3
+r7_4	pwg	-	R.	R. 7,2,3,4
+r7_3	pwg	-	R.	R. 7,2,3
+r_bomb_ci	pwg	-	r. ed. bomb.	r. ed. bomb. 1,2,3
+# --- handler: vedic/Panini code_to_pfx tail ---
+rv_3	pwg	-	ṚV.	ṚV. 1,2,3
+rv_2	pwg	-	ṚV.	ṚV. 1,2
+av_3	pwg	-	AV.	AV. 1,2,3
+p_3	pwg	-	P.	P. 1,2,3
+r_schl1	pwg	-	R.	R. 1,2,3
+r_schl2	pwg	-	R.	R. 2,2,3
+r_gorr3	pwg	-	R.	R. 3,2,3
+r_gorr6	pwg	-	R.	R. 6,1,1
+r_gorr_code	pwg	-	R. GORR.	R. GORR. 1,2,3
+gorr_code	pwg	-	GORR.	GORR. 1,2,3
+r_schl_code	pwg	-	R. SCHL.	R. SCHL. 1,2,3
+r_ed_gorr	pwg	-	R. ed. GORR.	R. ed. GORR. 4,1,2
+# --- fall-through misses ---
+unknown	pwg	-	X.	X. 1,2
+empty	pwg			
+no_numbers	pwg	-	KATHĀS.	KATHĀS. abc
