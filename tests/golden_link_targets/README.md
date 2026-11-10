@@ -12,7 +12,7 @@ Run: `sh tests/golden_link_targets/run_golden.sh` (needs `php` + `git`).
 | Check | What it proves |
 |---|---|
 | 1. fixture provenance | `basicadjust_pre_H7948.php` is a content-exact copy (modulo line endings — Windows autocrlf checkouts materialize CRLF; `git show` emits the LF blob) of `v02/makotemplates/web/webtc/basicadjust.php` at base commit `d090a1076bcd019e595e1cb9f70571f047d6ce04` |
-| 2+3. named + fuzz corpora | every preserved abbreviation case (132 rows) and the deterministic cartesian product (85 abbreviations × 16 citation shapes × 3 dicts × 2 keys = 7 968 cases) returns the same href old-vs-new **except** the 38 declared roman rows (`intentional_divergences.tsv`); `check_divergence.php` enforces set-equality of changed-vs-declared, the `(null)`→href value pins, and a BIJECTION between declared ids and corpus rows matching the fixed rule's match surface `^ṚV\. PRĀ(TIŚ|T)\. ([IVXLCDM]+)` |
+| 2+3. named + fuzz corpora | every preserved abbreviation case (132 rows) and the deterministic cartesian product (83 abbreviations × 16 citation shapes × 3 dicts × 2 keys = 7 968 cases) returns the same href old-vs-new **except** the 38 declared roman rows (`intentional_divergences.tsv`); `check_divergence.php` enforces set-equality of changed-vs-declared, the `(null)`→href value pins, and a BIJECTION between declared ids and corpus rows matching the fixed rule's match surface `^ṚV\. PRĀ(TIŚ|T)\. ([IVXLCDM]+)` |
 | 4. expected values | `roman_expected.tsv` (14 roman inputs, I–L coverage): OLD side returns `(null)` for every row, NEW side returns the pinned `rvps/app2/?<ipage>` href (`run_expected.php`) |
 
 `run_golden.php old|new [corpus]` runs one side: `old` loads the fixture,
