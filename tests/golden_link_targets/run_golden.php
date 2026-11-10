@@ -13,8 +13,9 @@
  * Each corpus case is run through BasicAdjust::ls_callback_pwg_href via
  * ReflectionClass::newInstanceWithoutConstructor (the href chain touches
  * only the public $dict / $key properties — no Dal, no database), and one
- * "id<TAB>result" line is printed. The two runs are diffed by run_golden.sh;
- * the diff must be empty (byte-identical old-vs-new).
+ * "id<TAB>result" line is printed. The two runs are validated by
+ * run_golden.sh via check_divergence.php: byte-identical everywhere except
+ * the declared roman rows (intentional_divergences.tsv, H7962).
  *
  * Usage: php run_golden.php old|new [corpus.tsv]  (default corpus.tsv;
  * pass a gen_fuzz.php dump for the breadth layer).

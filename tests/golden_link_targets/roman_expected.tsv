@@ -1,0 +1,22 @@
+# roman_expected.tsv — H7962 expected-value rows for the ṚV. PRĀT./ṚV. PRĀTIŚ.
+# roman-numeral rule (href_rvprat_roman), fixed in H7962 (delimiter-only fix:
+# "|^…(TIŚ|T)…|" -> "~^…(TIŚ|T)…~"; pattern body and (TIŚ|T) capture semantics
+# unchanged). Checked by run_expected.php: OLD side (basicadjust_pre_H7948.php)
+# must return (null) for every row (the historic |-delimited pattern never
+# matched — "Unknown modifier 'T'"), NEW side must return the expected href.
+# Fields: id <TAB> dict <TAB> key <TAB> code <TAB> data <TAB> expected href
+# Numerals cover I–L (1..50) for the H7962 URL-change review.
+rvprat_roman	pwg	-	ṚV. PRĀT.	ṚV. PRĀT. IV	https://sanskrit-lexicon-scans.github.io/rvps/app2/?4
+rvpratis_roman	pwg	-	ṚV. PRĀTIŚ.	ṚV. PRĀTIŚ. XL	https://sanskrit-lexicon-scans.github.io/rvps/app2/?40
+rvprat_I	pwg	-	ṚV. PRĀT.	ṚV. PRĀT. I	https://sanskrit-lexicon-scans.github.io/rvps/app2/?1
+rvprat_II	pwg	-	ṚV. PRĀT.	ṚV. PRĀT. II	https://sanskrit-lexicon-scans.github.io/rvps/app2/?2
+rvprat_III	pwg	-	ṚV. PRĀT.	ṚV. PRĀT. III	https://sanskrit-lexicon-scans.github.io/rvps/app2/?3
+rvprat_V	pwg	-	ṚV. PRĀT.	ṚV. PRĀT. V	https://sanskrit-lexicon-scans.github.io/rvps/app2/?5
+rvprat_IX	pwg	-	ṚV. PRĀT.	ṚV. PRĀT. IX	https://sanskrit-lexicon-scans.github.io/rvps/app2/?9
+rvprat_XIV	pwg	-	ṚV. PRĀT.	ṚV. PRĀT. XIV	https://sanskrit-lexicon-scans.github.io/rvps/app2/?14
+rvprat_XXIX	pwg	-	ṚV. PRĀT.	ṚV. PRĀT. XXIX	https://sanskrit-lexicon-scans.github.io/rvps/app2/?29
+rvprat_XLIV	pwg	-	ṚV. PRĀT.	ṚV. PRĀT. XLIV	https://sanskrit-lexicon-scans.github.io/rvps/app2/?44
+rvprat_XLIX	pwg	-	ṚV. PRĀT.	ṚV. PRĀT. XLIX	https://sanskrit-lexicon-scans.github.io/rvps/app2/?49
+rvprat_L	pwg	-	ṚV. PRĀT.	ṚV. PRĀT. L	https://sanskrit-lexicon-scans.github.io/rvps/app2/?50
+rvpratis_XIV	pwg	-	ṚV. PRĀTIŚ.	ṚV. PRĀTIŚ. XIV	https://sanskrit-lexicon-scans.github.io/rvps/app2/?14
+rvpratis_L	pw	pAWIna	ṚV. PRĀTIŚ.	ṚV. PRĀTIŚ. L	https://sanskrit-lexicon-scans.github.io/rvps/app2/?50
