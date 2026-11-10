@@ -59,7 +59,7 @@ jobs:
       - run: pip install ruff mako
       - name: Ruff (warn-only)
         run: ruff check . || echo "::warning::ruff reported findings"
-      - name: Parse-check every tracked .py (H7958: was v02/*.py only)
+      - name: "Parse-check every tracked .py (H7958: was v02/*.py only)"
         run: |
           python - <<'PY'
           import ast, subprocess, sys
