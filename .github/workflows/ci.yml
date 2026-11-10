@@ -76,6 +76,8 @@ jobs:
           PY
       - name: webbackup py3 smoke (H7958)
         run: python tests/webbackup_py3_smoke.py
+      - name: removedup smoke (H7960)
+        run: python tests/removedup_smoke.py
       - name: Mako compile-check templates
         run: |
           python - <<'PY'
