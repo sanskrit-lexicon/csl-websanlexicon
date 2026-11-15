@@ -15,6 +15,9 @@
 #   4. ruff check (WARN-only, exactly as CI keeps it advisory);
 #   5. webbackup py3 smoke - compile + fixture behavior of the frozen
 #      webbackup scripts (tests/webbackup_py3_smoke.py; fatal).
+#   6. removedup smoke - golden dedup rows + atomic-write failure path +
+#      argv CLI of v02/imagework/removedup.py (tests/removedup_smoke.py;
+#      fatal; H7960).
 # Usage: sh tests/local_gate.sh
 set -u
 HERE=$(cd "$(dirname "$0")/.." && pwd)
@@ -102,6 +105,9 @@ fi
 
 echo "== lane 5: webbackup py3 smoke (H7958) =="
 "$PYBIN" tests/webbackup_py3_smoke.py || fail=1
+
+echo "== lane 6: removedup smoke (H7960) =="
+"$PYBIN" tests/removedup_smoke.py || fail=1
 
 if [ $fail -eq 0 ]; then
   echo "LOCAL GATE OK"
