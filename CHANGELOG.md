@@ -1,4 +1,4 @@
-_Created: 30-06-2026 · Last updated: 05-09-2026_
+_Created: 30-06-2026 · Last updated: 18-11-2026_
 
 # Changelog
 
@@ -8,6 +8,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+<!-- entries land in changelog_queue/ -- appended via tools/changelog_queue_consume.py, consumed by cut_release.py at release-cut (H3355); direct bullets here are hook-blocked -->
+
+## [0.3.2] - 2026-11-18
 ### Fixed
 - **ṚV. PRĀT./ṚV. PRĀTIŚ. roman-citation links render again (H7962):** in
   `href_rvprat_roman` (basicadjust.php, both twins) the historic pattern
