@@ -221,7 +221,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Removed
 
 ### Fixed
-- **webtc1 help keyboard image** (H1523 thin): `help/keyboard.html` used a dead Brown University host for the keyboard icon; point at local `../keyboard.png` shipped with webtc1 (v00 + v02 templates).
 - XSS and SQL injection vulnerabilities across PHP endpoints
 - Stale master branch references in CI triggers (GitHub Actions)
 - Abot display code compatibility across PHP versions (PR #67)
