@@ -28,10 +28,10 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
 
       - name: Initialize CodeQL
-        uses: github/codeql-action/init@v4
+        uses: github/codeql-action/init@915412ff23e8b7659517e607487dbeae018f2934 # v4
         with:
           languages: ${{ matrix.language }}
           # python is interpreted: no compilation, so skip autobuild
@@ -43,6 +43,6 @@ jobs:
               - v00
 
       - name: Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@v4
+        uses: github/codeql-action/analyze@915412ff23e8b7659517e607487dbeae018f2934 # v4
         with:
           category: "/language:${{ matrix.language }}"
