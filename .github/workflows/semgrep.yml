@@ -35,7 +35,7 @@ jobs:
     # The semgrep container ships its own Python; skip on Dependabot (no token).
     if: github.actor != 'dependabot[bot]'
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
 
       - name: Run Semgrep
         run: |
@@ -47,7 +47,7 @@ jobs:
             --metrics off || true
 
       - name: Upload SARIF to Security tab
-        uses: github/codeql-action/upload-sarif@v3
+        uses: github/codeql-action/upload-sarif@74c1aea9df7c0f02e9b7bfe4a8935abf2e5e3aa6 # v3
         if: always()
         with:
           sarif_file: semgrep.sarif
@@ -59,7 +59,7 @@ jobs:
       image: semgrep/semgrep
     if: github.event_name == 'pull_request' && github.actor != 'dependabot[bot]'
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
           fetch-depth: 0
 
